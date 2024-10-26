@@ -213,7 +213,12 @@
                     </Button>
                     <TextBlock x:Name="FilterEnemyNameBlock"
                         HorizontalAlignment="Left" Margin="135,13,0,0" TextWrapping="Wrap" Text="FilterEnemy" VerticalAlignment="Top" FontSize="14"/>
-                    <DataGrid x:Name="SpellCardDataGrid" ItemsSource="{Binding}" Margin="10,39,10,10">
+                    <DataGrid x:Name="SpellCardDataGrid" ItemsSource="{Binding}" Margin="10,39,10,10" SelectionChanged="SpellCardDataGridSelectionChanged">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="ViewSpellCardRecordMenuItem" Header="詳細を表示" Click="ViewSpellCardRecordMenuItemClick"/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
                         <DataGrid.Columns>
                             <DataGridTextColumn x:Name="SpellCardIdColumn"
                             IsReadOnly="True"

@@ -36,6 +36,7 @@ namespace ThGameMgr.Ex
         private DispatcherTimer? _gameAudioControlTimer = null;
         private ResizerFrameWindow? _resizerFrameWindow = null;
         private ScoreRecordDetailDialog? _scoreRecordDetailDialog = null;
+        private SpellCardRecordDetailDialog? _spellCardRecordDetailDialog = null;
 
         private string? GameId
         {
@@ -1037,6 +1038,48 @@ namespace ThGameMgr.Ex
                 {
                     _scoreRecordDetailDialog.DataContext = scoreRecordList;
                     _scoreRecordDetailDialog.WindowState = WindowState.Normal;
+                }
+            }
+        }
+
+        private void ViewSpellCardRecordMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            if (SpellCardDataGrid.Items.Count > 0 &&
+                SpellCardDataGrid.SelectedIndex > -1 &&
+                SpellCardDataGrid.SelectedIndex < SpellCardDataGrid.Items.Count - 1)
+            {
+                SpellCardRecordList spellCardRecordList = (SpellCardRecordList)SpellCardDataGrid.SelectedItem;
+                if (_spellCardRecordDetailDialog == null ||
+                    !_spellCardRecordDetailDialog.IsLoaded)
+                {
+                    _spellCardRecordDetailDialog = new()
+                    {
+                        Owner = this,
+                        DataContext = spellCardRecordList
+                    };
+                    _spellCardRecordDetailDialog.Show();
+                }
+                else
+                {
+                    _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
+                    _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
+                    _spellCardRecordDetailDialog.Activate();
+                }
+            }
+        }
+
+        private void SpellCardDataGridSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SpellCardDataGrid.Items.Count > 0 &&
+                SpellCardDataGrid.SelectedIndex > -1 &&
+                SpellCardDataGrid.SelectedIndex < SpellCardDataGrid.Items.Count - 1)
+            {
+                SpellCardRecordList spellCardRecordList = (SpellCardRecordList)SpellCardDataGrid.SelectedItem;
+                if (_spellCardRecordDetailDialog != null &&
+                    _spellCardRecordDetailDialog.IsLoaded)
+                {
+                    _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
+                    _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
                 }
             }
         }
