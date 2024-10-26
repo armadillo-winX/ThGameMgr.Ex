@@ -1,0 +1,31 @@
+﻿<Window x:Class="ThGameMgr.Ex.Dialogs.SpellCardRecordDetailDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
+        mc:Ignorable="d"
+        Title="御札戦歴詳細" Height="360" Width="358" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding CardName}" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <Label Content="取得数:" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="84,62,10,0" TextWrapping="Wrap" Text="{Binding Get}"
+                   TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="挑戦数:" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="84,96,10,0" TextWrapping="Wrap" Text="{Binding Challenge}"
+                   TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="取得率:" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="84,130,10,0" TextAlignment="Center" TextWrapping="Wrap"
+                   Text="{Binding Rate}" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="術者:" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="84,164,10,0" TextWrapping="Wrap" Text="{Binding Enemy}"
+                   TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="発動場所:" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="84,198,10,0" TextWrapping="Wrap" Text="{Binding Center}"
+                   TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="CloseButton"
+            Width="90" Height="24"
+            Content="閉じる(_C)" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="CloseButtonClick"/>
+
+    </Grid>
+</Window>
