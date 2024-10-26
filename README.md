@@ -1,0 +1,1 @@
+# ThGameMgr.Ex
