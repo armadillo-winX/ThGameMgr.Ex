@@ -1,0 +1,33 @@
+﻿<Window x:Class="ThGameMgr.Ex.Dialogs.ScoreRecordDetailDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
+        mc:Ignorable="d"
+        Title="ハイスコア詳細" Height="377" Width="336" ResizeMode="CanMinimize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding Score}" 
+                   VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+        <Label Content="自機:" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="94,64,10,0" TextWrapping="Wrap" Text="{Binding Player}" TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="難易度:" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="94,98,10,0" TextWrapping="Wrap" Text="{Binding Level}"
+                   TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="名前:" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="94,132,10,0" TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Name}"
+                   VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="到達面:" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="94,166,10,0" TextWrapping="Wrap" TextAlignment="Center" Text="{Binding Progress}"
+                   VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="日付/時刻:" HorizontalAlignment="Left" Margin="10,195,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="94,200,10,0" TextWrapping="Wrap" Text="{Binding Date}" TextAlignment="Center"
+                   VerticalAlignment="Top" FontSize="14"/>
+        <Label Content="処理落ち率:" HorizontalAlignment="Left" Margin="10,229,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock Margin="94,234,10,0" TextWrapping="Wrap" Text="{Binding SlowRate}" TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
+        <Button x:Name="CloseButton"
+            Width="90" Height="24"
+            Content="閉じる(_C)" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="CloseButtonClick"/>
+
+    </Grid>
+</Window>
