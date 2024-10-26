@@ -951,5 +951,27 @@ namespace ThGameMgr.Ex
                 spellCardRecordStatisticDialog.ShowDialog();
             }
         }
+
+        private void GameAudioControlSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (_gameEndWaitingModeWorker != null && _gameEndWaitingModeWorker.IsBusy)
+            {
+                GameAudioVolumeBlock.Text = ((int)(GameAudioControlSlider.Value)).ToString();
+
+                try
+                {
+                    float gameAudioVolume = GameAudio.GetGameProcessAudioVolume(this.GameProcess);
+                    if (gameAudioVolume * 100 != GameAudioControlSlider.Value)
+                    {
+                        GameAudio.SetGameProcessAudioVolume(
+                            this.GameProcess, (float)(GameAudioControlSlider.Value / 100));
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
     }
 }

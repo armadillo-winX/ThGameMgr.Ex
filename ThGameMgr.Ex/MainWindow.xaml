@@ -127,6 +127,11 @@
                     </Button>
                     <CheckBox x:Name="AutoStartWindowResizerCheckBox"
                               Content="ゲーム起動時にウィンドウリサイザを自動起動する" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Click="AutoStartWindowResizerCheckBoxClick"/>
+                    <Label Content="ゲームの音量を調整する:" HorizontalAlignment="Left" Margin="327,62,0,0" VerticalAlignment="Top"/>
+                    <Slider x:Name="GameAudioControlSlider"
+                        HorizontalAlignment="Left" Margin="327,93,0,0" VerticalAlignment="Top" Width="222" SmallChange="5" Maximum="100" LargeChange="10" TickPlacement="BottomRight" TickFrequency="10" ValueChanged="GameAudioControlSliderValueChanged"/>
+                    <TextBlock x:Name="GameAudioVolumeBlock"
+                        HorizontalAlignment="Left" Margin="543,67,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="主戦績">
