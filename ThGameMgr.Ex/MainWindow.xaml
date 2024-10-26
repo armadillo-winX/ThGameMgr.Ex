@@ -132,6 +132,11 @@
                         HorizontalAlignment="Left" Margin="327,93,0,0" VerticalAlignment="Top" Width="222" SmallChange="5" Maximum="100" LargeChange="10" TickPlacement="BottomRight" TickFrequency="10" ValueChanged="GameAudioControlSliderValueChanged"/>
                     <TextBlock x:Name="GameAudioVolumeBlock"
                         HorizontalAlignment="Left" Margin="543,67,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="327,122,0,0" TextWrapping="Wrap" 
+                               VerticalAlignment="Top" Width="234">
+                        <Run Text="ゲームの音量のみを調整します。"/><LineBreak/>
+                        <Run Text="コンピュータそのものの音量は変更されません。"/>
+                    </TextBlock>
                 </Grid>
             </TabItem>
             <TabItem Header="主戦績">
