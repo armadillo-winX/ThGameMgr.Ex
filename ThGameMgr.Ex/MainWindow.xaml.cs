@@ -33,6 +33,7 @@ namespace ThGameMgr.Ex
 
         private BackgroundWorker? _gameEndWaitingModeWorker = null;
         private DispatcherTimer? _gameControlTimer = null;
+        private DispatcherTimer? _gameAudioControlTimer = null;
         private ResizerFrameWindow? _resizerFrameWindow = null;
 
         private string? GameId
@@ -649,7 +650,28 @@ namespace ThGameMgr.Ex
                 }
             };
 
+            _gameAudioControlTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(10)
+            };
+
+            _gameAudioControlTimer.Tick += (e, s) =>
+            {
+                float gameAudioVolume = 0;
+                try
+                {
+                    gameAudioVolume = GameAudio.GetGameProcessAudioVolume(this.GameProcess);
+                }
+                catch (Exception)
+                {
+                    gameAudioVolume = 0;
+                }
+
+                GameAudioControlSlider.Value = gameAudioVolume * 100;
+            };
+
             _gameControlTimer.Start();
+            _gameAudioControlTimer.Start();
         }
 
         private void WorkerDoWork(object? sender, DoWorkEventArgs e)
@@ -662,6 +684,7 @@ namespace ThGameMgr.Ex
         {
             this.GameProcess.Dispose();
             _gameControlTimer?.Stop();
+            _gameAudioControlTimer?.Stop();
 
             DateTime gameEndTime = DateTime.Now;
 
