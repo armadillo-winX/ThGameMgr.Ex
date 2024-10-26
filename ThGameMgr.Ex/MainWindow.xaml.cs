@@ -686,6 +686,8 @@ namespace ThGameMgr.Ex
             _gameControlTimer?.Stop();
             _gameAudioControlTimer?.Stop();
 
+            GameAudioControlSlider.Value = 0;
+
             DateTime gameEndTime = DateTime.Now;
 
             TimeSpan runningTimeSpan = gameEndTime - this.GameStartTime;
@@ -978,10 +980,9 @@ namespace ThGameMgr.Ex
 
         private void GameAudioControlSliderValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            GameAudioVolumeBlock.Text = ((int)(GameAudioControlSlider.Value)).ToString();
             if (_gameEndWaitingModeWorker != null && _gameEndWaitingModeWorker.IsBusy)
             {
-                GameAudioVolumeBlock.Text = ((int)(GameAudioControlSlider.Value)).ToString();
-
                 try
                 {
                     float gameAudioVolume = GameAudio.GetGameProcessAudioVolume(this.GameProcess);
