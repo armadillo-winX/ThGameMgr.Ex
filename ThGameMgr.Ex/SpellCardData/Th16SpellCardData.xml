@@ -1,0 +1,605 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Th16SpellCardData>
+  <Information>
+    <Game>東方天空璋　～ Hidden Star in Four Seasons.</Game>
+    <DataKind>東方天空璋スペルカードデータファイル</DataKind>
+    <Author>Mashiro Tamane</Author>
+    <Copyright>Copyright (c) 2022 Mashiro Tamane</Copyright>
+    <Version>1.1</Version>
+  </Information>
+  <SpellCard ID="1">
+    <Name>蝶符「ミニットスケールス」</Name>
+    <Enemy>エタニティラルバ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="2">
+    <Name>蝶符「ミニットスケールス」</Name>
+    <Enemy>エタニティラルバ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="3">
+    <Name>蝶符「アゲハの鱗粉」</Name>
+    <Enemy>エタニティラルバ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="4">
+    <Name>蝶符「アゲハの鱗粉」</Name>
+    <Enemy>エタニティラルバ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="5">
+    <Name>蝶符「フラッタリングサマー」</Name>
+    <Enemy>エタニティラルバ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="6">
+    <Name>蝶符「フラッタリングサマー」</Name>
+    <Enemy>エタニティラルバ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="7">
+    <Name>蝶符「真夏の羽ばたき」</Name>
+    <Enemy>エタニティラルバ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="8">
+    <Name>蝶符「真夏の羽ばたき」</Name>
+    <Enemy>エタニティラルバ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="9">
+    <Name>雨符「囚われの秋雨」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="10">
+    <Name>雨符「囚われの秋雨」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="11">
+    <Name>雨符「呪われた柴榑雨」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="12">
+    <Name>雨符「呪われた柴榑雨」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="13">
+    <Name>刃符「山姥の包丁研ぎ」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="14">
+    <Name>刃符「山姥の包丁研ぎ」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="15">
+    <Name>刃符「山姥の鬼包丁研ぎ」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="16">
+    <Name>刃符「山姥の鬼包丁研ぎ」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="17">
+    <Name>尽符「マウンテンマーダー」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="18">
+    <Name>尽符「マウンテンマーダー」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="19">
+    <Name>尽符「ブラッディマウンテンマーダー」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="20">
+    <Name>尽符「ブラッディマウンテンマーダー」</Name>
+    <Enemy>坂田ネムノ</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="21">
+    <Name>春符「サプライズスプリング」</Name>
+    <Enemy>リリーホワイト</Enemy>
+    <Place>3面道中</Place>
+  </SpellCard>
+  <SpellCard ID="22">
+    <Name>春符「サプライズスプリング」</Name>
+    <Enemy>リリーホワイト</Enemy>
+    <Place>3面道中</Place>
+  </SpellCard>
+  <SpellCard ID="23">
+    <Name>犬符「野良犬の散歩」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="24">
+    <Name>犬符「野良犬の散歩」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="25">
+    <Name>狗符「山狗の散歩」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="26">
+    <Name>狗符「山狗の散歩」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="27">
+    <Name>独楽「コマ犬回し」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="28">
+    <Name>独楽「コマ犬回し」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="29">
+    <Name>独楽「コマ犬回し」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="30">
+    <Name>独楽「カールアップアンドダイ」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="31">
+    <Name>狗符「独り阿吽の呼吸」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="32">
+    <Name>狗符「独り阿吽の呼吸」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="33">
+    <Name>狗符「独り阿吽の呼吸」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="34">
+    <Name>狗符「独り阿吽の呼吸」</Name>
+    <Enemy>高麗野あうん</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="35">
+    <Name>魔符「インスタントボーディ」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="36">
+    <Name>魔符「インスタントボーディ」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="37">
+    <Name>魔符「即席菩提」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="38">
+    <Name>魔符「即席菩提」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="39">
+    <Name>魔符「バレットゴーレム」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="40">
+    <Name>魔符「バレットゴーレム」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="41">
+    <Name>魔符「ペットの巨大弾生命体」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="42">
+    <Name>魔符「ペットの巨大弾生命体」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="43">
+    <Name>地蔵「クリミナルサルヴェイション」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="44">
+    <Name>地蔵「クリミナルサルヴェイション」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="45">
+    <Name>地蔵「業火救済」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="46">
+    <Name>地蔵「業火救済」</Name>
+    <Enemy>矢田寺成美</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="47">
+    <Name>竹符「バンブースピアダンス」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="48">
+    <Name>竹符「バンブースピアダンス」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="49">
+    <Name>竹符「バンブークレイジーダンス」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="50">
+    <Name>竹符「バンブークレイジーダンス」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="51">
+    <Name>茗荷「フォゲットユアネーム」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="52">
+    <Name>茗荷「フォゲットユアネーム」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="53">
+    <Name>茗荷「フォゲットユアネーム」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="54">
+    <Name>茗荷「フォゲットユアネーム」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="55">
+    <Name>笹符「タナバタスターフェスティバル」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="56">
+    <Name>笹符「タナバタスターフェスティバル」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="57">
+    <Name>笹符「タナバタスターフェスティバル」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="58">
+    <Name>笹符「タナバタスターフェスティバル」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="59">
+    <Name>冥加「ビハインドユー」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="60">
+    <Name>冥加「ビハインドユー」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="61">
+    <Name>冥加「ビハインドユー」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="62">
+    <Name>冥加「ビハインドユー」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="63">
+    <Name>舞符「ビハインドフェスティバル」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="64">
+    <Name>舞符「ビハインドフェスティバル」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="65">
+    <Name>舞符「ビハインドフェスティバル」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="66">
+    <Name>舞符「ビハインドフェスティバル」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="67">
+    <Name>狂舞「テングオドシ」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="68">
+    <Name>狂舞「テングオドシ」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="69">
+    <Name>狂舞「狂乱天狗怖し」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="70">
+    <Name>狂舞「狂乱天狗怖し」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="71">
+    <Name>後符「秘神の後光」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="72">
+    <Name>後符「秘神の後光」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="73">
+    <Name>後符「秘神の後光」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="74">
+    <Name>後符「絶対秘神の後光」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="75">
+    <Name>裏夏「スコーチ・バイ・ホットサマー」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="76">
+    <Name>裏夏「スコーチ・バイ・ホットサマー」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="77">
+    <Name>裏夏「異常猛暑の焦土」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="78">
+    <Name>裏夏「異常猛暑の焦土」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="79">
+    <Name>裏秋「ダイ・オブ・ファミン」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="80">
+    <Name>裏秋「ダイ・オブ・ファミン」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="81">
+    <Name>裏秋「異常枯死の餓鬼」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="82">
+    <Name>裏秋「異常枯死の餓鬼」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="83">
+    <Name>裏冬「ブラックスノーマン」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="84">
+    <Name>裏冬「ブラックスノーマン」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="85">
+    <Name>裏冬「異常降雪の雪だるま」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="86">
+    <Name>裏冬「異常降雪の雪だるま」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="87">
+    <Name>裏春「エイプリルウィザード」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="88">
+    <Name>裏春「エイプリルウィザード」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="89">
+    <Name>裏春「異常落花の魔術使い」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="90">
+    <Name>裏春「異常落花の魔術使い」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="91">
+    <Name>「裏・ブリージーチェリーブロッサム」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="92">
+    <Name>「裏・ブリージーチェリーブロッサム」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="93">
+    <Name>「裏・ブリージーチェリーブロッサム」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="94">
+    <Name>「裏・ブリージーチェリーブロッサム」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="95">
+    <Name>「裏・パーフェクトサマーアイス」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="96">
+    <Name>「裏・パーフェクトサマーアイス」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="97">
+    <Name>「裏・パーフェクトサマーアイス」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="98">
+    <Name>「裏・パーフェクトサマーアイス」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="99">
+    <Name>「裏・クレイジーフォールウィンド」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="100">
+    <Name>「裏・クレイジーフォールウィンド」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="101">
+    <Name>「裏・クレイジーフォールウィンド」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="102">
+    <Name>「裏・クレイジーフォールウィンド」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="103">
+    <Name>「裏・エクストリームウィンター」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="104">
+    <Name>「裏・エクストリームウィンター」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="105">
+    <Name>「裏・エクストリームウィンター」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="106">
+    <Name>「裏・エクストリームウィンター」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="107">
+    <Name>鼓舞「パワフルチアーズ」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="108">
+    <Name>狂舞「クレイジーバックダンス」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="109">
+    <Name>弾舞「二つ目の台風」</Name>
+    <Enemy>爾子田里乃＆丁礼田舞</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="110">
+    <Name>秘儀「リバースインヴォーカー」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="111">
+    <Name>秘儀「裏切りの後方射撃」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="112">
+    <Name>秘儀「弾幕の玉繭」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="113">
+    <Name>秘儀「穢那の火」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="114">
+    <Name>秘儀「後戸の狂言」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="115">
+    <Name>秘儀「マターラドゥッカ」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="116">
+    <Name>秘儀「七星の剣」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="117">
+    <Name>秘儀「無縁の芸能者」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="118">
+    <Name>「背面の暗黒猿楽」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="119">
+    <Name>「アナーキーバレットヘル」</Name>
+    <Enemy>摩多羅隠岐奈</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+</Th16SpellCardData>

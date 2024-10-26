@@ -1,0 +1,97 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows10.0.22000.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <SupportedOSPlatformVersion>10.0.17763.0</SupportedOSPlatformVersion>
+    <Authors>珠音茉白/東方管制塔開発部</Authors>
+    <Product>東方管制塔 EX</Product>
+    <Copyright>Copyright © 2024 $(Authors)</Copyright>
+	  <Version>$(VersionPrefix)$(VersionSuffix)</Version>
+	  <VersionPrefix>0.1.0</VersionPrefix>
+	  <VersionSuffix>alpha</VersionSuffix>
+	  <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+	  <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	  <ApplicationIcon>ThGameMgr.Ex.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\History.png" />
+    <None Remove="Images\Settings.png" />
+    <None Remove="Images\Start.png" />
+    <None Remove="Images\StartCustom.png" />
+    <None Remove="Images\StartThprac.png" />
+    <None Remove="Images\StartVpatch.png" />
+    <None Remove="Images\User.png" />
+    <None Remove="ThGameMgr.Ex.Sprashscreen.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ThGameMgr.Ex.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\History.png" />
+    <Resource Include="Images\Settings.png" />
+    <Resource Include="Images\Start.png" />
+    <Resource Include="Images\StartCustom.png" />
+    <Resource Include="Images\StartThprac.png" />
+    <Resource Include="Images\StartVpatch.png" />
+    <Resource Include="Images\User.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="SpellCardData\Th06SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th07SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th08SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th10SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th11SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th12SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th13SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th14SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th15SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th16SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th17SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="SpellCardData\Th18SpellCardData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Score\Th09\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="ThGameMgr.Ex.Sprashscreen.png" />
+  </ItemGroup>
+
+</Project>

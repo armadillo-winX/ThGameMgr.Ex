@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Th17SpellCardData>
+  <Information>
+    <Game>東方鬼形獣　～ Wily Beast and Weakest Creature.</Game>
+    <DataKind>東方鬼形獣スペルカードデータファイル</DataKind>
+    <Author>Mashiro Tamane</Author>
+    <Copyright>Copyright (c) 2022 Mashiro Tamane</Copyright>
+    <Version>1.1</Version>
+  </Information>
+  <SpellCard ID="1">
+    <Name>石符「ストーンウッズ」</Name>
+    <Enemy>戎瓔花</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="2">
+    <Name>石符「ストーンウッズ」</Name>
+    <Enemy>戎瓔花</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="3">
+    <Name>石符「ストーンコニファー」</Name>
+    <Enemy>戎瓔花</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="4">
+    <Name>石符「ストーンコニファー」</Name>
+    <Enemy>戎瓔花</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="5">
+    <Name>石符「チルドレンズリンボ」</Name>
+    <Enemy>戎瓔花</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="6">
+    <Name>石符「チルドレンズリンボ」</Name>
+    <Enemy>戎瓔花</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="7">
+    <Name>石符「アダルトチルドレンズリンボ」</Name>
+    <Enemy>戎瓔花</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="8">
+    <Name>石符「アダルトチルドレンズリンボ」</Name>
+    <Enemy>戎瓔花</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="9">
+    <Name>石符「ストーンベイビー」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="10">
+    <Name>石符「ストーンベイビー」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="11">
+    <Name>石符「ヘビーストーンベイビー」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="12">
+    <Name>石符「ヘビーストーンベイビー」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="13">
+    <Name>溺符「三途の淪溺」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="14">
+    <Name>溺符「三途の淪溺」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="15">
+    <Name>溺符「三途の淪溺」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="16">
+    <Name>溺符「三途の淪溺」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="17">
+    <Name>鬼符「デーモンシージ」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="18">
+    <Name>鬼符「デーモンシージ」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="19">
+    <Name>鬼符「ハングリーデーモンシージ」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="20">
+    <Name>鬼符「ハングリーデーモンシージ」</Name>
+    <Enemy>牛崎潤美</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="21">
+    <Name>水符「水配りの試練」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="22">
+    <Name>水符「水配りの試練」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="23">
+    <Name>水符「水配りの上級試煉」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="24">
+    <Name>水符「水配りの極級試煉」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="25">
+    <Name>光符「見渡しの試練」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="26">
+    <Name>光符「見渡しの試練」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="27">
+    <Name>光符「見渡しの上級試煉」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="28">
+    <Name>光符「見渡しの極級試煉」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="29">
+    <Name>鬼符「鬼渡の試練」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="30">
+    <Name>鬼符「鬼渡の試練」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="31">
+    <Name>鬼符「鬼渡の上級試煉」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="32">
+    <Name>鬼符「鬼渡の獄級試煉」</Name>
+    <Enemy>庭渡久侘歌</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="33">
+    <Name>亀符「亀甲地獄」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="34">
+    <Name>亀符「亀甲地獄」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="35">
+    <Name>亀符「亀甲地獄」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="36">
+    <Name>亀符「亀甲地獄」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="37">
+    <Name>鬼符「搦手の畜生」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="38">
+    <Name>鬼符「搦手の畜生」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="39">
+    <Name>鬼符「搦手の犬畜生」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="40">
+    <Name>鬼符「搦手の鬼畜生」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="41">
+    <Name>龍符「龍紋弾」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="42">
+    <Name>龍符「龍紋弾」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="43">
+    <Name>龍符「龍紋弾」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="44">
+    <Name>龍符「龍紋弾」</Name>
+    <Enemy>吉弔八千慧</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="45">
+    <Name>埴輪「弓兵埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="46">
+    <Name>埴輪「弓兵埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="47">
+    <Name>埴輪「熟練弓兵埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="48">
+    <Name>埴輪「熟練弓兵埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="49">
+    <Name>埴輪「剣士埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="50">
+    <Name>埴輪「剣士埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="51">
+    <Name>埴輪「熟練剣士埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="52">
+    <Name>埴輪「熟練剣士埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="53">
+    <Name>埴輪「騎馬兵埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="54">
+    <Name>埴輪「騎馬兵埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="55">
+    <Name>埴輪「熟練騎馬兵埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="56">
+    <Name>埴輪「熟練騎馬兵埴輪」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="57">
+    <Name>埴輪「がらんどうの無尽兵団」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="58">
+    <Name>埴輪「がらんどうの無尽兵団」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="59">
+    <Name>埴輪「不敗の無尽兵団」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="60">
+    <Name>埴輪「不敗の無尽兵団」</Name>
+    <Enemy>杖刀偶磨弓</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="61">
+    <Name>方形「方形造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="62">
+    <Name>方形「方形造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="63">
+    <Name>方形「スクエアクリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="64">
+    <Name>方形「スクエアクリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="65">
+    <Name>円形「真円造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="66">
+    <Name>円形「真円造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="67">
+    <Name>円形「サークルクリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="68">
+    <Name>円形「サークルクリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="69">
+    <Name>線形「線形造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="70">
+    <Name>線形「線形造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="71">
+    <Name>線形「リニアクリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="72">
+    <Name>線形「リニアクリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="73">
+    <Name>埴輪「偶像人馬造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="74">
+    <Name>埴輪「偶像人馬造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="75">
+    <Name>埴輪「アイドルクリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="76">
+    <Name>埴輪「アイドルクリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="77">
+    <Name>「鬼形造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="78">
+    <Name>「鬼形造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="79">
+    <Name>「鬼形造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="80">
+    <Name>「鬼形造形術」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="81">
+    <Name>「ジオメトリッククリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="82">
+    <Name>「ジオメトリッククリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="83">
+    <Name>「ジオメトリッククリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="84">
+    <Name>「ジオメトリッククリーチャー」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="85">
+    <Name>「イドラディアボルス」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="86">
+    <Name>「イドラディアボルス」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="87">
+    <Name>「イドラディアボルス」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="88">
+    <Name>「イドラディアボルス」</Name>
+    <Enemy>埴安神袿姫</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="89">
+    <Name>血戦「血の分水嶺」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="90">
+    <Name>血戦「獄界視線」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="91">
+    <Name>血戦「全霊鬼渡り」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="92">
+    <Name>勁疾技「スリリングショット」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="93">
+    <Name>勁疾技「ライトニングネイ」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="94">
+    <Name>勁疾技「デンスクラウド」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="95">
+    <Name>勁疾技「ビーストエピデミシティ」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="96">
+    <Name>勁疾技「トライアングルチェイス」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="97">
+    <Name>勁疾技「ブラックペガサス流星弾」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="98">
+    <Name>勁疾技「マッスルエクスプロージョン」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="99">
+    <Name>「フォロミーアンアフライド」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="100">
+    <Name>「鬼形のホイポロイ」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="101">
+    <Name>「鬼畜生の所業」</Name>
+    <Enemy>驪駒早鬼</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+</Th17SpellCardData>

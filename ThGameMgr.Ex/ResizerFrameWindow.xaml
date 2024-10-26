@@ -1,0 +1,31 @@
+﻿<Window x:Class="ThGameMgr.Ex.ResizerFrameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThGameMgr.Ex"
+        mc:Ignorable="d"
+        Title="東方管制塔ウィンドウリサイザ" Height="365" Width="604" ShowInTaskbar="False" 
+        ResizeMode="CanResizeWithGrip" WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent" SizeChanged="WindowSizeChanged" Closing="WindowClosing">
+    <Grid>
+        <TextBlock TextWrapping="Wrap" Text="" VerticalAlignment="Top" Background="#FF7100FF" Height="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="0,18,0,0" TextWrapping="Wrap" Text="" Background="#FF7100FF" Width="18"/>
+        <TextBlock Margin="18,0,0,0" TextWrapping="Wrap" Text="" Background="#FF7100FF" VerticalAlignment="Bottom" Height="18"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,18,0,18" TextWrapping="Wrap" Text="" Background="#FF7100FF" Width="18"/>
+        <Button x:Name="ResizeButton"
+                Content="リサイズ(_R)" HorizontalAlignment="Right" Margin="0,0,54,0" VerticalAlignment="Bottom"
+                Height="18" Click="ResizeButtonClick"/>
+        <CheckBox x:Name="FixAspectRateCheckBox" 
+            Content="縦横比を既定値で固定" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="White" Height="15" VerticalAlignment="Bottom" Click="FixAspectRateCheckBoxClick"/>
+        <Menu Height="18" VerticalAlignment="Top">
+            <MenuItem x:Name="OptionMenu" Header="オプション(_O)">
+                <MenuItem x:Name="AutoCloseMenuItem"
+                          Header="リサイズした時に閉じる" IsCheckable="True"/>
+            </MenuItem>
+            <MenuItem x:Name="CloseMenu" Header="閉じる(_C)" Click="CloseMenuClick"/>
+        </Menu>
+
+    </Grid>
+</Window>

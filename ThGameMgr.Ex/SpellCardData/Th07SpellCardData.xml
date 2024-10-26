@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Th07SpellCardData>
+  <Information>
+    <Game>東方妖々夢　～ the Perfect Cherry Blossom.</Game>
+    <DataKind>東方妖々夢スペルカードデータファイル</DataKind>
+    <Author>Mashiro Tamane</Author>
+    <Copyright>Copyright (c) 2022 Mashiro Tamane</Copyright>
+    <Version>1.1</Version>
+  </Information>
+  <SpellCard ID="1">
+    <Name>霜符「フロストコラムス」</Name>
+    <Enemy>チルノ</Enemy>
+    <Place>1面道中</Place>
+  </SpellCard>
+  <SpellCard ID="2">
+    <Name>霜符「フロストコラムス -Lunatic-」</Name>
+    <Enemy>チルノ</Enemy>
+    <Place>1面道中</Place>
+  </SpellCard>
+  <SpellCard ID="3">
+    <Name>寒符「リンガリングコールド -Easy-」</Name>
+    <Enemy>レティ・ホワイトロック</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="4">
+    <Name>寒符「リンガリングコールド」</Name>
+    <Enemy>レティ・ホワイトロック</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="5">
+    <Name>寒符「リンガリングコールド -Hard-」</Name>
+    <Enemy>レティ・ホワイトロック</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="6">
+    <Name>寒符「リンガリングコールド -Luantic-」</Name>
+    <Enemy>レティ・ホワイトロック</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="7">
+    <Name>冬符「フラワーウィザラウェイ -Easy-」</Name>
+    <Enemy>レティ・ホワイトロック</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="8">
+    <Name>冬符「フラワーウィザラウェイ」</Name>
+    <Enemy>レティ・ホワイトロック</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="9">
+    <Name>白符「アンデュレイションレイ」</Name>
+    <Enemy>レティ・ホワイトロック</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="10">
+    <Name>怪符「テーブルターニング」</Name>
+    <Enemy>レティ・ホワイトロック</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="11">
+    <Name>仙符「鳳凰卵 -Easy-」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面道中</Place>
+  </SpellCard>
+  <SpellCard ID="12">
+    <Name>仙符「鳳凰卵」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面道中</Place>
+  </SpellCard>
+  <SpellCard ID="13">
+    <Name>仙符「鳳凰展翅」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面道中</Place>
+  </SpellCard>
+  <SpellCard ID="14">
+    <Name>仙符「鳳凰展翅 -Lunatic-」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面道中</Place>
+  </SpellCard>
+  <SpellCard ID="15">
+    <Name>式符「飛翔晴明 -Easy-」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="16">
+    <Name>式符「飛翔晴明」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="17">
+    <Name>陰陽「道満晴明」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="18">
+    <Name>陰陽「晴明大紋」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="19">
+    <Name>天符「天仙鳴動 -Easy-」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="20">
+    <Name>天符「天仙鳴動」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="21">
+    <Name>翔符「飛翔韋駄天」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="22">
+    <Name>童符「護法天童乱舞」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="23">
+    <Name>仙符「屍解永遠 -Easy-」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="24">
+    <Name>仙符「屍解永遠」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="25">
+    <Name>鬼符「鬼門金神」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="26">
+    <Name>方符「奇門遁甲」</Name>
+    <Enemy>橙</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="27">
+    <Name>操符「乙女文楽」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面道中</Place>
+  </SpellCard>
+  <SpellCard ID="28">
+    <Name>操符「乙女文楽 -Lunatic-」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面道中</Place>
+  </SpellCard>
+  <SpellCard ID="29">
+    <Name>蒼符「博愛の仏蘭西人形 -Easy-」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="30">
+    <Name>蒼符「博愛の仏蘭西人形」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="31">
+    <Name>蒼符「博愛の仏蘭西人形 -Hard-」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="32">
+    <Name>蒼符「博愛のオルレアン人形」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="33">
+    <Name>紅符「紅毛の和蘭人形 -Easy-」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="34">
+    <Name>紅符「紅毛の和蘭人形」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="35">
+    <Name>白符「白亜の露西亜人形」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="36">
+    <Name>白符「白亜の露西亜人形 -Lunatic-」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="37">
+    <Name>闇符「霧の倫敦人形 -Easy-」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="38">
+    <Name>闇符「霧の倫敦人形」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="39">
+    <Name>廻符「輪廻の西蔵人形」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="40">
+    <Name>雅符「春の京人形」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="41">
+    <Name>咒詛「魔彩光の上海人形 -Easy-」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="42">
+    <Name>咒詛「魔彩光の上海人形」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="43">
+    <Name>咒詛「魔彩光の上海人形 -Hard-」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="44">
+    <Name>咒詛「首吊り蓬莱人形」</Name>
+    <Enemy>アリス・マーガトロイド</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="45">
+    <Name>騒符「ファントムディニング -Easy-」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="46">
+    <Name>騒符「ファントムディニング」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="47">
+    <Name>騒符「ライブポルターガイスト」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="48">
+    <Name>騒符「ライブポルターガイスト -Lunatic-」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="49">
+    <Name>弦奏「グァルネリ・デル・ジェス -Easy-」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="50">
+    <Name>弦奏「グァルネリ・デル・ジェス」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="51">
+    <Name>神弦「ストラディヴァリウス」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="52">
+    <Name>偽弦「スードストラディヴァリウス」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="53">
+    <Name>管霊「ヒノファンタズム -Easy-」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="54">
+    <Name>管霊「ヒノファンタズム」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="55">
+    <Name>冥管「ゴーストクリフォード」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="56">
+    <Name>管霊「ゴーストクリフォード -Lunatic-」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="57">
+    <Name>冥鍵「ファツィオーリ冥奏 -Easy-」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="58">
+    <Name>冥鍵「ファツィオーリ冥奏」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="59">
+    <Name>鍵霊「ベーゼンドルファー神奏」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="60">
+    <Name>鍵霊「ベーゼンドルファー神奏 -Lunatic-」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="61">
+    <Name>合葬「プリズムコンチェルト -Easy-」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="62">
+    <Name>合葬「プリズムコンチェルト」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="63">
+    <Name>騒葬「スティジャンリバーサイド」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="64">
+    <Name>騒葬「スティジャンリバーサイド -Lunatic-」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="65">
+    <Name>大合葬「霊車コンチェルトグロッソ -Easy-」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="66">
+    <Name>大合葬「霊車コンチェルトグロッソ」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="67">
+    <Name>大合葬「霊車コンチェルトグロッソ改」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="68">
+    <Name>大合葬「霊車コンチェルトグロッソ怪」</Name>
+    <Enemy>プリズムリバー三姉妹</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="69">
+    <Name>幽鬼剣「妖童餓鬼の断食 -Easy-」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面道中</Place>
+  </SpellCard>
+  <SpellCard ID="70">
+    <Name>幽鬼剣「妖童餓鬼の断食」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面道中</Place>
+  </SpellCard>
+  <SpellCard ID="71">
+    <Name>餓鬼剣「餓鬼道草紙」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面道中</Place>
+  </SpellCard>
+  <SpellCard ID="72">
+    <Name>餓王剣「餓鬼十王の報い」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面道中</Place>
+  </SpellCard>
+  <SpellCard ID="73">
+    <Name>獄界剣「二百由旬の一閃 -Easy-」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="74">
+    <Name>獄界剣「二百由旬の一閃」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="75">
+    <Name>獄炎剣「業風閃影陣」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="76">
+    <Name>獄神剣「業風神閃斬」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="77">
+    <Name>畜趣剣「無為無策の冥罰 -Easy-」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="78">
+    <Name>畜趣剣「無為無策の冥罰」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="79">
+    <Name>修羅剣「現世妄執」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="80">
+    <Name>修羅剣「現世妄執 -Lunatic-」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="81">
+    <Name>人界剣「悟入幻想 -Easy-」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="82">
+    <Name>人界剣「悟入幻想」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="83">
+    <Name>人世剣「大悟顕晦」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="84">
+    <Name>人神剣「俗諦常住」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="85">
+    <Name>天上剣「天人の五衰 -Easy-」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="86">
+    <Name>天上剣「天人の五衰」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="87">
+    <Name>天界剣「七魄忌諱」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="88">
+    <Name>天神剣「三魂七魄」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="89">
+    <Name>六道剣「一念無量劫 -Easy-」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>6面道中</Place>
+  </SpellCard>
+  <SpellCard ID="90">
+    <Name>六道剣「一念無量劫」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>6面道中</Place>
+  </SpellCard>
+  <SpellCard ID="91">
+    <Name>六道剣「一念無量劫 -Hard-」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>6面道中</Place>
+  </SpellCard>
+  <SpellCard ID="92">
+    <Name>六道剣「一念無量劫 -Lunatic-」</Name>
+    <Enemy>魂魄妖夢</Enemy>
+    <Place>6面道中</Place>
+  </SpellCard>
+  <SpellCard ID="93">
+    <Name>亡郷「亡我郷 -さまよえる魂-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="94">
+    <Name>亡郷「亡我郷 -宿罪-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="95">
+    <Name>亡郷「亡我郷 -道無き道-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="96">
+    <Name>亡郷「亡我郷 -自尽-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="97">
+    <Name>亡舞「生者必滅の理 -眩惑-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="98">
+    <Name>亡舞「生者必滅の理 -死蝶-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="99">
+    <Name>亡舞「生者必滅の理 -毒蛾-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="100">
+    <Name>亡舞「生者必滅の理 -魔境-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="101">
+    <Name>華霊「ゴーストバタフライ」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="102">
+    <Name>華霊「スワローテイルバタフライ」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="103">
+    <Name>華霊「ディープルーティドバタフライ」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="104">
+    <Name>華霊「バタフライディルージョン」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="105">
+    <Name>幽曲「リポジトリ・オブ・ヒロカワ -偽霊-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="106">
+    <Name>幽曲「リポジトリ・オブ・ヒロカワ -亡霊-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="107">
+    <Name>幽曲「リポジトリ・オブ・ヒロカワ -幻霊-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="108">
+    <Name>幽曲「リポジトリ・オブ・ヒロカワ -神霊-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="109">
+    <Name>桜符「完全なる墨染の桜 -封印-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="110">
+    <Name>桜符「完全なる墨染の桜 -亡我-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="111">
+    <Name>桜符「完全なる墨染の桜 -春眠-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="112">
+    <Name>桜符「完全なる墨染の桜 -開花-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="113">
+    <Name>「反魂蝶 -一分咲-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="114">
+    <Name>「反魂蝶 -参分咲-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="115">
+    <Name>「反魂蝶 -伍分咲-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="116">
+    <Name>「反魂蝶 -八分咲-」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="117">
+    <Name>鬼符「青鬼赤鬼」</Name>
+    <Enemy>橙</Enemy>
+    <Place>EXTRA道中</Place>
+  </SpellCard>
+  <SpellCard ID="118">
+    <Name>鬼神「飛翔毘沙門天」</Name>
+    <Enemy>橙</Enemy>
+    <Place>EXTRA道中</Place>
+  </SpellCard>
+  <SpellCard ID="119">
+    <Name>式神「仙狐思念」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>EXTRAボス</Place>
+  </SpellCard>
+  <SpellCard ID="120">
+    <Name>式神「十二神将の宴」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>EXTRAボス</Place>
+  </SpellCard>
+  <SpellCard ID="121">
+    <Name>式輝「狐狸妖怪レーザー」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>EXTRAボス</Place>
+  </SpellCard>
+  <SpellCard ID="122">
+    <Name>式輝「四面楚歌チャーミング」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>EXTRAボス</Place>
+  </SpellCard>
+  <SpellCard ID="123">
+    <Name>式輝「プリンセス天狐 -Illusion-」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>EXTRAボス</Place>
+  </SpellCard>
+  <SpellCard ID="124">
+    <Name>式弾「アルティメットブディスト」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>EXTRAボス</Place>
+  </SpellCard>
+  <SpellCard ID="125">
+    <Name>式弾「ユーニラタルコンタクト」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>EXTRAボス</Place>
+  </SpellCard>
+  <SpellCard ID="126">
+    <Name>式神「橙」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>EXTRAボス</Place>
+  </SpellCard>
+  <SpellCard ID="127">
+    <Name>「狐狗狸さんの契約」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>EXTRAボス</Place>
+  </SpellCard>
+  <SpellCard ID="128">
+    <Name>幻神「飯綱権現降臨」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>EXTRAボス</Place>
+  </SpellCard>
+  <SpellCard ID="129">
+    <Name>式神「前鬼後鬼の守護」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>PHANTASM道中</Place>
+  </SpellCard>
+  <SpellCard ID="130">
+    <Name>式神「憑依荼吉尼天」</Name>
+    <Enemy>八雲藍</Enemy>
+    <Place>PHANTASM道中</Place>
+  </SpellCard>
+  <SpellCard ID="131">
+    <Name>結界「夢と現の呪」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+  <SpellCard ID="132">
+    <Name>結界「動と静の均衡」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+  <SpellCard ID="133">
+    <Name>結界「光と闇の網目」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+  <SpellCard ID="134">
+    <Name>罔両「ストレートとカーブの夢郷」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+  <SpellCard ID="135">
+    <Name>罔両「八雲紫の神隠し」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+  <SpellCard ID="136">
+    <Name>罔両「禅寺に棲む妖蝶」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+  <SpellCard ID="137">
+    <Name>魍魎「二重黒死蝶」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+  <SpellCard ID="138">
+    <Name>式神「八雲藍」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+  <SpellCard ID="139">
+    <Name>「人間と妖怪の境界」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+  <SpellCard ID="140">
+    <Name>結界「生と死の境界」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+  <SpellCard ID="141">
+    <Name>紫奥義「弾幕結界」</Name>
+    <Enemy>八雲紫</Enemy>
+    <Place>PHANTASMボス</Place>
+  </SpellCard>
+</Th07SpellCardData>

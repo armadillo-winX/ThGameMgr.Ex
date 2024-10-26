@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Th13SpellCardData>
+  <Information>
+    <Game>東方神霊廟　～ Ten Desires.</Game>
+    <DataKind>東方神霊廟スペルカードデータファイル</DataKind>
+    <Author>Mashiro Tamane</Author>
+    <Copyright>Copyright (c) 2022 Mashiro Tamane</Copyright>
+    <Version>1.1</Version>
+  </Information>
+  <SpellCard ID="1">
+    <Name>符牒「死蝶の舞」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="2">
+    <Name>符牒「死蝶の舞」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="3">
+    <Name>符牒「死蝶の舞　- 桜花 -」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="4">
+    <Name>符牒「死蝶の舞　- 桜花 -」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="5">
+    <Name>幽蝶「ゴーストスポット」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="6">
+    <Name>幽蝶「ゴーストスポット」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="7">
+    <Name>幽蝶「ゴーストスポット　- 桜花 -」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="8">
+    <Name>幽蝶「ゴーストスポット　- 桜花 -」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="9">
+    <Name>冥符「常夜桜」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="10">
+    <Name>冥符「常夜桜」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="11">
+    <Name>冥符「常夜桜」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="12">
+    <Name>冥符「常夜桜」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="13">
+    <Name>桜符「西行桜吹雪」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="14">
+    <Name>桜符「西行桜吹雪」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="15">
+    <Name>響符「マウンテンエコー」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面道中</Place>
+  </SpellCard>
+  <SpellCard ID="16">
+    <Name>響符「マウンテンエコー」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面道中</Place>
+  </SpellCard>
+  <SpellCard ID="17">
+    <Name>響符「マウンテンエコースクランブル」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面道中</Place>
+  </SpellCard>
+  <SpellCard ID="18">
+    <Name>響符「マウンテンエコースクランブル」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面道中</Place>
+  </SpellCard>
+  <SpellCard ID="19">
+    <Name>響符「パワーレゾナンス」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="20">
+    <Name>響符「パワーレゾナンス」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="21">
+    <Name>響符「パワーレゾナンス」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="22">
+    <Name>響符「パワーレゾナンス」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="23">
+    <Name>山彦「ロングレンジエコー」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="24">
+    <Name>山彦「ロングレンジエコー」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="25">
+    <Name>山彦「アンプリファイエコー」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="26">
+    <Name>山彦「アンプリファイエコー」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="27">
+    <Name>大声「チャージドクライ」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="28">
+    <Name>大声「チャージドクライ」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="29">
+    <Name>大声「チャージドヤッホー」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="30">
+    <Name>大声「チャージドヤッホー」</Name>
+    <Enemy>幽谷響子</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="31">
+    <Name>虹符「アンブレラサイクロン」</Name>
+    <Enemy>多々良小傘</Enemy>
+    <Place>3面道中</Place>
+  </SpellCard>
+  <SpellCard ID="32">
+    <Name>虹符「アンブレラサイクロン」</Name>
+    <Enemy>多々良小傘</Enemy>
+    <Place>3面道中</Place>
+  </SpellCard>
+  <SpellCard ID="33">
+    <Name>回復「ヒールバイデザイア」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="34">
+    <Name>回復「ヒールバイデザイア」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="35">
+    <Name>回復「ヒールバイデザイア」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="36">
+    <Name>回復「ヒールバイデザイア」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="37">
+    <Name>毒爪「ポイズンレイズ」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="38">
+    <Name>毒爪「ポイズンレイズ」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="39">
+    <Name>毒爪「ポイズンマーダー」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="40">
+    <Name>毒爪「ポイズンマーダー」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="41">
+    <Name>欲符「稼欲霊招来」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="42">
+    <Name>欲符「稼欲霊招来」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="43">
+    <Name>欲霊「スコアデザイアイーター」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="44">
+    <Name>欲霊「スコアデザイアイーター」</Name>
+    <Enemy>宮古芳香</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="45">
+    <Name>邪符「ヤンシャオグイ」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面道中</Place>
+  </SpellCard>
+  <SpellCard ID="46">
+    <Name>邪符「グーフンイエグイ」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面道中</Place>
+  </SpellCard>
+  <SpellCard ID="47">
+    <Name>邪符「グーフンイエグイ」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面道中</Place>
+  </SpellCard>
+  <SpellCard ID="48">
+    <Name>入魔「ゾウフォルゥモォ」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="49">
+    <Name>入魔「ゾウフォルゥモォ」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="50">
+    <Name>入魔「ゾウフォルゥモォ」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="51">
+    <Name>入魔「ゾウフォルゥモォ」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="52">
+    <Name>降霊「死人タンキー」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="53">
+    <Name>降霊「死人タンキー」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="54">
+    <Name>通霊「トンリン芳香」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="55">
+    <Name>通霊「トンリン芳香」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="56">
+    <Name>道符「タオ胎動」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="57">
+    <Name>道符「タオ胎動」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="58">
+    <Name>道符「タオ胎動」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="59">
+    <Name>道符「タオ胎動」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="60">
+    <Name>雷矢「ガゴウジサイクロン」</Name>
+    <Enemy>蘇我屠自古</Enemy>
+    <Place>5面道中</Place>
+  </SpellCard>
+  <SpellCard ID="61">
+    <Name>雷矢「ガゴウジサイクロン」</Name>
+    <Enemy>蘇我屠自古</Enemy>
+    <Place>5面道中</Place>
+  </SpellCard>
+  <SpellCard ID="62">
+    <Name>雷矢「ガゴウジトルネード」</Name>
+    <Enemy>蘇我屠自古</Enemy>
+    <Place>5面道中</Place>
+  </SpellCard>
+  <SpellCard ID="63">
+    <Name>天符「雨の磐舟」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="64">
+    <Name>天符「雨の磐舟」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="65">
+    <Name>天符「天の磐舟よ天へ昇れ」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="66">
+    <Name>天符「天の磐舟よ天へ昇れ」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="67">
+    <Name>投皿「物部の八十平瓮」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="68">
+    <Name>投皿「物部の八十平瓮」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="69">
+    <Name>投皿「物部の八十平瓮」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="70">
+    <Name>投皿「物部の八十平瓮」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="71">
+    <Name>炎符「廃仏の炎風」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="72">
+    <Name>炎符「廃仏の炎風」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="73">
+    <Name>炎符「桜井寺炎上」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="74">
+    <Name>炎符「桜井寺炎上」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="75">
+    <Name>聖童女「大物忌正餐」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="76">
+    <Name>聖童女「大物忌正餐」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="77">
+    <Name>聖童女「大物忌正餐」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="78">
+    <Name>聖童女「大物忌正餐」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="79">
+    <Name>名誉「十二階の色彩」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="80">
+    <Name>名誉「十二階の色彩」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="81">
+    <Name>名誉「十二階の冠位」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="82">
+    <Name>名誉「十二階の冠位」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="83">
+    <Name>仙符「日出ずる処の道士」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="84">
+    <Name>仙符「日出ずる処の道士」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="85">
+    <Name>仙符「日出ずる処の天子」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="86">
+    <Name>仙符「日出ずる処の天子」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="87">
+    <Name>召喚「豪族乱舞」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="88">
+    <Name>召喚「豪族乱舞」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="89">
+    <Name>召喚「豪族乱舞」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="90">
+    <Name>召喚「豪族乱舞」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="91">
+    <Name>秘宝「斑鳩寺の天球儀」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="92">
+    <Name>秘宝「斑鳩寺の天球儀」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="93">
+    <Name>秘宝「斑鳩寺の天球儀」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="94">
+    <Name>秘宝「聖徳太子のオーパーツ」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="95">
+    <Name>光符「救世観音の光後光」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="96">
+    <Name>光符「救世観音の光後光」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="97">
+    <Name>光符「グセフラッシュ」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="98">
+    <Name>光符「グセフラッシュ」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="99">
+    <Name>眼光「十七条のレーザー」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="100">
+    <Name>眼光「十七条のレーザー」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="101">
+    <Name>神光「逆らう事なきを宗とせよ」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="102">
+    <Name>神光「逆らう事なきを宗とせよ」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="103">
+    <Name>「星降る神霊廟」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="104">
+    <Name>「星降る神霊廟」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="105">
+    <Name>「生まれたての神霊」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="106">
+    <Name>「生まれたての神霊」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="107">
+    <Name>アンノウン「軌道不明の鬼火」</Name>
+    <Enemy>封獣ぬえ</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="108">
+    <Name>アンノウン「姿態不明の空魚」</Name>
+    <Enemy>封獣ぬえ</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="109">
+    <Name>アンノウン「原理不明の妖怪玉」</Name>
+    <Enemy>封獣ぬえ</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="110">
+    <Name>壱番勝負「霊長化弾幕変化」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="111">
+    <Name>弐番勝負「肉食化弾幕変化」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="112">
+    <Name>参番勝負「延羽化弾幕変化」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="113">
+    <Name>四番勝負「両生化弾幕変化」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="114">
+    <Name>伍番勝負「鳥獣戯画」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="115">
+    <Name>六番勝負「狸の化け学校」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="116">
+    <Name>七番勝負「野生の離島」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="117">
+    <Name>変化「まぬけ巫女の偽調伏」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="118">
+    <Name>「マミゾウ化弾幕十変化」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="119">
+    <Name>狢符「満月のポンポコリン」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="120">
+    <Name>桜符「桜吹雪地獄」</Name>
+    <Enemy>西行寺幽々子</Enemy>
+    <Place>Over Drive</Place>
+  </SpellCard>
+  <SpellCard ID="121">
+    <Name>山彦「ヤマビコの本領発揮エコー」</Name>
+    <Enemy>幽谷 響子</Enemy>
+    <Place>Over Drive</Place>
+  </SpellCard>
+  <SpellCard ID="122">
+    <Name>毒爪「死なない殺人鬼」</Name>
+    <Enemy>宮古 芳香</Enemy>
+    <Place>Over Drive</Place>
+  </SpellCard>
+  <SpellCard ID="123">
+    <Name>道符「ＴＡＯ胎動　～道～」</Name>
+    <Enemy>霍青娥</Enemy>
+    <Place>Over Drive</Place>
+  </SpellCard>
+  <SpellCard ID="124">
+    <Name>怨霊「入鹿の雷」</Name>
+    <Enemy>蘇我屠自古</Enemy>
+    <Place>Over Drive</Place>
+  </SpellCard>
+  <SpellCard ID="125">
+    <Name>聖童女「太陽神の贄」</Name>
+    <Enemy>物部布都</Enemy>
+    <Place>Over Drive</Place>
+  </SpellCard>
+  <SpellCard ID="126">
+    <Name>「神霊大宇宙」</Name>
+    <Enemy>豊聡耳神子</Enemy>
+    <Place>Over Drive</Place>
+  </SpellCard>
+  <SpellCard ID="127">
+    <Name>「ワイルドカーペット」</Name>
+    <Enemy>二ッ岩マミゾウ</Enemy>
+    <Place>Over Drive</Place>
+  </SpellCard>
+</Th13SpellCardData>

@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Th18SpellCardData>
+  <Information>
+    <Game>東方虹龍洞　～ Unconnected Marketeers.</Game>
+    <DataKind>東方虹龍洞スペルカードデータファイル</DataKind>
+    <Author>Mashiro Tamane</Author>
+    <Copyright>Copyright (c) 2022 Mashiro Tamane</Copyright>
+    <Version>1.1</Version>
+  </Information>
+  <SpellCard ID="1">
+    <Name>招符「弾幕万来」</Name>
+    <Enemy>豪徳寺ミケ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="2">
+    <Name>招符「弾幕万来」</Name>
+    <Enemy>豪徳寺ミケ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="3">
+    <Name>招符「弾幕万来」</Name>
+    <Enemy>豪徳寺ミケ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="4">
+    <Name>招符「弾幕万来」</Name>
+    <Enemy>豪徳寺ミケ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="5">
+    <Name>招符「弾災招福」</Name>
+    <Enemy>豪徳寺ミケ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="6">
+    <Name>招符「弾災招福」</Name>
+    <Enemy>豪徳寺ミケ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="7">
+    <Name>招符「弾災招福」</Name>
+    <Enemy>豪徳寺ミケ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="8">
+    <Name>招符「弾災招福」</Name>
+    <Enemy>豪徳寺ミケ</Enemy>
+    <Place>1面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="9">
+    <Name>森符「木隠れの技術」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="10">
+    <Name>森符「木隠れの技術」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="11">
+    <Name>森符「極・木隠れの技術」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="12">
+    <Name>森符「真・木隠れの技術」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="13">
+    <Name>森符「最奥の森域」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="14">
+    <Name>森符「最奥の森域」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="15">
+    <Name>森符「極・最奥の森域」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="16">
+    <Name>森符「真・最奥の森域」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="17">
+    <Name>葉技「グリーンスパイラル」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="18">
+    <Name>葉技「グリーンスパイラル」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="19">
+    <Name>葉技「グリーンサイクロン」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="20">
+    <Name>葉技「グリーントルネード」</Name>
+    <Enemy>山城たかね</Enemy>
+    <Place>2面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="21">
+    <Name>山符「動天の雲間草」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="22">
+    <Name>山符「動天の雲間草」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="23">
+    <Name>山怪「驚愕の雲間草」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="24">
+    <Name>山怪「驚愕の雲間草」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="25">
+    <Name>山符「妖光輝く薄雪草」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="26">
+    <Name>山符「妖光輝く薄雪草」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="27">
+    <Name>山怪「妖魔犇めく薄雪草」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="28">
+    <Name>山怪「妖魔犇めく薄雪草」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="29">
+    <Name>山花「殺戮の駒草」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="30">
+    <Name>山花「殺戮の駒草」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="31">
+    <Name>山花「殺戮の山の女王」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="32">
+    <Name>山花「殺戮の山の女王」</Name>
+    <Enemy>駒草山如</Enemy>
+    <Place>3面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="33">
+    <Name>玉符「虹龍陰陽玉」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="34">
+    <Name>玉符「虹龍陰陽玉」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="35">
+    <Name>玉符「虹龍陰陽玉」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="36">
+    <Name>玉符「陰陽神玉」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="37">
+    <Name>玉将「クイーンオブインヤンスフィア」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="38">
+    <Name>玉将「クイーンオブインヤンスフィア」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="39">
+    <Name>女王珠「虹の扉の向こうに」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="40">
+    <Name>女王珠「虹の扉の向こうに」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="41">
+    <Name>「陰陽サフォケイション」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="42">
+    <Name>「陰陽サフォケイション」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="43">
+    <Name>「陰陽サフォケイション」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="44">
+    <Name>「陰陽サフォケイション」</Name>
+    <Enemy>玉造魅須丸</Enemy>
+    <Place>4面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="45">
+    <Name>禍星「星火燎原の舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="46">
+    <Name>禍星「星火燎原の舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="47">
+    <Name>禍星「星火燎原乱舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="48">
+    <Name>禍星「星火燎原乱舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="49">
+    <Name>星風「虹彩陸離の舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="50">
+    <Name>星風「虹彩陸離の舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="51">
+    <Name>星風「虹彩陸離乱舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="52">
+    <Name>星風「虹彩陸離乱舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="53">
+    <Name>光馬「天馬行空の舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="54">
+    <Name>光馬「天馬行空の舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="55">
+    <Name>光馬「天馬行空乱舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="56">
+    <Name>光馬「天馬行空乱舞」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="57">
+    <Name>虹光「光風霽月」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="58">
+    <Name>虹光「光風霽月」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="59">
+    <Name>虹光「光風霽月」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="60">
+    <Name>虹光「光風霽月」</Name>
+    <Enemy>飯綱丸龍</Enemy>
+    <Place>5面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="61">
+    <Name>「無主への供物」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="62">
+    <Name>「無主への供物」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="63">
+    <Name>「無主への供物」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="64">
+    <Name>「無主への供物」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="65">
+    <Name>「弾幕狂蒐家の妄執」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="66">
+    <Name>「弾幕狂蒐家の妄執」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="67">
+    <Name>「弾幕狂蒐家の妄執」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="68">
+    <Name>「弾幕狂蒐家の妄執」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="69">
+    <Name>「バレットマーケット」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="70">
+    <Name>「バレットマーケット」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="71">
+    <Name>「密度の高いバレットマーケット」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="72">
+    <Name>「弾幕自由市場」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="73">
+    <Name>「虹人環」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="74">
+    <Name>「虹人環」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="75">
+    <Name>「虹人環」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="76">
+    <Name>「虹人環」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="77">
+    <Name>「バレットドミニオン」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="78">
+    <Name>「バレットドミニオン」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="79">
+    <Name>「暴虐のバレットドミニオン」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="80">
+    <Name>「無道のバレットドミニオン」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="81">
+    <Name>「弾幕のアジール」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="82">
+    <Name>「弾幕のアジール」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="83">
+    <Name>「弾幕のアジール」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="84">
+    <Name>「弾幕のアジール」</Name>
+    <Enemy>天弓千亦</Enemy>
+    <Place>6面ボス</Place>
+  </SpellCard>
+  <SpellCard ID="85">
+    <Name>狐符「フォックスワインダー」</Name>
+    <Enemy>菅牧典</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="86">
+    <Name>管狐「シリンダーフォックス」</Name>
+    <Enemy>菅牧典</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="87">
+    <Name>星狐「天狐龍星の舞」</Name>
+    <Enemy>菅牧典</Enemy>
+    <Place>Extra道中</Place>
+  </SpellCard>
+  <SpellCard ID="88">
+    <Name>蠱毒「カニバリスティックインセクト」</Name>
+    <Enemy>姫虫百々世</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="89">
+    <Name>蠱毒「ケイブスウォーマー」</Name>
+    <Enemy>姫虫百々世</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="90">
+    <Name>蠱毒「スカイペンドラ」</Name>
+    <Enemy>姫虫百々世</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="91">
+    <Name>採掘「積もり続けるマインダンプ」</Name>
+    <Enemy>姫虫百々世</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="92">
+    <Name>採掘「マインブラスト」</Name>
+    <Enemy>姫虫百々世</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="93">
+    <Name>採掘「妖怪達のシールドメゾット」</Name>
+    <Enemy>姫虫百々世</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="94">
+    <Name>大蜈蚣「スネークイーター」</Name>
+    <Enemy>姫虫百々世</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="95">
+    <Name>大蜈蚣「ドラゴンイーター」</Name>
+    <Enemy>姫虫百々世</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="96">
+    <Name>「蠱毒のグルメ」</Name>
+    <Enemy>姫虫百々世</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+  <SpellCard ID="97">
+    <Name>「蟲姫さまの輝かしく落ち着かない毎日」</Name>
+    <Enemy>姫虫百々世</Enemy>
+    <Place>Extraボス</Place>
+  </SpellCard>
+</Th18SpellCardData>
