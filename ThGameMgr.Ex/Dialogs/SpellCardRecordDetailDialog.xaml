@@ -21,7 +21,7 @@
         <TextBlock Margin="84,164,10,0" TextWrapping="Wrap" Text="{Binding Enemy}"
                    TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="発動場所:" HorizontalAlignment="Left" Margin="10,193,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBlock Margin="84,198,10,0" TextWrapping="Wrap" Text="{Binding Center}"
+        <TextBlock Margin="84,198,10,0" TextWrapping="Wrap" Text="{Binding Place}"
                    TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
         <Button x:Name="CloseButton"
             Width="90" Height="24"
