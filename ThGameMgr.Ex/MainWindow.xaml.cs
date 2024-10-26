@@ -562,6 +562,7 @@ namespace ThGameMgr.Ex
             StartGameWithVpatchButton.IsEnabled = !enabled;
             StartGameWithThpracButton.IsEnabled = !enabled;
             StartCustomProgramButton.IsEnabled = !enabled;
+            GameAudioControlSlider.IsEnabled = enabled;
             PlayersFilterButton.IsEnabled = !enabled;
             LevelFilterButton.IsEnabled = !enabled;
             EnemiesFilterButton.IsEnabled = !enabled;
