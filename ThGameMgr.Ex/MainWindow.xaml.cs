@@ -35,6 +35,7 @@ namespace ThGameMgr.Ex
         private DispatcherTimer? _gameControlTimer = null;
         private DispatcherTimer? _gameAudioControlTimer = null;
         private ResizerFrameWindow? _resizerFrameWindow = null;
+        private ScoreRecordDetailDialog? _scoreRecordDetailDialog = null;
 
         private string? GameId
         {
@@ -995,6 +996,47 @@ namespace ThGameMgr.Ex
                 catch (Exception)
                 {
 
+                }
+            }
+        }
+
+        private void ViewScoreRecordDetailMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            if (ScoreDataGrid.Items.Count > 0 &&
+                ScoreDataGrid.SelectedIndex > -1 &&
+                ScoreDataGrid.SelectedIndex < ScoreDataGrid.Items.Count - 1)
+            {
+                ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
+                if (_scoreRecordDetailDialog == null ||
+                    !_scoreRecordDetailDialog.IsLoaded)
+                {
+                    _scoreRecordDetailDialog = new()
+                    {
+                        Owner = this,
+                        DataContext = scoreRecordList
+                    };
+                    _scoreRecordDetailDialog.Show();
+                }
+                else
+                {
+                    _scoreRecordDetailDialog.DataContext = scoreRecordList;
+                    _scoreRecordDetailDialog.WindowState = WindowState.Normal;
+                    _scoreRecordDetailDialog.Activate();
+                }
+            }
+        }
+
+        private void ScoreDataGridSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(ScoreDataGrid.Items.Count > 0 &&
+                ScoreDataGrid.SelectedIndex > -1 &&
+                ScoreDataGrid.SelectedIndex < ScoreDataGrid.Items.Count - 1)
+            {
+                ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
+                if (_scoreRecordDetailDialog != null && _scoreRecordDetailDialog.IsLoaded)
+                {
+                    _scoreRecordDetailDialog.DataContext = scoreRecordList;
+                    _scoreRecordDetailDialog.WindowState = WindowState.Normal;
                 }
             }
         }
