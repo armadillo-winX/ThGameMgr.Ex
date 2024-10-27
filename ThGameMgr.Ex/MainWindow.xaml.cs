@@ -13,6 +13,7 @@ global using ThGameMgr.Ex.Settings;
 
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
@@ -1080,6 +1081,25 @@ namespace ThGameMgr.Ex
                 {
                     _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
                     _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
+                }
+            }
+        }
+
+        private void CardNameSearchBoxTextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (ScoreView.SpellCardRecordLists != null &&
+                ScoreView.SpellCardRecordLists.Count > 0)
+            {
+                string searchName = CardNameSearchBox.Text;
+                if (searchName.Length > 0)
+                {
+                    IEnumerable<SpellCardRecordList> searchList =
+                        ScoreView.SpellCardRecordLists.Where(x => x.CardName.Contains(searchName));
+                    SpellCardDataGrid.DataContext = searchList;
+                }
+                else
+                {
+                    SpellCardDataGrid.DataContext = ScoreView.SpellCardRecordLists;
                 }
             }
         }
