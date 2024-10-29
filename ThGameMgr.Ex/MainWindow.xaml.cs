@@ -12,6 +12,7 @@ global using ThGameMgr.Ex.Score;
 global using ThGameMgr.Ex.Settings;
 
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -248,6 +249,57 @@ namespace ThGameMgr.Ex
                 }
 
                 EnableGettingScoreDataLimitationMode(false);
+            }
+        }
+
+        private void ApplyScoreViewFilter()
+        {
+            ScoreDataGrid.DataContext = null;
+            SpellCardDataGrid.DataContext = null;
+
+            if (ScoreView.ScoreRecordLists != null &&
+                ScoreView.ScoreRecordLists.Count >= 0)
+            {
+                IEnumerable<ScoreRecordList> filteredScoreRecordLists = ScoreView.ScoreRecordLists;
+
+                if (this.FilterLevel != "ALL")
+                {
+                    filteredScoreRecordLists = filteredScoreRecordLists.Where(
+                        x =>
+                        {
+                            return x.Level == this.FilterLevel;
+                        });
+                }
+
+                if (this.FilterPlayer != "ALL") 
+                {
+                    filteredScoreRecordLists = filteredScoreRecordLists.Where(
+                        x =>
+                        {
+                            return x.Player == this.FilterPlayer;
+                        });
+                }
+
+                ScoreDataGrid.AutoGenerateColumns = false;
+                ScoreDataGrid.DataContext = filteredScoreRecordLists;
+            }
+
+            if (ScoreView.SpellCardRecordLists != null &&
+                ScoreView.SpellCardRecordLists.Count >= 0)
+            {
+                IEnumerable<SpellCardRecordList> filteredSpellCardRecordLists = ScoreView.SpellCardRecordLists;
+
+                if (this.FilterEnemy != "ALL")
+                {
+                    filteredSpellCardRecordLists = filteredSpellCardRecordLists.Where(
+                        x =>
+                        {
+                            return x.Enemy == this.FilterEnemy;
+                        });
+                }
+
+                SpellCardDataGrid.AutoGenerateColumns = false;
+                SpellCardDataGrid.DataContext = ScoreView.SpellCardRecordLists;
             }
         }
 
