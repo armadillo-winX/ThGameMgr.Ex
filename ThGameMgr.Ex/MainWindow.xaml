@@ -141,7 +141,7 @@
                     </TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="主戦績">
+            <TabItem Header="ハイスコア">
                 <Grid >
                     <Button x:Name="PlayersFilterButton"
                         Width="120" Height="24"
