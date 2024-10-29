@@ -1144,25 +1144,6 @@ namespace ThGameMgr.Ex
             }
         }
 
-        private void CardNameSearchBoxTextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (ScoreView.SpellCardRecordLists != null &&
-                ScoreView.SpellCardRecordLists.Count > 0)
-            {
-                string searchName = CardNameSearchBox.Text;
-                if (searchName.Length > 0)
-                {
-                    IEnumerable<SpellCardRecordList> searchList =
-                        ScoreView.SpellCardRecordLists.Where(x => x.CardName.Contains(searchName));
-                    SpellCardDataGrid.DataContext = searchList;
-                }
-                else
-                {
-                    SpellCardDataGrid.DataContext = ScoreView.SpellCardRecordLists;
-                }
-            }
-        }
-
         private void AboutNAudioMenuItemClick(object sender, RoutedEventArgs e)
         {
             string naudioCoreDllPath = $"{PathInfo.AppLocation}\\NAudio.Core.dll";
