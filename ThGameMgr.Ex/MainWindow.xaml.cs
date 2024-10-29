@@ -1040,25 +1040,31 @@ namespace ThGameMgr.Ex
         private void ViewScoreRecordDetailMenuItemClick(object sender, RoutedEventArgs e)
         {
             if (ScoreDataGrid.Items.Count > 0 &&
-                ScoreDataGrid.SelectedIndex > -1 &&
-                ScoreDataGrid.SelectedIndex < ScoreDataGrid.Items.Count - 1)
+                ScoreDataGrid.SelectedIndex > -1)
             {
-                ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
-                if (_scoreRecordDetailDialog == null ||
-                    !_scoreRecordDetailDialog.IsLoaded)
+                try
                 {
-                    _scoreRecordDetailDialog = new()
+                    ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
+                    if (_scoreRecordDetailDialog == null ||
+                        !_scoreRecordDetailDialog.IsLoaded)
                     {
-                        Owner = this,
-                        DataContext = scoreRecordList
-                    };
-                    _scoreRecordDetailDialog.Show();
+                        _scoreRecordDetailDialog = new()
+                        {
+                            Owner = this,
+                            DataContext = scoreRecordList
+                        };
+                        _scoreRecordDetailDialog.Show();
+                    }
+                    else
+                    {
+                        _scoreRecordDetailDialog.DataContext = scoreRecordList;
+                        _scoreRecordDetailDialog.WindowState = WindowState.Normal;
+                        _scoreRecordDetailDialog.Activate();
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    _scoreRecordDetailDialog.DataContext = scoreRecordList;
-                    _scoreRecordDetailDialog.WindowState = WindowState.Normal;
-                    _scoreRecordDetailDialog.Activate();
+
                 }
             }
         }
@@ -1066,14 +1072,20 @@ namespace ThGameMgr.Ex
         private void ScoreDataGridSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(ScoreDataGrid.Items.Count > 0 &&
-                ScoreDataGrid.SelectedIndex > -1 &&
-                ScoreDataGrid.SelectedIndex < ScoreDataGrid.Items.Count - 1)
+                ScoreDataGrid.SelectedIndex > -1)
             {
-                ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
-                if (_scoreRecordDetailDialog != null && _scoreRecordDetailDialog.IsLoaded)
+                try
                 {
-                    _scoreRecordDetailDialog.DataContext = scoreRecordList;
-                    _scoreRecordDetailDialog.WindowState = WindowState.Normal;
+                    ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
+                    if (_scoreRecordDetailDialog != null && _scoreRecordDetailDialog.IsLoaded)
+                    {
+                        _scoreRecordDetailDialog.DataContext = scoreRecordList;
+                        _scoreRecordDetailDialog.WindowState = WindowState.Normal;
+                    }
+                }
+                catch (Exception)
+                {
+
                 }
             }
         }
@@ -1081,25 +1093,31 @@ namespace ThGameMgr.Ex
         private void ViewSpellCardRecordMenuItemClick(object sender, RoutedEventArgs e)
         {
             if (SpellCardDataGrid.Items.Count > 0 &&
-                SpellCardDataGrid.SelectedIndex > -1 &&
-                SpellCardDataGrid.SelectedIndex < SpellCardDataGrid.Items.Count - 1)
+                SpellCardDataGrid.SelectedIndex > -1)
             {
-                SpellCardRecordList spellCardRecordList = (SpellCardRecordList)SpellCardDataGrid.SelectedItem;
-                if (_spellCardRecordDetailDialog == null ||
-                    !_spellCardRecordDetailDialog.IsLoaded)
+                try
                 {
-                    _spellCardRecordDetailDialog = new()
+                    SpellCardRecordList spellCardRecordList = (SpellCardRecordList)SpellCardDataGrid.SelectedItem;
+                    if (_spellCardRecordDetailDialog == null ||
+                        !_spellCardRecordDetailDialog.IsLoaded)
                     {
-                        Owner = this,
-                        DataContext = spellCardRecordList
-                    };
-                    _spellCardRecordDetailDialog.Show();
+                        _spellCardRecordDetailDialog = new()
+                        {
+                            Owner = this,
+                            DataContext = spellCardRecordList
+                        };
+                        _spellCardRecordDetailDialog.Show();
+                    }
+                    else
+                    {
+                        _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
+                        _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
+                        _spellCardRecordDetailDialog.Activate();
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
-                    _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
-                    _spellCardRecordDetailDialog.Activate();
+
                 }
             }
         }
@@ -1107,15 +1125,21 @@ namespace ThGameMgr.Ex
         private void SpellCardDataGridSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (SpellCardDataGrid.Items.Count > 0 &&
-                SpellCardDataGrid.SelectedIndex > -1 &&
-                SpellCardDataGrid.SelectedIndex < SpellCardDataGrid.Items.Count - 1)
+                SpellCardDataGrid.SelectedIndex > -1)
             {
-                SpellCardRecordList spellCardRecordList = (SpellCardRecordList)SpellCardDataGrid.SelectedItem;
-                if (_spellCardRecordDetailDialog != null &&
-                    _spellCardRecordDetailDialog.IsLoaded)
+                try
                 {
-                    _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
-                    _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
+                    SpellCardRecordList spellCardRecordList = (SpellCardRecordList)SpellCardDataGrid.SelectedItem;
+                    if (_spellCardRecordDetailDialog != null &&
+                        _spellCardRecordDetailDialog.IsLoaded)
+                    {
+                        _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
+                        _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
+                    }
+                }
+                catch (Exception)
+                {
+
                 }
             }
         }
