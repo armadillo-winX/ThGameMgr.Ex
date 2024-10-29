@@ -1103,5 +1103,31 @@ namespace ThGameMgr.Ex
                 }
             }
         }
+
+        private void AboutNAudioMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            string naudioCoreDllPath = $"{PathInfo.AppLocation}\\NAudio.Core.dll";
+            string naudioWasapiDllPath = $"{PathInfo.AppLocation}\\NAudio.Wasapi.dll";
+
+            string naudioCoreDllName = FileVersionInfo.GetVersionInfo(naudioCoreDllPath).ProductName;
+            string naudioCoreDllVersion = FileVersionInfo.GetVersionInfo(naudioCoreDllPath).FileVersion;
+            string naudioCoreDllDeveloper = FileVersionInfo.GetVersionInfo(naudioCoreDllPath).CompanyName;
+            string naudioCoreDllCopyright = FileVersionInfo.GetVersionInfo(naudioCoreDllPath).LegalCopyright;
+
+            string naudioCoreDllInformation
+                = $"{naudioCoreDllName}\nVersion.{naudioCoreDllVersion}\nby {naudioCoreDllDeveloper}\n{naudioCoreDllCopyright}";
+
+            string naudioWasapiDllName = FileVersionInfo.GetVersionInfo(naudioWasapiDllPath).ProductName;
+            string naudioWasapiDllVersion = FileVersionInfo.GetVersionInfo(naudioWasapiDllPath).FileVersion;
+            string naudioWasapiDllDeveloper = FileVersionInfo.GetVersionInfo(naudioWasapiDllPath).CompanyName;
+            string naudioWasapiDllCopyright = FileVersionInfo.GetVersionInfo(naudioWasapiDllPath).LegalCopyright;
+
+            string naudioWasapiDllInformation
+                = $"{naudioWasapiDllName}\nVersion.{naudioWasapiDllVersion}\nby {naudioWasapiDllDeveloper}\n{naudioWasapiDllCopyright}";
+
+            MessageBox.Show(this, $"{naudioCoreDllInformation}\n\n{naudioWasapiDllInformation}",
+                "NAudio について",
+                MessageBoxButton.OK, MessageBoxImage.Information);
+        }
     }
 }
