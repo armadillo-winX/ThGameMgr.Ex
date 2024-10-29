@@ -10,7 +10,7 @@ namespace ThGameMgr.Ex.Score
 
         public static ObservableCollection<SpellCardRecordList>? SpellPracticeRecordLists { get; set; }
 
-        public static void GetScoreData(string gameId, ScoreViewFilter filter, bool displayUnchallengedCard)
+        public static void GetScoreData(string gameId, bool displayUnchallengedCard)
         {
             ScoreRecordLists = new();
             SpellCardRecordLists = new();
@@ -18,51 +18,51 @@ namespace ThGameMgr.Ex.Score
 
             if (gameId == GameIndex.Th06)
             {
-                Th06.Th06ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th06.Th06ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th07)
             {
-                Th07.Th07ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th07.Th07ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th08)
             {
-                Th08.Th08ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th08.Th08ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th10)
             {
-                Th10.Th10ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th10.Th10ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th11)
             {
-                Th11.Th11ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th11.Th11ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th12)
             {
-                Th12.Th12ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th12.Th12ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th13)
             {
-                Th13.Th13ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th13.Th13ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th14)
             {
-                Th14.Th14ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th14.Th14ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th15)
             {
-                Th15.Th15ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th15.Th15ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th16)
             {
-                Th16.Th16ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th16.Th16ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th17)
             {
-                Th17.Th17ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th17.Th17ScoreView.GetScoreData(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th18)
             {
-                Th18.Th18ScoreView.GetScoreData(filter, displayUnchallengedCard);
+                Th18.Th18ScoreView.GetScoreData(displayUnchallengedCard);
             }
         }
     }

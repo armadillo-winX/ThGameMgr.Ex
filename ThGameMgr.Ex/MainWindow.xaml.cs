@@ -221,19 +221,12 @@ namespace ThGameMgr.Ex
             {
                 EnableGettingScoreDataLimitationMode(true);
 
-                ScoreViewFilter filter = new()
-                {
-                    ScoreLevelFilter = this.FilterLevel,
-                    ScorePlayerFilter = this.FilterPlayer,
-                    SpellCardEnemyFilter = this.FilterEnemy
-                };
-
                 bool displayUnchallengedCard = DisplayUnchallengedCardMenuItem.IsChecked;
 
                 try
                 {
                     await Task.Run(()
-                    => ScoreView.GetScoreData(gameId, filter, displayUnchallengedCard)
+                    => ScoreView.GetScoreData(gameId, displayUnchallengedCard)
                     );
 
                     if (ScoreView.ScoreRecordLists.Count >= 0)

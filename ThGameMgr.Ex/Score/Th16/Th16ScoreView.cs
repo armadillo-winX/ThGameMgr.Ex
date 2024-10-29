@@ -31,14 +31,10 @@ namespace ThGameMgr.Ex.Score.Th16
                 { 4, "土用" }
             };
 
-        public static void GetScoreData(ScoreViewFilter filter, bool displayUnchallengedCard)
+        public static void GetScoreData(bool displayUnchallengedCard)
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th16);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th16);
-
-            string scoreLevelFilter = filter.ScoreLevelFilter;
-            string playerFilter = filter.ScorePlayerFilter;
-            string enemyFilter = filter.SpellCardEnemyFilter;
 
             if (File.Exists(gamePath) && File.Exists(scorePath))
             {
@@ -67,20 +63,9 @@ namespace ThGameMgr.Ex.Score.Th16
                                 scoreRecordList.Level = LevelReplace(l);
                                 scoreRecordList.Player = Th16PlayersList[k];
 
-                                if (scoreLevelFilter.ToLower() == "all" && scoreRecordList.Name != "--------")
+                                if (scoreRecordList.Name != "--------")
                                 {
-                                    if (playerFilter == "ALL" || scoreRecordList.Player == playerFilter)
-                                    {
-                                        ScoreView.ScoreRecordLists.Add(scoreRecordList);
-                                    }
-                                }
-                                else if (
-                                    scoreRecordList.Level == scoreLevelFilter && scoreRecordList.Name != "--------")
-                                {
-                                    if (playerFilter == "ALL" || scoreRecordList.Player == playerFilter)
-                                    {
-                                        ScoreView.ScoreRecordLists.Add(scoreRecordList);
-                                    }
+                                    ScoreView.ScoreRecordLists.Add(scoreRecordList);
                                 }
 
                                 i += size;
@@ -93,14 +78,7 @@ namespace ThGameMgr.Ex.Score.Th16
                         {
                             ObservableCollection<SpellCardRecordList> spellCardRecordLists
                                 = GetAllSpellCardRecord(p, bytes, displayUnchallengedCard);
-                            if (enemyFilter == "ALL")
-                            {
-                                ScoreView.SpellCardRecordLists.Add(spellCardRecordLists[0]);
-                            }
-                            else if (spellCardRecordLists[0].Enemy == enemyFilter)
-                            {
-                                ScoreView.SpellCardRecordLists.Add(spellCardRecordLists[0]);
-                            }
+                            ScoreView.SpellCardRecordLists.Add(spellCardRecordLists[0]);
                             ScoreView.SpellPracticeRecordLists.Add(spellCardRecordLists[1]);
                         }
                     }

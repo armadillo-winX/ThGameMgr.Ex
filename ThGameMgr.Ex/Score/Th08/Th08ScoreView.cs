@@ -30,14 +30,10 @@ namespace ThGameMgr.Ex.Score.Th08
                 { "63", "All Clear" }
             };
 
-        public static void GetScoreData(ScoreViewFilter filter, bool displayUnchallengedCard)
+        public static void GetScoreData(bool displayUnchallengedCard)
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th08);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th08);
-
-            string scoreLevelFilter = filter.ScoreLevelFilter;
-            string playerFilter = filter.ScorePlayerFilter;
-            string enemyFilter = filter.SpellCardEnemyFilter;
 
             if (File.Exists(gamePath) && File.Exists(scorePath))
             {
@@ -70,22 +66,7 @@ namespace ThGameMgr.Ex.Score.Th08
                                 byte[] highscoreData = bytes[i..r];
                                 ScoreRecordList scoreRecordList
                                     = GetHighScoreData(highscoreData);
-                                if (scoreLevelFilter.ToLower() == "all" && playerFilter == "ALL")
-                                {
-                                    ScoreView.ScoreRecordLists.Add(scoreRecordList);
-                                }
-                                else if (scoreRecordList.Level == scoreLevelFilter && playerFilter == "ALL")
-                                {
-                                    ScoreView.ScoreRecordLists.Add(scoreRecordList);
-                                }
-                                else if (scoreLevelFilter.ToLower() == "all" && scoreRecordList.Player == playerFilter)
-                                {
-                                    ScoreView.ScoreRecordLists.Add(scoreRecordList);
-                                }
-                                else if (scoreRecordList.Level == scoreLevelFilter && scoreRecordList.Player == playerFilter)
-                                {
-                                    ScoreView.ScoreRecordLists.Add(scoreRecordList);
-                                }
+                                ScoreView.ScoreRecordLists.Add(scoreRecordList);
 
                                 i += size;
                             }
@@ -98,14 +79,7 @@ namespace ThGameMgr.Ex.Score.Th08
                                 byte[] cardAttackData = bytes[i..r];
                                 SpellCardRecordList spellCardRecordList
                                     = GetSpellCardRecord(cardAttackData, displayUnchallengedCard);
-                                if (enemyFilter == "ALL")
-                                {
-                                    ScoreView.SpellCardRecordLists.Add(spellCardRecordList);
-                                }
-                                else if (spellCardRecordList.Enemy == enemyFilter)
-                                {
-                                    ScoreView.SpellCardRecordLists.Add(spellCardRecordList);
-                                }
+                                ScoreView.SpellCardRecordLists.Add(spellCardRecordList);
 
                                 i += size;
                             }
