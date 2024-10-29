@@ -44,6 +44,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="SpellCardData\Th06SpellCardData.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
