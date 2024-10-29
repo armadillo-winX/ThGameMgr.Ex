@@ -230,17 +230,7 @@ namespace ThGameMgr.Ex
                     => ScoreView.GetScoreData(gameId, displayUnchallengedCard)
                     );
 
-                    if (ScoreView.ScoreRecordLists.Count >= 0)
-                    {
-                        ScoreDataGrid.AutoGenerateColumns = false;
-                        ScoreDataGrid.DataContext = ScoreView.ScoreRecordLists;
-                    }
-
-                    if (ScoreView.SpellCardRecordLists.Count >= 0)
-                    {
-                        SpellCardDataGrid.AutoGenerateColumns = false;
-                        SpellCardDataGrid.DataContext = ScoreView.SpellCardRecordLists;
-                    }
+                    ApplyScoreViewFilter();
                 }
                 catch (Exception ex)
                 {
@@ -299,7 +289,7 @@ namespace ThGameMgr.Ex
                 }
 
                 SpellCardDataGrid.AutoGenerateColumns = false;
-                SpellCardDataGrid.DataContext = ScoreView.SpellCardRecordLists;
+                SpellCardDataGrid.DataContext = filteredSpellCardRecordLists;
             }
         }
 
@@ -409,7 +399,7 @@ namespace ThGameMgr.Ex
         {
             string playerName = ((MenuItem)sender).Header.ToString();
             this.FilterPlayer = playerName;
-            GetScoreData();
+            ApplyScoreViewFilter();
         }
 
         private void SetEnemiesFilterMenu()
@@ -447,7 +437,7 @@ namespace ThGameMgr.Ex
         {
             string enemyName = ((MenuItem)sender).Header.ToString();
             this.FilterEnemy = enemyName;
-            GetScoreData();
+            ApplyScoreViewFilter();
         }
 
         private void SetLevelFilterMenu()
@@ -480,7 +470,7 @@ namespace ThGameMgr.Ex
         {
             string level = ((MenuItem)sender).Header.ToString();
             this.FilterLevel = level;
-            GetScoreData();
+            ApplyScoreViewFilter();
         }
 
         /// <summary>
