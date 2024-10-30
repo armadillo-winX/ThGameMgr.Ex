@@ -991,24 +991,24 @@ namespace ThGameMgr.Ex
             if (ScoreView.SpellCardRecordLists != null &&
                 ScoreView.SpellCardRecordLists.Count > 0)
             {
-                int totalChallengeCount = 0;
-                int totalGetCount = 0;
+                int challengedCardCount = 0;
+                int getCardCount = 0;
 
                 for (int i = 0; i < ScoreView.SpellCardRecordLists.Count; i++)
                 {
                     SpellCardRecordList spellCardRecordList = ScoreView.SpellCardRecordLists[i];
-                    totalChallengeCount += int.Parse(spellCardRecordList.Challenge);
-                    totalGetCount += int.Parse(spellCardRecordList.Get);
+                    if (int.Parse(spellCardRecordList.Challenge) > 0) challengedCardCount++;
+                    if (int.Parse(spellCardRecordList.Get) > 0) getCardCount++;
                 }
 
-                string totalGetRate = ScoreCalculator.CalcSpellCardGetRate(totalGetCount, totalChallengeCount);
+                string getCardRate = ScoreCalculator.CalcSpellCardGetRate(getCardCount, challengedCardCount);
 
                 SpellCardRecordStatisticDialog spellCardRecordStatisticDialog = new()
                 {
                     GameId = this.GameId,
-                    ChallengedCardCount = totalChallengeCount,
-                    GetCardCount = totalGetCount,
-                    GetCardRate = totalGetRate,
+                    ChallengedCardCount = challengedCardCount,
+                    GetCardCount = getCardCount,
+                    GetCardRate = getCardRate,
                     Owner = this
                 };
                 spellCardRecordStatisticDialog.ShowDialog();
