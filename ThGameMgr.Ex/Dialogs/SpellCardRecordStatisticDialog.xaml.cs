@@ -20,27 +20,27 @@
             }
         }
 
-        public int ToTalChallengeCount
+        public int ChallengedCardCount
         {
             set
             {
-                TotalChallengeCountBlock.Text = value.ToString();
+                ChallengedCardCountBlock.Text = value.ToString();
             }
         }
 
-        public int TotalGetCount
+        public int GetCardCount
         {
             set
             {
-                TotalGetCountBlock.Text = value.ToString();
+                GetCardCountBlock.Text = value.ToString();
             }
         }
 
-        public string TotalGetRate
+        public string GetCardRate
         {
             set
             {
-                TotalGetRateBlock.Text = value;
+                GetCardRateBlock.Text = value;
             }
         }
 

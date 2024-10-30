@@ -1006,9 +1006,9 @@ namespace ThGameMgr.Ex
                 SpellCardRecordStatisticDialog spellCardRecordStatisticDialog = new()
                 {
                     GameId = this.GameId,
-                    ToTalChallengeCount = totalChallengeCount,
-                    TotalGetCount = totalGetCount,
-                    TotalGetRate = totalGetRate,
+                    ChallengedCardCount = totalChallengeCount,
+                    GetCardCount = totalGetCount,
+                    GetCardRate = totalGetRate,
                     Owner = this
                 };
                 spellCardRecordStatisticDialog.ShowDialog();
