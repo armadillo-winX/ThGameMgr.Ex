@@ -9,15 +9,15 @@
     <Grid>
         <TextBlock x:Name="GameNameBlock"
             HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="GameName" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Label Content="スペルカード挑戦数の合計" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top"/>
+        <Label Content="挑戦済みスペルカード数" HorizontalAlignment="Center" Margin="0,36,0,0" VerticalAlignment="Top"/>
         <TextBlock
             x:Name="ChallengedCardCountBlock"
             HorizontalAlignment="Center" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Margin="0,67,0,0" FontWeight="Bold" FontSize="18"/>
-        <Label Content="スペルカード取得数の合計" HorizontalAlignment="Center" Margin="0,96,0,0" VerticalAlignment="Top"/>
+        <Label Content="取得済みスペルカード数" HorizontalAlignment="Center" Margin="0,96,0,0" VerticalAlignment="Top"/>
         <TextBlock 
             x:Name="GetCardCountBlock"
             HorizontalAlignment="Center" Margin="0,127,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="合計挑戦数に対する合計取得数の割合" HorizontalAlignment="Center" Margin="0,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="挑戦済みカードに対する取得カード数" HorizontalAlignment="Center" Margin="0,156,0,0" VerticalAlignment="Top"/>
         <TextBlock
             x:Name="GetCardRateBlock"
             HorizontalAlignment="Center" Margin="0,187,0,0" TextWrapping="Wrap" Text="0.00%" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
