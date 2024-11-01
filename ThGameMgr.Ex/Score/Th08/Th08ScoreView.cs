@@ -6,7 +6,7 @@ namespace ThGameMgr.Ex.Score.Th08
     {
         public static string[] Th08PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th08).Split(',');
 
-        private static readonly Dictionary<string, string> LevelDictionary =
+        private static readonly Dictionary<string, string> _levelDictionary =
             new()
             {
                 { "00", "Easy" },
@@ -16,7 +16,7 @@ namespace ThGameMgr.Ex.Score.Th08
                 { "04", "Extra" }
             };
 
-        private static readonly Dictionary<string, string> ProgressDictionary =
+        private static readonly Dictionary<string, string> _progressDictionary =
             new()
             {
                 { "01", "Stage1" },
@@ -116,8 +116,8 @@ namespace ThGameMgr.Ex.Score.Th08
             string progressIndex = BitConverter.ToString(PROGRESS_DATA, 0);
 
             string player = Th08PlayersList[int.Parse(playerIndex)];
-            string level = LevelDictionary.ContainsKey(levelIndex) ? LevelDictionary[levelIndex] : "Unknown";
-            string progress = ProgressDictionary.ContainsKey(progressIndex) ? ProgressDictionary[progressIndex] : "Unknown";
+            string level = _levelDictionary.ContainsKey(levelIndex) ? _levelDictionary[levelIndex] : "Unknown";
+            string progress = _progressDictionary.ContainsKey(progressIndex) ? _progressDictionary[progressIndex] : "Unknown";
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 

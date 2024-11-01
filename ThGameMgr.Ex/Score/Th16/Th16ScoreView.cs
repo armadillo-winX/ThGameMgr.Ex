@@ -21,7 +21,7 @@ namespace ThGameMgr.Ex.Score.Th16
                 { "09", "All Clear" }
             };
 
-        private static readonly Dictionary<int, string> Th16SeasonDictionary =
+        private static readonly Dictionary<int, string> _th16SeasonDictionary =
             new()
             {
                 { 0, "春" },
@@ -106,7 +106,7 @@ namespace ThGameMgr.Ex.Score.Th16
             string score = String.Format("{0:#,0}", BitConverter.ToUInt32(SCORE_DATA, 0) * 10 + continueCount);
             string slow = BitConverter.ToSingle(SLOW_DATA, 0).ToString("F3") + "%";
 
-            string season = Th16SeasonDictionary[BitConverter.ToInt32(SEASON_DATA, 0)];
+            string season = _th16SeasonDictionary[BitConverter.ToInt32(SEASON_DATA, 0)];
 
             int unixTime = BitConverter.ToInt32(DATE_DATA, 0);
             string date = unixTime.TranslateUnixTime();

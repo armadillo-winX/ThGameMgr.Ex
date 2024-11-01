@@ -6,7 +6,7 @@ namespace ThGameMgr.Ex.Score.Th06
     {
         public static string[] Th06PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th06).Split(',');
 
-        private static readonly Dictionary<string, string> LevelDictionary =
+        private static readonly Dictionary<string, string> _levelDictionary =
             new()
             {
                 { "00", "Easy" },
@@ -16,7 +16,7 @@ namespace ThGameMgr.Ex.Score.Th06
                 { "04", "Extra" }
             };
 
-        private static readonly Dictionary<string, string> ProgressDictionary =
+        private static readonly Dictionary<string, string> _progressDictionary =
             new()
             {
                 { "01", "Stage1" },
@@ -109,9 +109,9 @@ namespace ThGameMgr.Ex.Score.Th06
             int playerIndex = int.Parse(BitConverter.ToString(PLAYER_DATA, 0));
             string player = Th06PlayersList[playerIndex];
             string levelIndex = BitConverter.ToString(LEVEL_DATA, 0);
-            string level = LevelDictionary[levelIndex];
+            string level = _levelDictionary[levelIndex];
             string progressIndex = BitConverter.ToString(PROGRESS_DATA, 0);
-            string progress = ProgressDictionary[progressIndex];
+            string progress = _progressDictionary[progressIndex];
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             string name = Encoding.GetEncoding("Shift_JIS").GetString(NAME_DATA);
