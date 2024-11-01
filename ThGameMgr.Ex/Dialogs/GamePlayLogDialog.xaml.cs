@@ -31,7 +31,11 @@ namespace ThGameMgr.Ex.Dialogs
                 ObservableCollection<GamePlayLogData> gamePlayLogDataCollection = [];
                 gamePlayLogDataCollection = GamePlayLogRecorder.GetGamePlayLogDataCollection();
                 GameLogDataGrid.AutoGenerateColumns = false;
-                GameLogDataGrid.DataContext = gamePlayLogDataCollection;
+
+                for (int i = gamePlayLogDataCollection.Count - 1; i >= 0; i--)
+                {
+                    GameLogDataGrid.Items.Add(gamePlayLogDataCollection[i]);
+                }
             }
         }
     }
