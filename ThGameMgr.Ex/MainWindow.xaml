@@ -190,6 +190,10 @@
 	                    	IsReadOnly="True"
                             Header="処理落ち率" 
                             Binding="{Binding SlowRate}" Width="75"/>
+                            <DataGridTextColumn x:Name="OtherDataColumn"
+                            IsReadOnly="True"
+                            Header="その他"
+                            Binding="{Binding OtherData}" Width="125"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Button x:Name="LevelFilterButton"
