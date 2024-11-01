@@ -15,5 +15,7 @@
         public string? Date { get; set; }
 
         public string? SlowRate { get; set; }
+
+        public string? OtherData { get; set; }
     }
 }
