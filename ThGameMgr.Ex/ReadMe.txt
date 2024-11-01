@@ -63,7 +63,7 @@ Microsoft Visual Studio Community 2022 Current
 
 §ソースコード
 本ソフトウェアはオープンソースにて開発されており、ソースコードはGitHubで2条項BSDライセンスで公開されています。
-https://github.com/armadillo-winX/ThGameMgr.Lite
+https://github.com/armadillo-winX/ThGameMgr.Ex
 
 
 §フィードバック・お問い合わせ
