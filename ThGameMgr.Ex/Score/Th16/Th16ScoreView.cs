@@ -122,11 +122,12 @@ namespace ThGameMgr.Ex.Score.Th16
 
             ScoreRecordList scoreRecordList = new()
             {
-                Score = $"{score}({season})",
+                Score = score,
                 Name = name,
                 Progress = progress,
                 SlowRate = slow,
-                Date = date
+                Date = date,
+                OtherData = $"季節: {season}"
             };
             return scoreRecordList;
         }
