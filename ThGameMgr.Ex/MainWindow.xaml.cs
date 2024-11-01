@@ -1168,5 +1168,15 @@ namespace ThGameMgr.Ex
                 "NAudio について",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void GamePlayLogMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            GamePlayLogDialog gamePlayLogDialog = new()
+            {
+                Owner = this
+            };
+
+            gamePlayLogDialog.ShowDialog();
+        }
     }
 }

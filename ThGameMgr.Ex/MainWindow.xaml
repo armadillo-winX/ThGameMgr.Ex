@@ -47,6 +47,8 @@
                         <Image Source="/Images/Settings.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="GamePlayLogMenuItem" Header="ゲーム実行履歴" Click="GamePlayLogMenuItemClick"/>
             </MenuItem>
             <MenuItem x:Name="ScoreMenu" Header="スコア(_C)">
                 <MenuItem x:Name="ReloadScoreDataMenuItem" Header="スコアデータを再読み込みする(_R)" Click="ReloadScoreDataMenuItemClick"/>
