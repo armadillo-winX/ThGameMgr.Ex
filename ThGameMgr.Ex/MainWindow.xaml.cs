@@ -453,12 +453,22 @@ namespace ThGameMgr.Ex
             Separator separator = new();
             LevelFilterButtonContextMenu.Items.Add(separator);
 
-            string[] gameLevelList = ["Easy", "Normal", "Hard", "Lunatic", "Extra", "Phantasm"];
+            string[] gameLevelList = ["Easy", "Normal", "Hard", "Lunatic", "Extra"];
             foreach (string gameLevel in gameLevelList)
             {
                 MenuItem item = new()
                 {
                     Header = gameLevel
+                };
+                item.Click += new RoutedEventHandler(LevelFilterMenuClick);
+                LevelFilterButtonContextMenu.Items.Add(item);
+            }
+
+            if (this.GameId == GameIndex.Th07)
+            {
+                MenuItem item = new()
+                {
+                    Header = "Phantasm"
                 };
                 item.Click += new RoutedEventHandler(LevelFilterMenuClick);
                 LevelFilterButtonContextMenu.Items.Add(item);
