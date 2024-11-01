@@ -112,11 +112,12 @@ namespace ThGameMgr.Ex.Score.Th15
 
             ScoreRecordList scoreRecordList = new()
             {
-                Score = $"{score}({retry})",
+                Score = score,
                 Name = name,
                 Progress = progress,
                 SlowRate = slow,
-                Date = date
+                Date = date,
+                OtherData = $"Retry: {retry}"
             };
             return scoreRecordList;
         }
