@@ -202,7 +202,7 @@ namespace ThGameMgr.Ex
                 {
                     MessageBox.Show($"設定の復元ができませんでした。\nアプリケーションを終了します。\n{ex.Message}", "エラー",
                         MessageBoxButton.OK, MessageBoxImage.Error);
-                    Environment.Exit(-1);
+                    Environment.Exit(1);
                 }
             }
             else
