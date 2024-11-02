@@ -1283,5 +1283,16 @@ namespace ThGameMgr.Ex
 
             gamePlayLogDialog.ShowDialog();
         }
+
+        private void ManageExternalToolsMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ManageExternalToolsDialog manageExternalToolsDialog = new()
+            {
+                Owner = this
+            };
+
+            manageExternalToolsDialog.ShowDialog();
+            SetExternalToolsMenu();
+        }
     }
 }
