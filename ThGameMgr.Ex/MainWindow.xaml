@@ -61,6 +61,7 @@
             <MenuItem x:Name="ToolMenu" Header="ツール(_T)">
                 <MenuItem x:Name="StartWindowResizerMenuItem" Header="ウィンドウリサイザを起動" Click="StartWindowResizerMenuItemClick"/>
             </MenuItem>
+            <MenuItem x:Name="ExternalToolsMenu" Header="外部ツール(_X)"/>
             <MenuItem x:Name="HelpMenu" Header="ヘルプ(_H)">
                 <MenuItem x:Name="VersionInfoMenuItem" Header="バージョン情報" Click="VersionInfoMenuItemClick"/>
                 <Separator/>
