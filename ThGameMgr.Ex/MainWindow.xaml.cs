@@ -576,6 +576,8 @@ namespace ThGameMgr.Ex
 
                 SetGameSelectionMenu();
 
+                SetExternalToolsMenu();
+
                 CurrentUserStatusBarItem.Content = User.CurrentUserName;
             }
             else
@@ -638,6 +640,7 @@ namespace ThGameMgr.Ex
             SetPlayersFilterMenu();
             SetEnemiesFilterMenu();
             SetLevelFilterMenu();
+            SetExternalToolsMenu();
 
             AutoStartWindowResizerCheckBox.IsChecked = GameSpecificConfig.GetAutoResizerConfig(this.GameId);
             CurrentUserStatusBarItem.Content = User.CurrentUserName;
