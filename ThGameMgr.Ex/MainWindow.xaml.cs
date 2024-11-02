@@ -18,6 +18,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using System.Xml;
 
 namespace ThGameMgr.Ex
 {
@@ -480,6 +481,78 @@ namespace ThGameMgr.Ex
             string level = ((MenuItem)sender).Header.ToString();
             this.FilterLevel = level;
             ApplyScoreViewFilter();
+        }
+
+        private void SetExternalToolsMenu()
+        {
+            ExternalToolsMenu.Items.Clear();
+
+            string exToolsConfig = $"{User.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
+            if (File.Exists(exToolsConfig))
+            {
+                try
+                {
+                    XmlDocument exToolsConfigXml = new();
+                    exToolsConfigXml.Load(exToolsConfig);
+                    XmlNodeList exToolsNodeList = exToolsConfigXml.SelectNodes("ExternalTools/ExternalTool");
+                    if (exToolsNodeList.Count > 0)
+                    {
+                        foreach (XmlNode toolNode in exToolsNodeList)
+                        {
+                            string toolName = toolNode.SelectSingleNode("Name").InnerText;
+
+                            MenuItem item = new()
+                            {
+                                Header = toolName
+                            };
+                            item.Click += new RoutedEventHandler(StartExternalToolMenuItem);
+                            ExternalToolsMenu.Items.Add(item);
+                        }
+                    }
+                    else
+                    {
+                        MenuItem item = new()
+                        {
+                            Header = "(なし)",
+                            IsEnabled = false
+                        };
+                        ExternalToolsMenu.Items.Add(item);
+                    }
+                }
+                catch (Exception)
+                {
+                    MenuItem item = new()
+                    {
+                        Header = "(なし)",
+                        IsEnabled = false
+                    };
+                    ExternalToolsMenu.Items.Add(item);
+                }
+            }
+            else
+            {
+                MenuItem item = new()
+                {
+                    Header = "(なし)",
+                    IsEnabled = false
+                };
+                ExternalToolsMenu.Items.Add(item);
+            }
+        }
+
+        private void StartExternalToolMenuItem(object sender, RoutedEventArgs e)
+        {
+            //MenuItemのHeaderプロパティを取得
+            string name = ((MenuItem)sender).Header.ToString();
+            try
+            {
+                ExternalTool.StartExternalToolProcess(name);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         /// <summary>
