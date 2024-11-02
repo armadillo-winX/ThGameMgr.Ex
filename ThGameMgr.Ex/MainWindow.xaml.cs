@@ -677,6 +677,7 @@ namespace ThGameMgr.Ex
             StartGameWithThpracMenuItem.IsEnabled = !enabled;
             StartCustomMenuItem.IsEnabled = !enabled;
             GamePathSettingsMenuItem.IsEnabled = !enabled;
+            GamePlayLogMenuItem.IsEnabled = !enabled;
             ReloadScoreDataMenuItem.IsEnabled = !enabled;
             DisplayUnchallengedCardMenuItem.IsEnabled = !enabled;
             StartWindowResizerMenuItem.IsEnabled = enabled;
