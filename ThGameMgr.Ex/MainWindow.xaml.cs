@@ -140,7 +140,7 @@ namespace ThGameMgr.Ex
             {
                 _filterEnemy = value;
                 FilterEnemyNameBlock.Text =
-                    value == "ALL" ? "全ボス機体" : value;
+                    value == "ALL" ? "全敵機体" : value;
 
                 if (!string.IsNullOrEmpty(this.GameId))
                 {
