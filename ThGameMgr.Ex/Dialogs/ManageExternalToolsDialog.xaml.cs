@@ -94,6 +94,11 @@ namespace ThGameMgr.Ex.Dialogs
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+            else
+            {
+                MessageBox.Show(this, "削除する外部ツールを選択してください。", "外部ツールの管理",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
     }
 }
