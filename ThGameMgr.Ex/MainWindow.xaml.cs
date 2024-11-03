@@ -523,7 +523,7 @@ namespace ThGameMgr.Ex
                 {
                     MenuItem item = new()
                     {
-                        Header = "(なし)",
+                        Header = "外部ツール読み込みに失敗",
                         IsEnabled = false
                     };
                     ExternalToolsMenu.Items.Add(item);
