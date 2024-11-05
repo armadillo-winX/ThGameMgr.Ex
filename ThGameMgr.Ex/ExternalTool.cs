@@ -12,9 +12,9 @@ namespace ThGameMgr.Ex
 
         public bool AsAdmin { get; set; }
 
-        public static void StartExternalToolProcess(string toolName)
+        public static void Start(string toolName)
         {
-            ExternalTool externalTool = GetExternalTool(toolName);
+            ExternalTool externalTool = GetToolInfo(toolName);
 
             ProcessStartInfo toolStartInfo = new()
             {
@@ -46,7 +46,7 @@ namespace ThGameMgr.Ex
             exToolsConfigXml.Save(exToolsConfig);
         }
 
-        public static bool AddExternalTool(string toolName, string toolPath, string toolOption, bool asAdmin)
+        public static bool Add(string toolName, string toolPath, string toolOption, bool asAdmin)
         {
             string exToolsConfig = $"{User.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
 
@@ -93,7 +93,7 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public static void DeleteExternalTool(string toolName)
+        public static void Delete(string toolName)
         {
             string exToolsConfig = $"{User.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
 
@@ -109,7 +109,7 @@ namespace ThGameMgr.Ex
             exToolsConfigXml.Save(exToolsConfig);
         }
 
-        public static ExternalTool GetExternalTool(string toolName)
+        public static ExternalTool GetToolInfo(string toolName)
         {
             string exToolsConfig = $"{User.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
 

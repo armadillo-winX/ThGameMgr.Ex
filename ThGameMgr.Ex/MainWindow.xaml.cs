@@ -546,7 +546,7 @@ namespace ThGameMgr.Ex
             string name = ((MenuItem)sender).Header.ToString();
             try
             {
-                ExternalTool.StartExternalToolProcess(name);
+                ExternalTool.Start(name);
             }
             catch (Exception ex)
             {

@@ -43,7 +43,7 @@ namespace ThGameMgr.Ex.Dialogs
                 bool asAdmin = AsAdminCheckBox.IsChecked == true;
                 if (toolName.Length > 0 && toolPath.Length > 0)
                 {
-                    bool result = ExternalTool.AddExternalTool(toolName, toolPath, option, asAdmin);
+                    bool result = ExternalTool.Add(toolName, toolPath, option, asAdmin);
                     if (result)
                     {
                         this.DialogResult = true;

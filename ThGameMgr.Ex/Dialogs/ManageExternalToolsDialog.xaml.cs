@@ -85,7 +85,7 @@ namespace ThGameMgr.Ex.Dialogs
                 try
                 {
                     string toolName = ExternalToolsListBox.SelectedItem.ToString();
-                    ExternalTool.DeleteExternalTool(toolName);
+                    ExternalTool.Delete(toolName);
                     GetExternalTools();
                 }
                 catch (Exception ex)
