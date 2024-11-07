@@ -1354,5 +1354,19 @@ namespace ThGameMgr.Ex
             manageExternalToolsDialog.ShowDialog();
             SetExternalToolsMenu();
         }
+
+        private void OpenGameDirectoryMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            string gameId = this.GameId;
+            try
+            {
+                GameProcessHandler.OpenGameDirectory(gameId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

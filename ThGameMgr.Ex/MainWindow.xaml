@@ -42,6 +42,9 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <Separator/>
+                <MenuItem x:Name="OpenGameDirectoryMenuItem"
+                          Header="ゲームのインストールフォルダを開く" Click="OpenGameDirectoryMenuItemClick"/>
+                <Separator/>
                 <MenuItem x:Name="GamePathSettingsMenuItem" Header="ゲームのパスを設定する" Click="GamePathSettingsMenuItemClick">
                     <MenuItem.Icon>
                         <Image Source="/Images/Settings.png"/>
