@@ -1385,6 +1385,11 @@ namespace ThGameMgr.Ex
 
                 textViewer.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show(this, "log.txt(東方動作記録)が存在しません。", VersionInfo.AppName,
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void OpenScoreDirectoryMenuItemClick(object sender, RoutedEventArgs e)
