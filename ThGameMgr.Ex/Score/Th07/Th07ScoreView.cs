@@ -144,25 +144,25 @@ namespace ThGameMgr.Ex.Score.Th07
             byte[] SIZE_DATA = data[4..6];
             byte[] CARD_ID_DATA = data[40..42];
             byte[] CARD_NAME_DATA = data[42..90];
-            byte[] RA_CHALLANGE_DATA = data[91..93];
-            byte[] RB_CHALANGE_DATA = data[93..95];
-            byte[] MA_CHALLANGE_DATA = data[95..97];
-            byte[] MB_CHALLANGE_DATA = data[97..99];
-            byte[] SA_CHALLANGE_DATA = data[99..101];
-            byte[] SB_CHALLANGE_DATA = data[101..103];
-            byte[] ALL_CHALLANGE_DATA = data[103..105];
-            byte[] RA_GET_DATA = data[105..107];
-            byte[] RB_GET_DATA = data[107..109];
-            byte[] MA_GET_DATA = data[109..111];
-            byte[] MB_GET_DATA = data[111..113];
-            byte[] SA_GET_DATA = data[113..115];
-            byte[] SB_GET_DATA = data[115..117];
-            byte[] ALL_GET_DATA = data[117..119];
+            byte[] RA_CHALLANGE_DATA = data[92..94];
+            byte[] RB_CHALANGE_DATA = data[94..96];
+            byte[] MA_CHALLANGE_DATA = data[96..98];
+            byte[] MB_CHALLANGE_DATA = data[98..100];
+            byte[] SA_CHALLANGE_DATA = data[100..102];
+            byte[] SB_CHALLANGE_DATA = data[102..104];
+            byte[] ALL_CHALLANGE_DATA = data[104..106];
+            byte[] RA_GET_DATA = data[106..108];
+            byte[] RB_GET_DATA = data[108..110];
+            byte[] MA_GET_DATA = data[110..112];
+            byte[] MB_GET_DATA = data[112..114];
+            byte[] SA_GET_DATA = data[114..116];
+            byte[] SB_GET_DATA = data[116..118];
+            byte[] ALL_GET_DATA = data[118..120];
 
             int cardId = BitConverter.ToInt16(CARD_ID_DATA, 0) + 1;
 
-            int allChangeCount = Convert.ToInt32(BitConverter.ToString(ALL_CHALLANGE_DATA, 0).Replace("-", ""), 16);
-            int allGetCount = Convert.ToInt32(BitConverter.ToString(ALL_GET_DATA, 0).Replace("-", ""), 16);
+            int allChangeCount = BitConverter.ToInt16(ALL_CHALLANGE_DATA, 0);
+            int allGetCount = BitConverter.ToInt16(ALL_GET_DATA, 0);
 
             SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th07, cardId);
             string cardName
