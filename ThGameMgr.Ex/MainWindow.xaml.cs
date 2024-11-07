@@ -1372,14 +1372,18 @@ namespace ThGameMgr.Ex
         private void OpenLogMenuItemClick(object sender, RoutedEventArgs e)
         {
             string gameId = this.GameId;
-            try
+            string logFile = GameFile.GetGameLogFile(gameId);
+            if (!string.IsNullOrEmpty(logFile) && File.Exists(logFile))
             {
-                GameFile.OpenGameLog(gameId);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(this, ex.Message, "エラー",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
+                TextViewer textViewer = new()
+                {
+                    Title = "東方動作記録",
+                    FilePath = logFile,
+                    Encode = "shift_jis",
+                    Owner = this
+                };
+
+                textViewer.ShowDialog();
             }
         }
     }
