@@ -29,6 +29,10 @@ namespace ThGameMgr.Ex.Game
         [return: MarshalAs(UnmanagedType.Bool)]
         private static partial bool SetForegroundWindow(IntPtr hWnd);
 
+        [LibraryImport("user32.dll", SetLastError =true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static partial bool IsWindow(IntPtr hWnd);
+
         public static IntPtr GetGameWindow(Process? gameProcess)
         {
             if (gameProcess != null)
