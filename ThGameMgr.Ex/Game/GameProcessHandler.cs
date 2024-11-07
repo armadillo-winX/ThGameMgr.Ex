@@ -104,5 +104,15 @@ namespace ThGameMgr.Ex.Game
                 throw new FileNotFoundException("ゲーム実行ファイルが見つかりませんでした。");
             }
         }
+
+        public static void OpenGameDirectory(string gameId)
+        {
+            string? gamePath = GameFile.GetGameFilePath(gameId);
+            string gameDirectory = Path.GetDirectoryName(gamePath);
+            if (Directory.Exists(gameDirectory))
+            {
+                Process.Start("explorer.exe", gameDirectory);
+            }
+        }
     }
 }
