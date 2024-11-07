@@ -1368,5 +1368,19 @@ namespace ThGameMgr.Ex
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void OpenLogMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            string gameId = this.GameId;
+            try
+            {
+                GameProcessHandler.OpenGameLog(gameId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

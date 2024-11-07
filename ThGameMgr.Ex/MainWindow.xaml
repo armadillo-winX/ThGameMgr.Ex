@@ -44,6 +44,8 @@
                 <Separator/>
                 <MenuItem x:Name="OpenGameDirectoryMenuItem"
                           Header="ゲームのインストールフォルダを開く" Click="OpenGameDirectoryMenuItemClick"/>
+                <MenuItem x:Name="OpenLogMenuItem"
+                          Header="log.txt(東方動作記録)を開く" Click="OpenLogMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="GamePathSettingsMenuItem" Header="ゲームのパスを設定する" Click="GamePathSettingsMenuItemClick">
                     <MenuItem.Icon>
