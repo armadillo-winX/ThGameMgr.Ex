@@ -114,5 +114,16 @@ namespace ThGameMgr.Ex.Game
                 Process.Start("explorer.exe", gameDirectory);
             }
         }
+
+        public static void OpenGameLog(string gameId)
+        {
+            string? scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
+            string scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
+            string logFile = $"{scoreFileDirectory}\\log.txt";
+            if (File.Exists(logFile))
+            {
+                Process.Start("notepad.exe", logFile);
+            }
+        }
     }
 }
