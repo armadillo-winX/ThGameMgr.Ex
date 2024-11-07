@@ -54,7 +54,14 @@ namespace ThGameMgr.Ex
                 ResizerFrameWindowSettings resizerFrameWindowSettings
                     = SettingsConfigurator.ConfigureResizerFrameWindowSettings();
                 AutoCloseMenuItem.IsChecked = resizerFrameWindowSettings.AutoClose;
-                FixAspectRateCheckBox.IsChecked = resizerFrameWindowSettings.FixAspectRate;
+                if (resizerFrameWindowSettings.FixAspectRate)
+                {
+                    FixAspectRateCheckBox.IsChecked = true;
+                }
+                else
+                {
+                    FixAspectRateCheckBox.IsChecked = false;
+                }
             }
             catch (Exception ex)
             {
