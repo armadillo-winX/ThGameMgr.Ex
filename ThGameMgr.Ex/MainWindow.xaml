@@ -44,6 +44,8 @@
                 <Separator/>
                 <MenuItem x:Name="OpenGameDirectoryMenuItem"
                           Header="ゲームのインストールフォルダを開く" Click="OpenGameDirectoryMenuItemClick"/>
+                <MenuItem x:Name="OpenScoreDirectoryMenuItem"
+                          Header="セーブデータフォルダを開く" Click="OpenScoreDirectoryMenuItemClick"/>
                 <MenuItem x:Name="OpenLogMenuItem"
                           Header="log.txt(東方動作記録)を開く" Click="OpenLogMenuItemClick"/>
                 <Separator/>

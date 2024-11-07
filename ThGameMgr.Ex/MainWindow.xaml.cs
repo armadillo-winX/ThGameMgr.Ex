@@ -1386,5 +1386,19 @@ namespace ThGameMgr.Ex
                 textViewer.ShowDialog();
             }
         }
+
+        private void OpenScoreDirectoryMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            string gameId = this.GameId;
+            try
+            {
+                GameFile.OpenScoreDirectory(gameId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
