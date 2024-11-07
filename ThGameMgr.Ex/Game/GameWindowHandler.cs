@@ -45,6 +45,11 @@ namespace ThGameMgr.Ex.Game
             }
         }
 
+        public static bool GameWindowExists(IntPtr gameWindow)
+        {
+            return IsWindow(gameWindow);
+        }
+
         public static GameWindowSizes GetWindowSizes(IntPtr gameWindow)
         {
             //ウィンドウサイズの取得
