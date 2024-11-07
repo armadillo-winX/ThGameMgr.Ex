@@ -1360,7 +1360,7 @@ namespace ThGameMgr.Ex
             string gameId = this.GameId;
             try
             {
-                GameProcessHandler.OpenGameDirectory(gameId);
+                GameFile.OpenGameDirectory(gameId);
             }
             catch (Exception ex)
             {
@@ -1374,7 +1374,7 @@ namespace ThGameMgr.Ex
             string gameId = this.GameId;
             try
             {
-                GameProcessHandler.OpenGameLog(gameId);
+                GameFile.OpenGameLog(gameId);
             }
             catch (Exception ex)
             {

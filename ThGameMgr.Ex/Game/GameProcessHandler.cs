@@ -104,26 +104,5 @@ namespace ThGameMgr.Ex.Game
                 throw new FileNotFoundException("ゲーム実行ファイルが見つかりませんでした。");
             }
         }
-
-        public static void OpenGameDirectory(string gameId)
-        {
-            string? gamePath = GameFile.GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gamePath);
-            if (Directory.Exists(gameDirectory))
-            {
-                Process.Start("explorer.exe", gameDirectory);
-            }
-        }
-
-        public static void OpenGameLog(string gameId)
-        {
-            string? scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
-            string scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
-            string logFile = $"{scoreFileDirectory}\\log.txt";
-            if (File.Exists(logFile))
-            {
-                Process.Start("notepad.exe", logFile);
-            }
-        }
     }
 }
