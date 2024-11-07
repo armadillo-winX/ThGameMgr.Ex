@@ -1,0 +1,15 @@
+﻿<Window x:Class="ThGameMgr.Ex.TextViewer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThGameMgr.Ex"
+        mc:Ignorable="d"
+        Title="東方管制塔テキストビューア" Height="324" Width="424" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" Loaded="WindowLoaded">
+    <Grid>
+        <TextBox
+            x:Name="MainTextBox" TextWrapping="NoWrap" IsReadOnly="True" Text=""
+            HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"/>
+
+    </Grid>
+</Window>
