@@ -84,6 +84,16 @@ namespace ThGameMgr.Ex.Game
             }
         }
 
+        public static void OpenScoreDirectory(string gameId)
+        {
+            string? scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
+            string scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
+            if (Directory.Exists(scoreFileDirectory))
+            {
+                Process.Start("explorer.exe", scoreFileDirectory);
+            }
+        }
+
         public static void OpenGameLog(string gameId)
         {
             string? scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
