@@ -58,11 +58,10 @@
                 <MenuItem x:Name="GamePlayLogMenuItem" Header="ゲーム実行履歴" Click="GamePlayLogMenuItemClick"/>
             </MenuItem>
             <MenuItem x:Name="ScoreMenu" Header="スコア(_C)">
-                <MenuItem x:Name="ReloadScoreDataMenuItem" Header="スコアデータを再読み込みする(_R)" Click="ReloadScoreDataMenuItemClick"/>
-                <Separator/>
                 <MenuItem x:Name="DisplayUnchallengedCardMenuItem" Header="未挑戦のスペルカード名を表示"
                           IsCheckable="True" Click="ShowUnchallengedCardMenuItemClick"/>
                 <Separator/>
+                <MenuItem x:Name="ReloadScoreDataMenuItem" Header="スコアデータを再読み込みする(_R)" Click="ReloadScoreDataMenuItemClick"/>
                 <MenuItem x:Name="StatisticSpellCardRecordMenuitem" Header="御札戦歴統計" Click="StatisticSpellCardRecordMenuItemClick"/>
             </MenuItem>
             <MenuItem x:Name="ToolMenu" Header="ツール(_T)">
