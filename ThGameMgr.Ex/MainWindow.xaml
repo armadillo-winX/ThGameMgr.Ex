@@ -65,8 +65,6 @@
                 <Separator/>
                 <MenuItem x:Name="StatisticSpellCardRecordMenuitem" Header="御札戦歴統計" Click="StatisticSpellCardRecordMenuItemClick"/>
             </MenuItem>
-            <MenuItem x:Name="OptionMenu" Header="オプション(_O)">
-            </MenuItem>
             <MenuItem x:Name="ToolMenu" Header="ツール(_T)">
                 <MenuItem x:Name="StartWindowResizerMenuItem" Header="ウィンドウリサイザを起動" Click="StartWindowResizerMenuItemClick"/>
                 <Separator/>
