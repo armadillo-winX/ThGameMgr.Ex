@@ -151,8 +151,8 @@ namespace ThGameMgr.Ex.Score.Th08
 
             int cardId = BitConverter.ToInt16(CARD_ID_DATA, 0) + 1;
 
-            int allChangeCount = Convert.ToInt32(BitConverter.ToString(ALL_CHALLANGE_DATA, 0).Replace("-", ""), 16);
-            int allGetCount = Convert.ToInt32(BitConverter.ToString(ALL_GET_DATA, 0).Replace("-", ""), 16);
+            int allChangeCount = BitConverter.ToInt32(ALL_CHALLANGE_DATA);
+            int allGetCount = BitConverter.ToInt32(ALL_GET_DATA);
 
             SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th08, cardId);
             string cardName
