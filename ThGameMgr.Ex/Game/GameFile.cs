@@ -94,5 +94,21 @@ namespace ThGameMgr.Ex.Game
                 Process.Start("notepad.exe", logFile);
             }
         }
+
+        public static string GetGameLogFile(string gameId)
+        {
+            string? scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
+            if (!string.IsNullOrEmpty(scoreFilePath))
+            {
+                string scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
+                string logFile = $"{scoreFileDirectory}\\log.txt";
+
+                return logFile;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
     }
 }
