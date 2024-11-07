@@ -31,10 +31,17 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        GameWindowPosition gameWindowPosition = GameWindowHandler.GetWindowPosition(value);
+                        if (GameWindowHandler.GameWindowExists(value))
+                        {
+                            GameWindowPosition gameWindowPosition = GameWindowHandler.GetWindowPosition(value);
 
-                        this.Left = gameWindowPosition.X - 18;
-                        this.Top = gameWindowPosition.Y - 18;
+                            this.Left = gameWindowPosition.X - 18;
+                            this.Top = gameWindowPosition.Y - 18;
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
                     }
                     catch (Exception)
                     {
