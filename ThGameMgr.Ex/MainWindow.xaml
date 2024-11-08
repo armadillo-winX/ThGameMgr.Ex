@@ -64,7 +64,9 @@
                 <MenuItem x:Name="ReloadScoreDataMenuItem" Header="スコアデータを再読み込みする(_R)" Click="ReloadScoreDataMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="ScoreFileBackupMenuItem" Header="スコアファイルのバックアップ">
-                    <MenuItem x:Name="CreateScoreBackupSelectedGameMenuItem" Header="バックアップの作成(選択中のゲーム)" Click="CreateScoreBackupSelectedGameMenuItemClick"/>
+                    <MenuItem x:Name="CreateScoreBackupSelectedGameMenuItem" Header="バックアップの作成(選択中のゲーム)"
+                              Click="CreateScoreBackupSelectedGameMenuItemClick"/>
+                    <MenuItem x:Name="RestoreScoreFileMenuItem" Header="バックアップから復元する" Click="RestoreScoreFileMenuItemClick" />
                 </MenuItem>
                 <MenuItem x:Name="StatisticSpellCardRecordMenuitem" Header="御札戦歴統計" Click="StatisticSpellCardRecordMenuItemClick"/>
             </MenuItem>

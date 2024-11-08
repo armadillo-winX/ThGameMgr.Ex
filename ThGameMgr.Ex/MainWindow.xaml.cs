@@ -1428,5 +1428,16 @@ namespace ThGameMgr.Ex
                 }
             }
         }
+
+        private void RestoreScoreFileMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ManageScoreBackupDialog manageScoreBackupDialog = new()
+            {
+                Owner = this
+            };
+            manageScoreBackupDialog.ShowDialog();
+
+            GetScoreData();
+        }
     }
 }
