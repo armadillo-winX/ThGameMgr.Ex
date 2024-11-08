@@ -23,7 +23,9 @@ namespace ThGameMgr.Ex.Dialogs
                 foreach (string backupDirectory in backupDirectories)
                 {
                     string directoryName = Path.GetFileName(backupDirectory);
-                    BackupGameListBox.Items.Add(GameIndex.GetGameName(directoryName));
+                    string gameName = GameIndex.GetGameName(directoryName);
+                    if (gameName != string.Empty)
+                        BackupGameListBox.Items.Add(gameName);
                 }
             }
         }
