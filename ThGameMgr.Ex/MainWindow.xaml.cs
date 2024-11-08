@@ -1405,5 +1405,23 @@ namespace ThGameMgr.Ex
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void CreateScoreBackupSelectedGameMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            string? gameId = this.GameId;
+            if (!string.IsNullOrEmpty(gameId))
+            {
+                try
+                {
+                    ScoreBackup.Create(gameId);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this,
+                        $"バックアップの作成に失敗しました。\n{gameId}: {GameIndex.GetGameName(gameId)}\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
     }
 }

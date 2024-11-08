@@ -62,6 +62,10 @@
                           IsCheckable="True" Click="ShowUnchallengedCardMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="ReloadScoreDataMenuItem" Header="スコアデータを再読み込みする(_R)" Click="ReloadScoreDataMenuItemClick"/>
+                <Separator/>
+                <MenuItem x:Name="ScoreFileBackupMenuItem" Header="スコアファイルのバックアップ">
+                    <MenuItem x:Name="CreateScoreBackupSelectedGameMenuItem" Header="バックアップの作成(選択中のゲーム)" Click="CreateScoreBackupSelectedGameMenuItemClick"/>
+                </MenuItem>
                 <MenuItem x:Name="StatisticSpellCardRecordMenuitem" Header="御札戦歴統計" Click="StatisticSpellCardRecordMenuItemClick"/>
             </MenuItem>
             <MenuItem x:Name="ToolMenu" Header="ツール(_T)">
