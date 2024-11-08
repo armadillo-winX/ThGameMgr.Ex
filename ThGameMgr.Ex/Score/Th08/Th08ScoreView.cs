@@ -19,14 +19,14 @@ namespace ThGameMgr.Ex.Score.Th08
         private static readonly Dictionary<string, string> _progressDictionary =
             new()
             {
-                { "01", "Stage1" },
-                { "02", "Stage2" },
-                { "03", "Stage3" },
-                { "04", "Stage4" },
-                { "05", "Stage5" },
-                { "06", "Stage6(Eirin)" },
-                { "07", "Stage6(Kaguya)" },
-                { "08", "Extra" },
+                { "00", "Stage1" },
+                { "01", "Stage2" },
+                { "02", "Stage3" },
+                { "03", "Stage4" },
+                { "04", "Stage5" },
+                { "05", "Stage6(Eirin)" },
+                { "06", "Stage6(Kaguya)" },
+                { "07", "Extra" },
                 { "63", "All Clear" }
             };
 
