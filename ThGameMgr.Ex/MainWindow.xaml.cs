@@ -680,6 +680,9 @@ namespace ThGameMgr.Ex
             GamePlayLogMenuItem.IsEnabled = !enabled;
             ReloadScoreDataMenuItem.IsEnabled = !enabled;
             DisplayUnchallengedCardMenuItem.IsEnabled = !enabled;
+            CreateScoreBackupSelectedGameMenuItem.IsEnabled = !enabled;
+            RestoreScoreFileMenuItem.IsEnabled = !enabled;
+            StatisticSpellCardRecordMenuitem.IsEnabled = !enabled;
             StartWindowResizerMenuItem.IsEnabled = enabled;
 
             GameSelectionButton.IsEnabled = !enabled;
@@ -708,6 +711,9 @@ namespace ThGameMgr.Ex
             GamePathSettingsMenuItem.IsEnabled = !enabled;
             ReloadScoreDataMenuItem.IsEnabled = !enabled;
             DisplayUnchallengedCardMenuItem.IsEnabled = !enabled;
+            CreateScoreBackupSelectedGameMenuItem.IsEnabled = !enabled;
+            RestoreScoreFileMenuItem.IsEnabled = !enabled;
+            StatisticSpellCardRecordMenuitem.IsEnabled = !enabled;
 
             GameSelectionButton.IsEnabled = !enabled;
             StartGameButton.IsEnabled = !enabled;
