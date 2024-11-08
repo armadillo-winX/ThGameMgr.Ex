@@ -15,7 +15,7 @@
             Content="復元(_R)" HorizontalAlignment="Right" Margin="0,0,105,10" VerticalAlignment="Bottom" Click="RestoreButtonClick"/>
         <Button x:Name="DeleteButton"
                 Width="90" Height="24"
-                Content="削除(_D)" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"/>
+                Content="削除(_D)" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="DeleteButtonClick"/>
 
     </Grid>
 </Window>

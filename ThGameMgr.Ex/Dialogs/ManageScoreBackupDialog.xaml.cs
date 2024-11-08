@@ -100,5 +100,38 @@ namespace ThGameMgr.Ex.Dialogs
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (BackupListBox.SelectedIndex > -1)
+            {
+                try
+                {
+                    string selectedGameName = BackupGameListBox.SelectedItem as string;
+                    string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
+                    string backupFile = BackupListBox.SelectedItem as string;
+
+                    MessageBoxResult result = MessageBox.Show(
+                        this, $"'{backupFile}' を削除してもよろしいですか。", "スコアバックアップの削除",
+                        MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        ScoreBackup.Delete(gameId, backupFile);
+                        BackupListBox.Items.Remove(backupFile);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"バックアップの削除に失敗しました。\n{ex.Message}", 
+                        "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(this, "削除するバックアップを選択してください。", "スコアバックアップの削除",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
     }
 }
