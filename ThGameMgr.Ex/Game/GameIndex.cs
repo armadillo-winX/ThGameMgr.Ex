@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ThGameMgr.Ex.Game
 {
@@ -52,6 +53,18 @@ namespace ThGameMgr.Ex.Game
             if (_gameNameDictionary.TryGetValue(gameId, out var gameName))
             {
                 return gameName;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
+        public static string? GetGameIdFromGameName(string gameName)
+        {
+            if (!string.IsNullOrEmpty(gameName))
+            {
+                return _gameNameDictionary.FirstOrDefault(x => x.Value.Equals(gameName)).Key;
             }
             else
             {
