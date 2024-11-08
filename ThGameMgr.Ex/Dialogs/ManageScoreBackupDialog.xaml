@@ -1,0 +1,21 @@
+﻿<Window x:Class="ThGameMgr.Ex.Dialogs.ManageScoreBackupDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
+        mc:Ignorable="d"
+        Title="スコアファイルのバックアップ" Height="322" Width="475" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <ListBox x:Name="BackupGameListBox" Margin="10,10,0,10" HorizontalAlignment="Left" Width="125" SelectionChanged="BackupGameListBoxSelectionChanged"/>
+        <Label Content="バックアップ:" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top"/>
+        <ListBox x:Name="BackupListBox" Margin="140,41,10,39"/>
+        <Button x:Name="RestoreButton"
+            Width="90" Height="24"
+            Content="復元(_R)" HorizontalAlignment="Right" Margin="0,0,105,10" VerticalAlignment="Bottom"/>
+        <Button x:Name="DeleteButton"
+                Width="90" Height="24"
+                Content="削除(_D)" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Window>
