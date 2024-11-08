@@ -849,6 +849,19 @@ namespace ThGameMgr.Ex
             }
             _resizerFrameWindow = null;
 
+            if (AutoBackupMenuItem.IsChecked)
+            {
+                try
+                {
+                    ScoreBackup.Create(this.GameId);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"スコアファイルのバックアップの作成に失敗しました。\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+
             EnableGameEndWaitingLimitationMode(false);
             
             GetScoreData();
