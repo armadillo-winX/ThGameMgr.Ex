@@ -35,7 +35,7 @@
 
         public static string[] GetScoreBackupFiles(string gameId)
         {
-            string backupDirectory = $"{User.CurrentUserDirectoryPath} \\backup\\{gameId}";
+            string backupDirectory = $"{User.CurrentUserDirectoryPath}\\backup\\{gameId}";
             string[] scoreBackupFiles = Directory.GetFiles(backupDirectory, "*.bak", SearchOption.TopDirectoryOnly);
 
             return scoreBackupFiles;
@@ -43,7 +43,7 @@
 
         public static void Delete(string gameId, string backupFileName)
         {
-            string backupFilePath = $"{User.CurrentUserDirectoryPath} \\backup\\{gameId}\\{backupFileName}";
+            string backupFilePath = $"{User.CurrentUserDirectoryPath}\\backup\\{gameId}\\{backupFileName}";
             File.Delete(backupFilePath);
         }
     }
