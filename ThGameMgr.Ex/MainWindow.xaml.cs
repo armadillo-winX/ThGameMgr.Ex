@@ -635,6 +635,7 @@ namespace ThGameMgr.Ex
             this.Height = mainWindowSettings.MainWindowHeight;
             this.GameId = mainWindowSettings.SelectedGameId;
             DisplayUnchallengedCardMenuItem.IsChecked = mainWindowSettings.DisplayUnchallengedCard;
+            AutoBackupMenuItem.IsChecked = mainWindowSettings.AutoBackup;
 
             SetGameSelectionMenu();
             SetPlayersFilterMenu();
@@ -658,7 +659,8 @@ namespace ThGameMgr.Ex
                 MainWindowWidth = this.Width,
                 MainWindowHeight = this.Height,
                 SelectedGameId = this.GameId,
-                DisplayUnchallengedCard = DisplayUnchallengedCardMenuItem.IsChecked
+                DisplayUnchallengedCard = DisplayUnchallengedCardMenuItem.IsChecked,
+                AutoBackup = AutoBackupMenuItem.IsChecked
             };
 
             SettingsConfigurator.SaveMainWindowSettings(mainWindowSettings);

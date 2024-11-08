@@ -68,6 +68,7 @@
                               Click="CreateScoreBackupSelectedGameMenuItemClick"/>
                     <MenuItem x:Name="RestoreScoreFileMenuItem" Header="バックアップから復元する" Click="RestoreScoreFileMenuItemClick" />
                 </MenuItem>
+                <MenuItem x:Name="AutoBackupMenuItem" IsCheckable="True" Header="スコアファイルの自動バックアップ"/>
                 <MenuItem x:Name="StatisticSpellCardRecordMenuitem" Header="御札戦歴統計" Click="StatisticSpellCardRecordMenuItemClick"/>
             </MenuItem>
             <MenuItem x:Name="ToolMenu" Header="ツール(_T)">
