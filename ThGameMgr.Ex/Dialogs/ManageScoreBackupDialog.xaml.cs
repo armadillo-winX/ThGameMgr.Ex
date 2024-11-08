@@ -42,17 +42,11 @@ namespace ThGameMgr.Ex.Dialogs
                     string[] backupFiles = ScoreBackup.GetScoreBackupFiles(gameId);
                     if (backupFiles.Length > 0)
                     {
-                        int i = backupFiles.Length - 1;
-                        while (true)
+                        for (int i = backupFiles.Length - 1; i >= 0; i--)
                         {
                             string backupFile = backupFiles[i];
                             string backupFileName = Path.GetFileName(backupFile);
                             BackupListBox.Items.Add(backupFileName);
-
-                            if (i == 0)
-                                break;
-
-                            i--;
                         }
                     }
                 }
