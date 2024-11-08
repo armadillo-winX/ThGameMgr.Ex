@@ -1413,7 +1413,12 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    ScoreBackup.Create(gameId);
+                    bool result = ScoreBackup.Create(gameId);
+                    if (result)
+                    {
+                        MessageBox.Show(this, "スコアファイルのバックアップを作成しました。", "スコアファイルのバックアップ",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
                 catch (Exception ex)
                 {
