@@ -63,5 +63,42 @@ namespace ThGameMgr.Ex.Dialogs
                 }
             }
         }
+
+        private void RestoreButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (BackupListBox.SelectedIndex > -1)
+            {
+                try
+                {
+                    string selectedGameName = BackupGameListBox.SelectedItem as string;
+                    string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
+                    string backupFile = BackupListBox.SelectedItem as string;
+
+                    MessageBoxResult result = MessageBox.Show(
+                        this,
+                        $"'{GameIndex.GetGameName(gameId)}' のスコアファイルを、バックアップ '{backupFile}' から復元します。よろしいですか。",
+                        "スコアファイルの復元",
+                        MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        ScoreBackup.Restore(gameId, backupFile);
+
+                        MessageBox.Show(this, "復元しました。", "スコアファイルの復元",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"スコアファイルの復元に失敗しました。\n{ex.Message}",
+                        "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(this, "復元する元のバックアップを選択してください。", "スコアファイルの復元",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
     }
 }
