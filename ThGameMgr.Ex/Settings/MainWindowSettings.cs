@@ -9,5 +9,7 @@
         public string? SelectedGameId { get; set; }
 
         public bool DisplayUnchallengedCard { get; set; }
+
+        public bool AutoBackup { get; set; }
     }
 }
