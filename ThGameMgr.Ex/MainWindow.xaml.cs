@@ -1472,5 +1472,24 @@ namespace ThGameMgr.Ex
 
             GetScoreData();
         }
+
+        private void FeedbackMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo processStartInfo = new()
+            {
+                FileName = "https://forms.gle/WBabN5bJJqvNdkhu5",
+                UseShellExecute = true
+            };
+
+            try
+            {
+                Process.Start(processStartInfo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }

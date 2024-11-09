@@ -79,6 +79,7 @@
             <MenuItem x:Name="ExternalToolsMenu" Header="外部ツール(_X)"/>
             <MenuItem x:Name="HelpMenu" Header="ヘルプ(_H)">
                 <MenuItem x:Name="VersionInfoMenuItem" Header="バージョン情報" Click="VersionInfoMenuItemClick"/>
+                <MenuItem x:Name="FeedbackMenuItem" Header="フィードバックの送信" Click="FeedbackMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="AboutNAudioMenuItem" Header="NAudio について" Click="AboutNAudioMenuItemClick"/>
             </MenuItem>
