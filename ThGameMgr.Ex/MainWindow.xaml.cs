@@ -19,6 +19,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml;
+using UsersSelectionValidity = ThGameMgr.Ex.User.UsersSelectionValidity;
 
 namespace ThGameMgr.Ex
 {
@@ -191,7 +192,9 @@ namespace ThGameMgr.Ex
                 }
             }
 
-            if (File.Exists(PathInfo.UsersIndexFile))
+            UsersSelectionValidity usersSelectionValidity = User.GetUsersSelectionValidity();
+
+            if (usersSelectionValidity == UsersSelectionValidity.Valid)
             {
                 try
                 {
@@ -206,10 +209,16 @@ namespace ThGameMgr.Ex
                     Environment.Exit(1);
                 }
             }
-            else
+            else if (usersSelectionValidity == UsersSelectionValidity.Invalid)
             {
                 //初回起動時の挙動
                 InitializeAppSetup();
+            }
+            else
+            {
+                MessageBox.Show("ユーザー選択の有効性検証に失敗しました。\nアプリケーションを終了します。", "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+                Environment.Exit(1);
             }
         }
 
