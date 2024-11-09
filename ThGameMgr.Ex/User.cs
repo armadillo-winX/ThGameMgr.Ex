@@ -11,6 +11,13 @@ namespace ThGameMgr.Ex
 
         public static string? CurrentUserDirectoryPath { get; set; }
 
+        public enum UsersSelectionValidity
+        {
+            Invalid,
+            Valid,
+            Failed
+        }
+
         public static void Add(string userName)
         {
             if (!Directory.Exists(_usersDirectory))
@@ -189,6 +196,26 @@ namespace ThGameMgr.Ex
             else
             {
                 return null;
+            }
+        }
+
+        public static UsersSelectionValidity GetUsersSelectionValidity()
+        {
+            try
+            {
+                List<string>? usersList = GetUsersList();
+                if (usersList != null && usersList.Count > 0)
+                {
+                    return UsersSelectionValidity.Valid;
+                }
+                else
+                {
+                    return UsersSelectionValidity.Invalid;
+                }
+            }
+            catch (Exception)
+            {
+                return UsersSelectionValidity.Failed;
             }
         }
     }
