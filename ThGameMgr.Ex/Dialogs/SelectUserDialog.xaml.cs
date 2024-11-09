@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Collections.Generic;
+using System.Windows.Controls;
 using System.Xml;
 
 namespace ThGameMgr.Ex.Dialogs
@@ -18,15 +19,11 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 try
                 {
-                    XmlDocument usersIndexDocument = new();
-                    usersIndexDocument.Load(usersIndexFile);
-                    XmlNodeList userNodeList = usersIndexDocument.SelectNodes("UsersIndex/User");
-                    if (userNodeList.Count > 0)
+                    List<string>? usersList = User.GetUsersList();
+                    if (usersList != null && usersList.Count > 0)
                     {
-                        foreach (XmlNode userNode in userNodeList)
+                        foreach (string userName in usersList)
                         {
-                            string userName = userNode.SelectSingleNode("Name").InnerText;
-                            
                             ListBoxItem userItem = new()
                             {
                                 Content = userName,
