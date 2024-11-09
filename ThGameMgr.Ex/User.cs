@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Collections.Generic;
+using System.Xml;
 
 namespace ThGameMgr.Ex
 {
@@ -158,6 +159,37 @@ namespace ThGameMgr.Ex
             string userName = userSelectionConfigDocument.SelectSingleNode("//UserSelection").InnerText;
 
             return userName;
+        }
+
+        public static List<string>? GetUsersList()
+        {
+            XmlDocument usersIndexDocument = new();
+            usersIndexDocument.Load(PathInfo.UsersIndexFile);
+            XmlNodeList userNodeList = usersIndexDocument.SelectNodes("UsersIndex/User");
+            if (File.Exists(PathInfo.UsersIndexFile))
+            {
+                if (userNodeList.Count > 0)
+                {
+                    List<string> usersList = [];
+                    int i = 0;
+                    foreach (XmlNode userNode in userNodeList)
+                    {
+                        string userName = userNode.SelectSingleNode("Name").InnerText;
+                        usersList.Add(userName);
+                        i++;
+                    }
+
+                    return usersList;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
