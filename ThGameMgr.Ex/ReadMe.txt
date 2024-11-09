@@ -59,6 +59,9 @@ Microsoft Visual Studio Community 2022 Current
 ・東方鬼形獣　～ Wily Beast and Weakest Creature.
 ・東方虹龍洞　～ Unconnected Marketeers.
 
+※注意※
+東方花映塚　～ Phantasmagoria of Flower View.については、ハイスコアビューアおよび御札戦歴ビューアはご利用になれません。
+
 
 §ソースコード
 本ソフトウェアはオープンソースにて開発されており、ソースコードはGitHubで2条項BSDライセンスで公開されています。
