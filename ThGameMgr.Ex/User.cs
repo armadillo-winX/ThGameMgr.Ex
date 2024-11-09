@@ -170,11 +170,12 @@ namespace ThGameMgr.Ex
 
         public static List<string>? GetUsersList()
         {
-            XmlDocument usersIndexDocument = new();
-            usersIndexDocument.Load(PathInfo.UsersIndexFile);
-            XmlNodeList userNodeList = usersIndexDocument.SelectNodes("UsersIndex/User");
             if (File.Exists(PathInfo.UsersIndexFile))
             {
+                XmlDocument usersIndexDocument = new();
+                usersIndexDocument.Load(PathInfo.UsersIndexFile);
+                XmlNodeList userNodeList = usersIndexDocument.SelectNodes("UsersIndex/User");
+
                 if (userNodeList.Count > 0)
                 {
                     List<string> usersList = [];
