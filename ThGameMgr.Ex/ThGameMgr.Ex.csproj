@@ -50,6 +50,9 @@
     <None Update="ReadMe.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="ReleaseNote.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="SpellCardData\Th06SpellCardData.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
