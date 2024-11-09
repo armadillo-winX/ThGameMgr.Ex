@@ -585,6 +585,7 @@ namespace ThGameMgr.Ex
                 MessageBox.Show("有効なユーザーが存在しないので、続行できません。\nアプリケーションを終了します。",
                     VersionInfo.AppName,
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                Environment.Exit(0);
             }
         }
 
