@@ -610,6 +610,7 @@ namespace ThGameMgr.Ex
                             VersionInfo.AppName,
                             MessageBoxButton.OK,
                             MessageBoxImage.Exclamation);
+                        Environment.Exit(0);
                     }
                 }
             }
@@ -622,6 +623,7 @@ namespace ThGameMgr.Ex
                         VersionInfo.AppName,
                         MessageBoxButton.OK,
                         MessageBoxImage.Exclamation);
+                    Environment.Exit(0);
                 }
             }
         }
