@@ -39,7 +39,7 @@ Microsoft Windows 10/11
 
 §開発環境
 Microsoft Windows 11 Insider Preview Canary
-Microsoft Visual Studio Community 2022 Current
+Visual Studio Community 2022
 .NET 8.0
 
 
