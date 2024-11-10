@@ -75,6 +75,7 @@
                 <MenuItem x:Name="StartWindowResizerMenuItem" Header="ウィンドウリサイザを起動" Click="StartWindowResizerMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="ManageExternalToolsMenuItem" Header="外部ツールの管理(_M)" Click="ManageExternalToolsMenuItemClick"/>
+                <MenuItem x:Name="ManagePluginsMenuItem" Header="プラグインの管理" Click="ManagePluginsMenuItemClick"/>
             </MenuItem>
             <MenuItem x:Name="ExternalToolsMenu" Header="外部ツール(_X)"/>
             <MenuItem x:Name="HelpMenu" Header="ヘルプ(_H)">

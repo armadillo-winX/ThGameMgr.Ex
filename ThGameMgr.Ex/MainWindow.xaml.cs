@@ -1639,5 +1639,15 @@ namespace ThGameMgr.Ex
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void ManagePluginsMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ManagePluginsDialog managePluginsDialog = new()
+            {
+                Owner = this
+            };
+
+            managePluginsDialog.ShowDialog();
+        }
     }
 }
