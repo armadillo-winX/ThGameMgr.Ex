@@ -105,6 +105,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ThGameMgr.Ex.Plugin\ThGameMgr.Ex.Plugin.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <SplashScreen Include="ThGameMgr.Ex.Sprashscreen.png" />
   </ItemGroup>
 
