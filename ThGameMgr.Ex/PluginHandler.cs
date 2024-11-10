@@ -14,6 +14,8 @@ namespace ThGameMgr.Ex
         public static void GetPlugins()
         {
             GameFilesPlugins = [];
+            SelectedGamePlugins = [];
+            ToolPlugins = [];
 
             string[] pluginFiles = Directory.GetFiles(
                 PathInfo.PluginDirectory, "*.dll", SearchOption.AllDirectories);
