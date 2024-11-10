@@ -12,7 +12,7 @@ namespace ThGameMgr.Ex
             GameFilesPlugins = [];
 
             string[] pluginFiles = Directory.GetFiles(
-                $"{PathInfo.AppLocation}\\Plugin", "*.dll", SearchOption.AllDirectories);
+                PathInfo.PluginDirectory, "*.dll", SearchOption.AllDirectories);
 
             foreach (string pluginFile in pluginFiles)
             {
