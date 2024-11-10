@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace ThGameMgr.Ex.Dialogs
 {
@@ -14,13 +13,11 @@ namespace ThGameMgr.Ex.Dialogs
 
             PluginDataGrid.AutoGenerateColumns = false;
 
-            ObservableCollection<PluginInfo> pluginInfoItems = [];
-
             if (PluginHandler.GameFilesPlugins != null && PluginHandler.GameFilesPlugins.Count > 0)
             {
                 foreach (dynamic plugin in PluginHandler.GameFilesPlugins)
                 {
-                    pluginInfoItems.Add(new PluginInfo()
+                    PluginDataGrid.Items.Add(new PluginInfo()
                     {
                         Name = plugin.Name,
                         Version = plugin.Version,
@@ -34,7 +31,7 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 foreach (dynamic plugin in PluginHandler.SelectedGamePlugins)
                 {
-                    pluginInfoItems.Add(new PluginInfo()
+                    PluginDataGrid.Items.Add(new PluginInfo()
                     {
                         Name = plugin.Name,
                         Version = plugin.Version,
@@ -48,7 +45,7 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 foreach (dynamic plugin in PluginHandler.ToolPlugins)
                 {
-                    pluginInfoItems.Add(new PluginInfo()
+                    PluginDataGrid.Items.Add(new PluginInfo()
                     {
                         Name = plugin.Name,
                         Version = plugin.Version,
@@ -57,17 +54,13 @@ namespace ThGameMgr.Ex.Dialogs
                     });
                 }
             }
-
-            if (pluginInfoItems.Count > 0)
-                PluginDataGrid.DataContext = pluginInfoItems;
         }
 
         private void PluginDataGridSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (PluginDataGrid.Items != null &&
                 PluginDataGrid.Items.Count > 0 &&
-                PluginDataGrid.SelectedIndex > -1 &&
-                PluginDataGrid.SelectedIndex < PluginDataGrid.Items.Count)
+                PluginDataGrid.SelectedIndex > -1)
             {
                 PluginInfo pluginInfo = PluginDataGrid.SelectedItem as PluginInfo;
                 if (pluginInfo != null)
