@@ -8,6 +8,7 @@ global using ThGameMgr.Ex.Dialogs;
 global using ThGameMgr.Ex.Exceptions;
 global using ThGameMgr.Ex.Extensions;
 global using ThGameMgr.Ex.Game;
+global using ThGameMgr.Ex.Plugin;
 global using ThGameMgr.Ex.Score;
 global using ThGameMgr.Ex.Settings;
 
