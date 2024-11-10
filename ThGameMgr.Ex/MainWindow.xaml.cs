@@ -193,6 +193,18 @@ namespace ThGameMgr.Ex
                 }
             }
 
+            if (!Directory.Exists(PathInfo.PluginDirectory))
+            {
+                try
+                {
+                    Directory.CreateDirectory(PathInfo.PluginDirectory);
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+
             UsersSelectionValidity usersSelectionValidity = User.GetUsersSelectionValidity();
 
             if (usersSelectionValidity == UsersSelectionValidity.Valid)
