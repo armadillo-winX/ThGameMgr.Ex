@@ -11,7 +11,7 @@ namespace ThGameMgr.Ex
 
         public static List<dynamic>? ToolPlugins { get; set; }
 
-        public static void GetPlugin()
+        public static void GetPlugins()
         {
             GameFilesPlugins = [];
 
