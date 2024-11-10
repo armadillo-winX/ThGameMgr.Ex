@@ -2,13 +2,13 @@
 ## これは何?
 東方管制塔 EX は東方向けの多機能外部ツールです。<br>
 以下の機能が実装されています。
-- ゲームランチャー
+- ゲームランチャー<br>
 ゲームを起動します。
-- スコアビューア
+- スコアビューア<br>
 ゲームのハイスコアデータや御札戦歴データを参照できます。
 ## 開発環境
 Microsoft Windows 11 Insider Preview Canary<br>
-Microsoft Visual Studio 2022<br>
+Visual Studio 2022<br>
 .NET 8.0<br>
 ## ThScoreFileConverter
 東方管制塔 EX には ThScoreFileConverter(https://github.com/y-iihoshi/ThScoreFileConverter) のソースコードが含まれています。<br>
