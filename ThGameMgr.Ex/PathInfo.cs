@@ -16,5 +16,7 @@
         public static string ShanghaiAliceAppData => $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ShanghaiAlice";
 
         public static string SpellCardDataDirectory => $"{AppLocation}\\SpellCardData";
+
+        public static string PluginDirectory => $"{AppLocation}\\Plugin";
     }
 }
