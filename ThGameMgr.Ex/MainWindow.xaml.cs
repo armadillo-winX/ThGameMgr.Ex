@@ -233,6 +233,8 @@ namespace ThGameMgr.Ex
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(1);
             }
+
+            ConfigurePlugins();
         }
 
         private async void GetScoreData()
@@ -689,6 +691,139 @@ namespace ThGameMgr.Ex
             };
 
             SettingsConfigurator.SaveMainWindowSettings(mainWindowSettings);
+        }
+
+        private void ConfigurePlugins()
+        {
+            try
+            {
+                if (Directory.Exists(PathInfo.PluginDirectory))
+                {
+                    PluginHandler.GetPlugins();
+
+                    if (PluginHandler.GameFilesPlugins != null && PluginHandler.GameFilesPlugins.Count > 0)
+                        SetGameFilesPluginMenu(PluginHandler.GameFilesPlugins);
+
+                    if (PluginHandler.SelectedGamePlugins != null && PluginHandler.SelectedGamePlugins.Count > 0)
+                        SetSelectedGamePluginMenu(PluginHandler.SelectedGamePlugins);
+
+                    if (PluginHandler.ToolPlugins != null && PluginHandler.ToolPlugins.Count > 0)
+                        SetToolPluginMenu(PluginHandler.ToolPlugins);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"プラグインの読み込みに失敗しました。\n{ex.Message}",
+                    "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void SetGameFilesPluginMenu(List<dynamic> gameFilesPlugins)
+        {
+            foreach (dynamic gameFilesPlugin in gameFilesPlugins)
+            {
+                try
+                {
+                    gameFilesPlugin.MainWindow = this;
+                }
+                catch (Exception) { }
+
+                MenuItem menuItem = new()
+                {
+                    Header = gameFilesPlugin.CommandName
+                };
+
+                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                {
+                    List<string> availableGamesList = GameIndex.GetEnabledGamesList();
+                    Dictionary<string, string> availableGameFilesDictionary = [];
+                    if (availableGamesList.Count > 0)
+                    {
+                        foreach (string gameId in availableGamesList)
+                        {
+                            availableGameFilesDictionary.Add(gameId, GameFile.GetGameFilePath(gameId));
+                        }
+                    }
+
+                    try
+                    {
+                        gameFilesPlugin.Main(availableGamesList, availableGameFilesDictionary);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, "エラー",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                };
+
+                ToolMenu.Items.Add(menuItem);
+            }
+        }
+
+        private void SetSelectedGamePluginMenu(List<dynamic> selectedGamePlugins)
+        {
+            foreach (dynamic selectedGamePlugin in selectedGamePlugins)
+            {
+                try
+                {
+                    selectedGamePlugin.MainWindow = this;
+                }
+                catch (Exception) { }
+
+                MenuItem menuItem = new()
+                {
+                    Header = selectedGamePlugin.CommandName
+                };
+
+                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                {
+                    try
+                    {
+                        selectedGamePlugin.Main(this.GameId, GameFile.GetGameFilePath(this.GameId));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, "エラー",
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                };
+
+                ToolMenu.Items.Add(menuItem);
+            }
+        }
+
+        private void SetToolPluginMenu(List<dynamic> toolPlugins)
+        {
+            foreach (dynamic toolPlugin in toolPlugins)
+            {
+                try
+                {
+                    toolPlugin.MainWindow = this;
+                }
+                catch (Exception) { }
+
+                MenuItem menuItem = new()
+                {
+                    Header = toolPlugin.CommandName
+                };
+
+                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                {
+                    try
+                    {
+                        toolPlugin.Main();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, "エラー",
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                };
+
+                ToolMenu.Items.Add(menuItem);
+            }
         }
 
         /// <summary>
