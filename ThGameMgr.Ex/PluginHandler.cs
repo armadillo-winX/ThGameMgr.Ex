@@ -7,6 +7,10 @@ namespace ThGameMgr.Ex
     {
         public static List<dynamic>? GameFilesPlugins { get; set; }
 
+        public static List<dynamic>? SelectedGamePlugins { get; set; }
+
+        public static List<dynamic>? ToolPlugins { get; set; }
+
         public static void GetPlugin()
         {
             GameFilesPlugins = [];
@@ -43,6 +47,14 @@ namespace ThGameMgr.Ex
                 if (type.BaseType == typeof(GameFilesPluginBase))
                 {
                     GameFilesPlugins.Add(plugin);
+                }
+                else if (type.BaseType == typeof(SelectedGamePluginBase))
+                {
+                    SelectedGamePlugins.Add(plugin);
+                }
+                else if (type.BaseType == typeof(ToolPluginBase))
+                {
+                    ToolPlugins.Add(plugin);
                 }
             }
         }
