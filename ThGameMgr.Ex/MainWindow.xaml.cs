@@ -701,6 +701,9 @@ namespace ThGameMgr.Ex
                 {
                     PluginHandler.GetPlugins();
 
+                    if (PluginHandler.StartGamePlugins != null && PluginHandler.StartGamePlugins.Count > 0)
+                        SetStartGamePluginMenu(PluginHandler.StartGamePlugins);
+
                     if (PluginHandler.GameFilesPlugins != null && PluginHandler.GameFilesPlugins.Count > 0)
                         SetGameFilesPluginMenu(PluginHandler.GameFilesPlugins);
 
