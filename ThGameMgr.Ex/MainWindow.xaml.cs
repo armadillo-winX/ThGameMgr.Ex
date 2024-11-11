@@ -753,7 +753,9 @@ namespace ThGameMgr.Ex
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(this, $"プラグインによるゲーム実行に失敗しました。\n{ex.Message}", "エラー",
+                            MessageBox.Show(this, 
+                                $"プラグインによるゲーム実行に失敗しました。\n{startGamePlugin.Name}\n{ex.Message}",
+                                "エラー",
                                 MessageBoxButton.OK, MessageBoxImage.Error);
                             EnableGameEndWaitingLimitationMode(false);
                         }
