@@ -13,6 +13,20 @@ namespace ThGameMgr.Ex.Dialogs
 
             PluginDataGrid.AutoGenerateColumns = false;
 
+            if (PluginHandler.StartGamePlugins != null && PluginHandler.StartGamePlugins.Count > 0 )
+            {
+                foreach (dynamic plugin in PluginHandler.StartGamePlugins)
+                {
+                    PluginDataGrid.Items.Add(new PluginInfo()
+                    {
+                        Name = plugin.Name,
+                        Version = plugin.Version,
+                        Developer = plugin.Developer,
+                        Description = plugin.Description
+                    });
+                }
+            }
+
             if (PluginHandler.GameFilesPlugins != null && PluginHandler.GameFilesPlugins.Count > 0)
             {
                 foreach (dynamic plugin in PluginHandler.GameFilesPlugins)
