@@ -5,6 +5,8 @@ namespace ThGameMgr.Ex
 {
     internal class PluginHandler
     {
+        public static List<dynamic>? StartGamePlugins { get; set; }
+
         public static List<dynamic>? GameFilesPlugins { get; set; }
 
         public static List<dynamic>? SelectedGamePlugins { get; set; }
@@ -13,6 +15,7 @@ namespace ThGameMgr.Ex
 
         public static void GetPlugins()
         {
+            StartGamePlugins = [];
             GameFilesPlugins = [];
             SelectedGamePlugins = [];
             ToolPlugins = [];
@@ -46,7 +49,11 @@ namespace ThGameMgr.Ex
                 //対象のクラスのインスタンスを作成
                 dynamic plugin = Activator.CreateInstance(type);
 
-                if (type.BaseType == typeof(GameFilesPluginBase))
+                if (type.BaseType == typeof(StartGamePluginBase))
+                {
+                    StartGamePlugins.Add(plugin);
+                }
+                else if (type.BaseType == typeof(GameFilesPluginBase))
                 {
                     GameFilesPlugins.Add(plugin);
                 }
