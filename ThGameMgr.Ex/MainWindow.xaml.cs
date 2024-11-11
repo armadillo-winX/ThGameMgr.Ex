@@ -749,7 +749,21 @@ namespace ThGameMgr.Ex
                         EnableGameEndWaitingLimitationMode(true);
                         try
                         {
-                            startGamePlugin.Main(gameId,  gameFilePath);
+                            Process gameProcess = startGamePlugin.Main(gameId,  gameFilePath);
+                            if (gameProcess.ProcessName == Path.GetFileNameWithoutExtension(gameFilePath))
+                            {
+                                gameProcess.WaitForInputIdle();
+                                StartGameEndWaitingMode(gameProcess);
+                            }
+                            else
+                            {
+                                MessageBox.Show(this,
+                                    $"プラグインによって起動されたプロセスがゲームのものではありません。\n{startGamePlugin.Name}",
+                                    "プラグインによる実行",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Exclamation);
+                                EnableGameEndWaitingLimitationMode(false);
+                            }
                         }
                         catch (Exception ex)
                         {
