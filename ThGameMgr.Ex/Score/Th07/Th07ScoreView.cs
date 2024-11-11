@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score.Th07
 {
     internal class Th07ScoreView
     {
-        public static string[] Th07PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th07).Split(',');
+        public static string[] _th07PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th07).Split(',');
 
         private static readonly Dictionary<string, string> _levelDictionary =
             new()
@@ -116,7 +116,7 @@ namespace ThGameMgr.Ex.Score.Th07
             string levelIndex = BitConverter.ToString(LEVEL_DATA, 0);
             string progressIndex = BitConverter.ToString(PROGRESS_DATA, 0);
 
-            string player = Th07PlayersList[int.Parse(playerIndex)];
+            string player = _th07PlayersList[int.Parse(playerIndex)];
             string level = _levelDictionary.ContainsKey(levelIndex) ? _levelDictionary[levelIndex] : "Unknown";
             string progress = _progressDictionary.ContainsKey(progressIndex) ? _progressDictionary[progressIndex] : "Unknown";
 

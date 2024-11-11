@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score.Th08
 {
     internal class Th08ScoreView
     {
-        public static string[] Th08PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th08).Split(',');
+        public static string[] _th08PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th08).Split(',');
 
         private static readonly Dictionary<string, string> _levelDictionary =
             new()
@@ -115,7 +115,7 @@ namespace ThGameMgr.Ex.Score.Th08
             string levelIndex = BitConverter.ToString(LEVEL_DATA, 0);
             string progressIndex = BitConverter.ToString(PROGRESS_DATA, 0);
 
-            string player = Th08PlayersList[int.Parse(playerIndex)];
+            string player = _th08PlayersList[int.Parse(playerIndex)];
             string level = _levelDictionary.ContainsKey(levelIndex) ? _levelDictionary[levelIndex] : "Unknown";
             string progress = _progressDictionary.ContainsKey(progressIndex) ? _progressDictionary[progressIndex] : "Unknown";
 

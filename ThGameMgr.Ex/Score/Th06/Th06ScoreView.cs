@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score.Th06
 {
     internal class Th06ScoreView
     {
-        public static string[] Th06PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th06).Split(',');
+        public static string[] _th06PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th06).Split(',');
 
         private static readonly Dictionary<string, string> _levelDictionary =
             new()
@@ -107,7 +107,7 @@ namespace ThGameMgr.Ex.Score.Th06
 
             string score = string.Format("{0:#,0}", BitConverter.ToInt32(SCORE_DATA, 0));
             int playerIndex = int.Parse(BitConverter.ToString(PLAYER_DATA, 0));
-            string player = Th06PlayersList[playerIndex];
+            string player = _th06PlayersList[playerIndex];
             string levelIndex = BitConverter.ToString(LEVEL_DATA, 0);
             string level = _levelDictionary[levelIndex];
             string progressIndex = BitConverter.ToString(PROGRESS_DATA, 0);

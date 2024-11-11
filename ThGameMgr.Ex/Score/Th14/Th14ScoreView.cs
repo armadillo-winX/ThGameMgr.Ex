@@ -5,7 +5,7 @@ namespace ThGameMgr.Ex.Score.Th14
 {
     internal class Th14ScoreView
     {
-        public static string[] Th14PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th14).Split(',');
+        public static string[] _th14PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th14).Split(',');
 
         private static readonly Dictionary<string, string> _progressDictionary =
             new()
@@ -51,7 +51,7 @@ namespace ThGameMgr.Ex.Score.Th14
                                 byte[] highscoreData = bytes[i..n];
                                 ScoreRecordList scoreRecordList = GetHighScoreData(highscoreData);
                                 scoreRecordList.Level = LevelReplace(l);
-                                scoreRecordList.Player = Th14PlayersList[k];
+                                scoreRecordList.Player = _th14PlayersList[k];
 
                                 if (scoreRecordList.Name != "--------")
                                 {
