@@ -720,6 +720,48 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void SetStartGamePluginMenu(List<dynamic> startGamePlugins)
+        {
+            int i = 3;
+            foreach (dynamic startGamePlugin in startGamePlugins)
+            {
+                try
+                {
+                    startGamePlugin.MainWindow = this;
+                }
+                catch (Exception) { }
+
+                MenuItem menuItem = new()
+                {
+                    Header = startGamePlugin.CommandName
+                };
+
+                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                {
+                    string? gameId = this.GameId;
+                    if (!string.IsNullOrEmpty(gameId))
+                    {
+                        string gameFilePath = GameFile.GetGameFilePath(gameId);
+
+                        EnableGameEndWaitingLimitationMode(true);
+                        try
+                        {
+                            startGamePlugin.Main(gameId,  gameFilePath);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(this, $"プラグインによるゲーム実行に失敗しました。\n{ex.Message}", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                            EnableGameEndWaitingLimitationMode(false);
+                        }
+                    }
+                };
+
+                GameMenu.Items.Insert(i, menuItem);
+                i++;
+            }
+        }
+
         private void SetGameFilesPluginMenu(List<dynamic> gameFilesPlugins)
         {
             foreach (dynamic gameFilesPlugin in gameFilesPlugins)
