@@ -58,10 +58,11 @@ namespace ThGameMgr.Ex.Game
                 while (Process.GetProcessesByName(Path.GetFileNameWithoutExtension(gamePath)).Length == 0)
                 {
                     Thread.Sleep(100);
-                    if (i == 10)
+                    if (i == 50)
                     {
                         throw new ProcessNotFoundException("ゲームプロセスの検出に失敗しました。");
                     }
+                    i++;
                 }
 
                 Process gameProcess = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(gamePath))[0];
