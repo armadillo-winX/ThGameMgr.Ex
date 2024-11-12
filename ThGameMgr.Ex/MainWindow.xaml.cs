@@ -748,7 +748,7 @@ namespace ThGameMgr.Ex
                         string gameFilePath = GameFile.GetGameFilePath(gameId);
 
                         EnableGameEndWaitingLimitationMode(true);
-                        SetStartGameStatus("ゲームの起動を待機しています...");
+                        SetStartGameStatus("ゲームの起動を待機中...");
                         try
                         {
                             Process gameProcess = startGamePlugin.Main(gameId,  gameFilePath);
@@ -953,7 +953,7 @@ namespace ThGameMgr.Ex
             int gameProcessId = gameProcess.Id;
 
             EnableGameEndWaitingLimitationMode(true);
-            SetStartGameStatus("ゲームが実行中です...");
+            SetStartGameStatus("ゲームが実行中..");
 
             _gameEndWaitingModeWorker = new BackgroundWorker();
             _gameEndWaitingModeWorker.DoWork += new DoWorkEventHandler(WorkerDoWork);
@@ -1105,7 +1105,7 @@ namespace ThGameMgr.Ex
             if (!string.IsNullOrEmpty(gameId))
             {
                 EnableGameEndWaitingLimitationMode(true);
-                SetStartGameStatus("ゲームの起動を待機しています...");
+                SetStartGameStatus("ゲームの起動を待機中...");
                 try
                 {
                     Process gameProcess
@@ -1130,7 +1130,7 @@ namespace ThGameMgr.Ex
             if (!string.IsNullOrEmpty(gameId))
             {
                 EnableGameEndWaitingLimitationMode(true);
-                SetStartGameStatus("ゲームの起動を待機しています...");
+                SetStartGameStatus("ゲームの起動を待機中(約5秒)...");
                 try
                 {
                     Process gameProcess
@@ -1155,7 +1155,7 @@ namespace ThGameMgr.Ex
             if (!string.IsNullOrEmpty(gameId))
             {
                 EnableGameEndWaitingLimitationMode(true);
-                SetStartGameStatus("ゲームの起動を待機しています...");
+                SetStartGameStatus("ゲームの起動を待機中(約5秒)...");
                 try
                 {
                     List<string> thpracFiles = GameFile.GetThpracFiles(gameId);
