@@ -180,6 +180,7 @@ namespace ThGameMgr.Ex
             this.GameProcess = new();
 
             EnableGameEndWaitingLimitationMode(false);
+            SetStartGameStatus(string.Empty);
 
             if (!Directory.Exists(PathInfo.UsersDirectory))
             {
@@ -747,6 +748,7 @@ namespace ThGameMgr.Ex
                         string gameFilePath = GameFile.GetGameFilePath(gameId);
 
                         EnableGameEndWaitingLimitationMode(true);
+                        SetStartGameStatus("ゲームの起動を待機しています...");
                         try
                         {
                             Process gameProcess = startGamePlugin.Main(gameId,  gameFilePath);
@@ -763,6 +765,7 @@ namespace ThGameMgr.Ex
                                     MessageBoxButton.OK,
                                     MessageBoxImage.Exclamation);
                                 EnableGameEndWaitingLimitationMode(false);
+                                SetStartGameStatus(string.Empty);
                             }
                         }
                         catch (Exception ex)
@@ -772,6 +775,7 @@ namespace ThGameMgr.Ex
                                 "エラー",
                                 MessageBoxButton.OK, MessageBoxImage.Error);
                             EnableGameEndWaitingLimitationMode(false);
+                            SetStartGameStatus(string.Empty);
                         }
                     }
                 };
@@ -949,6 +953,7 @@ namespace ThGameMgr.Ex
             int gameProcessId = gameProcess.Id;
 
             EnableGameEndWaitingLimitationMode(true);
+            SetStartGameStatus("ゲームが実行中です...");
 
             _gameEndWaitingModeWorker = new BackgroundWorker();
             _gameEndWaitingModeWorker.DoWork += new DoWorkEventHandler(WorkerDoWork);
@@ -1073,6 +1078,7 @@ namespace ThGameMgr.Ex
             }
 
             EnableGameEndWaitingLimitationMode(false);
+            SetStartGameStatus(string.Empty);
             
             GetScoreData();
         }
@@ -1099,6 +1105,7 @@ namespace ThGameMgr.Ex
             if (!string.IsNullOrEmpty(gameId))
             {
                 EnableGameEndWaitingLimitationMode(true);
+                SetStartGameStatus("ゲームの起動を待機しています...");
                 try
                 {
                     Process gameProcess
@@ -1112,6 +1119,7 @@ namespace ThGameMgr.Ex
                     MessageBox.Show(this, $"ゲームの起動に失敗しました。\n{ex.Message}", "エラー",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     EnableGameEndWaitingLimitationMode(false);
+                    SetStartGameStatus(string.Empty);
                 }
             }
         }
@@ -1122,6 +1130,7 @@ namespace ThGameMgr.Ex
             if (!string.IsNullOrEmpty(gameId))
             {
                 EnableGameEndWaitingLimitationMode(true);
+                SetStartGameStatus("ゲームの起動を待機しています...");
                 try
                 {
                     Process gameProcess
@@ -1135,6 +1144,7 @@ namespace ThGameMgr.Ex
                     MessageBox.Show(this, $"ゲームの起動に失敗しました。\n{ex.Message}", "エラー",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     EnableGameEndWaitingLimitationMode(false);
+                    SetStartGameStatus(string.Empty);
                 }
             }
         }
@@ -1145,6 +1155,7 @@ namespace ThGameMgr.Ex
             if (!string.IsNullOrEmpty(gameId))
             {
                 EnableGameEndWaitingLimitationMode(true);
+                SetStartGameStatus("ゲームの起動を待機しています...");
                 try
                 {
                     List<string> thpracFiles = GameFile.GetThpracFiles(gameId);
@@ -1153,6 +1164,7 @@ namespace ThGameMgr.Ex
                         MessageBox.Show(this, "利用可能な thprac 実行ファイルが存在しません。", "thprac の適用",
                             MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         EnableGameEndWaitingLimitationMode(false);
+                        SetStartGameStatus(string.Empty);
                     }
                     else if (thpracFiles.Count == 1)
                     {
@@ -1186,11 +1198,13 @@ namespace ThGameMgr.Ex
                                 MessageBox.Show(this, "選択された thprac 実行ファイルが不正です。", "エラー",
                                     MessageBoxButton.OK, MessageBoxImage.Error);
                                 EnableGameEndWaitingLimitationMode(false);
+                                SetStartGameStatus(string.Empty);
                             }
                         }
                         else
                         {
                             EnableGameEndWaitingLimitationMode(false);
+                            SetStartGameStatus(string.Empty);
                         }
                     }
                 }
@@ -1199,6 +1213,7 @@ namespace ThGameMgr.Ex
                     MessageBox.Show(this, $"ゲームの起動に失敗しました。\n{ex.Message}", "エラー",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                     EnableGameEndWaitingLimitationMode(false);
+                    SetStartGameStatus(string.Empty);
                 }
             }
         }
