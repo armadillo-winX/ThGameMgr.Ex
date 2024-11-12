@@ -283,6 +283,8 @@
         <StatusBar x:Name="MainStatusBar" Height="22" VerticalAlignment="Bottom">
             <StatusBarItem Content="現在のユーザー:"/>
             <StatusBarItem x:Name="CurrentUserStatusBarItem" />
+            <Separator/>
+            <StatusBarItem x:Name="StartGameStatusBarItem" />
         </StatusBar>
     </Grid>
 </Window>
