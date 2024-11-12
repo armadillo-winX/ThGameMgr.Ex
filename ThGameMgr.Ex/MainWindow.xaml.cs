@@ -895,17 +895,9 @@ namespace ThGameMgr.Ex
         {
             AddUserMenuItem.IsEnabled = !enabled;
             SwitchUserMenuItem.IsEnabled = !enabled;
-            StartGameMenuItem.IsEnabled = !enabled;
-            StartGameWithVpatchMenuItem.IsEnabled = !enabled;
-            StartGameWithThpracMenuItem.IsEnabled = !enabled;
-            StartCustomMenuItem.IsEnabled = !enabled;
-            GamePathSettingsMenuItem.IsEnabled = !enabled;
-            GamePlayLogMenuItem.IsEnabled = !enabled;
-            ReloadScoreDataMenuItem.IsEnabled = !enabled;
-            DisplayUnchallengedCardMenuItem.IsEnabled = !enabled;
-            CreateScoreBackupSelectedGameMenuItem.IsEnabled = !enabled;
-            RestoreScoreFileMenuItem.IsEnabled = !enabled;
-            StatisticSpellCardRecordMenuitem.IsEnabled = !enabled;
+            GameMenu.IsEnabled = !enabled;
+            ScoreMenu.IsEnabled = !enabled;
+
             StartWindowResizerMenuItem.IsEnabled = enabled;
 
             GameSelectionButton.IsEnabled = !enabled;
@@ -927,16 +919,8 @@ namespace ThGameMgr.Ex
         {
             AddUserMenuItem.IsEnabled = !enabled;
             SwitchUserMenuItem.IsEnabled = !enabled;
-            StartGameMenuItem.IsEnabled = !enabled;
-            StartGameWithVpatchMenuItem.IsEnabled = !enabled;
-            StartGameWithThpracMenuItem.IsEnabled = !enabled;
-            StartCustomMenuItem.IsEnabled = !enabled;
-            GamePathSettingsMenuItem.IsEnabled = !enabled;
-            ReloadScoreDataMenuItem.IsEnabled = !enabled;
-            DisplayUnchallengedCardMenuItem.IsEnabled = !enabled;
-            CreateScoreBackupSelectedGameMenuItem.IsEnabled = !enabled;
-            RestoreScoreFileMenuItem.IsEnabled = !enabled;
-            StatisticSpellCardRecordMenuitem.IsEnabled = !enabled;
+            GameMenu.IsEnabled = !enabled;
+            ScoreMenu.IsEnabled = !enabled;
 
             GameSelectionButton.IsEnabled = !enabled;
             StartGameButton.IsEnabled = !enabled;
