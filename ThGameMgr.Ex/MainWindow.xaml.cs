@@ -887,6 +887,11 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void SetStartGameStatus(string message)
+        {
+            StartGameStatusBarItem.Content = message;
+        }
+
         /// <summary>
         /// ゲーム終了待機中の機能制限モードを有効化します。
         /// </summary>
