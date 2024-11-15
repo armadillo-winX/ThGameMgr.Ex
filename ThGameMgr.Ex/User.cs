@@ -182,7 +182,7 @@ namespace ThGameMgr.Ex
                 XmlElement? rootNode = usersIndexDocument.DocumentElement;
                 XmlNode? userNode
                     = usersIndexDocument.DocumentElement?.SelectSingleNode($"//User[@Index='{userName}']");
-                _ = rootNode?.AppendChild(userNode);
+                _ = rootNode?.RemoveChild(userNode);
                 usersIndexDocument.Save(usersIndexFile);
             }
 
