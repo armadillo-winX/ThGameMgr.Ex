@@ -186,9 +186,16 @@ namespace ThGameMgr.Ex
                 usersIndexDocument.Save(usersIndexFile);
             }
 
-            if (Directory.Exists(userDirectory))
+            try
             {
-                Directory.Delete(userDirectory, true);
+                if (Directory.Exists(userDirectory))
+                {
+                    Directory.Delete(userDirectory, true);
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
 
