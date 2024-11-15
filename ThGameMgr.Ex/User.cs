@@ -168,6 +168,30 @@ namespace ThGameMgr.Ex
             return userName;
         }
 
+        public static void Delete(string userName)
+        {
+            string userDirectoryName = GetUserDirectoryName(userName);
+            string userDirectory = $"{_usersDirectory}\\{userDirectoryName}";
+
+            string? usersIndexFile = PathInfo.UsersIndexFile;
+            if (File.Exists(userDirectoryName))
+            {
+                XmlDocument usersIndexDocument = new();
+                usersIndexDocument.Load(usersIndexFile);
+
+                XmlElement? rootNode = usersIndexDocument.DocumentElement;
+                XmlNode? userNode
+                    = usersIndexDocument.DocumentElement?.SelectSingleNode($"//User[@Index='{userName}']");
+                _ = rootNode?.AppendChild(userNode);
+                usersIndexDocument.Save(usersIndexFile);
+            }
+
+            if (Directory.Exists(userDirectory))
+            {
+                Directory.Delete(userDirectory, true);
+            }
+        }
+
         public static List<string>? GetUsersList()
         {
             if (File.Exists(PathInfo.UsersIndexFile))
