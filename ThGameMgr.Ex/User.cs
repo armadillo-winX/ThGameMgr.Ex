@@ -174,7 +174,7 @@ namespace ThGameMgr.Ex
             string userDirectory = $"{_usersDirectory}\\{userDirectoryName}";
 
             string? usersIndexFile = PathInfo.UsersIndexFile;
-            if (File.Exists(userDirectoryName))
+            if (File.Exists(usersIndexFile))
             {
                 XmlDocument usersIndexDocument = new();
                 usersIndexDocument.Load(usersIndexFile);
