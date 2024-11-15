@@ -1728,5 +1728,14 @@ namespace ThGameMgr.Ex
             MessageBox.Show(this, message, "プラグイン基底ライブラリについて",
                 MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void DeleteUserMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            DeleteUserDialog deleteUserDialog = new()
+            {
+                Owner = this
+            };
+            deleteUserDialog.ShowDialog();
+        }
     }
 }

@@ -16,6 +16,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem x:Name="SwitchUserMenuItem" Header="ユーザーの切り替え(_S)" Click="SelectUserMenuItemClick"/>
+                <MenuItem x:Name="DeleteUserMenuItem" Header="ユーザーの削除(_D)" Click="DeleteUserMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="ExitMenuItem" Header="終了(_X)" Click="ExitMenuItemClick"/>
             </MenuItem>
