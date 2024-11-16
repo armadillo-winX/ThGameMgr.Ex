@@ -263,11 +263,11 @@
                             <DataGridTextColumn x:Name="SpellCardGetColumn"
                             IsReadOnly="True"
                             Header="取得数"
-                            Binding="{Binding Get}" Width="50"/>
+                            Binding="{Binding GetCount}" Width="50"/>
                             <DataGridTextColumn x:Name="SpellCardChallengeColumn"
                             IsReadOnly="True"
                             Header="挑戦数"
-                            Binding="{Binding Challenge}" Width="50"/>
+                            Binding="{Binding TryCount}" Width="50"/>
                             <DataGridTextColumn x:Name="SpellCardRateColumn"
                             IsReadOnly="True"
                             Header="取得率"
