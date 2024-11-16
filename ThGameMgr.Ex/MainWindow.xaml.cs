@@ -1747,8 +1747,21 @@ namespace ThGameMgr.Ex
                 try
                 {
                     ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
+
                     string data =
-                        $"スコア: {scoreRecordList.Score}\r\n自機:{scoreRecordList.Player}\r\n難易度:{scoreRecordList.Level}\r\n名前:{scoreRecordList.Name.TrimEnd('\0')}\r\n到達面:{scoreRecordList.Progress}\r\n日時:{scoreRecordList.Date.TrimEnd('\0')}\r\n処理落ち率:{scoreRecordList.SlowRate}\r\nその他\r\n{scoreRecordList.OtherData}";
+                        $"スコア: {scoreRecordList.Score}\r\n自機:{scoreRecordList.Player}\r\n難易度:{scoreRecordList.Level}\r\n名前:{scoreRecordList.Name.TrimEnd('\0')}";
+
+                    if (!string.IsNullOrEmpty(scoreRecordList.Progress))
+                        data += $"\r\n到達面:{scoreRecordList.Progress}";
+                    if (!string.IsNullOrEmpty(scoreRecordList.Date.TrimEnd('\0'))
+                        && scoreRecordList.Date.TrimEnd('\0') != "--/--")
+                        data += $"\r\n日時:{scoreRecordList.Date.TrimEnd('\0')}";
+                    if (!string.IsNullOrEmpty(scoreRecordList.SlowRate)
+                        && scoreRecordList.SlowRate != "-.--%")
+                        data += $"\r\n処理落ち率:{scoreRecordList.SlowRate}";
+                    if (!string.IsNullOrEmpty(scoreRecordList.OtherData))
+                        data += $"\r\nその他\r\n{scoreRecordList.OtherData}\r\n";
+
                     Clipboard.SetText(data);
                 }
                 catch (Exception)
