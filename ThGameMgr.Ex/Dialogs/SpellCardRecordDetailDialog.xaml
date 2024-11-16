@@ -9,10 +9,10 @@
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="{Binding CardName}" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <Label Content="取得数:" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBlock Margin="84,62,10,0" TextWrapping="Wrap" Text="{Binding Get}"
+        <TextBlock Margin="84,62,10,0" TextWrapping="Wrap" Text="{Binding GetCount}"
                    TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="挑戦数:" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <TextBlock Margin="84,96,10,0" TextWrapping="Wrap" Text="{Binding Challenge}"
+        <TextBlock Margin="84,96,10,0" TextWrapping="Wrap" Text="{Binding TryCount}"
                    TextAlignment="Center" VerticalAlignment="Top" FontSize="14"/>
         <Label Content="取得率:" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBlock Margin="84,130,10,0" TextAlignment="Center" TextWrapping="Wrap"
