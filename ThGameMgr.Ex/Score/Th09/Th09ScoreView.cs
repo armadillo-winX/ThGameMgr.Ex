@@ -16,7 +16,7 @@ namespace ThGameMgr.Ex.Score.Th09
                 { "04", "Extra" }
             };
 
-        public static void GetScoreData(bool displayUnchallengedCard)
+        public static void GetScoreData()
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th09);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th09);
