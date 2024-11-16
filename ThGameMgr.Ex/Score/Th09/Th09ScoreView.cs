@@ -87,7 +87,7 @@ namespace ThGameMgr.Ex.Score.Th09
             string playerIndex = BitConverter.ToString(PLAYER_DATA, 0);
             string levelIndex = BitConverter.ToString(LEVEL_DATA, 0);
 
-            string player = _th09PlayersList[int.Parse(playerIndex)];
+            string player = _th09PlayersList[Convert.ToInt16(playerIndex, 16)];
             string level = _levelDictionary.ContainsKey(levelIndex) ? _levelDictionary[levelIndex] : "Unknown";
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
