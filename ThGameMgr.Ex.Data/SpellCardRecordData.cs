@@ -1,6 +1,6 @@
 ﻿namespace ThGameMgr.Ex.Data
 {
-    public class SpellCardRecordList
+    public class SpellCardRecordData
     {
         public string? CardID { get; set; }
 

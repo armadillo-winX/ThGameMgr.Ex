@@ -48,7 +48,7 @@ namespace ThGameMgr.Ex.Score.Th10
                             {
                                 int n = i + size;
                                 byte[] highScoreData = bytes[i..n];
-                                ScoreRecordList scoreRecordList = GetHighScoreData(highScoreData);
+                                ScoreRecordData scoreRecordList = GetHighScoreData(highScoreData);
                                 scoreRecordList.Level = LevelReplace(l);
                                 scoreRecordList.Player = _th10PlayersList[k];
 
@@ -65,7 +65,7 @@ namespace ThGameMgr.Ex.Score.Th10
 
                         for (int p = 1; p < 111; p++)
                         {
-                            SpellCardRecordList spellCardRecordList =
+                            SpellCardRecordData spellCardRecordList =
                                 GetAllSpellCardRecord(p, bytes, displayUnchallengedCard);
                             ScoreView.SpellCardRecordLists.Add(spellCardRecordList);
                         }
@@ -78,7 +78,7 @@ namespace ThGameMgr.Ex.Score.Th10
             }
         }
 
-        public static ScoreRecordList GetHighScoreData(byte[] data)
+        public static ScoreRecordData GetHighScoreData(byte[] data)
         {
             byte[] SCORE_DATA = data[0..4];
             byte[] PROGRESS_DATA = data[4..5];
@@ -104,7 +104,7 @@ namespace ThGameMgr.Ex.Score.Th10
                 _progressDictionary.ContainsKey(progressIndex) ? _progressDictionary[progressIndex] : "Unknown"
                 : "No Record";
 
-            ScoreRecordList scoreRecordList = new()
+            ScoreRecordData scoreRecordList = new()
             {
                 Score = score,
                 Name = name,
@@ -115,7 +115,7 @@ namespace ThGameMgr.Ex.Score.Th10
             return scoreRecordList;
         }
 
-        public static SpellCardRecordList GetSpellCardRecordData(byte[] data)
+        public static SpellCardRecordData GetSpellCardRecordData(byte[] data)
         {
             byte[] CARD_NAME_DATA = data[0..128];
             byte[] GET_DATA = data[128..132];
@@ -128,7 +128,7 @@ namespace ThGameMgr.Ex.Score.Th10
             string get = BitConverter.ToInt32(GET_DATA, 0).ToString();
             string challenge = BitConverter.ToInt32(CHALLENGE_DATA, 0).ToString();
 
-            SpellCardRecordList spellCardRecordList = new()
+            SpellCardRecordData spellCardRecordList = new()
             {
                 CardID = cardId.ToString(),
                 Get = get,
@@ -137,7 +137,7 @@ namespace ThGameMgr.Ex.Score.Th10
             return spellCardRecordList;
         }
 
-        public static SpellCardRecordList GetAllSpellCardRecord(int cardId, byte[] data, bool displayUnchallengedCard)
+        public static SpellCardRecordData GetAllSpellCardRecord(int cardId, byte[] data, bool displayUnchallengedCard)
         {
             int n = cardId - 1;
 
@@ -155,12 +155,12 @@ namespace ThGameMgr.Ex.Score.Th10
             int i4end = i4 + 144;
             int i5end = i5 + 144;
 
-            SpellCardRecordList cardDataReimuA = GetSpellCardRecordData(data[i0..i0end]);
-            SpellCardRecordList cardDataReimuB = GetSpellCardRecordData(data[i1..i1end]);
-            SpellCardRecordList cardDataReimuC = GetSpellCardRecordData(data[i2..i2end]);
-            SpellCardRecordList cardDataMarisaA = GetSpellCardRecordData(data[i3..i3end]);
-            SpellCardRecordList cardDataMarisaB = GetSpellCardRecordData(data[i4..i4end]);
-            SpellCardRecordList cardDataMarisaC = GetSpellCardRecordData(data[i5..i5end]);
+            SpellCardRecordData cardDataReimuA = GetSpellCardRecordData(data[i0..i0end]);
+            SpellCardRecordData cardDataReimuB = GetSpellCardRecordData(data[i1..i1end]);
+            SpellCardRecordData cardDataReimuC = GetSpellCardRecordData(data[i2..i2end]);
+            SpellCardRecordData cardDataMarisaA = GetSpellCardRecordData(data[i3..i3end]);
+            SpellCardRecordData cardDataMarisaB = GetSpellCardRecordData(data[i4..i4end]);
+            SpellCardRecordData cardDataMarisaC = GetSpellCardRecordData(data[i5..i5end]);
 
             int challengeReimuA = int.Parse(cardDataReimuA.Challenge);
             int challengeReimuB = int.Parse(cardDataReimuB.Challenge);
@@ -187,7 +187,7 @@ namespace ThGameMgr.Ex.Score.Th10
 
             string allGetRate = ScoreCalculator.CalcSpellCardGetRate(allGet, allChallenge);
 
-            SpellCardRecordList allSpellCardRecordList = new()
+            SpellCardRecordData allSpellCardRecordList = new()
             {
                 CardID = cardId.ToString(),
                 CardName = cardName,

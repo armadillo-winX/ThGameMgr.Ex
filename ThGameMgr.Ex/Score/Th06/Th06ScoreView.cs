@@ -62,7 +62,7 @@ namespace ThGameMgr.Ex.Score.Th06
                             if (type == "HSCR")
                             {
                                 byte[] highscoreData = bytes[i..r];
-                                ScoreRecordList scoreRecordList
+                                ScoreRecordData scoreRecordList
                                     = GetHighScoreData(highscoreData);
                                 ScoreView.ScoreRecordLists.Add(scoreRecordList);
 
@@ -75,7 +75,7 @@ namespace ThGameMgr.Ex.Score.Th06
                             else if (type == "CATK")
                             {
                                 byte[] cardAttackData = bytes[i..r];
-                                SpellCardRecordList spellCardRecordList
+                                SpellCardRecordData spellCardRecordList
                                     = GetSpellCardRecord(cardAttackData, displayUnchallengedCard);
                                 ScoreView.SpellCardRecordLists.Add(spellCardRecordList);
 
@@ -95,7 +95,7 @@ namespace ThGameMgr.Ex.Score.Th06
             }
         }
 
-        public static ScoreRecordList GetHighScoreData(byte[] data)
+        public static ScoreRecordData GetHighScoreData(byte[] data)
         {
             byte[] HSCR_DATA = data[0..4];
             byte[] SIZE_DATA = data[4..6];
@@ -116,7 +116,7 @@ namespace ThGameMgr.Ex.Score.Th06
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             string name = Encoding.GetEncoding("Shift_JIS").GetString(NAME_DATA);
 
-            ScoreRecordList scoreRecordList = new()
+            ScoreRecordData scoreRecordList = new()
             {
                 Score = score,
                 Player = player,
@@ -129,7 +129,7 @@ namespace ThGameMgr.Ex.Score.Th06
             return scoreRecordList;
         }
 
-        public static SpellCardRecordList GetSpellCardRecord(byte[] data, bool displayUnchallengedCard)
+        public static SpellCardRecordData GetSpellCardRecord(byte[] data, bool displayUnchallengedCard)
         {
             byte[] CATK_DATA = data[0..4];
             byte[] SIZE_DATA = data[4..6];
@@ -148,7 +148,7 @@ namespace ThGameMgr.Ex.Score.Th06
 
             string rate = ScoreCalculator.CalcSpellCardGetRate(get, challenge);
 
-            SpellCardRecordList spellCardRecordList = new()
+            SpellCardRecordData spellCardRecordList = new()
             {
                 CardID = cardId.ToString(),
                 CardName = cardName,

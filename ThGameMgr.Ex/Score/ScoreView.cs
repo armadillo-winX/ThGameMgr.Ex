@@ -4,11 +4,11 @@ namespace ThGameMgr.Ex.Score
 {
     internal class ScoreView
     {
-        public static ObservableCollection<ScoreRecordList>? ScoreRecordLists { get; set; }
+        public static ObservableCollection<ScoreRecordData>? ScoreRecordLists { get; set; }
 
-        public static ObservableCollection<SpellCardRecordList>? SpellCardRecordLists { get; set; }
+        public static ObservableCollection<SpellCardRecordData>? SpellCardRecordLists { get; set; }
 
-        public static ObservableCollection<SpellCardRecordList>? SpellPracticeRecordLists { get; set; }
+        public static ObservableCollection<SpellCardRecordData>? SpellPracticeRecordLists { get; set; }
 
         public static void GetScoreData(string gameId, bool displayUnchallengedCard)
         {

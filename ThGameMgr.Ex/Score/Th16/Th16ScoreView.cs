@@ -59,7 +59,7 @@ namespace ThGameMgr.Ex.Score.Th16
                             {
                                 int n = i + size;
                                 byte[] highscoreData = bytes[i..n];
-                                ScoreRecordList scoreRecordList = GetHighScoreData(highscoreData);
+                                ScoreRecordData scoreRecordList = GetHighScoreData(highscoreData);
                                 scoreRecordList.Level = LevelReplace(l);
                                 scoreRecordList.Player = _th16PlayersList[k];
 
@@ -76,7 +76,7 @@ namespace ThGameMgr.Ex.Score.Th16
 
                         for (int p = 1; p < 120; p++)
                         {
-                            ObservableCollection<SpellCardRecordList> spellCardRecordLists
+                            ObservableCollection<SpellCardRecordData> spellCardRecordLists
                                 = GetAllSpellCardRecord(p, bytes, displayUnchallengedCard);
                             ScoreView.SpellCardRecordLists.Add(spellCardRecordLists[0]);
                             ScoreView.SpellPracticeRecordLists.Add(spellCardRecordLists[1]);
@@ -90,7 +90,7 @@ namespace ThGameMgr.Ex.Score.Th16
             }
         }
 
-        public static ScoreRecordList GetHighScoreData(byte[] data)
+        public static ScoreRecordData GetHighScoreData(byte[] data)
         {
             byte[] SCORE_DATA = data[0..4];
             byte[] PROGRESS_DATA = data[4..5];
@@ -120,7 +120,7 @@ namespace ThGameMgr.Ex.Score.Th16
                 _progressDictionary.ContainsKey(progressIndex) ? _progressDictionary[progressIndex] : "Unknown"
                 : "No Record";
 
-            ScoreRecordList scoreRecordList = new()
+            ScoreRecordData scoreRecordList = new()
             {
                 Score = score,
                 Name = name,
@@ -132,7 +132,7 @@ namespace ThGameMgr.Ex.Score.Th16
             return scoreRecordList;
         }
 
-        public static ObservableCollection<SpellCardRecordList> GetSpellCardRecordData(byte[] data)
+        public static ObservableCollection<SpellCardRecordData> GetSpellCardRecordData(byte[] data)
         {
             byte[] CARD_NAME_DATA = data[0..128];
             byte[] GET_DATA = data[128..132];
@@ -151,25 +151,25 @@ namespace ThGameMgr.Ex.Score.Th16
             int practiceGet = BitConverter.ToInt32(PRACTICE_GET_DATA, 0);
             int practiceChallenge = BitConverter.ToInt32(PRACTICE_CHALLENGE_DATA, 0);
 
-            SpellCardRecordList spellCardRecordList = new()
+            SpellCardRecordData spellCardRecordList = new()
             {
                 Challenge = challenge.ToString(),
                 Get = get.ToString()
             };
 
-            SpellCardRecordList practiceSpellCardRecordList = new()
+            SpellCardRecordData practiceSpellCardRecordList = new()
             {
                 Challenge = practiceChallenge.ToString(),
                 Get = practiceGet.ToString()
             };
 
-            ObservableCollection<SpellCardRecordList> spellCardRecordLists = new();
+            ObservableCollection<SpellCardRecordData> spellCardRecordLists = new();
             spellCardRecordLists.Add(spellCardRecordList);
             spellCardRecordLists.Add(practiceSpellCardRecordList);
             return spellCardRecordLists;
         }
 
-        public static ObservableCollection<SpellCardRecordList> GetAllSpellCardRecord(
+        public static ObservableCollection<SpellCardRecordData> GetAllSpellCardRecord(
             int cardId, byte[] data, bool displayUnchallengedCard)
         {
             int n = cardId - 1;
@@ -184,10 +184,10 @@ namespace ThGameMgr.Ex.Score.Th16
             int i2end = i2 + 156;
             int i3end = i3 + 156;
 
-            ObservableCollection<SpellCardRecordList> cardDataReimu = GetSpellCardRecordData(data[i0..i0end]);
-            ObservableCollection<SpellCardRecordList> cardDataChirno = GetSpellCardRecordData(data[i1..i1end]);
-            ObservableCollection<SpellCardRecordList> cardDataAya = GetSpellCardRecordData(data[i2..i2end]);
-            ObservableCollection<SpellCardRecordList> cardDataMarisa = GetSpellCardRecordData(data[i3..i3end]);
+            ObservableCollection<SpellCardRecordData> cardDataReimu = GetSpellCardRecordData(data[i0..i0end]);
+            ObservableCollection<SpellCardRecordData> cardDataChirno = GetSpellCardRecordData(data[i1..i1end]);
+            ObservableCollection<SpellCardRecordData> cardDataAya = GetSpellCardRecordData(data[i2..i2end]);
+            ObservableCollection<SpellCardRecordData> cardDataMarisa = GetSpellCardRecordData(data[i3..i3end]);
 
             int challengeReimu = int.Parse(cardDataReimu[0].Challenge);
             int challengeChirno = int.Parse(cardDataChirno[0].Challenge);
@@ -227,7 +227,7 @@ namespace ThGameMgr.Ex.Score.Th16
             string allGetRate = ScoreCalculator.CalcSpellCardGetRate(allGetCount, allChallengeCount);
             string allPracticeGetRate = ScoreCalculator.CalcSpellCardGetRate(allPracticeGetCount, allPracticeChallengeCount);
 
-            SpellCardRecordList allSpellCardRecordList = new()
+            SpellCardRecordData allSpellCardRecordList = new()
             {
                 CardID = cardId.ToString(),
                 CardName = cardName,
@@ -238,7 +238,7 @@ namespace ThGameMgr.Ex.Score.Th16
                 Place = spellcardData.Place
             };
 
-            SpellCardRecordList allPracticeSpellCardRecordList = new()
+            SpellCardRecordData allPracticeSpellCardRecordList = new()
             {
                 CardID = cardId.ToString(),
                 CardName = practiceCardName,
@@ -249,7 +249,7 @@ namespace ThGameMgr.Ex.Score.Th16
                 Place = spellcardData.Place
             };
 
-            ObservableCollection<SpellCardRecordList> allSpellCardRecordLists = new();
+            ObservableCollection<SpellCardRecordData> allSpellCardRecordLists = new();
             allSpellCardRecordLists.Add(allSpellCardRecordList);
             allSpellCardRecordLists.Add(allPracticeSpellCardRecordList);
             return allSpellCardRecordLists;

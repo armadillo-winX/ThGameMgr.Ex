@@ -1,6 +1,6 @@
 ﻿namespace ThGameMgr.Ex.Data
 {
-    public class ScoreRecordList
+    public class ScoreRecordData
     {
         public string? Score { get; set; }
 
