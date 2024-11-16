@@ -78,7 +78,9 @@ namespace ThGameMgr.Ex.Score.Th09
             byte[] DATE_DATA = data[33..41];
             byte[] CONTINUE_DATA = data[43..44];
 
-            string score = String.Format("{0:#,0}", BitConverter.ToInt32(SCORE_DATA, 0));
+            int continueCount = Convert.ToInt32(BitConverter.ToString(CONTINUE_DATA, 0), 16);
+
+            string score = String.Format("{0:#,0}", BitConverter.ToInt32(SCORE_DATA, 0) * 10 + continueCount);
             string playerIndex = BitConverter.ToString(PLAYER_DATA, 0);
             string levelIndex = BitConverter.ToString(LEVEL_DATA, 0);
 
