@@ -1782,7 +1782,7 @@ namespace ThGameMgr.Ex
                     SpellCardRecordData spellCardRecordList = (SpellCardRecordData)SpellCardDataGrid.SelectedItem;
 
                     string data =
-                        $"No.{spellCardRecordList.CardID}\r\n{spellCardRecordList.CardName}\r\n取得数: {spellCardRecordList.Get}\r\n挑戦数: {spellCardRecordList.Challenge}\r\n取得率: {spellCardRecordList.Rate}\r\n発動場所: {spellCardRecordList.Place}\r\n術者: {spellCardRecordList.Enemy}";
+                        $"No.{spellCardRecordList.CardID}\r\n{spellCardRecordList.CardName}\r\n取得数: {spellCardRecordList.GetCount}\r\n挑戦数: {spellCardRecordList.TryCount}\r\n取得率: {spellCardRecordList.Rate}\r\n発動場所: {spellCardRecordList.Place}\r\n術者: {spellCardRecordList.Enemy}";
 
                     Clipboard.SetText(data);
                 }
