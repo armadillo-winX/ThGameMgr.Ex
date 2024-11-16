@@ -1738,5 +1738,24 @@ namespace ThGameMgr.Ex
             };
             deleteUserDialog.ShowDialog();
         }
+
+        private void CopyScoreRecordMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            if (ScoreDataGrid.Items.Count > 0 &&
+                ScoreDataGrid.SelectedIndex > -1)
+            {
+                try
+                {
+                    ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
+                    string data =
+                        $"スコア: {scoreRecordList.Score}\r\n自機:{scoreRecordList.Player}\r\n難易度:{scoreRecordList.Level}\r\n名前:{scoreRecordList.Name.TrimEnd('\0')}\r\n到達面:{scoreRecordList.Progress}\r\n日時:{scoreRecordList.Date.TrimEnd('\0')}\r\n処理落ち率:{scoreRecordList.SlowRate}\r\nその他\r\n{scoreRecordList.OtherData}";
+                    Clipboard.SetText(data);
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
     }
 }
