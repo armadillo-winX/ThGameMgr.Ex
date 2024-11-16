@@ -143,14 +143,14 @@ namespace ThGameMgr.Ex.Score.Th15
 
             SpellCardRecordData spellCardRecordList = new()
             {
-                Challenge = challenge.ToString(),
-                Get = get.ToString()
+                TryCount = challenge.ToString(),
+                GetCount = get.ToString()
             };
 
             SpellCardRecordData practiceSpellCardRecordList = new()
             {
-                Challenge = practiceChallenge.ToString(),
-                Get = practiceGet.ToString()
+                TryCount = practiceChallenge.ToString(),
+                GetCount = practiceGet.ToString()
             };
 
             ObservableCollection<SpellCardRecordData> spellCardRecordLists = new();
@@ -191,23 +191,23 @@ namespace ThGameMgr.Ex.Score.Th15
             ObservableCollection<SpellCardRecordData> cardDataUdonA = GetSpellCardRecordData(data[i6..i6end]);
             ObservableCollection<SpellCardRecordData> cardDataUdonB = GetSpellCardRecordData(data[i7..i7end]);
 
-            int challengeReimuA = int.Parse(cardDataReimuA[0].Challenge);
-            int challengeReimuB = int.Parse(cardDataReimuB[0].Challenge);
-            int challengeMarisaA = int.Parse(cardDataMarisaA[0].Challenge);
-            int challengeMarisaB = int.Parse(cardDataMarisaB[0].Challenge);
-            int challengeSanaeA = int.Parse(cardDataSanaeA[0].Challenge);
-            int challengeSanaeB = int.Parse(cardDataSanaeB[0].Challenge);
-            int challengeUdonA = int.Parse(cardDataUdonA[0].Challenge);
-            int challengeUdonB = int.Parse(cardDataUdonB[0].Challenge);
+            int challengeReimuA = int.Parse(cardDataReimuA[0].TryCount);
+            int challengeReimuB = int.Parse(cardDataReimuB[0].TryCount);
+            int challengeMarisaA = int.Parse(cardDataMarisaA[0].TryCount);
+            int challengeMarisaB = int.Parse(cardDataMarisaB[0].TryCount);
+            int challengeSanaeA = int.Parse(cardDataSanaeA[0].TryCount);
+            int challengeSanaeB = int.Parse(cardDataSanaeB[0].TryCount);
+            int challengeUdonA = int.Parse(cardDataUdonA[0].TryCount);
+            int challengeUdonB = int.Parse(cardDataUdonB[0].TryCount);
 
-            int getReimuA = int.Parse(cardDataReimuA[0].Get);
-            int getReimuB = int.Parse(cardDataReimuB[0].Get);
-            int getMarisaA = int.Parse(cardDataMarisaA[0].Get);
-            int getMarisaB = int.Parse(cardDataMarisaB[0].Get);
-            int getSanaeA = int.Parse(cardDataSanaeA[0].Get);
-            int getSanaeB = int.Parse(cardDataSanaeB[0].Get);
-            int getUdonA = int.Parse(cardDataUdonA[0].Get);
-            int getUdonB = int.Parse(cardDataUdonB[0].Get);
+            int getReimuA = int.Parse(cardDataReimuA[0].GetCount);
+            int getReimuB = int.Parse(cardDataReimuB[0].GetCount);
+            int getMarisaA = int.Parse(cardDataMarisaA[0].GetCount);
+            int getMarisaB = int.Parse(cardDataMarisaB[0].GetCount);
+            int getSanaeA = int.Parse(cardDataSanaeA[0].GetCount);
+            int getSanaeB = int.Parse(cardDataSanaeB[0].GetCount);
+            int getUdonA = int.Parse(cardDataUdonA[0].GetCount);
+            int getUdonB = int.Parse(cardDataUdonB[0].GetCount);
 
             int allPerfectChallenge = challengeReimuA + challengeMarisaA + challengeSanaeA + challengeUdonA;
             int allPerfectGet = getReimuA + getMarisaA + getSanaeA + getUdonA;
@@ -231,8 +231,8 @@ namespace ThGameMgr.Ex.Score.Th15
             {
                 CardID = cardId.ToString(),
                 CardName = perfectCardName,
-                Challenge = allPerfectChallenge.ToString(),
-                Get = allPerfectGet.ToString(),
+                TryCount = allPerfectChallenge.ToString(),
+                GetCount = allPerfectGet.ToString(),
                 Rate = allPerfectGetRate,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place
@@ -242,8 +242,8 @@ namespace ThGameMgr.Ex.Score.Th15
             {
                 CardID = cardId.ToString(),
                 CardName = legacyCardName,
-                Challenge = allLegacyChallenge.ToString(),
-                Get = allLegacyGet.ToString(),
+                TryCount = allLegacyChallenge.ToString(),
+                GetCount = allLegacyGet.ToString(),
                 Rate = allLegacyGetRate,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place

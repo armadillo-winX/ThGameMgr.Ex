@@ -15,12 +15,12 @@
         /// <summary>
         /// 挑戦回数
         /// </summary>
-        public string? Challenge { get; set; }
+        public string? TryCount { get; set; }
 
         /// <summary>
         /// 取得回数
         /// </summary>
-        public string? Get { get; set; }
+        public string? GetCount { get; set; }
 
         /// <summary>
         /// 取得率(百分率)
