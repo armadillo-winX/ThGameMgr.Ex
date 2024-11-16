@@ -5,6 +5,7 @@ global using System.Text;
 global using System.Windows;
 
 global using ThGameMgr.Ex.Dialogs;
+global using ThGameMgr.Ex.Data;
 global using ThGameMgr.Ex.Exceptions;
 global using ThGameMgr.Ex.Extensions;
 global using ThGameMgr.Ex.Game;
@@ -276,7 +277,7 @@ namespace ThGameMgr.Ex
             if (ScoreView.ScoreRecordLists != null &&
                 ScoreView.ScoreRecordLists.Count >= 0)
             {
-                IEnumerable<ScoreRecordList> filteredScoreRecordLists = ScoreView.ScoreRecordLists;
+                IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreView.ScoreRecordLists;
 
                 if (this.FilterLevel != "ALL")
                 {
@@ -303,7 +304,7 @@ namespace ThGameMgr.Ex
             if (ScoreView.SpellCardRecordLists != null &&
                 ScoreView.SpellCardRecordLists.Count >= 0)
             {
-                IEnumerable<SpellCardRecordList> filteredSpellCardRecordLists = ScoreView.SpellCardRecordLists;
+                IEnumerable<SpellCardRecordData> filteredSpellCardRecordLists = ScoreView.SpellCardRecordLists;
 
                 if (this.FilterEnemy != "ALL")
                 {
@@ -1408,7 +1409,7 @@ namespace ThGameMgr.Ex
 
                 for (int i = 0; i < ScoreView.SpellCardRecordLists.Count; i++)
                 {
-                    SpellCardRecordList spellCardRecordList = ScoreView.SpellCardRecordLists[i];
+                    SpellCardRecordData spellCardRecordList = ScoreView.SpellCardRecordLists[i];
                     if (int.Parse(spellCardRecordList.Challenge) > 0) challengedCardCount++;
                     if (int.Parse(spellCardRecordList.Get) > 0) getCardCount++;
                 }
@@ -1455,7 +1456,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
+                    ScoreRecordData scoreRecordList = (ScoreRecordData)ScoreDataGrid.SelectedItem;
                     if (_scoreRecordDetailDialog == null ||
                         !_scoreRecordDetailDialog.IsLoaded)
                     {
@@ -1487,7 +1488,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
+                    ScoreRecordData scoreRecordList = (ScoreRecordData)ScoreDataGrid.SelectedItem;
                     if (_scoreRecordDetailDialog != null && _scoreRecordDetailDialog.IsLoaded)
                     {
                         _scoreRecordDetailDialog.DataContext = scoreRecordList;
@@ -1508,7 +1509,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    SpellCardRecordList spellCardRecordList = (SpellCardRecordList)SpellCardDataGrid.SelectedItem;
+                    SpellCardRecordData spellCardRecordList = (SpellCardRecordData)SpellCardDataGrid.SelectedItem;
                     if (_spellCardRecordDetailDialog == null ||
                         !_spellCardRecordDetailDialog.IsLoaded)
                     {
@@ -1540,7 +1541,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    SpellCardRecordList spellCardRecordList = (SpellCardRecordList)SpellCardDataGrid.SelectedItem;
+                    SpellCardRecordData spellCardRecordList = (SpellCardRecordData)SpellCardDataGrid.SelectedItem;
                     if (_spellCardRecordDetailDialog != null &&
                         _spellCardRecordDetailDialog.IsLoaded)
                     {

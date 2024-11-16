@@ -1,6 +1,6 @@
-﻿namespace ThGameMgr.Ex.Score
+﻿namespace ThGameMgr.Ex.Data
 {
-    internal class SpellCardRecordList
+    public class SpellCardRecordData
     {
         public string? CardID { get; set; }
 

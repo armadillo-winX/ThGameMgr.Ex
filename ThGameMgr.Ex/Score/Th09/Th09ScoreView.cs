@@ -50,7 +50,7 @@ namespace ThGameMgr.Ex.Score.Th09
                             if (type == "HSCR")
                             {
                                 byte[] highscoreData = bytes[i..r];
-                                ScoreRecordList scoreRecordList
+                                ScoreRecordData scoreRecordList
                                     = GetHighScoreData(highscoreData);
                                 if (scoreRecordList.Date.TrimEnd('\0') != "--/--")
                                     ScoreView.ScoreRecordLists.Add(scoreRecordList);
@@ -67,7 +67,7 @@ namespace ThGameMgr.Ex.Score.Th09
             }
         }
 
-        public static ScoreRecordList GetHighScoreData(byte[] data)
+        public static ScoreRecordData GetHighScoreData(byte[] data)
         {
             byte[] HSCR_DATA = data[0..4];
             byte[] SIZE_DATA = data[4..6];
@@ -98,7 +98,7 @@ namespace ThGameMgr.Ex.Score.Th09
             string name = Encoding.GetEncoding("Shift_JIS").GetString(NAME_DATA);
             string date = Encoding.GetEncoding("Shift_JIS").GetString(DATE_DATA);
 
-            ScoreRecordList scoreRecordList = new()
+            ScoreRecordData scoreRecordList = new()
             {
                 Score = score,
                 Player = player,

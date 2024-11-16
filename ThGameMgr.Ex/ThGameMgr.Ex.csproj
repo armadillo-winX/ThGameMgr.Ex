@@ -101,6 +101,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ThGameMgr.Ex.Data\ThGameMgr.Ex.Data.csproj" />
     <ProjectReference Include="..\ThGameMgr.Ex.Plugin\ThGameMgr.Ex.Plugin.csproj" />
   </ItemGroup>
 
