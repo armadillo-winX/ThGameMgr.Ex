@@ -16,6 +16,10 @@
             {
                 return Th08.Th08Decoder.Convert(scorePath, outputData);
             }
+            else if (gameId == GameIndex.Th09)
+            {
+                return Th09.Th09Decoder.Convert(scorePath, outputData);
+            }
             else if (gameId == GameIndex.Th10)
             {
                 return Th10.Th10Decoder.Convert(scorePath, outputData);

@@ -28,6 +28,10 @@ namespace ThGameMgr.Ex.Score
             {
                 Th08.Th08ScoreView.GetScoreData(displayUnchallengedCard);
             }
+            else if (gameId == GameIndex.Th09)
+            {
+                Th09.Th09ScoreView.GetScoreData();
+            }
             else if (gameId == GameIndex.Th10)
             {
                 Th10.Th10ScoreView.GetScoreData(displayUnchallengedCard);
