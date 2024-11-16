@@ -5,6 +5,7 @@ global using System.Text;
 global using System.Windows;
 
 global using ThGameMgr.Ex.Dialogs;
+global using ThGameMgr.Ex.Data;
 global using ThGameMgr.Ex.Exceptions;
 global using ThGameMgr.Ex.Extensions;
 global using ThGameMgr.Ex.Game;
