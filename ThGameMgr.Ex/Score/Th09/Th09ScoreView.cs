@@ -55,6 +55,9 @@ namespace ThGameMgr.Ex.Score.Th09
                             if (type == "HSCR")
                             {
                                 byte[] highscoreData = bytes[i..r];
+                                ScoreRecordList scoreRecordList
+                                    = GetHighScoreData(highscoreData);
+                                ScoreView.ScoreRecordLists.Add(scoreRecordList);
 
                                 i += size;
                             }
