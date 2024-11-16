@@ -1747,7 +1747,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    ScoreRecordList scoreRecordList = (ScoreRecordList)ScoreDataGrid.SelectedItem;
+                    ScoreRecordData scoreRecordList = (ScoreRecordData)ScoreDataGrid.SelectedItem;
 
                     string data =
                         $"スコア: {scoreRecordList.Score}\r\n自機:{scoreRecordList.Player}\r\n難易度:{scoreRecordList.Level}\r\n名前:{scoreRecordList.Name.TrimEnd('\0')}";
@@ -1779,7 +1779,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    SpellCardRecordList spellCardRecordList = (SpellCardRecordList)SpellCardDataGrid.SelectedItem;
+                    SpellCardRecordData spellCardRecordList = (SpellCardRecordData)SpellCardDataGrid.SelectedItem;
 
                     string data =
                         $"No.{spellCardRecordList.CardID}\r\n{spellCardRecordList.CardName}\r\n取得数: {spellCardRecordList.Get}\r\n挑戦数: {spellCardRecordList.Challenge}\r\n取得率: {spellCardRecordList.Rate}\r\n発動場所: {spellCardRecordList.Place}\r\n術者: {spellCardRecordList.Enemy}";
