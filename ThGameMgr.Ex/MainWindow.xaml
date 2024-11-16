@@ -247,6 +247,7 @@
                     <DataGrid x:Name="SpellCardDataGrid" ItemsSource="{Binding}" Margin="10,39,10,10" SelectionChanged="SpellCardDataGridSelectionChanged">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
+                                <MenuItem x:Name="CopySpellCardRecordMenuItem" Header="コピー" Click="CopySpellCardRecordMenuItemClick"/>
                                 <MenuItem x:Name="ViewSpellCardRecordMenuItem" Header="詳細を表示" Click="ViewSpellCardRecordMenuItemClick"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
