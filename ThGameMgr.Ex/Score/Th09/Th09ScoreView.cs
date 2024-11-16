@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,17 @@ namespace ThGameMgr.Ex.Score.Th09
     internal class Th09ScoreView
     {
         public static string[] _th09PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th09).Split(',');
-    
+
+        private static readonly Dictionary<string, string> _levelDictionary =
+            new()
+            {
+                { "00", "Easy" },
+                { "01", "Normal" },
+                { "02", "Hard" },
+                { "03", "Lunatic" },
+                { "04", "Extra" }
+            };
+
         public static void GetScoreData(bool displayUnchallengedCard)
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th09);
@@ -55,6 +66,42 @@ namespace ThGameMgr.Ex.Score.Th09
                     }
                 }
             }
+        }
+
+        public static ScoreRecordList GetHighScoreData(byte[] data)
+        {
+            byte[] HSCR_DATA = data[0..4];
+            byte[] SIZE_DATA = data[4..6];
+            byte[] SCORE_DATA = data[12..16];
+            byte[] PLAYER_DATA = data[20..21];
+            byte[] LEVEL_DATA = data[21..22];
+            byte[] RANK_DATA = data[22..24];
+            byte[] NAME_DATA = data[24..33];
+            byte[] DATE_DATA = data[33..41];
+            byte[] CONTINUE_DATA = data[43..44];
+
+            string score = String.Format("{0:#,0}", BitConverter.ToInt32(SCORE_DATA, 0));
+            string playerIndex = BitConverter.ToString(PLAYER_DATA, 0);
+            string levelIndex = BitConverter.ToString(LEVEL_DATA, 0);
+
+            string player = _th09PlayersList[int.Parse(playerIndex)];
+            string level = _levelDictionary.ContainsKey(levelIndex) ? _levelDictionary[levelIndex] : "Unknown";
+
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            string name = Encoding.GetEncoding("Shift_JIS").GetString(NAME_DATA);
+            string date = Encoding.GetEncoding("Shift_JIS").GetString(DATE_DATA);
+
+            ScoreRecordList scoreRecordList = new()
+            {
+                Score = score,
+                Player = player,
+                Level = level,
+                Name = name,
+                Date = date
+            };
+
+            return scoreRecordList;
         }
     }
 }
