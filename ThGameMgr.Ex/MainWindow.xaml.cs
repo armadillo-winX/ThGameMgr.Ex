@@ -1410,8 +1410,8 @@ namespace ThGameMgr.Ex
                 for (int i = 0; i < ScoreView.SpellCardRecordLists.Count; i++)
                 {
                     SpellCardRecordData spellCardRecordList = ScoreView.SpellCardRecordLists[i];
-                    if (int.Parse(spellCardRecordList.Challenge) > 0) challengedCardCount++;
-                    if (int.Parse(spellCardRecordList.Get) > 0) getCardCount++;
+                    if (int.Parse(spellCardRecordList.TryCount) > 0) challengedCardCount++;
+                    if (int.Parse(spellCardRecordList.GetCount) > 0) getCardCount++;
                 }
 
                 string getCardRate = ScoreCalculator.CalcSpellCardGetRate(getCardCount, challengedCardCount);

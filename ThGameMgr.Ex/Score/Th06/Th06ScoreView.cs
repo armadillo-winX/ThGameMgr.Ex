@@ -152,8 +152,8 @@ namespace ThGameMgr.Ex.Score.Th06
             {
                 CardID = cardId.ToString(),
                 CardName = cardName,
-                Get = get.ToString(),
-                Challenge = challenge.ToString(),
+                GetCount = get.ToString(),
+                TryCount = challenge.ToString(),
                 Rate = rate,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place

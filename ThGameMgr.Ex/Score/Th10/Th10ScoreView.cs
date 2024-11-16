@@ -131,8 +131,8 @@ namespace ThGameMgr.Ex.Score.Th10
             SpellCardRecordData spellCardRecordList = new()
             {
                 CardID = cardId.ToString(),
-                Get = get,
-                Challenge = challenge
+                GetCount = get,
+                TryCount = challenge
             };
             return spellCardRecordList;
         }
@@ -162,19 +162,19 @@ namespace ThGameMgr.Ex.Score.Th10
             SpellCardRecordData cardDataMarisaB = GetSpellCardRecordData(data[i4..i4end]);
             SpellCardRecordData cardDataMarisaC = GetSpellCardRecordData(data[i5..i5end]);
 
-            int challengeReimuA = int.Parse(cardDataReimuA.Challenge);
-            int challengeReimuB = int.Parse(cardDataReimuB.Challenge);
-            int challengeReimuC = int.Parse(cardDataReimuC.Challenge);
-            int challengeMarisaA = int.Parse(cardDataMarisaA.Challenge);
-            int challengeMarisaB = int.Parse(cardDataMarisaB.Challenge);
-            int challengeMarisaC = int.Parse(cardDataMarisaC.Challenge);
+            int challengeReimuA = int.Parse(cardDataReimuA.TryCount);
+            int challengeReimuB = int.Parse(cardDataReimuB.TryCount);
+            int challengeReimuC = int.Parse(cardDataReimuC.TryCount);
+            int challengeMarisaA = int.Parse(cardDataMarisaA.TryCount);
+            int challengeMarisaB = int.Parse(cardDataMarisaB.TryCount);
+            int challengeMarisaC = int.Parse(cardDataMarisaC.TryCount);
 
-            int getReimuA = int.Parse(cardDataReimuA.Get);
-            int getReimuB = int.Parse(cardDataReimuB.Get);
-            int getReimuC = int.Parse(cardDataReimuC.Get);
-            int getMarisaA = int.Parse(cardDataMarisaA.Get);
-            int getMarisaB = int.Parse(cardDataMarisaB.Get);
-            int getMarisaC = int.Parse(cardDataMarisaC.Get);
+            int getReimuA = int.Parse(cardDataReimuA.GetCount);
+            int getReimuB = int.Parse(cardDataReimuB.GetCount);
+            int getReimuC = int.Parse(cardDataReimuC.GetCount);
+            int getMarisaA = int.Parse(cardDataMarisaA.GetCount);
+            int getMarisaB = int.Parse(cardDataMarisaB.GetCount);
+            int getMarisaC = int.Parse(cardDataMarisaC.GetCount);
 
             int allChallenge
                 = challengeReimuA + challengeReimuB + challengeReimuC + challengeMarisaA + challengeMarisaB + challengeMarisaC;
@@ -191,8 +191,8 @@ namespace ThGameMgr.Ex.Score.Th10
             {
                 CardID = cardId.ToString(),
                 CardName = cardName,
-                Challenge = allChallenge.ToString(),
-                Get = allGet.ToString(),
+                TryCount = allChallenge.ToString(),
+                GetCount = allGet.ToString(),
                 Rate = allGetRate,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place

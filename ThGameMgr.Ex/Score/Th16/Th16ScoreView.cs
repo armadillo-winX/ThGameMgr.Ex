@@ -153,14 +153,14 @@ namespace ThGameMgr.Ex.Score.Th16
 
             SpellCardRecordData spellCardRecordList = new()
             {
-                Challenge = challenge.ToString(),
-                Get = get.ToString()
+                TryCount = challenge.ToString(),
+                GetCount = get.ToString()
             };
 
             SpellCardRecordData practiceSpellCardRecordList = new()
             {
-                Challenge = practiceChallenge.ToString(),
-                Get = practiceGet.ToString()
+                TryCount = practiceChallenge.ToString(),
+                GetCount = practiceGet.ToString()
             };
 
             ObservableCollection<SpellCardRecordData> spellCardRecordLists = new();
@@ -189,25 +189,25 @@ namespace ThGameMgr.Ex.Score.Th16
             ObservableCollection<SpellCardRecordData> cardDataAya = GetSpellCardRecordData(data[i2..i2end]);
             ObservableCollection<SpellCardRecordData> cardDataMarisa = GetSpellCardRecordData(data[i3..i3end]);
 
-            int challengeReimu = int.Parse(cardDataReimu[0].Challenge);
-            int challengeChirno = int.Parse(cardDataChirno[0].Challenge);
-            int challengeAya = int.Parse(cardDataAya[0].Challenge);
-            int challengeMarisa = int.Parse(cardDataMarisa[0].Challenge);
+            int challengeReimu = int.Parse(cardDataReimu[0].TryCount);
+            int challengeChirno = int.Parse(cardDataChirno[0].TryCount);
+            int challengeAya = int.Parse(cardDataAya[0].TryCount);
+            int challengeMarisa = int.Parse(cardDataMarisa[0].TryCount);
 
-            int getReimu = int.Parse(cardDataReimu[0].Get);
-            int getChirno = int.Parse(cardDataChirno[0].Get);
-            int getAya = int.Parse(cardDataAya[0].Get);
-            int getMarisa = int.Parse(cardDataMarisa[0].Get);
+            int getReimu = int.Parse(cardDataReimu[0].GetCount);
+            int getChirno = int.Parse(cardDataChirno[0].GetCount);
+            int getAya = int.Parse(cardDataAya[0].GetCount);
+            int getMarisa = int.Parse(cardDataMarisa[0].GetCount);
 
-            int practiceChallengeReimu = int.Parse(cardDataReimu[1].Challenge);
-            int practiceChallengeChirno = int.Parse(cardDataChirno[1].Challenge);
-            int practiceChallengeAya = int.Parse(cardDataAya[1].Challenge);
-            int practiceChallengeMarisa = int.Parse(cardDataMarisa[1].Challenge);
+            int practiceChallengeReimu = int.Parse(cardDataReimu[1].TryCount);
+            int practiceChallengeChirno = int.Parse(cardDataChirno[1].TryCount);
+            int practiceChallengeAya = int.Parse(cardDataAya[1].TryCount);
+            int practiceChallengeMarisa = int.Parse(cardDataMarisa[1].TryCount);
 
-            int practiceGetReimu = int.Parse(cardDataReimu[1].Get);
-            int practiceGetChirno = int.Parse(cardDataChirno[1].Get);
-            int practiceGetAya = int.Parse(cardDataAya[1].Get);
-            int practiceGetMarisa = int.Parse(cardDataMarisa[1].Get);
+            int practiceGetReimu = int.Parse(cardDataReimu[1].GetCount);
+            int practiceGetChirno = int.Parse(cardDataChirno[1].GetCount);
+            int practiceGetAya = int.Parse(cardDataAya[1].GetCount);
+            int practiceGetMarisa = int.Parse(cardDataMarisa[1].GetCount);
 
             int allChallengeCount = challengeReimu + challengeChirno + challengeAya + challengeMarisa;
             int allGetCount = getReimu + getChirno + getAya + getMarisa;
@@ -231,8 +231,8 @@ namespace ThGameMgr.Ex.Score.Th16
             {
                 CardID = cardId.ToString(),
                 CardName = cardName,
-                Challenge = allChallengeCount.ToString(),
-                Get = allGetCount.ToString(),
+                TryCount = allChallengeCount.ToString(),
+                GetCount = allGetCount.ToString(),
                 Rate = allGetRate,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place
@@ -242,8 +242,8 @@ namespace ThGameMgr.Ex.Score.Th16
             {
                 CardID = cardId.ToString(),
                 CardName = practiceCardName,
-                Challenge = allPracticeChallengeCount.ToString(),
-                Get = allPracticeGetCount.ToString(),
+                TryCount = allPracticeChallengeCount.ToString(),
+                GetCount = allPracticeGetCount.ToString(),
                 Rate = allPracticeGetRate,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place

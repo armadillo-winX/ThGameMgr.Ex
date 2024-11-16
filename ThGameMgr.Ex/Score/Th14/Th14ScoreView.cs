@@ -139,14 +139,14 @@ namespace ThGameMgr.Ex.Score.Th14
 
             SpellCardRecordData spellCardRecordList = new()
             {
-                Challenge = challenge.ToString(),
-                Get = get.ToString()
+                TryCount = challenge.ToString(),
+                GetCount = get.ToString()
             };
 
             SpellCardRecordData practiceSpellCardRecordList = new()
             {
-                Challenge = practiceChallenge.ToString(),
-                Get = practiceGet.ToString()
+                TryCount = practiceChallenge.ToString(),
+                GetCount = practiceGet.ToString()
             };
 
             ObservableCollection<SpellCardRecordData> spellCardRecordLists = new();
@@ -181,33 +181,33 @@ namespace ThGameMgr.Ex.Score.Th14
             ObservableCollection<SpellCardRecordData> cardDataSakuyaA = GetSpellCardRecordData(data[i4..i4end]);
             ObservableCollection<SpellCardRecordData> cardDataSakuyaB = GetSpellCardRecordData(data[i5..i5end]);
 
-            int challengeReimuA = int.Parse(cardDataReimuA[0].Challenge);
-            int challengeReimuB = int.Parse(cardDataReimuB[0].Challenge);
-            int challengeMarisaA = int.Parse(cardDataMarisaA[0].Challenge);
-            int challengeMarisaB = int.Parse(cardDataMarisaB[0].Challenge);
-            int challengeSakuyaA = int.Parse(cardDataSakuyaA[0].Challenge);
-            int challengeSakuyaB = int.Parse(cardDataSakuyaB[0].Challenge);
+            int challengeReimuA = int.Parse(cardDataReimuA[0].TryCount);
+            int challengeReimuB = int.Parse(cardDataReimuB[0].TryCount);
+            int challengeMarisaA = int.Parse(cardDataMarisaA[0].TryCount);
+            int challengeMarisaB = int.Parse(cardDataMarisaB[0].TryCount);
+            int challengeSakuyaA = int.Parse(cardDataSakuyaA[0].TryCount);
+            int challengeSakuyaB = int.Parse(cardDataSakuyaB[0].TryCount);
 
-            int getReimuA = int.Parse(cardDataReimuA[0].Get);
-            int getReimuB = int.Parse(cardDataReimuB[0].Get);
-            int getMarisaA = int.Parse(cardDataMarisaA[0].Get);
-            int getMarisaB = int.Parse(cardDataMarisaB[0].Get);
-            int getSakuyaA = int.Parse(cardDataSakuyaA[0].Get);
-            int getSakuyaB = int.Parse(cardDataSakuyaB[0].Get);
+            int getReimuA = int.Parse(cardDataReimuA[0].GetCount);
+            int getReimuB = int.Parse(cardDataReimuB[0].GetCount);
+            int getMarisaA = int.Parse(cardDataMarisaA[0].GetCount);
+            int getMarisaB = int.Parse(cardDataMarisaB[0].GetCount);
+            int getSakuyaA = int.Parse(cardDataSakuyaA[0].GetCount);
+            int getSakuyaB = int.Parse(cardDataSakuyaB[0].GetCount);
 
-            int practiceChallengeReimuA = int.Parse(cardDataReimuA[1].Challenge);
-            int practiceChallengeReimuB = int.Parse(cardDataReimuB[1].Challenge);
-            int practiceChallengeMarisaA = int.Parse(cardDataMarisaA[1].Challenge);
-            int practiceChallengeMarisaB = int.Parse(cardDataMarisaB[1].Challenge);
-            int practiceChallengeSakuyaA = int.Parse(cardDataSakuyaA[1].Challenge);
-            int practiceChallengeSakuyaB = int.Parse(cardDataSakuyaB[1].Challenge);
+            int practiceChallengeReimuA = int.Parse(cardDataReimuA[1].TryCount);
+            int practiceChallengeReimuB = int.Parse(cardDataReimuB[1].TryCount);
+            int practiceChallengeMarisaA = int.Parse(cardDataMarisaA[1].TryCount);
+            int practiceChallengeMarisaB = int.Parse(cardDataMarisaB[1].TryCount);
+            int practiceChallengeSakuyaA = int.Parse(cardDataSakuyaA[1].TryCount);
+            int practiceChallengeSakuyaB = int.Parse(cardDataSakuyaB[1].TryCount);
 
-            int practiceGetReimuA = int.Parse(cardDataReimuA[1].Get);
-            int practiceGetReimuB = int.Parse(cardDataReimuB[1].Get);
-            int practiceGetMarisaA = int.Parse(cardDataMarisaA[1].Get);
-            int practiceGetMarisaB = int.Parse(cardDataMarisaB[1].Get);
-            int practiceGetSakuyaA = int.Parse(cardDataSakuyaA[1].Get);
-            int practiceGetSakuyaB = int.Parse(cardDataSakuyaB[1].Get);
+            int practiceGetReimuA = int.Parse(cardDataReimuA[1].GetCount);
+            int practiceGetReimuB = int.Parse(cardDataReimuB[1].GetCount);
+            int practiceGetMarisaA = int.Parse(cardDataMarisaA[1].GetCount);
+            int practiceGetMarisaB = int.Parse(cardDataMarisaB[1].GetCount);
+            int practiceGetSakuyaA = int.Parse(cardDataSakuyaA[1].GetCount);
+            int practiceGetSakuyaB = int.Parse(cardDataSakuyaB[1].GetCount);
 
             int allChallengeCount
                 = challengeReimuA + challengeReimuB + challengeMarisaA + challengeMarisaB + challengeSakuyaA + challengeSakuyaB;
@@ -236,8 +236,8 @@ namespace ThGameMgr.Ex.Score.Th14
             {
                 CardID = cardId.ToString(),
                 CardName = cardName,
-                Challenge = allChallengeCount.ToString(),
-                Get = allGetCount.ToString(),
+                TryCount = allChallengeCount.ToString(),
+                GetCount = allGetCount.ToString(),
                 Rate = allGetRate,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place
@@ -247,8 +247,8 @@ namespace ThGameMgr.Ex.Score.Th14
             {
                 CardID = cardId.ToString(),
                 CardName = practiceCardName,
-                Challenge = allPracticeChallengeCount.ToString(),
-                Get = allPracitceGetCount.ToString(),
+                TryCount = allPracticeChallengeCount.ToString(),
+                GetCount = allPracitceGetCount.ToString(),
                 Rate = allPracticeGetRate,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place
