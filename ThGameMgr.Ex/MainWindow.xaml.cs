@@ -1406,6 +1406,11 @@ namespace ThGameMgr.Ex
             ApplyScoreViewFilter();
         }
 
+        private void ExcludeUntriedCardDataMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ApplyScoreViewFilter();
+        }
+
         private void StartWindowResizerMenuItemClick(object sender, RoutedEventArgs e)
         {
             if (_resizerFrameWindow == null || !_resizerFrameWindow.IsLoaded)
