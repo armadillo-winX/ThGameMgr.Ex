@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace ThGameMgr.Ex.Score.Th16
 {
-    internal class Th16ScoreView
+    internal class Th16ScoreData
     {
         public static string[] _th16PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th16).Split(',');
 
@@ -31,7 +31,7 @@ namespace ThGameMgr.Ex.Score.Th16
                 { 4, "土用" }
             };
 
-        public static void GetScoreData(bool displayUnchallengedCard)
+        public static void Get(bool displayUnchallengedCard)
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th16);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th16);
