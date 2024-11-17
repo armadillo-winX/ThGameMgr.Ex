@@ -695,6 +695,16 @@ namespace ThGameMgr.Ex
             this.Height = mainWindowSettings.MainWindowHeight;
             this.GameId = mainWindowSettings.SelectedGameId;
             DisplayUnchallengedCardMenuItem.IsChecked = mainWindowSettings.DisplayUnchallengedCard;
+            if (DisplayUnchallengedCardMenuItem.IsChecked)
+            {
+                ExcludeUntriedCardDataMenuItem.IsChecked = false;
+                ExcludeUntriedCardDataMenuItem.IsEnabled = false;
+            }
+            else
+            {
+                ExcludeUntriedCardDataMenuItem.IsEnabled = true;
+            }
+
             AutoBackupMenuItem.IsChecked = mainWindowSettings.AutoBackup;
 
             SetGameSelectionMenu();
