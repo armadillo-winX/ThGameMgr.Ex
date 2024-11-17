@@ -1403,6 +1403,16 @@ namespace ThGameMgr.Ex
 
         private void ShowUnchallengedCardMenuItemClick(object sender, RoutedEventArgs e)
         {
+            if (DisplayUnchallengedCardMenuItem.IsChecked)
+            {
+                ExcludeUntriedCardDataMenuItem.IsChecked = false;
+                ExcludeUntriedCardDataMenuItem.IsEnabled = false;
+            }
+            else
+            {
+                ExcludeUntriedCardDataMenuItem.IsEnabled = true;
+            }
+
             ApplyScoreViewFilter();
         }
 
