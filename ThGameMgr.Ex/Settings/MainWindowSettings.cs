@@ -10,6 +10,8 @@
 
         public bool DisplayUnchallengedCard { get; set; }
 
+        public bool ExcludeUnchallengedCardData { get; set; }
+
         public bool AutoBackup { get; set; }
     }
 }
