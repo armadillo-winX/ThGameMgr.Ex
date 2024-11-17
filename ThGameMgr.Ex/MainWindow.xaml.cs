@@ -269,8 +269,8 @@ namespace ThGameMgr.Ex
 
         private void ApplyScoreViewFilter()
         {
-            ScoreDataGrid.DataContext = null;
-            SpellCardDataGrid.DataContext = null;
+            ScoreDataGrid.Items.Clear();
+            SpellCardDataGrid.Items.Clear();
 
             if (ScoreData.ScoreRecordLists != null &&
                 ScoreData.ScoreRecordLists.Count >= 0)
