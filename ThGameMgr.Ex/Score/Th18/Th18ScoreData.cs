@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace ThGameMgr.Ex.Score.Th18
 {
-    internal class Th18ScoreView
+    internal class Th18ScoreData
     {
         public static string[] _th18PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th18).Split(',');
 
@@ -21,7 +21,7 @@ namespace ThGameMgr.Ex.Score.Th18
                 { "09", "All Clear" }
             };
 
-        public static void GetScoreData(bool displayUnchallengedCard)
+        public static void Get(bool displayUnchallengedCard)
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th18);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th18);
