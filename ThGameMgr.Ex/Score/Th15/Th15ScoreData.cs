@@ -5,7 +5,7 @@ namespace ThGameMgr.Ex.Score.Th15
 {
     internal class Th15ScoreData
     {
-        public static string[] _th15PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th15).Split(',');
+        private static string[] _th15PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th15).Split(',');
 
         private static readonly Dictionary<string, string> _progressDictionary =
             new()
@@ -80,7 +80,7 @@ namespace ThGameMgr.Ex.Score.Th15
             }
         }
 
-        public static ScoreRecordData GetHighScoreData(byte[] data)
+        private static ScoreRecordData GetHighScoreData(byte[] data)
         {
             byte[] SCORE_DATA = data[0..4];
             byte[] PROGRESS_DATA = data[4..5];
@@ -122,7 +122,7 @@ namespace ThGameMgr.Ex.Score.Th15
             return scoreRecordList;
         }
 
-        public static ObservableCollection<SpellCardRecordData> GetSpellCardRecordData(byte[] data)
+        private static ObservableCollection<SpellCardRecordData> GetSpellCardRecordData(byte[] data)
         {
             byte[] CARD_NAME_DATA = data[0..128];
             byte[] GET_DATA = data[128..132];
@@ -159,7 +159,7 @@ namespace ThGameMgr.Ex.Score.Th15
             return spellCardRecordLists;
         }
 
-        public static ObservableCollection<SpellCardRecordData> GetAllSpellCardRecord(
+        private static ObservableCollection<SpellCardRecordData> GetAllSpellCardRecord(
             int cardId, byte[] data, bool displayUnchallengedCard)
         {
             int n = cardId - 1;
@@ -255,7 +255,7 @@ namespace ThGameMgr.Ex.Score.Th15
             return allSpellCardRecordLists;
         }
 
-        public static string LevelReplace(int l)
+        private static string LevelReplace(int l)
         {
             if (0 < l && l < 11)
             {

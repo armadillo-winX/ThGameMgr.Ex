@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score.Th10
 {
     internal class Th10ScoreData
     {
-        public static string[] _th10PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th10).Split(',');
+        private static string[] _th10PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th10).Split(',');
 
         private static readonly Dictionary<string, string> _progressDictionary =
             new()
@@ -78,7 +78,7 @@ namespace ThGameMgr.Ex.Score.Th10
             }
         }
 
-        public static ScoreRecordData GetHighScoreData(byte[] data)
+        private static ScoreRecordData GetHighScoreData(byte[] data)
         {
             byte[] SCORE_DATA = data[0..4];
             byte[] PROGRESS_DATA = data[4..5];
@@ -115,7 +115,7 @@ namespace ThGameMgr.Ex.Score.Th10
             return scoreRecordList;
         }
 
-        public static SpellCardRecordData GetSpellCardRecordData(byte[] data)
+        private static SpellCardRecordData GetSpellCardRecordData(byte[] data)
         {
             byte[] CARD_NAME_DATA = data[0..128];
             byte[] GET_DATA = data[128..132];

@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score.Th09
 {
     internal class Th09ScoreData
     {
-        public static string[] _th09PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th09).Split(',');
+        private static string[] _th09PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th09).Split(',');
 
         private static readonly Dictionary<string, string> _levelDictionary =
             new()
@@ -67,7 +67,7 @@ namespace ThGameMgr.Ex.Score.Th09
             }
         }
 
-        public static ScoreRecordData GetHighScoreData(byte[] data)
+        private static ScoreRecordData GetHighScoreData(byte[] data)
         {
             byte[] HSCR_DATA = data[0..4];
             byte[] SIZE_DATA = data[4..6];
