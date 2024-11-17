@@ -298,7 +298,10 @@ namespace ThGameMgr.Ex
                 }
 
                 ScoreDataGrid.AutoGenerateColumns = false;
-                ScoreDataGrid.DataContext = filteredScoreRecordLists;
+                foreach (ScoreRecordData scoreRecordData in filteredScoreRecordLists)
+                {
+                    ScoreDataGrid.Items.Add(scoreRecordData);
+                }
             }
 
             if (ScoreData.SpellCardRecordLists != null &&
