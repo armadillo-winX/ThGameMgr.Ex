@@ -248,8 +248,6 @@ namespace ThGameMgr.Ex
             {
                 EnableGettingScoreDataLimitationMode(true);
 
-                bool displayUnchallengedCard = DisplayUnchallengedCardMenuItem.IsChecked;
-
                 try
                 {
                     await Task.Run(()
