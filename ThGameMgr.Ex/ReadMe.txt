@@ -59,9 +59,6 @@ Visual Studio Community 2022
 ・東方鬼形獣　～ Wily Beast and Weakest Creature.
 ・東方虹龍洞　～ Unconnected Marketeers.
 
-※注意※
-東方花映塚　～ Phantasmagoria of Flower View.については、ハイスコアビューアおよび御札戦歴ビューアはご利用になれません。
-
 
 §ソースコード
 本ソフトウェアはオープンソースにて開発されており、ソースコードはGitHubで2条項BSDライセンスで公開されています。
@@ -69,8 +66,10 @@ https://github.com/armadillo-winX/ThGameMgr.Ex
 
 
 §フィードバック・お問い合わせ
-フィードバックはGitHubリポジトリにissueを建てていただくとありがたいです。
+フィードバックは以下のフィードバックフォームへお願いします。
+GitHub リポジトリに issue を立てていただいても構いません。
+https://forms.gle/WBabN5bJJqvNdkhu5
 
-GitHubをご利用でない場合、また、そのほかのお問い合わせに関しては以下の X (旧Twitter) アカウントまたはメールアドレスまで
+そのほかのお問い合わせに関しては以下の X (旧Twitter) アカウントまたはメールアドレスまで
 X (旧Twitter) アカウント: @PhotonSak1054
 メールアドレス: mashironn@proton.me
