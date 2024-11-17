@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace ThGameMgr.Ex.Score.Th18
+namespace ThGameMgr.Ex.Score.Th17
 {
-    internal class Th18ScoreView
+    internal class Th17ScoreData
     {
-        public static string[] _th18PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th18).Split(',');
+        private static string[] _th17PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th17).Split(',');
 
         private static readonly Dictionary<string, string> _progressDictionary =
             new()
@@ -21,15 +21,15 @@ namespace ThGameMgr.Ex.Score.Th18
                 { "09", "All Clear" }
             };
 
-        public static void GetScoreData(bool displayUnchallengedCard)
+        public static void Get()
         {
-            string? gamePath = GameFile.GetGameFilePath(GameIndex.Th18);
-            string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th18);
+            string? gamePath = GameFile.GetGameFilePath(GameIndex.Th17);
+            string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th17);
 
             if (File.Exists(gamePath) && File.Exists(scorePath))
             {
                 MemoryStream decodedData = new();
-                bool decodeResult = ScoreDecoder.Decode(GameIndex.Th18, scorePath, decodedData);
+                bool decodeResult = ScoreDecoder.Decode(GameIndex.Th17, scorePath, decodedData);
                 if (decodeResult)
                 {
                     decodedData.Seek(0, SeekOrigin.Begin);
@@ -41,7 +41,7 @@ namespace ThGameMgr.Ex.Score.Th18
 
                         int i = 40;
                         int size = 32;
-                        for (int k = 0; k < 4; k++)
+                        for (int k = 0; k < 9; k++)
                         {
                             int l = 1;
                             int max = i + (32 * 60);
@@ -51,7 +51,7 @@ namespace ThGameMgr.Ex.Score.Th18
                                 byte[] highscoreData = bytes[i..n];
                                 ScoreRecordData scoreRecordList = GetHighScoreData(highscoreData);
                                 scoreRecordList.Level = LevelReplace(l);
-                                scoreRecordList.Player = _th18PlayersList[k];
+                                scoreRecordList.Player = _th17PlayersList[k];
 
                                 if (scoreRecordList.Name != "--------")
                                 {
@@ -61,13 +61,13 @@ namespace ThGameMgr.Ex.Score.Th18
                                 i += size;
                                 l++;
                             }
-                            i += 76144;
+                            i += 16544;
                         }
 
-                        for (int p = 1; p < 98; p++)
+                        for (int p = 1; p < 102; p++)
                         {
                             ObservableCollection<SpellCardRecordData> spellCardRecordLists
-                                = GetAllSpellCardRecord(p, bytes, displayUnchallengedCard);
+                                = GetAllSpellCardRecord(p, bytes);
                             ScoreData.SpellCardRecordLists.Add(spellCardRecordLists[0]);
                             ScoreData.SpellPracticeRecordLists.Add(spellCardRecordLists[1]);
                         }
@@ -80,7 +80,7 @@ namespace ThGameMgr.Ex.Score.Th18
             }
         }
 
-        public static ScoreRecordData GetHighScoreData(byte[] data)
+        private static ScoreRecordData GetHighScoreData(byte[] data)
         {
             byte[] SCORE_DATA = data[0..4];
             byte[] PROGRESS_DATA = data[4..5];
@@ -119,16 +119,16 @@ namespace ThGameMgr.Ex.Score.Th18
             return scoreRecordList;
         }
 
-        public static ObservableCollection<SpellCardRecordData> GetSpellCardRecordData(byte[] data)
+        private static ObservableCollection<SpellCardRecordData> GetSpellCardRecordData(byte[] data)
         {
             byte[] CARD_NAME_DATA = data[0..128];
-            byte[] GET_DATA = data[192..196];
-            byte[] PRACTICE_GET_DATA = data[196..200];
-            byte[] CHALLENGE_DATA = data[200..204];
-            byte[] PRACTICE_CHALLENGE_DATA = data[204..208];
-            byte[] CARD_ID_DATA = data[208..212];
-            byte[] LEVEL_DATA = data[212..216];
-            byte[] PRACTOCE_SCORE = data[216..220];
+            byte[] GET_DATA = data[128..132];
+            byte[] PRACTICE_GET_DATA = data[132..136];
+            byte[] CHALLENGE_DATA = data[136..140];
+            byte[] PRACTICE_CHALLENGE_DATA = data[140..144];
+            byte[] CARD_ID_DATA = data[144..148];
+            byte[] LEVEL_DATA = data[148..152];
+            byte[] PRACTOCE_SCORE = data[152..156];
 
             int cardId = BitConverter.ToInt32(CARD_ID_DATA, 0) + 1;
 
@@ -156,60 +156,94 @@ namespace ThGameMgr.Ex.Score.Th18
             return spellCardRecordLists;
         }
 
-        public static ObservableCollection<SpellCardRecordData> GetAllSpellCardRecord(
-            int cardId, byte[] data, bool displayUnchallengedCard)
+        private static ObservableCollection<SpellCardRecordData> GetAllSpellCardRecord(
+            int cardId, byte[] data)
         {
             int n = cardId - 1;
 
-            int i0 = 2280 + (n * 220);
-            int i1 = 80344 + (n * 220);
-            int i2 = 158408 + (n * 220);
-            int i3 = 236472 + (n * 220);
+            int i0 = 2280 + (n * 156);
+            int i1 = 20744 + (n * 156);
+            int i2 = 39208 + (n * 156);
+            int i3 = 57672 + (n * 156);
+            int i4 = 76136 + (n * 156);
+            int i5 = 94600 + (n * 156);
+            int i6 = 113064 + (n * 156);
+            int i7 = 131528 + (n * 156);
+            int i8 = 149992 + (n * 156);
 
-            int i0end = i0 + 220;
-            int i1end = i1 + 220;
-            int i2end = i2 + 220;
-            int i3end = i3 + 220;
+            int i0end = i0 + 156;
+            int i1end = i1 + 156;
+            int i2end = i2 + 156;
+            int i3end = i3 + 156;
+            int i4end = i4 + 156;
+            int i5end = i5 + 156;
+            int i6end = i6 + 156;
+            int i7end = i7 + 156;
+            int i8end = i8 + 156;
 
-            ObservableCollection<SpellCardRecordData> cardDataReimu = GetSpellCardRecordData(data[i0..i0end]);
-            ObservableCollection<SpellCardRecordData> cardDataMarisa = GetSpellCardRecordData(data[i1..i1end]);
-            ObservableCollection<SpellCardRecordData> cardDataSakuya = GetSpellCardRecordData(data[i2..i2end]);
-            ObservableCollection<SpellCardRecordData> cardDataSanae = GetSpellCardRecordData(data[i3..i3end]);
+            ObservableCollection<SpellCardRecordData> cardDataReimuA = GetSpellCardRecordData(data[i0..i0end]);
+            ObservableCollection<SpellCardRecordData> cardDataReimuB = GetSpellCardRecordData(data[i1..i1end]);
+            ObservableCollection<SpellCardRecordData> cardDataReimuC = GetSpellCardRecordData(data[i2..i2end]);
+            ObservableCollection<SpellCardRecordData> cardDataMarisaA = GetSpellCardRecordData(data[i3..i3end]);
+            ObservableCollection<SpellCardRecordData> cardDataMarisaB = GetSpellCardRecordData(data[i4..i4end]);
+            ObservableCollection<SpellCardRecordData> cardDataMarisaC = GetSpellCardRecordData(data[i5..i5end]);
+            ObservableCollection<SpellCardRecordData> cardDataYoumuA = GetSpellCardRecordData(data[i6..i6end]);
+            ObservableCollection<SpellCardRecordData> cardDataYoumuB = GetSpellCardRecordData(data[i7..i7end]);
+            ObservableCollection<SpellCardRecordData> cardDataYoumuC = GetSpellCardRecordData(data[i8..i8end]);
 
-            int challengeReimu = int.Parse(cardDataReimu[0].TryCount);
-            int challengeMarisa = int.Parse(cardDataMarisa[0].TryCount);
-            int challengeSakuya = int.Parse(cardDataSakuya[0].TryCount);
-            int challengeSanae = int.Parse(cardDataSanae[0].TryCount);
+            int challengeReimuA = int.Parse(cardDataReimuA[0].TryCount);
+            int challengeReimuB = int.Parse(cardDataReimuB[0].TryCount);
+            int challengeReimuC = int.Parse(cardDataReimuC[0].TryCount);
+            int challengeMarisaA = int.Parse(cardDataMarisaA[0].TryCount);
+            int challengeMarisaB = int.Parse(cardDataMarisaB[0].TryCount);
+            int challengeMarisaC = int.Parse(cardDataMarisaC[0].TryCount);
+            int challengeYoumuA = int.Parse(cardDataYoumuA[0].TryCount);
+            int challengeYoumuB = int.Parse(cardDataYoumuB[0].TryCount);
+            int challengeYoumuC = int.Parse(cardDataYoumuC[0].TryCount);
 
-            int getReimu = int.Parse(cardDataReimu[0].GetCount);
-            int getMarisa = int.Parse(cardDataMarisa[0].GetCount);
-            int getSakuya = int.Parse(cardDataSakuya[0].GetCount);
-            int getSanae = int.Parse(cardDataSanae[0].GetCount);
+            int getReimuA = int.Parse(cardDataReimuA[0].GetCount);
+            int getReimuB = int.Parse(cardDataReimuB[0].GetCount);
+            int getReimuC = int.Parse(cardDataReimuC[0].GetCount);
+            int getMarisaA = int.Parse(cardDataMarisaA[0].GetCount);
+            int getMarisaB = int.Parse(cardDataMarisaB[0].GetCount);
+            int getMarisaC = int.Parse(cardDataMarisaC[0].GetCount);
+            int getYoumuA = int.Parse(cardDataYoumuA[0].GetCount);
+            int getYoumuB = int.Parse(cardDataYoumuB[0].GetCount);
+            int getYoumuC = int.Parse(cardDataYoumuC[0].GetCount);
 
-            int practiceChallengeReimu = int.Parse(cardDataReimu[1].TryCount);
-            int practiceChallengeMarisa = int.Parse(cardDataMarisa[1].TryCount);
-            int practiceChallengeSakuya = int.Parse(cardDataSakuya[1].TryCount);
-            int practiceChallengeSanae = int.Parse(cardDataSanae[1].TryCount);
+            int practiceChallengeReimuA = int.Parse(cardDataReimuA[1].TryCount);
+            int practiceChallengeReimuB = int.Parse(cardDataReimuB[1].TryCount);
+            int practiceChallengeReimuC = int.Parse(cardDataReimuC[1].TryCount);
+            int practiceChallengeMarisaA = int.Parse(cardDataMarisaA[1].TryCount);
+            int practiceChallengeMarisaB = int.Parse(cardDataMarisaB[1].TryCount);
+            int practiceChallengeMarisaC = int.Parse(cardDataMarisaC[1].TryCount);
+            int practiceChallengeYoumuA = int.Parse(cardDataYoumuA[1].TryCount);
+            int practiceChallengeYoumuB = int.Parse(cardDataYoumuB[1].TryCount);
+            int practiceChallengeYoumuC = int.Parse(cardDataYoumuC[1].TryCount);
 
-            int practiceGetReimu = int.Parse(cardDataReimu[1].GetCount);
-            int practiceGetMarisa = int.Parse(cardDataMarisa[1].GetCount);
-            int practiceGetSakuya = int.Parse(cardDataSakuya[1].GetCount);
-            int practiceGetSanae = int.Parse(cardDataSanae[1].GetCount);
+            int practiceGetReimuA = int.Parse(cardDataReimuA[1].GetCount);
+            int practiceGetReimuB = int.Parse(cardDataReimuB[1].GetCount);
+            int practiceGetReimuC = int.Parse(cardDataReimuC[1].GetCount);
+            int practiceGetMarisaA = int.Parse(cardDataMarisaA[1].GetCount);
+            int practiceGetMarisaB = int.Parse(cardDataMarisaB[1].GetCount);
+            int practiceGetMarisaC = int.Parse(cardDataMarisaC[1].GetCount);
+            int practiceGetYoumuA = int.Parse(cardDataYoumuA[1].GetCount);
+            int practiceGetYoumuB = int.Parse(cardDataYoumuB[1].GetCount);
+            int practiceGetYoumuC = int.Parse(cardDataYoumuC[1].GetCount);
 
-            int allChallengeCount = challengeReimu + challengeMarisa + challengeSakuya + challengeSanae;
-            int allGetCount = getReimu + getMarisa + getSakuya + getSanae;
+            int allChallengeCount
+                = challengeReimuA + challengeReimuB + challengeReimuC + challengeMarisaA + challengeMarisaB + challengeMarisaC + challengeYoumuA + challengeYoumuB + challengeYoumuC;
+            int allGetCount = getReimuA + getReimuB + getReimuC + getMarisaA + getMarisaB + getMarisaC + getYoumuA + getYoumuB + getYoumuC;
 
-            int allPracticeChallengeCount = practiceChallengeReimu + practiceChallengeMarisa + practiceChallengeSakuya + practiceChallengeSanae;
-            int allPracticeGetCount = practiceGetReimu + practiceGetMarisa + practiceGetSakuya + practiceGetSanae;
+            int allPracticeChallengeCount
+                = practiceChallengeReimuA + practiceChallengeReimuB + practiceChallengeReimuC + practiceChallengeMarisaA + practiceChallengeMarisaB + practiceChallengeMarisaC + practiceChallengeYoumuA + practiceChallengeYoumuB + practiceChallengeYoumuC;
+            int allPracticeGetCount
+                = practiceGetReimuA + practiceGetReimuB + practiceGetReimuC + practiceGetMarisaA + practiceGetMarisaB + practiceGetMarisaC + practiceGetYoumuA + practiceGetYoumuB + practiceGetYoumuC;
 
-            SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th18, cardId);
+            SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th17, cardId);
 
-            string cardName = displayUnchallengedCard ?
-                spellcardData.CardName :
-                allChallengeCount != 0 ? spellcardData.CardName : "-------------------";
-            string practiceCardName = displayUnchallengedCard ?
-                spellcardData.CardName :
-                allPracticeChallengeCount != 0 ? spellcardData.CardName : "-------------------";
+            string cardName = spellcardData.CardName;
+            string practiceCardName = spellcardData.CardName;
 
             string allGetRate = ScoreCalculator.CalcSpellCardGetRate(allGetCount, allChallengeCount);
             string allPracticeGetRate = ScoreCalculator.CalcSpellCardGetRate(allPracticeGetCount, allPracticeChallengeCount);
@@ -243,7 +277,7 @@ namespace ThGameMgr.Ex.Score.Th18
             return allSpellCardRecordLists;
         }
 
-        public static string LevelReplace(int l)
+        private static string LevelReplace(int l)
         {
             if (0 < l && l < 11)
             {

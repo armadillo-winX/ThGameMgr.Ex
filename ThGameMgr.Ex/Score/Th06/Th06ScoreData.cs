@@ -2,9 +2,9 @@
 
 namespace ThGameMgr.Ex.Score.Th06
 {
-    internal class Th06ScoreView
+    internal class Th06ScoreData
     {
-        public static string[] _th06PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th06).Split(',');
+        private static string[] _th06PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th06).Split(',');
 
         private static readonly Dictionary<string, string> _levelDictionary =
             new()
@@ -29,7 +29,7 @@ namespace ThGameMgr.Ex.Score.Th06
                 { "63", "All Clear" }
             };
 
-        public static void GetScoreData(bool displayUnchallengedCard)
+        public static void Get()
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th06);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th06);
@@ -76,7 +76,7 @@ namespace ThGameMgr.Ex.Score.Th06
                             {
                                 byte[] cardAttackData = bytes[i..r];
                                 SpellCardRecordData spellCardRecordList
-                                    = GetSpellCardRecord(cardAttackData, displayUnchallengedCard);
+                                    = GetSpellCardRecord(cardAttackData);
                                 ScoreData.SpellCardRecordLists.Add(spellCardRecordList);
 
                                 i += size;
@@ -95,7 +95,7 @@ namespace ThGameMgr.Ex.Score.Th06
             }
         }
 
-        public static ScoreRecordData GetHighScoreData(byte[] data)
+        private static ScoreRecordData GetHighScoreData(byte[] data)
         {
             byte[] HSCR_DATA = data[0..4];
             byte[] SIZE_DATA = data[4..6];
@@ -129,7 +129,7 @@ namespace ThGameMgr.Ex.Score.Th06
             return scoreRecordList;
         }
 
-        public static SpellCardRecordData GetSpellCardRecord(byte[] data, bool displayUnchallengedCard)
+        private static SpellCardRecordData GetSpellCardRecord(byte[] data)
         {
             byte[] CATK_DATA = data[0..4];
             byte[] SIZE_DATA = data[4..6];
@@ -144,7 +144,7 @@ namespace ThGameMgr.Ex.Score.Th06
 
             SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th06, cardId);
             string cardName
-                = displayUnchallengedCard ? spellcardData.CardName : challenge != 0 ? spellcardData.CardName : "-------------------";
+                = spellcardData.CardName;
 
             string rate = ScoreCalculator.CalcSpellCardGetRate(get, challenge);
 
