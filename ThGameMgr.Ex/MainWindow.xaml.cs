@@ -332,19 +332,6 @@ namespace ThGameMgr.Ex
                         {
                             SpellCardDataGrid.Items.Add(spellCardRecordData);
                         }
-                        else
-                        {
-                            SpellCardDataGrid.Items.Add(new SpellCardRecordData()
-                            {
-                                CardID = spellCardRecordData.CardID,
-                                CardName = "------------------------",
-                                GetCount = spellCardRecordData.GetCount,
-                                TryCount = spellCardRecordData.TryCount,
-                                Rate = spellCardRecordData.Rate,
-                                Place = spellCardRecordData.Place,
-                                Enemy = spellCardRecordData.Enemy
-                            });
-                        }
                     }
                 }
             }
