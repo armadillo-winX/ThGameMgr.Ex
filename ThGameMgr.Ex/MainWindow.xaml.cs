@@ -316,7 +316,36 @@ namespace ThGameMgr.Ex
                 }
 
                 SpellCardDataGrid.AutoGenerateColumns = false;
-                SpellCardDataGrid.DataContext = filteredSpellCardRecordLists;
+                if (DisplayUnchallengedCardMenuItem.IsChecked)
+                {
+                    foreach (SpellCardRecordData spellCardRecordData in filteredSpellCardRecordLists)
+                    {
+                        SpellCardDataGrid.Items.Add(spellCardRecordData);
+                    }
+                }
+                else
+                {
+                    foreach (SpellCardRecordData spellCardRecordData in filteredSpellCardRecordLists)
+                    {
+                        if (int.Parse(spellCardRecordData.TryCount) > 0)
+                        {
+                            SpellCardDataGrid.Items.Add(spellCardRecordData);
+                        }
+                        else
+                        {
+                            SpellCardDataGrid.Items.Add(new SpellCardRecordData()
+                            {
+                                CardID = spellCardRecordData.CardID,
+                                CardName = "------------------------",
+                                GetCount = spellCardRecordData.GetCount,
+                                TryCount = spellCardRecordData.TryCount,
+                                Rate = spellCardRecordData.Rate,
+                                Place = spellCardRecordData.Place,
+                                Enemy = spellCardRecordData.Enemy
+                            });
+                        }
+                    }
+                }
             }
         }
 
