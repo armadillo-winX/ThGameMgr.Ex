@@ -22,7 +22,7 @@ namespace ThGameMgr.Ex.Score
             }
             else if (gameId == GameIndex.Th07)
             {
-                Th07.Th07ScoreView.GetScoreData(displayUnchallengedCard);
+                Th07.Th07ScoreData.Get(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th08)
             {

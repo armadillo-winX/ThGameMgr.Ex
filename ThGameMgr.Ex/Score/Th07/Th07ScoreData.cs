@@ -2,7 +2,7 @@
 
 namespace ThGameMgr.Ex.Score.Th07
 {
-    internal class Th07ScoreView
+    internal class Th07ScoreData
     {
         public static string[] _th07PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th07).Split(',');
 
@@ -31,7 +31,7 @@ namespace ThGameMgr.Ex.Score.Th07
                 { "63", "All Clear" }
             };
 
-        public static void GetScoreData(bool displayUnchallengedCard)
+        public static void Get(bool displayUnchallengedCard)
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th07);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th07);
