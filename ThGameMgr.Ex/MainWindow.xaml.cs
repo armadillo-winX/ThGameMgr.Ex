@@ -1775,6 +1775,7 @@ namespace ThGameMgr.Ex
         {
             SaveFileDialog saveFileDialog = new()
             {
+                FileName = $"{GameIndex.GetGameName(this.GameId)}スコアデータ.txt",
                 Filter = "テキストファイル|*.txt|すべてのファイル|*.*"
             };
 
