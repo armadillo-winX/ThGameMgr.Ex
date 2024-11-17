@@ -248,12 +248,10 @@ namespace ThGameMgr.Ex
             {
                 EnableGettingScoreDataLimitationMode(true);
 
-                bool displayUnchallengedCard = DisplayUnchallengedCardMenuItem.IsChecked;
-
                 try
                 {
                     await Task.Run(()
-                    => ScoreData.Get(gameId, displayUnchallengedCard)
+                    => ScoreData.Get(gameId)
                     );
 
                     ApplyScoreViewFilter();
@@ -271,8 +269,8 @@ namespace ThGameMgr.Ex
 
         private void ApplyScoreViewFilter()
         {
-            ScoreDataGrid.DataContext = null;
-            SpellCardDataGrid.DataContext = null;
+            ScoreDataGrid.Items.Clear();
+            SpellCardDataGrid.Items.Clear();
 
             if (ScoreData.ScoreRecordLists != null &&
                 ScoreData.ScoreRecordLists.Count >= 0)
@@ -298,7 +296,10 @@ namespace ThGameMgr.Ex
                 }
 
                 ScoreDataGrid.AutoGenerateColumns = false;
-                ScoreDataGrid.DataContext = filteredScoreRecordLists;
+                foreach (ScoreRecordData scoreRecordData in filteredScoreRecordLists)
+                {
+                    ScoreDataGrid.Items.Add(scoreRecordData);
+                }
             }
 
             if (ScoreData.SpellCardRecordLists != null &&
@@ -316,7 +317,36 @@ namespace ThGameMgr.Ex
                 }
 
                 SpellCardDataGrid.AutoGenerateColumns = false;
-                SpellCardDataGrid.DataContext = filteredSpellCardRecordLists;
+                if (DisplayUnchallengedCardMenuItem.IsChecked)
+                {
+                    foreach (SpellCardRecordData spellCardRecordData in filteredSpellCardRecordLists)
+                    {
+                        SpellCardDataGrid.Items.Add(spellCardRecordData);
+                    }
+                }
+                else
+                {
+                    foreach (SpellCardRecordData spellCardRecordData in filteredSpellCardRecordLists)
+                    {
+                        if (int.Parse(spellCardRecordData.TryCount) > 0)
+                        {
+                            SpellCardDataGrid.Items.Add(spellCardRecordData);
+                        }
+                        else
+                        {
+                            SpellCardDataGrid.Items.Add(new SpellCardRecordData()
+                            {
+                                CardID = spellCardRecordData.CardID,
+                                CardName = "------------------------",
+                                GetCount = spellCardRecordData.GetCount,
+                                TryCount = spellCardRecordData.TryCount,
+                                Rate = spellCardRecordData.Rate,
+                                Place = spellCardRecordData.Place,
+                                Enemy = spellCardRecordData.Enemy
+                            });
+                        }
+                    }
+                }
             }
         }
 
@@ -1373,7 +1403,7 @@ namespace ThGameMgr.Ex
 
         private void ShowUnchallengedCardMenuItemClick(object sender, RoutedEventArgs e)
         {
-            GetScoreData();
+            ApplyScoreViewFilter();
         }
 
         private void StartWindowResizerMenuItemClick(object sender, RoutedEventArgs e)

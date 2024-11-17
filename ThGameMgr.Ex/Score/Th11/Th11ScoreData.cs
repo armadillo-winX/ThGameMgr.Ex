@@ -2,9 +2,9 @@
 
 namespace ThGameMgr.Ex.Score.Th11
 {
-    internal class Th11ScoreView
+    internal class Th11ScoreData
     {
-        public static string[] _th11PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th11).Split(',');
+        private static string[] _th11PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th11).Split(',');
 
         private static readonly Dictionary<string, string> _progressDictionary =
             new()
@@ -19,7 +19,7 @@ namespace ThGameMgr.Ex.Score.Th11
                 { "08", "All Clear" }
             };
 
-        public static void GetScoreData(bool displayUnchallengedCard)
+        public static void Get()
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th11);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th11);
@@ -66,7 +66,7 @@ namespace ThGameMgr.Ex.Score.Th11
                         for (int p = 1; p < 176; p++)
                         {
                             SpellCardRecordData spellCardRecordList =
-                                GetAllSpellCardRecord(p, bytes, displayUnchallengedCard);
+                                GetAllSpellCardRecord(p, bytes);
                             ScoreData.SpellCardRecordLists.Add(spellCardRecordList);
                         }
                     }
@@ -78,7 +78,7 @@ namespace ThGameMgr.Ex.Score.Th11
             }
         }
 
-        public static ScoreRecordData GetHighScoreData(byte[] data)
+        private static ScoreRecordData GetHighScoreData(byte[] data)
         {
             byte[] SCORE_DATA = data[0..4];
             byte[] PROGRESS_DATA = data[4..5];
@@ -116,7 +116,7 @@ namespace ThGameMgr.Ex.Score.Th11
             return scoreRecordList;
         }
 
-        public static SpellCardRecordData GetSpellCardRecordData(byte[] data)
+        private static SpellCardRecordData GetSpellCardRecordData(byte[] data)
         {
             byte[] CARD_NAME_DATA = data[0..128];
             byte[] GET_DATA = data[128..132];
@@ -138,7 +138,7 @@ namespace ThGameMgr.Ex.Score.Th11
             return spellCardRecordList;
         }
 
-        public static SpellCardRecordData GetAllSpellCardRecord(int cardId, byte[] data, bool displayUnchallengedCard)
+        private static SpellCardRecordData GetAllSpellCardRecord(int cardId, byte[] data)
         {
             int n = cardId - 1;
 
@@ -184,7 +184,7 @@ namespace ThGameMgr.Ex.Score.Th11
 
             SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th11, cardId);
             string cardName
-                = displayUnchallengedCard ? spellcardData.CardName : allChallenge != 0 ? spellcardData.CardName : "-------------------";
+                = spellcardData.CardName;
 
             string allGetRate = ScoreCalculator.CalcSpellCardGetRate(allGet, allChallenge);
 
@@ -201,7 +201,7 @@ namespace ThGameMgr.Ex.Score.Th11
             return allSpellCardRecordList;
         }
 
-        public static string LevelReplace(int l)
+        private static string LevelReplace(int l)
         {
             if (0 < l && l < 11)
             {
