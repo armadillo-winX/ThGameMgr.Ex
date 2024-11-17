@@ -69,5 +69,46 @@ namespace ThGameMgr.Ex.Score
                 Th18.Th18ScoreView.GetScoreData(displayUnchallengedCard);
             }
         }
+
+        public static void ExportToTextFile(string gameId, string outputPath)
+        {
+            string data 
+                = $"{GameIndex.GetGameName(gameId)}スコアデータ\r\nExported by {VersionInfo.AppName} Version.{VersionInfo.AppVersion}\r\n\r\n";
+            
+            if (ScoreRecordLists.Count > 0)
+            {
+                data += $"ハイスコア\r\n\r\n-----------------------------------------------------\r\n";
+                foreach (ScoreRecordData scoreRecordData in ScoreRecordLists)
+                {
+                    data +=
+                        $"スコア: {scoreRecordData.Score}\r\n自機:{scoreRecordData.Player}\r\n難易度:{scoreRecordData.Level}\r\n名前:{scoreRecordData.Name.TrimEnd('\0')}";
+                    if (!string.IsNullOrEmpty(scoreRecordData.Progress))
+                        data += $"\r\n到達面:{scoreRecordData.Progress}";
+                    if (!string.IsNullOrEmpty(scoreRecordData.Date.TrimEnd('\0'))
+                        && scoreRecordData.Date.TrimEnd('\0') != "--/--")
+                        data += $"\r\n日時:{scoreRecordData.Date.TrimEnd('\0')}";
+                    if (!string.IsNullOrEmpty(scoreRecordData.SlowRate)
+                        && scoreRecordData.SlowRate != "-.--%")
+                        data += $"\r\n処理落ち率:{scoreRecordData.SlowRate}";
+                    if (!string.IsNullOrEmpty(scoreRecordData.OtherData))
+                        data += $"\r\nその他\r\n{scoreRecordData.OtherData}";
+
+                    data += "\r\n\r\n";
+                }
+            }
+
+            if (SpellCardRecordLists.Count > 0)
+            {
+                data += $"御札戦歴\r\n\r\n-------------------------------------------------------\r\n";
+                foreach (SpellCardRecordData spellCardRecordData in SpellCardRecordLists)
+                {
+                    data += $"No.{spellCardRecordData.CardID}\r\n{spellCardRecordData.CardName}\r\n取得数: {spellCardRecordData.GetCount}\r\n挑戦数: {spellCardRecordData.TryCount}\r\n取得率: {spellCardRecordData.Rate}\r\n発動場所: {spellCardRecordData.Place}\r\n術者: {spellCardRecordData.Enemy}\r\n\r\n";
+                }
+            }
+
+            StreamWriter streamWriter = new(outputPath, false);
+            streamWriter.Write(data);
+            streamWriter.Close();
+        }
     }
 }
