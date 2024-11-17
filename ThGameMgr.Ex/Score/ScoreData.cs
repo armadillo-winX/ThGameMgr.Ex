@@ -12,7 +12,7 @@ namespace ThGameMgr.Ex.Score
 
         public static ObservableCollection<SpellCardRecordData>? SpellPracticeRecordLists { get; set; }
 
-        public static void Get(string gameId, bool displayUnchallengedCard)
+        public static void Get(string gameId)
         {
             GameId = gameId;
 
@@ -22,15 +22,15 @@ namespace ThGameMgr.Ex.Score
 
             if (gameId == GameIndex.Th06)
             {
-                Th06.Th06ScoreData.Get(displayUnchallengedCard);
+                Th06.Th06ScoreData.Get();
             }
             else if (gameId == GameIndex.Th07)
             {
-                Th07.Th07ScoreData.Get(displayUnchallengedCard);
+                Th07.Th07ScoreData.Get();
             }
             else if (gameId == GameIndex.Th08)
             {
-                Th08.Th08ScoreData.Get(displayUnchallengedCard);
+                Th08.Th08ScoreData.Get();
             }
             else if (gameId == GameIndex.Th09)
             {
@@ -38,39 +38,39 @@ namespace ThGameMgr.Ex.Score
             }
             else if (gameId == GameIndex.Th10)
             {
-                Th10.Th10ScoreData.Get(displayUnchallengedCard);
+                Th10.Th10ScoreData.Get();
             }
             else if (gameId == GameIndex.Th11)
             {
-                Th11.Th11ScoreData.Get(displayUnchallengedCard);
+                Th11.Th11ScoreData.Get();
             }
             else if (gameId == GameIndex.Th12)
             {
-                Th12.Th12ScoreData.Get(displayUnchallengedCard);
+                Th12.Th12ScoreData.Get();
             }
             else if (gameId == GameIndex.Th13)
             {
-                Th13.Th13ScoreData.Get(displayUnchallengedCard);
+                Th13.Th13ScoreData.Get();
             }
             else if (gameId == GameIndex.Th14)
             {
-                Th14.Th14ScoreData.Get(displayUnchallengedCard);
+                Th14.Th14ScoreData.Get();
             }
             else if (gameId == GameIndex.Th15)
             {
-                Th15.Th15ScoreData.Get(displayUnchallengedCard);
+                Th15.Th15ScoreData.Get();
             }
             else if (gameId == GameIndex.Th16)
             {
-                Th16.Th16ScoreData.Get(displayUnchallengedCard);
+                Th16.Th16ScoreData.Get();
             }
             else if (gameId == GameIndex.Th17)
             {
-                Th17.Th17ScoreData.Get(displayUnchallengedCard);
+                Th17.Th17ScoreData.Get();
             }
             else if (gameId == GameIndex.Th18)
             {
-                Th18.Th18ScoreData.Get(displayUnchallengedCard);
+                Th18.Th18ScoreData.Get();
             }
         }
     }

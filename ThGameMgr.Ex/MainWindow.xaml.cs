@@ -253,7 +253,7 @@ namespace ThGameMgr.Ex
                 try
                 {
                     await Task.Run(()
-                    => ScoreData.Get(gameId, displayUnchallengedCard)
+                    => ScoreData.Get(gameId)
                     );
 
                     ApplyScoreViewFilter();

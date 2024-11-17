@@ -21,7 +21,7 @@ namespace ThGameMgr.Ex.Score.Th18
                 { "09", "All Clear" }
             };
 
-        public static void Get(bool displayUnchallengedCard)
+        public static void Get()
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th18);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th18);
@@ -67,7 +67,7 @@ namespace ThGameMgr.Ex.Score.Th18
                         for (int p = 1; p < 98; p++)
                         {
                             ObservableCollection<SpellCardRecordData> spellCardRecordLists
-                                = GetAllSpellCardRecord(p, bytes, displayUnchallengedCard);
+                                = GetAllSpellCardRecord(p, bytes);
                             ScoreData.SpellCardRecordLists.Add(spellCardRecordLists[0]);
                             ScoreData.SpellPracticeRecordLists.Add(spellCardRecordLists[1]);
                         }
@@ -157,7 +157,7 @@ namespace ThGameMgr.Ex.Score.Th18
         }
 
         private static ObservableCollection<SpellCardRecordData> GetAllSpellCardRecord(
-            int cardId, byte[] data, bool displayUnchallengedCard)
+            int cardId, byte[] data)
         {
             int n = cardId - 1;
 
@@ -204,12 +204,8 @@ namespace ThGameMgr.Ex.Score.Th18
 
             SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th18, cardId);
 
-            string cardName = displayUnchallengedCard ?
-                spellcardData.CardName :
-                allChallengeCount != 0 ? spellcardData.CardName : "-------------------";
-            string practiceCardName = displayUnchallengedCard ?
-                spellcardData.CardName :
-                allPracticeChallengeCount != 0 ? spellcardData.CardName : "-------------------";
+            string cardName = spellcardData.CardName;
+            string practiceCardName = spellcardData.CardName;
 
             string allGetRate = ScoreCalculator.CalcSpellCardGetRate(allGetCount, allChallengeCount);
             string allPracticeGetRate = ScoreCalculator.CalcSpellCardGetRate(allPracticeGetCount, allPracticeChallengeCount);

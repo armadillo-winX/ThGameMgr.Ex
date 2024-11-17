@@ -21,7 +21,7 @@ namespace ThGameMgr.Ex.Score.Th15
                 { "09", "All Clear" }
             };
 
-        public static void Get(bool displayUnchallengedCard)
+        public static void Get()
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th15);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th15);
@@ -67,7 +67,7 @@ namespace ThGameMgr.Ex.Score.Th15
                         for (int p = 1; p < 120; p++)
                         {
                             ObservableCollection<SpellCardRecordData> spellCardRecordLists
-                                = GetAllSpellCardRecord(p, bytes, displayUnchallengedCard);
+                                = GetAllSpellCardRecord(p, bytes);
                             ScoreData.SpellCardRecordLists.Add(spellCardRecordLists[0]);
                             ScoreData.SpellCardRecordLists.Add(spellCardRecordLists[1]);
                         }
@@ -160,7 +160,7 @@ namespace ThGameMgr.Ex.Score.Th15
         }
 
         private static ObservableCollection<SpellCardRecordData> GetAllSpellCardRecord(
-            int cardId, byte[] data, bool displayUnchallengedCard)
+            int cardId, byte[] data)
         {
             int n = cardId - 1;
 
@@ -217,12 +217,8 @@ namespace ThGameMgr.Ex.Score.Th15
 
             SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th15, cardId);
 
-            string perfectCardName = displayUnchallengedCard ?
-                $"{spellcardData.CardName}(P)" :
-                allPerfectChallenge != 0 ? $"{spellcardData.CardName}(P)" : "-------------------(P)";
-            string legacyCardName = displayUnchallengedCard ?
-                $"{spellcardData.CardName}(L)" :
-                allLegacyChallenge != 0 ? $"{spellcardData.CardName}(L)" : "-------------------(L)";
+            string perfectCardName = $"{spellcardData.CardName}(P)";
+            string legacyCardName = $"{spellcardData.CardName}(L)";
 
             string allPerfectGetRate = ScoreCalculator.CalcSpellCardGetRate(allPerfectGet, allPerfectChallenge);
             string allLegacyGetRate = ScoreCalculator.CalcSpellCardGetRate(allLegacyGet, allLegacyChallenge);

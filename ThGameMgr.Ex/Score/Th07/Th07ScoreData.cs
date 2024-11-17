@@ -31,7 +31,7 @@ namespace ThGameMgr.Ex.Score.Th07
                 { "63", "All Clear" }
             };
 
-        public static void Get(bool displayUnchallengedCard)
+        public static void Get()
         {
             string? gamePath = GameFile.GetGameFilePath(GameIndex.Th07);
             string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th07);
@@ -79,7 +79,7 @@ namespace ThGameMgr.Ex.Score.Th07
                             {
                                 byte[] cardAttackData = bytes[i..r];
                                 SpellCardRecordData spellCardRecordList
-                                    = GetSpellCardRecord(cardAttackData, displayUnchallengedCard);
+                                    = GetSpellCardRecord(cardAttackData);
                                 ScoreData.SpellCardRecordLists.Add(spellCardRecordList);
 
                                 i += size;
@@ -138,7 +138,7 @@ namespace ThGameMgr.Ex.Score.Th07
             return scoreRecordList;
         }
 
-        private static SpellCardRecordData GetSpellCardRecord(byte[] data, bool displayUnchallengedCard)
+        private static SpellCardRecordData GetSpellCardRecord(byte[] data)
         {
             byte[] CATK_DATA = data[0..4];
             byte[] SIZE_DATA = data[4..6];
@@ -166,7 +166,7 @@ namespace ThGameMgr.Ex.Score.Th07
 
             SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th07, cardId);
             string cardName
-                = displayUnchallengedCard ? spellcardData.CardName : allChangeCount != 0 ? spellcardData.CardName : "-------------------";
+                = spellcardData.CardName;
 
             string rate = ScoreCalculator.CalcSpellCardGetRate(allGetCount, allChangeCount);
 
