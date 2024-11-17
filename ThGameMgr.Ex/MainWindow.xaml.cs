@@ -1403,7 +1403,7 @@ namespace ThGameMgr.Ex
 
         private void ShowUnchallengedCardMenuItemClick(object sender, RoutedEventArgs e)
         {
-            GetScoreData();
+            ApplyScoreViewFilter();
         }
 
         private void StartWindowResizerMenuItemClick(object sender, RoutedEventArgs e)
