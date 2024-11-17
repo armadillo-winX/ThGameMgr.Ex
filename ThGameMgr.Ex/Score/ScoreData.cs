@@ -4,6 +4,8 @@ namespace ThGameMgr.Ex.Score
 {
     internal class ScoreData
     {
+        private static string? GameId { get; set; }
+
         public static ObservableCollection<ScoreRecordData>? ScoreRecordLists { get; set; }
 
         public static ObservableCollection<SpellCardRecordData>? SpellCardRecordLists { get; set; }
