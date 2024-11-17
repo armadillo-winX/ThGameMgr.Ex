@@ -2,7 +2,7 @@
 
 namespace ThGameMgr.Ex.Score
 {
-    internal class ScoreView
+    internal class ScoreData
     {
         public static ObservableCollection<ScoreRecordData>? ScoreRecordLists { get; set; }
 
@@ -10,7 +10,7 @@ namespace ThGameMgr.Ex.Score
 
         public static ObservableCollection<SpellCardRecordData>? SpellPracticeRecordLists { get; set; }
 
-        public static void GetScoreData(string gameId, bool displayUnchallengedCard)
+        public static void Get(string gameId, bool displayUnchallengedCard)
         {
             ScoreRecordLists = new();
             SpellCardRecordLists = new();
