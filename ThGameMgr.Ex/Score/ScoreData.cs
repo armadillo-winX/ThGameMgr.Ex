@@ -46,7 +46,7 @@ namespace ThGameMgr.Ex.Score
             }
             else if (gameId == GameIndex.Th13)
             {
-                Th13.Th13ScoreView.GetScoreData(displayUnchallengedCard);
+                Th13.Th13ScoreData.Get(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th14)
             {
