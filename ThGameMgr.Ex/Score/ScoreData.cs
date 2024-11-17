@@ -26,11 +26,11 @@ namespace ThGameMgr.Ex.Score
             }
             else if (gameId == GameIndex.Th08)
             {
-                Th08.Th08ScoreView.GetScoreData(displayUnchallengedCard);
+                Th08.Th08ScoreData.Get(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th09)
             {
-                Th09.Th09ScoreView.GetScoreData();
+                Th09.Th09ScoreData.Get();
             }
             else if (gameId == GameIndex.Th10)
             {
