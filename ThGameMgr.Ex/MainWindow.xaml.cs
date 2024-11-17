@@ -1783,7 +1783,7 @@ namespace ThGameMgr.Ex
                 string outputPath = saveFileDialog.FileName;
                 try
                 {
-                    ScoreData.ExportToTextFile(this.GameId, outputPath);
+                    ScoreData.ExportToTextFile(outputPath);
                     MessageBox.Show(this, $"エクスポートしました。", "スコアデータをエクスポート",
                         MessageBoxButton.OK, MessageBoxImage.Information);
                 }

@@ -74,10 +74,10 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
-        public static void ExportToTextFile(string gameId, string outputPath)
+        public static void ExportToTextFile(string outputPath)
         {
             string data 
-                = $"{GameIndex.GetGameName(gameId)}スコアデータ\r\nExported by {VersionInfo.AppName} Version.{VersionInfo.AppVersion}\r\n\r\n";
+                = $"{GameIndex.GetGameName(GameId)}スコアデータ\r\nExported by {VersionInfo.AppName} Version.{VersionInfo.AppVersion}\r\n\r\n";
             
             if (ScoreRecordLists.Count > 0)
             {
