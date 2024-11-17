@@ -62,7 +62,7 @@ namespace ThGameMgr.Ex.Score
             }
             else if (gameId == GameIndex.Th17)
             {
-                Th17.Th17ScoreView.GetScoreData(displayUnchallengedCard);
+                Th17.Th17ScoreData.Get(displayUnchallengedCard);
             }
             else if (gameId == GameIndex.Th18)
             {
