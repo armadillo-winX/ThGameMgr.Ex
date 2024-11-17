@@ -54,7 +54,7 @@ namespace ThGameMgr.Ex.Score.Th12
 
                                 if (scoreRecordList.Name != "--------")
                                 {
-                                    ScoreView.ScoreRecordLists.Add(scoreRecordList);
+                                    ScoreData.ScoreRecordLists.Add(scoreRecordList);
                                 }
 
                                 i += size;
@@ -67,7 +67,7 @@ namespace ThGameMgr.Ex.Score.Th12
                         {
                             SpellCardRecordData spellCardRecordList =
                                 GetAllSpellCardRecord(p, bytes, displayUnchallengedCard);
-                            ScoreView.SpellCardRecordLists.Add(spellCardRecordList);
+                            ScoreData.SpellCardRecordLists.Add(spellCardRecordList);
                         }
                     }
                 }

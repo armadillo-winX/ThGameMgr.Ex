@@ -55,7 +55,7 @@ namespace ThGameMgr.Ex.Score.Th13
 
                                 if (scoreRecordList.Name != "--------")
                                 {
-                                    ScoreView.ScoreRecordLists.Add(scoreRecordList);
+                                    ScoreData.ScoreRecordLists.Add(scoreRecordList);
                                 }
 
                                 i += size;
@@ -70,10 +70,10 @@ namespace ThGameMgr.Ex.Score.Th13
                                 = GetAllSpellCardRecord(p, bytes, displayUnchallengedCard);
                             if (spellCardRecordLists[0].Place != "Over Drive")
                             {
-                                ScoreView.SpellCardRecordLists.Add(spellCardRecordLists[0]);
+                                ScoreData.SpellCardRecordLists.Add(spellCardRecordLists[0]);
                             }
 
-                            ScoreView.SpellPracticeRecordLists.Add(spellCardRecordLists[1]);
+                            ScoreData.SpellPracticeRecordLists.Add(spellCardRecordLists[1]);
                         }
                     }
                 }

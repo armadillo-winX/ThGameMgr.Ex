@@ -67,7 +67,7 @@ namespace ThGameMgr.Ex.Score.Th07
                                 byte[] highscoreData = bytes[i..r];
                                 ScoreRecordData scoreRecordList
                                     = GetHighScoreData(highscoreData);
-                                ScoreView.ScoreRecordLists.Add(scoreRecordList);
+                                ScoreData.ScoreRecordLists.Add(scoreRecordList);
 
                                 i += size;
                             }
@@ -80,7 +80,7 @@ namespace ThGameMgr.Ex.Score.Th07
                                 byte[] cardAttackData = bytes[i..r];
                                 SpellCardRecordData spellCardRecordList
                                     = GetSpellCardRecord(cardAttackData, displayUnchallengedCard);
-                                ScoreView.SpellCardRecordLists.Add(spellCardRecordList);
+                                ScoreData.SpellCardRecordLists.Add(spellCardRecordList);
 
                                 i += size;
                             }

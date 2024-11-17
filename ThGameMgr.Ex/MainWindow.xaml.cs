@@ -253,7 +253,7 @@ namespace ThGameMgr.Ex
                 try
                 {
                     await Task.Run(()
-                    => ScoreView.GetScoreData(gameId, displayUnchallengedCard)
+                    => ScoreData.Get(gameId, displayUnchallengedCard)
                     );
 
                     ApplyScoreViewFilter();
@@ -274,10 +274,10 @@ namespace ThGameMgr.Ex
             ScoreDataGrid.DataContext = null;
             SpellCardDataGrid.DataContext = null;
 
-            if (ScoreView.ScoreRecordLists != null &&
-                ScoreView.ScoreRecordLists.Count >= 0)
+            if (ScoreData.ScoreRecordLists != null &&
+                ScoreData.ScoreRecordLists.Count >= 0)
             {
-                IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreView.ScoreRecordLists;
+                IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreData.ScoreRecordLists;
 
                 if (this.FilterLevel != "ALL")
                 {
@@ -301,10 +301,10 @@ namespace ThGameMgr.Ex
                 ScoreDataGrid.DataContext = filteredScoreRecordLists;
             }
 
-            if (ScoreView.SpellCardRecordLists != null &&
-                ScoreView.SpellCardRecordLists.Count >= 0)
+            if (ScoreData.SpellCardRecordLists != null &&
+                ScoreData.SpellCardRecordLists.Count >= 0)
             {
-                IEnumerable<SpellCardRecordData> filteredSpellCardRecordLists = ScoreView.SpellCardRecordLists;
+                IEnumerable<SpellCardRecordData> filteredSpellCardRecordLists = ScoreData.SpellCardRecordLists;
 
                 if (this.FilterEnemy != "ALL")
                 {
@@ -1401,15 +1401,15 @@ namespace ThGameMgr.Ex
 
         private void StatisticSpellCardRecordMenuItemClick(object sender, RoutedEventArgs e)
         {
-            if (ScoreView.SpellCardRecordLists != null &&
-                ScoreView.SpellCardRecordLists.Count > 0)
+            if (ScoreData.SpellCardRecordLists != null &&
+                ScoreData.SpellCardRecordLists.Count > 0)
             {
                 int challengedCardCount = 0;
                 int getCardCount = 0;
 
-                for (int i = 0; i < ScoreView.SpellCardRecordLists.Count; i++)
+                for (int i = 0; i < ScoreData.SpellCardRecordLists.Count; i++)
                 {
-                    SpellCardRecordData spellCardRecordList = ScoreView.SpellCardRecordLists[i];
+                    SpellCardRecordData spellCardRecordList = ScoreData.SpellCardRecordLists[i];
                     if (int.Parse(spellCardRecordList.TryCount) > 0) challengedCardCount++;
                     if (int.Parse(spellCardRecordList.GetCount) > 0) getCardCount++;
                 }

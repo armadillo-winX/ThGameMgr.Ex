@@ -53,7 +53,7 @@ namespace ThGameMgr.Ex.Score.Th09
                                 ScoreRecordData scoreRecordList
                                     = GetHighScoreData(highscoreData);
                                 if (scoreRecordList.Date.TrimEnd('\0') != "--/--")
-                                    ScoreView.ScoreRecordLists.Add(scoreRecordList);
+                                    ScoreData.ScoreRecordLists.Add(scoreRecordList);
 
                                 i += size;
                             }
