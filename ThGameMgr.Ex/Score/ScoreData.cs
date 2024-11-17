@@ -14,6 +14,8 @@ namespace ThGameMgr.Ex.Score
 
         public static void Get(string gameId, bool displayUnchallengedCard)
         {
+            GameId = gameId;
+
             ScoreRecordLists = new();
             SpellCardRecordLists = new();
             SpellPracticeRecordLists = new();
