@@ -702,6 +702,7 @@ namespace ThGameMgr.Ex
             }
             else
             {
+                ExcludeUntriedCardDataMenuItem.IsChecked = mainWindowSettings.ExcludeUnchallengedCardData;
                 ExcludeUntriedCardDataMenuItem.IsEnabled = true;
             }
 
@@ -730,6 +731,7 @@ namespace ThGameMgr.Ex
                 MainWindowHeight = this.Height,
                 SelectedGameId = this.GameId,
                 DisplayUnchallengedCard = DisplayUnchallengedCardMenuItem.IsChecked,
+                ExcludeUnchallengedCardData = ExcludeUntriedCardDataMenuItem.IsChecked,
                 AutoBackup = AutoBackupMenuItem.IsChecked
             };
 

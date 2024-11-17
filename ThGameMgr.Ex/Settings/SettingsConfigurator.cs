@@ -269,6 +269,7 @@ namespace ThGameMgr.Ex.Settings
                 mainWindowSettings.MainWindowHeight = 445;
                 mainWindowSettings.SelectedGameId = string.Empty;
                 mainWindowSettings.DisplayUnchallengedCard = false;
+                mainWindowSettings.ExcludeUnchallengedCardData = false;
                 mainWindowSettings.AutoBackup = false;
             }
 
@@ -278,6 +279,7 @@ namespace ThGameMgr.Ex.Settings
                 mainWindowSettings.MainWindowHeight = 445;
                 mainWindowSettings.SelectedGameId = string.Empty;
                 mainWindowSettings.DisplayUnchallengedCard = false;
+                mainWindowSettings.ExcludeUnchallengedCardData = false;
                 mainWindowSettings.AutoBackup = false;
             }
 
