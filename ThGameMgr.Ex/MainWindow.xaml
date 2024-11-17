@@ -64,6 +64,7 @@
                 <Separator/>
                 <MenuItem x:Name="ReloadScoreDataMenuItem" Header="スコアデータを再読み込みする(_R)" Click="ReloadScoreDataMenuItemClick"/>
                 <Separator/>
+                <MenuItem x:Name="ExportScoreDataMenuItem" Header="スコアデータをエクスポート(_E)" Click="ExportScoreDataMenuItemClick"/>
                 <MenuItem x:Name="ScoreFileBackupMenuItem" Header="スコアファイルのバックアップ">
                     <MenuItem x:Name="CreateScoreBackupSelectedGameMenuItem" Header="バックアップの作成(選択中のゲーム)"
                               Click="CreateScoreBackupSelectedGameMenuItemClick"/>

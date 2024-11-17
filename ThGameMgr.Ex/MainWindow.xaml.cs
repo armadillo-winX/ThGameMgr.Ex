@@ -13,6 +13,7 @@ global using ThGameMgr.Ex.Plugin;
 global using ThGameMgr.Ex.Score;
 global using ThGameMgr.Ex.Settings;
 
+using Microsoft.Win32;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -1738,6 +1739,30 @@ namespace ThGameMgr.Ex
                 Owner = this
             };
             deleteUserDialog.ShowDialog();
+        }
+
+        private void ExportScoreDataMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new()
+            {
+                Filter = "テキストファイル|*.txt|すべてのファイル|*.*"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                string outputPath = saveFileDialog.FileName;
+                try
+                {
+                    ScoreData.ExportToTextFile(this.GameId, outputPath);
+                    MessageBox.Show(this, $"エクスポートしました。", "スコアデータをエクスポート",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"エクスポートに失敗しました。\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
     }
 }
