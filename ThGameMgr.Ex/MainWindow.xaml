@@ -181,6 +181,8 @@
                     <DataGrid x:Name="ScoreDataGrid" Margin="10,41,10,10" ItemsSource="{Binding}" SelectionChanged="ScoreDataGridSelectionChanged" >
                         <DataGrid.ContextMenu>
                             <ContextMenu>
+                                <MenuItem x:Name="CopyScoreRecordMenuItem"
+                                          Header="コピー" Click="CopyScoreRecordMenuItemClick"/>
                                 <MenuItem x:Name="ViewScoreRecordDetailMenuItem" Header="詳細を表示" Click="ViewScoreRecordDetailMenuItemClick"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
@@ -247,6 +249,7 @@
                     <DataGrid x:Name="SpellCardDataGrid" ItemsSource="{Binding}" Margin="10,39,10,10" SelectionChanged="SpellCardDataGridSelectionChanged">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
+                                <MenuItem x:Name="CopySpellCardRecordMenuItem" Header="コピー" Click="CopySpellCardRecordMenuItemClick"/>
                                 <MenuItem x:Name="ViewSpellCardRecordMenuItem" Header="詳細を表示" Click="ViewSpellCardRecordMenuItemClick"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
