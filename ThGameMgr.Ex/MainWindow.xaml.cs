@@ -1823,5 +1823,30 @@ namespace ThGameMgr.Ex
                 }
             }
         }
+
+        private void ExportScoreDataMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new()
+            {
+                FileName = $"{GameIndex.GetGameName(this.GameId)}スコアデータ.txt",
+                Filter = "テキストファイル|*.txt|すべてのファイル|*.*"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                string outputPath = saveFileDialog.FileName;
+                try
+                {
+                    ScoreData.ExportToTextFile(outputPath);
+                    MessageBox.Show(this, $"エクスポートしました。", "スコアデータをエクスポート",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"エクスポートに失敗しました。\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
     }
 }
