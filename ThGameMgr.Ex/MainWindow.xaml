@@ -61,6 +61,8 @@
             <MenuItem x:Name="ScoreMenu" Header="スコア(_C)">
                 <MenuItem x:Name="DisplayUnchallengedCardMenuItem" Header="未挑戦のスペルカード名を表示"
                           IsCheckable="True" Click="ShowUnchallengedCardMenuItemClick"/>
+                <MenuItem x:Name="ExcludeUntriedCardDataMenuItem" Header="未挑戦の御札戦歴を除外する"
+                          IsCheckable="True" Click="ExcludeUntriedCardDataMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="ReloadScoreDataMenuItem" Header="スコアデータを再読み込みする(_R)" Click="ReloadScoreDataMenuItemClick"/>
                 <Separator/>

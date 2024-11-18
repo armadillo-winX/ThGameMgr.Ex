@@ -333,7 +333,7 @@ namespace ThGameMgr.Ex
                         {
                             SpellCardDataGrid.Items.Add(spellCardRecordData);
                         }
-                        else
+                        else if (!ExcludeUntriedCardDataMenuItem.IsChecked)
                         {
                             SpellCardDataGrid.Items.Add(new SpellCardRecordData()
                             {
@@ -696,6 +696,17 @@ namespace ThGameMgr.Ex
             this.Height = mainWindowSettings.MainWindowHeight;
             this.GameId = mainWindowSettings.SelectedGameId;
             DisplayUnchallengedCardMenuItem.IsChecked = mainWindowSettings.DisplayUnchallengedCard;
+            if (DisplayUnchallengedCardMenuItem.IsChecked)
+            {
+                ExcludeUntriedCardDataMenuItem.IsChecked = false;
+                ExcludeUntriedCardDataMenuItem.IsEnabled = false;
+            }
+            else
+            {
+                ExcludeUntriedCardDataMenuItem.IsChecked = mainWindowSettings.ExcludeUnchallengedCardData;
+                ExcludeUntriedCardDataMenuItem.IsEnabled = true;
+            }
+
             AutoBackupMenuItem.IsChecked = mainWindowSettings.AutoBackup;
 
             SetGameSelectionMenu();
@@ -721,6 +732,7 @@ namespace ThGameMgr.Ex
                 MainWindowHeight = this.Height,
                 SelectedGameId = this.GameId,
                 DisplayUnchallengedCard = DisplayUnchallengedCardMenuItem.IsChecked,
+                ExcludeUnchallengedCardData = ExcludeUntriedCardDataMenuItem.IsChecked,
                 AutoBackup = AutoBackupMenuItem.IsChecked
             };
 
@@ -1403,6 +1415,21 @@ namespace ThGameMgr.Ex
         }
 
         private void ShowUnchallengedCardMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            if (DisplayUnchallengedCardMenuItem.IsChecked)
+            {
+                ExcludeUntriedCardDataMenuItem.IsChecked = false;
+                ExcludeUntriedCardDataMenuItem.IsEnabled = false;
+            }
+            else
+            {
+                ExcludeUntriedCardDataMenuItem.IsEnabled = true;
+            }
+
+            ApplyScoreViewFilter();
+        }
+
+        private void ExcludeUntriedCardDataMenuItemClick(object sender, RoutedEventArgs e)
         {
             ApplyScoreViewFilter();
         }
