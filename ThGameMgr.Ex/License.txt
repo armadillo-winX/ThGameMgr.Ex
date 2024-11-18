@@ -1,5 +1,5 @@
-“Œ•ûŠÇ§“ƒ EX
-Copyright (c) 2024 ì‰¹ä”’/“Œ•ûŠÇ§“ƒŠJ”­•”
+ï»¿æ±æ–¹ç®¡åˆ¶å¡” EX
+Copyright (c) 2024 ç éŸ³èŒ‰ç™½/æ±æ–¹ç®¡åˆ¶å¡”é–‹ç™ºéƒ¨
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -24,7 +24,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-–{ƒ\ƒtƒgƒEƒFƒA‚ÍAƒ\[ƒXƒR[ƒh‚É IIHOSHI Yoshinori —l‚Ì ThScoreFileConverter ‚Ìƒ\[ƒXƒR[ƒh‚ğŠÜ‚ñ‚Å‚¢‚Ü‚·B
+æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ã€ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã« IIHOSHI Yoshinori æ§˜ã® ThScoreFileConverter ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’å«ã‚“ã§ã„ã¾ã™ã€‚
 
 ThScoreFileConverter
 Copyright (c) 2013, IIHOSHI Yoshinori
@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 
-–{ƒ\ƒtƒgƒEƒFƒA‚Í Mark Heath —l‚Ì NAudio.Core ‚¨‚æ‚Ñ NAuio.Wasapi ‚ğ—p‚¢‚Ä‚¢‚Ü‚·B
+æœ¬ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢ã¯ Mark Heath æ§˜ã® NAudio.Core ãŠã‚ˆã³ NAuio.Wasapi ã‚’ç”¨ã„ã¦ã„ã¾ã™ã€‚
 
 NAudio
 Copyright 2020 Mark Heath
