@@ -1,0 +1,28 @@
+﻿<Window x:Class="ThGameMgr.Ex.Dialogs.ExportScoreDataDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
+        mc:Ignorable="d"
+        Title="スコアデータのエクスポート" Height="286" Width="316" WindowStyle="ToolWindow"
+        ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <TextBlock 
+            x:Name="GameNameBlock"
+            HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" 
+            Text="GameName" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <CheckBox
+            x:Name="OutputUnTriedCardDataCheckBox"
+            Content="未挑戦の御札戦歴のデータも出力する" HorizontalAlignment="Center" Margin="0,59,0,0" VerticalAlignment="Top"/>
+        <Label Content="コメント:" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="CommentBox"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="10,105,10,39" TextWrapping="Wrap" Text=""/>
+        <Button 
+            x:Name="ExportButton"
+            Width="90" Height="24"
+            Content="エクスポート(_E)" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="ExportButtonClick"/>
+
+    </Grid>
+</Window>
