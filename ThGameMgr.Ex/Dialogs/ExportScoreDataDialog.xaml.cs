@@ -32,7 +32,9 @@ namespace ThGameMgr.Ex.Dialogs
                     string outputPath = saveFileDialog.FileName;
                     try
                     {
-                        ScoreData.ExportToTextFile(outputPath);
+                        ScoreData.ExportToTextFile(
+                            outputPath, OutputUnTriedCardDataCheckBox.IsChecked == true, CommentBox.Text);
+
                         MessageBox.Show(this, $"エクスポートしました。", "スコアデータをエクスポート",
                             MessageBoxButton.OK, MessageBoxImage.Information);
                     }
