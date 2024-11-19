@@ -1850,5 +1850,14 @@ namespace ThGameMgr.Ex
                 }
             }
         }
+
+        private void ExportScoreDataMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ExportScoreDataDialog exportScoreDataDialog = new()
+            {
+                Owner = this
+            };
+            exportScoreDataDialog.ShowDialog();
+        }
     }
 }
