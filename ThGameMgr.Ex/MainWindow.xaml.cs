@@ -13,7 +13,6 @@ global using ThGameMgr.Ex.Plugin;
 global using ThGameMgr.Ex.Score;
 global using ThGameMgr.Ex.Settings;
 
-using Microsoft.Win32;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
