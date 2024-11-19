@@ -12,6 +12,9 @@ namespace ThGameMgr.Ex.Dialogs
         public ExportScoreDataDialog()
         {
             InitializeComponent();
+
+            this.GameId = ScoreData.GameId;
+            GameNameBlock.Text = GameIndex.GetGameName(this.GameId);
         }
 
         private void ExportButtonClick(object sender, RoutedEventArgs e)
