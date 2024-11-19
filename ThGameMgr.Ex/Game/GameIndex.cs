@@ -48,11 +48,18 @@ namespace ThGameMgr.Ex.Game
             { "Th18", "東方虹龍洞" }
         };
 
-        public static string GetGameName(string gameId)
+        public static string GetGameName(string? gameId)
         {
-            if (_gameNameDictionary.TryGetValue(gameId, out var gameName))
+            if (!string.IsNullOrEmpty(gameId))
             {
-                return gameName;
+                if (_gameNameDictionary.TryGetValue(gameId, out var gameName))
+                {
+                    return gameName;
+                }
+                else
+                {
+                    return string.Empty;
+                }
             }
             else
             {
@@ -60,11 +67,18 @@ namespace ThGameMgr.Ex.Game
             }
         }
 
-        public static string? GetGameIdFromGameName(string gameName)
+        public static string? GetGameIdFromGameName(string? gameName)
         {
             if (!string.IsNullOrEmpty(gameName))
             {
-                return _gameNameDictionary.FirstOrDefault(x => x.Value.Equals(gameName)).Key;
+                if (!string.IsNullOrEmpty(gameName))
+                {
+                    return _gameNameDictionary.FirstOrDefault(x => x.Value.Equals(gameName)).Key;
+                }
+                else
+                {
+                    return string.Empty;
+                }
             }
             else
             {
