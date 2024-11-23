@@ -93,6 +93,13 @@ namespace ThGameMgr.Ex.Replay
             return _gameIdDictionary[replayName.Split('_')[0]];
         }
 
+        public static void Add(string gameId, string replayFile, string newRenplayName)
+        {
+            string replayDirectory = GetReplayDirectory(gameId);
+            string newReplayFile = $"{replayDirectory}\\{newRenplayName}";
+            File.Copy(replayFile, newReplayFile, false);
+        }
+
         public static string Import(string replayFilePath)
         {
             string gameId = GetGameId(replayFilePath);
