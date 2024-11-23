@@ -875,6 +875,8 @@ namespace ThGameMgr.Ex
 
         private void SetSelectedGamePluginMenu(List<dynamic> selectedGamePlugins)
         {
+            Separator separator = new();
+            GameMenu.Items.Add(separator);
             foreach (dynamic selectedGamePlugin in selectedGamePlugins)
             {
                 try
@@ -901,7 +903,7 @@ namespace ThGameMgr.Ex
                     }
                 };
 
-                ToolMenu.Items.Add(menuItem);
+                GameMenu.Items.Add(menuItem);
             }
         }
 
