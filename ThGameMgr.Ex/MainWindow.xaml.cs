@@ -907,6 +907,46 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void SetScoreRecordsPluginMenu(List<dynamic> scoreRecordsPlugins)
+        {
+            foreach (dynamic scoreRecordPlugin in scoreRecordsPlugins)
+            {
+                try
+                {
+                    scoreRecordPlugin.MainWindow = this;
+                }
+                catch (Exception) { }
+
+                MenuItem menuItem = new()
+                {
+                    Header = scoreRecordPlugin.CommandName
+                };
+
+                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                {
+                    try
+                    {
+                        if (ScoreData.ScoreRecordLists.Count > 0)
+                        {
+                            scoreRecordPlugin.Main(this.GameId, ScoreData.ScoreRecordLists);
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "利用可能なデータがありません。", "プラグインの実行",
+                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, "エラー",
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                };
+
+                ScoreMenu.Items.Add(menuItem);
+            }
+        }
+
         private void SetToolPluginMenu(List<dynamic> toolPlugins)
         {
             foreach (dynamic toolPlugin in toolPlugins)
