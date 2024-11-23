@@ -23,6 +23,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml;
 using UsersSelectionValidity = ThGameMgr.Ex.User.UsersSelectionValidity;
+using System.Collections.ObjectModel;
 
 namespace ThGameMgr.Ex
 {
@@ -268,6 +269,29 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void GetReplayFiles()
+        {
+            ReplayFilesDataGrid.Items.Clear();
+            string gameId = this.GameId;
+            if (!string.IsNullOrEmpty(gameId))
+            {
+                try
+                {
+                    ObservableCollection<ReplayFileInfo> replayFiles 
+                        = ReplayFiles.GetReplayFiles(gameId);
+                    foreach (ReplayFileInfo replayFileInfo in replayFiles) 
+                    {
+                        ReplayFilesDataGrid.Items.Add(replayFileInfo);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"リプレイファイルの取得に失敗しました。\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
         private void ApplyScoreViewFilter()
         {
             ScoreDataGrid.Items.Clear();
@@ -407,6 +431,7 @@ namespace ThGameMgr.Ex
                     SetLevelFilterMenu();
 
                     GetScoreData();
+                    GetReplayFiles();
                 }
                 else
                 {
@@ -719,6 +744,7 @@ namespace ThGameMgr.Ex
             CurrentUserStatusBarItem.Content = User.CurrentUserName;
 
             GetScoreData();
+            GetReplayFiles();
         }
 
         private void SaveSettings()
@@ -1126,6 +1152,7 @@ namespace ThGameMgr.Ex
             SetStartGameStatus(string.Empty);
             
             GetScoreData();
+            GetReplayFiles();
         }
 
         private void ExitMenuItemClick(object sender, RoutedEventArgs e)
