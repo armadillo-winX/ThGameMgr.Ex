@@ -24,6 +24,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml;
 using UsersSelectionValidity = ThGameMgr.Ex.User.UsersSelectionValidity;
+using Microsoft.Win32;
 
 namespace ThGameMgr.Ex
 {
@@ -2048,6 +2049,52 @@ namespace ThGameMgr.Ex
                         MessageBox.Show(this, $"'{newReplayFileName}' は既に存在します。", "リプレイファイルのリネーム",
                             MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     }
+                }
+            }
+        }
+
+        private void AddReplayFileButtonClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new()
+            {
+                Filter = "リプレイファイル|*.rpy|すべてのファイル|*.*"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string gameId = this.GameId;
+                
+                string replayDirectory = ReplayFile.GetReplayDirectory(gameId);
+                string replayFile = openFileDialog.FileName;
+                string newReplayFile = $"{replayDirectory}\\{Path.GetFileName(replayFile)}";
+                try
+                {
+                    while (File.Exists(newReplayFile))
+                    {
+                        MessageBox.Show(this,
+                            "追加先の replay フォルダに、同名のリプレイファイルが存在します。\n名前を変更してください。",
+                            "リプレイファイルの追加",
+                            MessageBoxButton.OK,
+                            MessageBoxImage.Exclamation);
+                        RenameReplayFileDialog renameDialog = new()
+                        {
+                            Owner = this,
+                            ReplayFileName = Path.GetFileNameWithoutExtension(newReplayFile)
+                        };
+
+                        if (renameDialog.ShowDialog() == true)
+                        {
+                            string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
+                            newReplayFile = $"{replayDirectory}\\{newReplayFileName}";
+                        }
+                    }
+
+                    File.Copy(replayFile, newReplayFile);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"リプレイファイルを追加できませんでした。\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
