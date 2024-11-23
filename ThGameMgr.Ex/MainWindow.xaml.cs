@@ -2095,6 +2095,7 @@ namespace ThGameMgr.Ex
                     }
 
                     File.Copy(replayFile, newReplayFile);
+                    GetReplayFiles();
                 }
                 catch (Exception ex)
                 {
