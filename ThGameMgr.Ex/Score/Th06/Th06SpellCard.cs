@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score.Th06
 {
     internal class Th06SpellCard
     {
-        public static List<SpellCard> SpellCards =
+        private static readonly List<SpellCard> _spellCards =
         [
             new SpellCard()
             {
@@ -459,9 +459,9 @@ namespace ThGameMgr.Ex.Score.Th06
         public static SpellCard GetSpellCardData(int cardId)
         {
             int index = cardId - 1;
-            if (index >= 0 && index < SpellCards.Count)
+            if (index >= 0 && index < _spellCards.Count)
             {
-                return SpellCards[index];
+                return _spellCards[index];
             }
             else
             {
