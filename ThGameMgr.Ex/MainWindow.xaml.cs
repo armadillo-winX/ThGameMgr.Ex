@@ -2087,6 +2087,11 @@ namespace ThGameMgr.Ex
                             string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
                             newReplayFile = $"{replayDirectory}\\{newReplayFileName}";
                         }
+                        else
+                        {
+                            throw new InvalidOperationException(
+                                "新しい名前が指定されませんでした。");
+                        }
                     }
 
                     File.Copy(replayFile, newReplayFile);
