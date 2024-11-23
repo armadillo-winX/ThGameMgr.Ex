@@ -15,6 +15,7 @@ global using ThGameMgr.Ex.Score;
 global using ThGameMgr.Ex.Settings;
 
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +24,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml;
 using UsersSelectionValidity = ThGameMgr.Ex.User.UsersSelectionValidity;
-using System.Collections.ObjectModel;
 
 namespace ThGameMgr.Ex
 {
