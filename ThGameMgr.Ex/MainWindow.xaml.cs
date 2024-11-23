@@ -782,6 +782,13 @@ namespace ThGameMgr.Ex
                     if (PluginHandler.SelectedGamePlugins != null && PluginHandler.SelectedGamePlugins.Count > 0)
                         SetSelectedGamePluginMenu(PluginHandler.SelectedGamePlugins);
 
+                    if (PluginHandler.ScoreRecordsPlugins != null && PluginHandler.ScoreRecordsPlugins.Count > 0)
+                        SetScoreRecordsPluginMenu(PluginHandler.ScoreRecordsPlugins);
+
+                    if (PluginHandler.SpellCardRecordsPlugins != null
+                        && PluginHandler.SpellCardRecordsPlugins.Count > 0)
+                        SetSpellCardRecordsPluginMenu(PluginHandler.SpellCardRecordsPlugins);
+
                     if (PluginHandler.ToolPlugins != null && PluginHandler.ToolPlugins.Count > 0)
                         SetToolPluginMenu(PluginHandler.ToolPlugins);
                 }
@@ -931,6 +938,86 @@ namespace ThGameMgr.Ex
                 };
 
                 GameMenu.Items.Add(menuItem);
+            }
+        }
+
+        private void SetScoreRecordsPluginMenu(List<dynamic> scoreRecordsPlugins)
+        {
+            foreach (dynamic scoreRecordsPlugin in scoreRecordsPlugins)
+            {
+                try
+                {
+                    scoreRecordsPlugin.MainWindow = this;
+                }
+                catch (Exception) { }
+
+                MenuItem menuItem = new()
+                {
+                    Header = scoreRecordsPlugin.CommandName
+                };
+
+                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                {
+                    try
+                    {
+                        if (ScoreData.ScoreRecordLists.Count > 0)
+                        {
+                            scoreRecordsPlugin.Main(this.GameId, ScoreData.ScoreRecordLists);
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "利用可能なデータがありません。", "プラグインの実行",
+                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, "エラー",
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                };
+
+                ScoreMenu.Items.Add(menuItem);
+            }
+        }
+
+        private void SetSpellCardRecordsPluginMenu(List<dynamic> spellCardRecordsPlugins)
+        {
+            foreach (dynamic spellCardRecordsPlugin in spellCardRecordsPlugins)
+            {
+                try
+                {
+                    spellCardRecordsPlugin.MainWindow = this;
+                }
+                catch (Exception) { }
+
+                MenuItem menuItem = new()
+                {
+                    Header = spellCardRecordsPlugin.CommandName
+                };
+
+                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                {
+                    try
+                    {
+                        if (ScoreData.SpellCardRecordLists.Count > 0)
+                        {
+                            spellCardRecordsPlugin.Main(this.GameId, ScoreData.SpellCardRecordLists);
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "利用可能なデータがありません。", "プラグインの実行",
+                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, "エラー",
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                };
+
+                ScoreMenu.Items.Add(menuItem);
             }
         }
 
