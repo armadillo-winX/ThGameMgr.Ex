@@ -15,4 +15,8 @@
 	  <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ThGameMgr.Ex.Data\ThGameMgr.Ex.Data.csproj" />
+  </ItemGroup>
+
 </Project>
