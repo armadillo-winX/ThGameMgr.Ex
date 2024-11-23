@@ -755,6 +755,13 @@ namespace ThGameMgr.Ex
                     if (PluginHandler.SelectedGamePlugins != null && PluginHandler.SelectedGamePlugins.Count > 0)
                         SetSelectedGamePluginMenu(PluginHandler.SelectedGamePlugins);
 
+                    if (PluginHandler.ScoreRecordsPlugins != null && PluginHandler.ScoreRecordsPlugins.Count > 0)
+                        SetScoreRecordsPluginMenu(PluginHandler.ScoreRecordsPlugins);
+
+                    if (PluginHandler.SpellCardRecordsPlugins != null
+                        && PluginHandler.SpellCardRecordsPlugins.Count > 0)
+                        SetSpellCardRecordsPluginMenu(PluginHandler.SpellCardRecordsPlugins);
+
                     if (PluginHandler.ToolPlugins != null && PluginHandler.ToolPlugins.Count > 0)
                         SetToolPluginMenu(PluginHandler.ToolPlugins);
                 }
