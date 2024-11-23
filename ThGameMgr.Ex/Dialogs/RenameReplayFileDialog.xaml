@@ -1,0 +1,18 @@
+﻿<Window x:Class="ThGameMgr.Ex.Dialogs.RenameReplayFileDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
+        mc:Ignorable="d"
+        Title="リプレイファイルのリネーム" Height="132" Width="253" ResizeMode="NoResize" 
+        ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow" Loaded="WindowLoaded">
+    <Grid>
+        <TextBox x:Name="FileNameBox" Margin="10,10,35,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" MaxLines="1"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,10,10,0" TextWrapping="Wrap" Text=".rpy" VerticalAlignment="Top"/>
+        <Button x:Name="RenameButton"
+            Width="90" Height="24"
+            IsDefault="True"
+            Content="リネーム(_R)" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="RenameButtonClick"/>
+    </Grid>
+</Window>
