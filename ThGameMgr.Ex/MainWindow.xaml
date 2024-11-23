@@ -294,8 +294,8 @@
                         ItemsSource="{Binding}" Margin="0,0,105,0">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="リネーム" Click=""/>
-                                <MenuItem Header="削除" Click=""/>
+                                <MenuItem Header="リネーム" Click="RenameReplayFileButtonClick"/>
+                                <MenuItem Header="削除" Click="DeleteReplayFileButton"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>
