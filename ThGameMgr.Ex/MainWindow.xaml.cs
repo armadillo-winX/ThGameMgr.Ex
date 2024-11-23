@@ -1886,5 +1886,10 @@ namespace ThGameMgr.Ex
             };
             exportScoreDataDialog.ShowDialog();
         }
+
+        private void ReloadReplayFilesButtonClick(object sender, RoutedEventArgs e)
+        {
+            GetReplayFiles();
+        }
     }
 }
