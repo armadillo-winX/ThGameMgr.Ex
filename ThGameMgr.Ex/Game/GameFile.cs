@@ -57,7 +57,7 @@ namespace ThGameMgr.Ex.Game
             string gameDirectory = Path.GetDirectoryName(gameFile);
             if (!string.IsNullOrEmpty(gameDirectory))
             {
-                List<string> thpracFiles = new();
+                List<string> thpracFiles = [];
 
                 foreach (string thpracFile in
                     Directory.GetFiles(gameDirectory, "thprac*.exe", SearchOption.TopDirectoryOnly))

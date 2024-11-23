@@ -50,7 +50,7 @@ namespace ThGameMgr.Ex.Game
         {
             string gamePlayLogFile = $"{User.CurrentUserDirectoryPath}\\GamePlayLog.xml";
 
-            ObservableCollection<GamePlayLogData> gamePlayLogDataCollection = new();
+            ObservableCollection<GamePlayLogData> gamePlayLogDataCollection = [];
 
             XmlDocument gameLogDataXml = new();
             gameLogDataXml.Load(gamePlayLogFile);

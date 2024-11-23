@@ -16,9 +16,9 @@ namespace ThGameMgr.Ex.Score
         {
             GameId = gameId;
 
-            ScoreRecordLists = new();
-            SpellCardRecordLists = new();
-            SpellPracticeRecordLists = new();
+            ScoreRecordLists = [];
+            SpellCardRecordLists = [];
+            SpellPracticeRecordLists = [];
 
             if (gameId == GameIndex.Th06)
             {

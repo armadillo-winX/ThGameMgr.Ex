@@ -150,9 +150,7 @@ namespace ThGameMgr.Ex.Score.Th17
                 GetCount = practiceGet.ToString()
             };
 
-            ObservableCollection<SpellCardRecordData> spellCardRecordLists = new();
-            spellCardRecordLists.Add(spellCardRecordList);
-            spellCardRecordLists.Add(practiceSpellCardRecordList);
+            ObservableCollection<SpellCardRecordData> spellCardRecordLists = [spellCardRecordList, practiceSpellCardRecordList];
             return spellCardRecordLists;
         }
 
@@ -271,9 +269,7 @@ namespace ThGameMgr.Ex.Score.Th17
                 Place = spellcardData.Place
             };
 
-            ObservableCollection<SpellCardRecordData> allSpellCardRecordLists = new();
-            allSpellCardRecordLists.Add(allSpellCardRecordList);
-            allSpellCardRecordLists.Add(allPracticeSpellCardRecordList);
+            ObservableCollection<SpellCardRecordData> allSpellCardRecordLists = [allSpellCardRecordList, allPracticeSpellCardRecordList];
             return allSpellCardRecordLists;
         }
 
