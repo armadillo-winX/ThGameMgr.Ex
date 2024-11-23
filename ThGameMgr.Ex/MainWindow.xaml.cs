@@ -916,17 +916,17 @@ namespace ThGameMgr.Ex
 
         private void SetScoreRecordsPluginMenu(List<dynamic> scoreRecordsPlugins)
         {
-            foreach (dynamic scoreRecordPlugin in scoreRecordsPlugins)
+            foreach (dynamic scoreRecordsPlugin in scoreRecordsPlugins)
             {
                 try
                 {
-                    scoreRecordPlugin.MainWindow = this;
+                    scoreRecordsPlugin.MainWindow = this;
                 }
                 catch (Exception) { }
 
                 MenuItem menuItem = new()
                 {
-                    Header = scoreRecordPlugin.CommandName
+                    Header = scoreRecordsPlugin.CommandName
                 };
 
                 menuItem.Click += (object sender, RoutedEventArgs e) =>
@@ -935,7 +935,7 @@ namespace ThGameMgr.Ex
                     {
                         if (ScoreData.ScoreRecordLists.Count > 0)
                         {
-                            scoreRecordPlugin.Main(this.GameId, ScoreData.ScoreRecordLists);
+                            scoreRecordsPlugin.Main(this.GameId, ScoreData.ScoreRecordLists);
                         }
                         else
                         {
@@ -956,17 +956,17 @@ namespace ThGameMgr.Ex
 
         private void SetSpellCardRecordsPluginMenu(List<dynamic> spellCardRecordsPlugins)
         {
-            foreach (dynamic spellCardRecordPlugin in spellCardRecordsPlugins)
+            foreach (dynamic spellCardRecordsPlugin in spellCardRecordsPlugins)
             {
                 try
                 {
-                    spellCardRecordPlugin.MainWindow = this;
+                    spellCardRecordsPlugin.MainWindow = this;
                 }
                 catch (Exception) { }
 
                 MenuItem menuItem = new()
                 {
-                    Header = spellCardRecordPlugin.CommandName
+                    Header = spellCardRecordsPlugin.CommandName
                 };
 
                 menuItem.Click += (object sender, RoutedEventArgs e) =>
@@ -975,7 +975,7 @@ namespace ThGameMgr.Ex
                     {
                         if (ScoreData.SpellCardRecordLists.Count > 0)
                         {
-                            spellCardRecordPlugin.Main(this.GameId, ScoreData.SpellCardRecordLists);
+                            spellCardRecordsPlugin.Main(this.GameId, ScoreData.SpellCardRecordLists);
                         }
                         else
                         {
