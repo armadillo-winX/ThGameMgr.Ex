@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace ThGameMgr.Ex.Replay
 {
-    internal class ReplayFiles
+    internal class ReplayFile
     {
         private readonly static Dictionary<string, string> _gameIdDictionary
             = new()

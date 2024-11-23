@@ -278,7 +278,7 @@ namespace ThGameMgr.Ex
                 try
                 {
                     ObservableCollection<ReplayFileInfo> replayFiles 
-                        = ReplayFiles.GetReplayFiles(gameId);
+                        = ReplayFile.GetReplayFiles(gameId);
                     foreach (ReplayFileInfo replayFileInfo in replayFiles) 
                     {
                         ReplayFilesDataGrid.Items.Add(replayFileInfo);
