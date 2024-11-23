@@ -1891,5 +1891,33 @@ namespace ThGameMgr.Ex
         {
             GetReplayFiles();
         }
+
+        private void DeleteReplayFileButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (ReplayFilesDataGrid.Items.Count > 0
+                && ReplayFilesDataGrid.SelectedIndex >= 0)
+            {
+                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                string replayFileName = selectedReplayFileInfo.FileName;
+
+                MessageBoxResult result = MessageBox.Show(
+                    this, $"'{replayFileName}' を削除してもよろしいですか。", "リプレイファイルの削除",
+                    MessageBoxButton.YesNo, MessageBoxImage.Information);
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        ReplayFile.Delete(this.GameId, replayFileName);
+
+                        GetReplayFiles();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, $"リプレイファイルの削除に失敗しました。\n{ex.Message}", "エラー",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+        }
     }
 }

@@ -312,7 +312,7 @@
                             Width="90" Height="24" Click=""/>
                     <Button x:Name="DeleteReplayFileButton"
                             Content="削除(_D)" HorizontalAlignment="Right" Margin="0,39,10,0" VerticalAlignment="Top"
-                            Width="90" Height="24" Click=""/>
+                            Width="90" Height="24" Click="DeleteReplayFileButtonClick"/>
                     <Button x:Name="ReloadReplayFilesButton"
                             Content="再読み込み" HorizontalAlignment="Right" Margin="0,68,10,0" VerticalAlignment="Top"
                             Width="90" Height="24" Click="ReloadReplayFilesButtonClick"/>
