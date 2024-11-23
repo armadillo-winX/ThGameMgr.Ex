@@ -309,7 +309,7 @@
                     </DataGrid>
                     <Button x:Name="RenameReplayFileButton"
                             Content="リネーム(_R)" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top"
-                            Width="90" Height="24" Click=""/>
+                            Width="90" Height="24" Click="RenameReplayFileButtonClick"/>
                     <Button x:Name="DeleteReplayFileButton"
                             Content="削除(_D)" HorizontalAlignment="Right" Margin="0,39,10,0" VerticalAlignment="Top"
                             Width="90" Height="24" Click="DeleteReplayFileButtonClick"/>

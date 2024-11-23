@@ -1919,5 +1919,46 @@ namespace ThGameMgr.Ex
                 }
             }
         }
+
+        private void RenameReplayFileButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (ReplayFilesDataGrid.Items.Count > 0
+                && ReplayFilesDataGrid.SelectedIndex >= 0)
+            {
+                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                string replayFileName = selectedReplayFileInfo.FileName;
+
+                RenameReplayFileDialog renameDialog = new()
+                {
+                    ReplayFileName = Path.GetFileNameWithoutExtension(replayFileName),
+                    Owner = this
+                };
+
+                if (renameDialog.ShowDialog() == true)
+                {
+                    string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
+
+                    if (!ReplayFile.Exists(this.GameId, newReplayFileName))
+                    {
+                        try
+                        {
+                            ReplayFile.Rename(this.GameId, replayFileName, newReplayFileName);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(this, $"リプレイファイルのリネームに失敗しました。\n{ex.Message}", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+
+                        GetReplayFiles();
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, $"'{newReplayFileName}' は既に存在します。", "リプレイファイルのリネーム",
+                            MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
+            }
+        }
     }
 }
