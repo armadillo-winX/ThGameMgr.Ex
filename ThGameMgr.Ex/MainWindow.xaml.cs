@@ -607,6 +607,13 @@ namespace ThGameMgr.Ex
             ApplyScoreViewFilter();
         }
 
+        private void PracticeEnemiesFilterMenuClick(object sender, RoutedEventArgs e)
+        {
+            string enemyName = ((MenuItem)sender).Header.ToString();
+            this.FilterPracticeEnemy = enemyName;
+            ApplyScoreViewFilter();
+        }
+
         private void SetLevelFilterMenu()
         {
             LevelFilterButtonContextMenu.Items.Clear();
