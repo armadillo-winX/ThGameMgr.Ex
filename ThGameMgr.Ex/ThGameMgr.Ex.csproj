@@ -11,8 +11,8 @@
     <Product>東方管制塔 EX</Product>
     <Copyright>Copyright © 2024 $(Authors)</Copyright>
 	  <Version>$(VersionPrefix)$(VersionSuffix)</Version>
-	  <VersionPrefix>0.4.2</VersionPrefix>
-	  <VersionSuffix>alpha.8</VersionSuffix>
+	  <VersionPrefix>0.5.0</VersionPrefix>
+	  <VersionSuffix>beta.1</VersionSuffix>
 	  <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 	  <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	  <ApplicationIcon>ThGameMgr.Ex.ico</ApplicationIcon>
