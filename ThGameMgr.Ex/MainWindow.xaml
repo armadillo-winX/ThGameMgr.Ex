@@ -292,7 +292,7 @@
                     <Button x:Name="PracticeEnemiesFilterButton"
                         Width="120" Height="24"
                         Content="敵機フィルター▾" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
-                        ContextMenuService.Placement="Bottom" >
+                        ContextMenuService.Placement="Bottom" Click="PracticeEnemiesFilterButtonClick">
                         <Button.ContextMenu>
                             <ContextMenu x:Name="PracticeEnemiesFilterButtonContextMenu" Placement="Bottom" />
                         </Button.ContextMenu>

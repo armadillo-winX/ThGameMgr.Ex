@@ -1530,6 +1530,16 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void PracticeEnemiesFilterButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (!PracticeEnemiesFilterButtonContextMenu.IsOpen)
+            {
+                PracticeEnemiesFilterButtonContextMenu.PlacementTarget = PracticeEnemiesFilterButton;
+                PracticeEnemiesFilterButtonContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+                PracticeEnemiesFilterButtonContextMenu.IsOpen = true;
+            }
+        }
+
         private void LevelFilterButtonClick(object sender, RoutedEventArgs e)
         {
             if (!LevelFilterButtonContextMenu.IsOpen)
