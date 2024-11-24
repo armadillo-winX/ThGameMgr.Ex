@@ -280,6 +280,7 @@ namespace ThGameMgr.Ex
         {
             ScoreDataGrid.DataContext = null;
             SpellCardDataGrid.DataContext = null;
+            SpellPracticeDataGrid.DataContext = null;
             string gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
             {
@@ -331,6 +332,7 @@ namespace ThGameMgr.Ex
         {
             ScoreDataGrid.Items.Clear();
             SpellCardDataGrid.Items.Clear();
+            SpellPracticeDataGrid.Items.Clear();
 
             if (ScoreData.ScoreRecordLists != null &&
                 ScoreData.ScoreRecordLists.Count >= 0)
@@ -403,6 +405,53 @@ namespace ThGameMgr.Ex
                                 Rate = spellCardRecordData.Rate,
                                 Place = spellCardRecordData.Place,
                                 Enemy = spellCardRecordData.Enemy
+                            });
+                        }
+                    }
+                }
+            }
+
+            if (ScoreData.SpellPracticeRecordLists != null &&
+                ScoreData.SpellPracticeRecordLists.Count >= 0)
+            {
+                IEnumerable<SpellCardRecordData> filteredSpellPracticeRecordLists = ScoreData.SpellPracticeRecordLists;
+
+                if (this.FilterEnemy != "ALL")
+                {
+                    filteredSpellPracticeRecordLists = filteredSpellPracticeRecordLists.Where(
+                        x =>
+                        {
+                            return x.Enemy == this.FilterEnemy;
+                        });
+                }
+
+                SpellPracticeDataGrid.AutoGenerateColumns = false;
+                if (DisplayUnchallengedCardMenuItem.IsChecked)
+                {
+                    foreach (SpellCardRecordData spellPracticeRecordData in filteredSpellPracticeRecordLists)
+                    {
+                        SpellPracticeDataGrid.Items.Add(spellPracticeRecordData);
+                    }
+                }
+                else
+                {
+                    foreach (SpellCardRecordData spellPracticeRecordData in filteredSpellPracticeRecordLists)
+                    {
+                        if (int.Parse(spellPracticeRecordData.TryCount) > 0)
+                        {
+                            SpellPracticeDataGrid.Items.Add(spellPracticeRecordData);
+                        }
+                        else if (!ExcludeUntriedCardDataMenuItem.IsChecked)
+                        {
+                            SpellPracticeDataGrid.Items.Add(new SpellCardRecordData()
+                            {
+                                CardID = spellPracticeRecordData.CardID,
+                                CardName = "------------------------",
+                                GetCount = spellPracticeRecordData.GetCount,
+                                TryCount = spellPracticeRecordData.TryCount,
+                                Rate = spellPracticeRecordData.Rate,
+                                Place = spellPracticeRecordData.Place,
+                                Enemy = spellPracticeRecordData.Enemy
                             });
                         }
                     }
