@@ -248,6 +248,7 @@ namespace ThGameMgr.Ex.Settings
                     GameSpecificConfig.SetAutoResizerConfig(gameId, false);
                     GameSpecificConfig.SetScoreFilterPlayer(gameId, "ALL");
                     GameSpecificConfig.SetScoreFilterEnemy(gameId, "ALL");
+                    GameSpecificConfig.SetScoreFilterPracticeEnemy(gameId, "ALL");
                     GameSpecificConfig.SetScoreFilterLevel(gameId, "ALL");
                 }
             }
