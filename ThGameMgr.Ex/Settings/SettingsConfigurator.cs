@@ -190,7 +190,7 @@ namespace ThGameMgr.Ex.Settings
                     XmlNode autoResizerConfigNode = autoResizerConfigRootNode.SelectSingleNode(gameId);
                     XmlNode scoreFilterPlayerConfigNode = scoreFilterPlayerConfigRootNode.SelectSingleNode(gameId);
                     XmlNode scoreFilterEnemyConfigNode = scoreFilterEnemyConfigRootNode.SelectSingleNode(gameId);
-                    XmlNode scoreFilterPracticeEnemyConfigNode 
+                    XmlNode? scoreFilterPracticeEnemyConfigNode 
                         = scoreFilterPracticeEnemyConfigRootNode.SelectSingleNode(gameId);
                     XmlNode scoreFilterLevelConfigNode = scoreFilterLevelConfigRootNode.SelectSingleNode(gameId);
 
