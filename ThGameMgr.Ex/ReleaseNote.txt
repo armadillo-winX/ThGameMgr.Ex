@@ -1,7 +1,7 @@
 ﻿東方管制塔 EX リリースノート
 
 
-ver0.4.1-alpha
+ver0.4.1-alpha.7
 ・スペルカードデータを内部化。
 ・スペルカードデータファイル(ThXXSpellCardData.xml)廃止。
 

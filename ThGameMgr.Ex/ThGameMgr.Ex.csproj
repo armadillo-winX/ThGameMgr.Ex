@@ -12,7 +12,7 @@
     <Copyright>Copyright © 2024 $(Authors)</Copyright>
 	  <Version>$(VersionPrefix)$(VersionSuffix)</Version>
 	  <VersionPrefix>0.4.1</VersionPrefix>
-	  <VersionSuffix>alpha</VersionSuffix>
+	  <VersionSuffix>alpha.7</VersionSuffix>
 	  <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 	  <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	  <ApplicationIcon>ThGameMgr.Ex.ico</ApplicationIcon>
