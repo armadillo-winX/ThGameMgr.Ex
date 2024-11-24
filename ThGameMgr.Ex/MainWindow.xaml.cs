@@ -198,6 +198,18 @@ namespace ThGameMgr.Ex
                 }
             }
 
+            if (Directory.Exists($"{PathInfo.AppLocation}\\SpellCardData"))
+            {
+                try
+                {
+                    Directory.Delete($"{PathInfo.AppLocation}\\SpellCardData", true);
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+
             if (!Directory.Exists(PathInfo.PluginDirectory))
             {
                 try
