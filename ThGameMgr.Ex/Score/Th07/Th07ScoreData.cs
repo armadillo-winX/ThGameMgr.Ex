@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score.Th07
 {
     internal class Th07ScoreData
     {
-        private static string[] _th07PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th07).Split(',');
+        private static readonly string[] _th07PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th07).Split(',');
 
         private static readonly Dictionary<string, string> _levelDictionary =
             new()

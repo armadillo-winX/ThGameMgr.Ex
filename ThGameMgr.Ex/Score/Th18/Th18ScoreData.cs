@@ -5,7 +5,7 @@ namespace ThGameMgr.Ex.Score.Th18
 {
     internal class Th18ScoreData
     {
-        private static string[] _th18PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th18).Split(',');
+        private static readonly string[] _th18PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th18).Split(',');
 
         private static readonly Dictionary<string, string> _progressDictionary =
             new()
