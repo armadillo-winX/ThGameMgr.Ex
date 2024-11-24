@@ -179,6 +179,9 @@ namespace ThGameMgr.Ex.Settings
                 XmlNode scoreFilterEnemyConfigRootNode =
                     rootNode.SelectSingleNode("ScoreFilterEnemyConfig");
 
+                XmlNode scoreFilterPracticeEnemyConfigRootNode =
+                    rootNode.SelectSingleNode("ScoreFilterPracticeEnemyConfig");
+
                 XmlNode scoreFilterLevelConfigRootNode =
                     rootNode.SelectSingleNode("ScoreFilterLevelConfig");
 
@@ -187,6 +190,8 @@ namespace ThGameMgr.Ex.Settings
                     XmlNode autoResizerConfigNode = autoResizerConfigRootNode.SelectSingleNode(gameId);
                     XmlNode scoreFilterPlayerConfigNode = scoreFilterPlayerConfigRootNode.SelectSingleNode(gameId);
                     XmlNode scoreFilterEnemyConfigNode = scoreFilterEnemyConfigRootNode.SelectSingleNode(gameId);
+                    XmlNode scoreFilterPracticeEnemyConfigNode 
+                        = scoreFilterPracticeEnemyConfigRootNode.SelectSingleNode(gameId);
                     XmlNode scoreFilterLevelConfigNode = scoreFilterLevelConfigRootNode.SelectSingleNode(gameId);
 
                     if (autoResizerConfigNode != null)
@@ -214,6 +219,16 @@ namespace ThGameMgr.Ex.Settings
                     else
                     {
                         GameSpecificConfig.SetScoreFilterEnemy(gameId, "ALL");
+                    }
+
+                    if (scoreFilterPracticeEnemyConfigNode != null)
+                    {
+                        GameSpecificConfig.SetScoreFilterPracticeEnemy(
+                            gameId, scoreFilterPracticeEnemyConfigNode.InnerText);
+                    }
+                    else
+                    {
+                        GameSpecificConfig.SetScoreFilterPracticeEnemy(gameId, "ALL");
                     }
 
                     if (scoreFilterLevelConfigNode != null)
