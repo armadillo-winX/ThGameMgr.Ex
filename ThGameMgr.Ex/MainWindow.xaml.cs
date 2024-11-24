@@ -416,7 +416,7 @@ namespace ThGameMgr.Ex
             {
                 IEnumerable<SpellCardRecordData> filteredSpellPracticeRecordLists = ScoreData.SpellPracticeRecordLists;
 
-                if (this.FilterEnemy != "ALL")
+                if (this.FilterPracticeEnemy != "ALL")
                 {
                     filteredSpellPracticeRecordLists = filteredSpellPracticeRecordLists.Where(
                         x =>
