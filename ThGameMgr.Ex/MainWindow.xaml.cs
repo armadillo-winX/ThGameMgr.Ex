@@ -421,7 +421,7 @@ namespace ThGameMgr.Ex
                     filteredSpellPracticeRecordLists = filteredSpellPracticeRecordLists.Where(
                         x =>
                         {
-                            return x.Enemy == this.FilterEnemy;
+                            return x.Enemy == this.FilterPracticeEnemy;
                         });
                 }
 
