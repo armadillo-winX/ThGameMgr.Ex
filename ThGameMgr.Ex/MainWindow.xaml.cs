@@ -37,6 +37,7 @@ namespace ThGameMgr.Ex
         private string? _gameName;
         private string? _filterPlayer;
         private string? _filterEnemy;
+        private string? _filterPracticeEnemy;
         private string? _filterLevel;
 
         private BackgroundWorker? _gameEndWaitingModeWorker = null;
@@ -151,6 +152,26 @@ namespace ThGameMgr.Ex
                 if (!string.IsNullOrEmpty(this.GameId))
                 {
                     GameSpecificConfig.SetScoreFilterEnemy(this.GameId, value);
+                }
+            }
+        }
+
+        private string? FilterPracticeEnemy
+        {
+            get
+            {
+                return _filterPracticeEnemy;
+            }
+
+            set
+            {
+                _filterPracticeEnemy = value;
+                FilterPracticeEnemyNameBlock.Text =
+                    value == "ALL" ? "全敵機体" : value;
+
+                if (!string.IsNullOrEmpty (this.GameId))
+                {
+
                 }
             }
         }
