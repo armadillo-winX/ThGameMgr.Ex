@@ -111,6 +111,10 @@ namespace ThGameMgr.Ex.Settings
                     gameSpecificConfigXml.CreateElement("ScoreFilterEnemyConfig");
                 _ = rootNode.AppendChild(scoreFilterEnemyConfigRootNode);
 
+                XmlNode scoreFilterPracticeEnemyConfigRootNode =
+                    gameSpecificConfigXml.CreateElement("ScoreFilterPracticeEnemyConfig");
+                _ = rootNode.AppendChild(scoreFilterPracticeEnemyConfigRootNode);
+
                 XmlNode scoreFilterLevelConfigRootNode =
                     gameSpecificConfigXml.CreateElement("ScoreFilterLevelConfig");
                 _ = rootNode.AppendChild(scoreFilterLevelConfigRootNode);
@@ -134,6 +138,12 @@ namespace ThGameMgr.Ex.Settings
                     scoreFilterEnemyConfigNode.InnerText = filterEnemy;
 
                     _ = scoreFilterEnemyConfigRootNode.AppendChild(scoreFilterEnemyConfigNode);
+
+                    string filterPracticeEnemy = GameSpecificConfig.GetScoreFilterPracticeEnemy(gameId);
+                    XmlElement scoreFilterPracticeEnemyConfigNode = gameSpecificConfigXml.CreateElement(gameId);
+                    scoreFilterPracticeEnemyConfigNode.InnerText = filterPracticeEnemy;
+
+                    _ = scoreFilterPracticeEnemyConfigRootNode.AppendChild(scoreFilterPracticeEnemyConfigNode);
 
                     string filterLevel = GameSpecificConfig.GetScoreFilterLevel(gameId);
                     XmlElement scoreFilterLevelConfigNode = gameSpecificConfigXml.CreateElement(gameId);
