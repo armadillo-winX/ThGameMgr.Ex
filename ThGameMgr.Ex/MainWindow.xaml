@@ -287,6 +287,58 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
+            <TabItem Header="スペルプラクティス">
+                <Grid>
+                    <Button x:Name="PracticeEnemiesFilterButton"
+                        Width="120" Height="24"
+                        Content="敵機フィルター▾" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
+                        ContextMenuService.Placement="Bottom" >
+                        <Button.ContextMenu>
+                            <ContextMenu x:Name="PracticeEnemiesFilterButtonContextMenu" Placement="Bottom" />
+                        </Button.ContextMenu>
+                    </Button>
+                    <TextBlock x:Name="FilterPracticeEnemyNameBlock"
+                        HorizontalAlignment="Left" Margin="135,13,0,0" TextWrapping="Wrap" Text="FilterEnemy" VerticalAlignment="Top" FontSize="14"/>
+                    <DataGrid x:Name="SpellPracticeDataGrid" ItemsSource="{Binding}" Margin="10,39,10,10" >
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="CopySpellPracticeRecordMenuItem" Header="コピー" />
+                                <MenuItem x:Name="ViewSpellPracticeRecordMenuItem" Header="詳細を表示" />
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="SpellPracticeIdColumn"
+                            IsReadOnly="True"
+                            Header="No"
+                            Binding="{Binding CardID}" Width="45"/>
+                            <DataGridTextColumn x:Name="SpellPracticeNameColumn"
+                            IsReadOnly="True"
+                            Header="スペルカード名" 
+                            Binding="{Binding CardName}" Width="225"/>
+                            <DataGridTextColumn x:Name="SpellPracticeGetColumn"
+                            IsReadOnly="True"
+                            Header="取得数"
+                            Binding="{Binding GetCount}" Width="50"/>
+                            <DataGridTextColumn x:Name="SpellPracticeChallengeColumn"
+                            IsReadOnly="True"
+                            Header="挑戦数"
+                            Binding="{Binding TryCount}" Width="50"/>
+                            <DataGridTextColumn x:Name="SpellPracticeRateColumn"
+                            IsReadOnly="True"
+                            Header="取得率"
+                            Binding="{Binding Rate}" Width="75"/>
+                            <DataGridTextColumn x:Name="SpellPracticePlaceColumn"
+                            IsReadOnly="True"
+                            Header="発動場所" 
+                            Binding="{Binding Place}" Width="110"/>
+                            <DataGridTextColumn x:Name="SpellPracticeEnemyColumn"
+                            IsReadOnly="True"
+                            Header="敵機"
+                            Binding="{Binding Enemy}" Width="135"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
             <TabItem Header="リプレイファイル">
                 <Grid>
                     <DataGrid x:Name="ReplayFilesDataGrid"
