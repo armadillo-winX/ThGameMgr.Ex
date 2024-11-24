@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score.Th11
 {
     internal class Th11ScoreData
     {
-        private static string[] _th11PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th11).Split(',');
+        private static readonly string[] _th11PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th11).Split(',');
 
         private static readonly Dictionary<string, string> _progressDictionary =
             new()
