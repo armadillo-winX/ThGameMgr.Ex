@@ -171,7 +171,7 @@ namespace ThGameMgr.Ex
 
                 if (!string.IsNullOrEmpty (this.GameId))
                 {
-
+                    GameSpecificConfig.SetScoreFilterPracticeEnemy(this.GameId, value);
                 }
             }
         }
