@@ -182,7 +182,7 @@ namespace ThGameMgr.Ex.Score.Th12
             int allGet
                 = getReimuA + getReimuB + getMarisaA + getMarisaB + getSanaeA + getSanaeB;
 
-            SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th12, cardId);
+            SpellCard spellcardData = Th12SpellCard.GetSpellCardData(cardId);
             string cardName
                 = spellcardData.CardName;
 

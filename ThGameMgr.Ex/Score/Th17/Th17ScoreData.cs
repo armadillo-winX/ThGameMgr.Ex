@@ -238,7 +238,7 @@ namespace ThGameMgr.Ex.Score.Th17
             int allPracticeGetCount
                 = practiceGetReimuA + practiceGetReimuB + practiceGetReimuC + practiceGetMarisaA + practiceGetMarisaB + practiceGetMarisaC + practiceGetYoumuA + practiceGetYoumuB + practiceGetYoumuC;
 
-            SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th17, cardId);
+            SpellCard spellcardData = Th17SpellCard.GetSpellCardData(cardId);
 
             string cardName = spellcardData.CardName;
             string practiceCardName = spellcardData.CardName;

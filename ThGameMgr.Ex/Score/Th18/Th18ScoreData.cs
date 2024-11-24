@@ -200,7 +200,7 @@ namespace ThGameMgr.Ex.Score.Th18
             int allPracticeChallengeCount = practiceChallengeReimu + practiceChallengeMarisa + practiceChallengeSakuya + practiceChallengeSanae;
             int allPracticeGetCount = practiceGetReimu + practiceGetMarisa + practiceGetSakuya + practiceGetSanae;
 
-            SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th18, cardId);
+            SpellCard spellcardData = Th18SpellCard.GetSpellCardData(cardId);
 
             string cardName = spellcardData.CardName;
             string practiceCardName = spellcardData.CardName;

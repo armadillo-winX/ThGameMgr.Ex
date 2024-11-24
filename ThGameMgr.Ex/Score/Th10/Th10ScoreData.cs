@@ -181,7 +181,7 @@ namespace ThGameMgr.Ex.Score.Th10
             int allGet
                 = getReimuA + getReimuB + getReimuC + getMarisaA + getMarisaB + getMarisaC;
 
-            SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th10, cardId);
+            SpellCard spellcardData = Th10SpellCard.GetSpellCardData(cardId);
             string cardName
                 = spellcardData.CardName;
 

@@ -213,7 +213,7 @@ namespace ThGameMgr.Ex.Score.Th15
             int allLegacyChallenge = challengeReimuB + challengeMarisaB + challengeSanaeB + challengeUdonB;
             int allLegacyGet = getReimuB + getMarisaB + getSanaeB + getUdonB;
 
-            SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th15, cardId);
+            SpellCard spellcardData = Th15SpellCard.GetSpellCardData(cardId);
 
             string perfectCardName = $"{spellcardData.CardName}(P)";
             string legacyCardName = $"{spellcardData.CardName}(L)";

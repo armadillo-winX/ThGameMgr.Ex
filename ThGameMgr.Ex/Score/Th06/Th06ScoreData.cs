@@ -142,7 +142,7 @@ namespace ThGameMgr.Ex.Score.Th06
             int challenge = BitConverter.ToInt16(CHALLANGE_DATA, 0);
             int get = BitConverter.ToInt16(GET_DATA, 0);
 
-            SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th06, cardId);
+            SpellCard spellcardData = Th06SpellCard.GetSpellCardData(cardId);
             string cardName
                 = spellcardData.CardName;
 

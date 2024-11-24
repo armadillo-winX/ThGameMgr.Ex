@@ -213,7 +213,7 @@ namespace ThGameMgr.Ex.Score.Th16
             int allPracticeChallengeCount = practiceChallengeReimu + practiceChallengeChirno + practiceChallengeAya + practiceChallengeMarisa;
             int allPracticeGetCount = practiceGetReimu + practiceGetChirno + practiceGetAya + practiceGetMarisa;
 
-            SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th16, cardId);
+            SpellCard spellcardData = Th16SpellCard.GetSpellCardData(cardId);
 
             string cardName = spellcardData.CardName;
             string practiceCardName = spellcardData.CardName;

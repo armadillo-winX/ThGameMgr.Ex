@@ -154,7 +154,7 @@ namespace ThGameMgr.Ex.Score.Th08
             int allChangeCount = BitConverter.ToInt32(ALL_CHALLANGE_DATA);
             int allGetCount = BitConverter.ToInt32(ALL_GET_DATA);
 
-            SpellCard spellcardData = SpellCard.GetSpellCardData(GameIndex.Th08, cardId);
+            SpellCard spellcardData = Th08SpellCard.GetSpellCardData(cardId);
             string cardName
                 = spellcardData.CardName;
 
