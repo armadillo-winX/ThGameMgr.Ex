@@ -70,6 +70,7 @@ namespace ThGameMgr.Ex
                     AutoStartWindowResizerCheckBox.IsChecked = GameSpecificConfig.GetAutoResizerConfig(value);
                     this.FilterPlayer = GameSpecificConfig.GetScoreFilterPlayer(value);
                     this.FilterEnemy = GameSpecificConfig.GetScoreFilterEnemy(value);
+                    this.FilterPracticeEnemy = GameSpecificConfig.GetScoreFilterPracticeEnemy(value);
                     this.FilterLevel = GameSpecificConfig.GetScoreFilterLevel(value);
 
                     string gameName = GameIndex.GetGameName(value);
