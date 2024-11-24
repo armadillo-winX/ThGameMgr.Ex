@@ -10,6 +10,8 @@ namespace ThGameMgr.Ex.Game
 
         private static Dictionary<string, string>? _scoreFilterEnemyDictionary;
 
+        private static Dictionary<string, string>? _scoreFilterPracticeEnemyDictionary;
+
         private static Dictionary<string, string>? _scoreFilterLevelDictionary;
 
         /// <summary>
@@ -135,6 +137,45 @@ namespace ThGameMgr.Ex.Game
                 else
                 {
                     _scoreFilterEnemyDictionary.Add(gameId, filterEnemy);
+                }
+            }
+        }
+
+        public static string GetScoreFilterPracticeEnemy(string gameId)
+        {
+            if (_scoreFilterPracticeEnemyDictionary == null)
+            {
+                return "ALL";
+            }
+            else
+            {
+                if (_scoreFilterPracticeEnemyDictionary.TryGetValue(gameId, out string? filterPracticeEnemy))
+                {
+                    return filterPracticeEnemy;
+                }
+                else
+                {
+                    return "ALL";
+                }
+            }
+        }
+
+        public static void SetScoreFilterPracticeEnemy(string gameId, string filterPracticeEnemy)
+        {
+            if (_scoreFilterPracticeEnemyDictionary == null)
+            {
+                _scoreFilterPracticeEnemyDictionary = [];
+                _scoreFilterPracticeEnemyDictionary.Add(gameId, filterPracticeEnemy);
+            }
+            else
+            {
+                if (_scoreFilterPracticeEnemyDictionary.ContainsKey(gameId))
+                {
+                    _scoreFilterPracticeEnemyDictionary[gameId] = filterPracticeEnemy;
+                }
+                else
+                {
+                    _scoreFilterPracticeEnemyDictionary.Add(gameId, filterPracticeEnemy);
                 }
             }
         }
