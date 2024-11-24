@@ -512,6 +512,7 @@ namespace ThGameMgr.Ex
 
                     SetPlayersFilterMenu();
                     SetEnemiesFilterMenu();
+                    SetPracticeEnemiesFilterMenu();
                     SetLevelFilterMenu();
 
                     GetScoreData();
@@ -605,6 +606,37 @@ namespace ThGameMgr.Ex
             string enemyName = ((MenuItem)sender).Header.ToString();
             this.FilterEnemy = enemyName;
             ApplyScoreViewFilter();
+        }
+
+        private void SetPracticeEnemiesFilterMenu()
+        {
+            PracticeEnemiesFilterButtonContextMenu.Items.Clear();
+
+            MenuItem allItem = new()
+            {
+                Header = "ALL"
+            };
+            allItem.Click += new RoutedEventHandler(PracticeEnemiesFilterMenuClick);
+            PracticeEnemiesFilterButtonContextMenu.Items.Add(allItem);
+
+            Separator separator = new();
+            PracticeEnemiesFilterButtonContextMenu.Items.Add(separator);
+
+            string gameId = this.GameId;
+            string gameEnemies = GameEnemies.GetGameEnemies(gameId);
+            if (gameEnemies != null)
+            {
+                string[] gameEnemiesList = gameEnemies.Split(',');
+                foreach (string gameEnemy in gameEnemiesList)
+                {
+                    MenuItem item = new()
+                    {
+                        Header = gameEnemy
+                    };
+                    item.Click += new RoutedEventHandler(PracticeEnemiesFilterMenuClick);
+                    PracticeEnemiesFilterButtonContextMenu.Items.Add(item);
+                }
+            }
         }
 
         private void PracticeEnemiesFilterMenuClick(object sender, RoutedEventArgs e)
@@ -828,6 +860,7 @@ namespace ThGameMgr.Ex
             SetGameSelectionMenu();
             SetPlayersFilterMenu();
             SetEnemiesFilterMenu();
+            SetPracticeEnemiesFilterMenu();
             SetLevelFilterMenu();
             SetExternalToolsMenu();
 
