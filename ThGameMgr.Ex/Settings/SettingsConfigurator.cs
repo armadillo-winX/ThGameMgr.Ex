@@ -168,31 +168,26 @@ namespace ThGameMgr.Ex.Settings
                 XmlDocument gameSpecificConfigXml = new();
                 gameSpecificConfigXml.Load(gameSpecificConfigFile);
 
-                XmlElement rootNode = gameSpecificConfigXml.DocumentElement;
+                XmlElement? rootNode = gameSpecificConfigXml.DocumentElement;
 
-                XmlNode autoResizerConfigRootNode
-                    = rootNode.SelectSingleNode("AutoResizerConfig");
+                XmlNode? autoResizerConfigRootNode
+                    = rootNode?.SelectSingleNode("AutoResizerConfig");
 
-                XmlNode scoreFilterPlayerConfigRootNode =
-                    rootNode.SelectSingleNode("ScoreFilterPlayerConfig");
+                XmlNode? scoreFilterPlayerConfigRootNode =
+                    rootNode?.SelectSingleNode("ScoreFilterPlayerConfig");
 
-                XmlNode scoreFilterEnemyConfigRootNode =
-                    rootNode.SelectSingleNode("ScoreFilterEnemyConfig");
+                XmlNode? scoreFilterEnemyConfigRootNode =
+                    rootNode?.SelectSingleNode("ScoreFilterEnemyConfig");
 
-                XmlNode scoreFilterPracticeEnemyConfigRootNode =
-                    rootNode.SelectSingleNode("ScoreFilterPracticeEnemyConfig");
-
-                XmlNode scoreFilterLevelConfigRootNode =
-                    rootNode.SelectSingleNode("ScoreFilterLevelConfig");
+                XmlNode? scoreFilterLevelConfigRootNode =
+                    rootNode?.SelectSingleNode("ScoreFilterLevelConfig");
 
                 foreach (string gameId in allGamesList)
                 {
-                    XmlNode autoResizerConfigNode = autoResizerConfigRootNode.SelectSingleNode(gameId);
-                    XmlNode scoreFilterPlayerConfigNode = scoreFilterPlayerConfigRootNode.SelectSingleNode(gameId);
-                    XmlNode scoreFilterEnemyConfigNode = scoreFilterEnemyConfigRootNode.SelectSingleNode(gameId);
-                    XmlNode? scoreFilterPracticeEnemyConfigNode 
-                        = scoreFilterPracticeEnemyConfigRootNode?.SelectSingleNode(gameId);
-                    XmlNode scoreFilterLevelConfigNode = scoreFilterLevelConfigRootNode.SelectSingleNode(gameId);
+                    XmlNode? autoResizerConfigNode = autoResizerConfigRootNode?.SelectSingleNode(gameId);
+                    XmlNode? scoreFilterPlayerConfigNode = scoreFilterPlayerConfigRootNode?.SelectSingleNode(gameId);
+                    XmlNode? scoreFilterEnemyConfigNode = scoreFilterEnemyConfigRootNode?.SelectSingleNode(gameId);
+                    XmlNode? scoreFilterLevelConfigNode = scoreFilterLevelConfigRootNode?.SelectSingleNode(gameId);
 
                     if (autoResizerConfigNode != null)
                     {
