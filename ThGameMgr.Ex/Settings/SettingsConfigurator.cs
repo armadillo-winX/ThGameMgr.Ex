@@ -53,11 +53,11 @@ namespace ThGameMgr.Ex.Settings
                 XmlDocument gamePathSettingsXml = new();
                 gamePathSettingsXml.Load(gamePathSettingsFile);
 
-                XmlElement rootNode = gamePathSettingsXml.DocumentElement;
+                XmlElement? rootNode = gamePathSettingsXml.DocumentElement;
 
                 foreach (string gameId in allGamesList)
                 {
-                    XmlNode gamePathConfigNode = rootNode.SelectSingleNode(gameId);
+                    XmlNode? gamePathConfigNode = rootNode?.SelectSingleNode(gameId);
                     if (gamePathConfigNode != null)
                     {
                         GameFile.SetGameFilePath(gameId, gamePathConfigNode.InnerText);
