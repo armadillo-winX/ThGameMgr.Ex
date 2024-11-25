@@ -1,10 +1,1 @@
 ﻿[*.cs]
-
-# CS8600: Null リテラルまたは Null の可能性がある値を Null 非許容型に変換しています。
-dotnet_diagnostic.CS8600.severity = silent
-
-# CS8602: null 参照の可能性があるものの逆参照です。
-dotnet_diagnostic.CS8602.severity = silent
-
-# CS8604: 'int int.Parse(string s)'内のパラメーター's'に Null 参照引数がある可能性があります。
-dotnet_diagnostic.CS8604.severity = silent
