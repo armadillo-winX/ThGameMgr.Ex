@@ -190,13 +190,25 @@ namespace ThGameMgr.Ex
 
             set
             {
-                _filterPracticeEnemy = value;
-                FilterPracticeEnemyNameBlock.Text =
-                    value == "ALL" ? "全敵機体" : value;
-
-                if (!string.IsNullOrEmpty (this.GameId))
+                if (!string.IsNullOrEmpty(value))
                 {
-                    GameSpecificConfig.SetScoreFilterPracticeEnemy(this.GameId, value);
+                    _filterPracticeEnemy = value;
+                    FilterPracticeEnemyNameBlock.Text =
+                        value == "ALL" ? "全敵機体" : value;
+
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterPracticeEnemy(this.GameId, value);
+                    }
+                }
+                else
+                {
+                    _filterPracticeEnemy = "ALL";
+                    FilterPracticeEnemyNameBlock.Text = "全敵機体";
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterPracticeEnemy(this.GameId, "ALL");
+                    }
                 }
             }
         }
