@@ -34,7 +34,8 @@ namespace ThGameMgr.Ex.Replay
             ObservableCollection<ReplayFileInfo> replayFileInfos = [];
 
             string? replayDirectory = GetReplayDirectory(gameId);
-            if (!string.IsNullOrWhiteSpace(replayDirectory))
+            if (!string.IsNullOrWhiteSpace(replayDirectory) &&
+                Directory.Exists(replayDirectory))
             {
                 string[] replayFilesList = Directory.GetFiles(replayDirectory, "*.rpy", SearchOption.TopDirectoryOnly);
                 foreach (string replayFile in replayFilesList)
