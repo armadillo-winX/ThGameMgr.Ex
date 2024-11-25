@@ -156,13 +156,25 @@ namespace ThGameMgr.Ex
 
             set
             {
-                _filterEnemy = value;
-                FilterEnemyNameBlock.Text =
-                    value == "ALL" ? "全敵機体" : value;
-
-                if (!string.IsNullOrEmpty(this.GameId))
+                if (!string.IsNullOrEmpty(value))
                 {
-                    GameSpecificConfig.SetScoreFilterEnemy(this.GameId, value);
+                    _filterEnemy = value;
+                    FilterEnemyNameBlock.Text =
+                        value == "ALL" ? "全敵機体" : value;
+
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterEnemy(this.GameId, value);
+                    }
+                }
+                else
+                {
+                    _filterEnemy = "ALL";
+                    FilterEnemyNameBlock.Text = "ALL";
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterEnemy(this.GameId, "ALL");
+                    }
                 }
             }
         }
