@@ -126,13 +126,25 @@ namespace ThGameMgr.Ex
 
             set
             {
-                _filterPlayer = value;
-                FilterPlayerNameBlock.Text =
-                    value == "ALL" ? "全機体" : value;
-
-                if (!string.IsNullOrEmpty(this.GameId))
+                if (!string.IsNullOrEmpty(value))
                 {
-                    GameSpecificConfig.SetScoreFilterPlayer(this.GameId, value);
+                    _filterPlayer = value;
+                    FilterPlayerNameBlock.Text =
+                        value == "ALL" ? "全機体" : value;
+
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterPlayer(this.GameId, value);
+                    }
+                }
+                else
+                {
+                    _filterPlayer = "ALL";
+                    FilterPlayerNameBlock.Text = "ALL";
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterPlayer(this.GameId, "ALL");
+                    }
                 }
             }
         }
@@ -146,13 +158,25 @@ namespace ThGameMgr.Ex
 
             set
             {
-                _filterEnemy = value;
-                FilterEnemyNameBlock.Text =
-                    value == "ALL" ? "全敵機体" : value;
-
-                if (!string.IsNullOrEmpty(this.GameId))
+                if (!string.IsNullOrEmpty(value))
                 {
-                    GameSpecificConfig.SetScoreFilterEnemy(this.GameId, value);
+                    _filterEnemy = value;
+                    FilterEnemyNameBlock.Text =
+                        value == "ALL" ? "全敵機体" : value;
+
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterEnemy(this.GameId, value);
+                    }
+                }
+                else
+                {
+                    _filterEnemy = "ALL";
+                    FilterEnemyNameBlock.Text = "ALL";
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterEnemy(this.GameId, "ALL");
+                    }
                 }
             }
         }
@@ -186,13 +210,25 @@ namespace ThGameMgr.Ex
 
             set
             {
-                _filterLevel = value;
-                FilterLevelBlock.Text =
-                    value == "ALL" ? "全難易度" : value;
-
-                if (!string.IsNullOrEmpty(this.GameId))
+                if (!string.IsNullOrEmpty(value))
                 {
-                    GameSpecificConfig.SetScoreFilterLevel(this.GameId, value);
+                    _filterLevel = value;
+                    FilterLevelBlock.Text =
+                        value == "ALL" ? "全難易度" : value;
+
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterLevel(this.GameId, value);
+                    }
+                }
+                else
+                {
+                    _filterLevel = "ALL";
+                    FilterLevelBlock.Text = "ALL";
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterLevel(this.GameId, "ALL");
+                    }
                 }
             }
         }
