@@ -948,7 +948,7 @@ namespace ThGameMgr.Ex
                         }
                         else
                         {
-                            MessageBox.Show(this, "利用可能なデータがありません。", "プラグインの実行",
+                            MessageBox.Show(this, "ゲームが選択されていません。", "プラグインの実行",
                                             MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         }
                     }
