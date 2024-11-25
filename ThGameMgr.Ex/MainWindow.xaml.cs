@@ -941,9 +941,9 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        string gameFilePath = GameFile.GetGameFilePath(this.GameId);
-                        if (!string.IsNullOrEmpty(this.GameId) && !string.IsNullOrEmpty(gameFilePath))
+                        if (!string.IsNullOrEmpty(this.GameId))
                         {
+                            string gameFilePath = GameFile.GetGameFilePath(this.GameId);
                             selectedGamePlugin.Main(this.GameId, gameFilePath);
                         }
                         else
