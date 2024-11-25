@@ -188,13 +188,25 @@ namespace ThGameMgr.Ex
 
             set
             {
-                _filterLevel = value;
-                FilterLevelBlock.Text =
-                    value == "ALL" ? "全難易度" : value;
-
-                if (!string.IsNullOrEmpty(this.GameId))
+                if (!string.IsNullOrEmpty(value))
                 {
-                    GameSpecificConfig.SetScoreFilterLevel(this.GameId, value);
+                    _filterLevel = value;
+                    FilterLevelBlock.Text =
+                        value == "ALL" ? "全難易度" : value;
+
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterLevel(this.GameId, value);
+                    }
+                }
+                else
+                {
+                    _filterLevel = "ALL";
+                    FilterLevelBlock.Text = "ALL";
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterLevel(this.GameId, "ALL");
+                    }
                 }
             }
         }
