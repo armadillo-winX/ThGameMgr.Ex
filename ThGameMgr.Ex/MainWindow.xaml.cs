@@ -140,7 +140,7 @@ namespace ThGameMgr.Ex
                 else
                 {
                     _filterPlayer = "ALL";
-                    FilterPlayerNameBlock.Text = "ALL";
+                    FilterPlayerNameBlock.Text = "全機体";
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
                         GameSpecificConfig.SetScoreFilterPlayer(this.GameId, "ALL");
@@ -172,7 +172,7 @@ namespace ThGameMgr.Ex
                 else
                 {
                     _filterEnemy = "ALL";
-                    FilterEnemyNameBlock.Text = "ALL";
+                    FilterEnemyNameBlock.Text = "全敵機体";
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
                         GameSpecificConfig.SetScoreFilterEnemy(this.GameId, "ALL");
@@ -236,7 +236,7 @@ namespace ThGameMgr.Ex
                 else
                 {
                     _filterLevel = "ALL";
-                    FilterLevelBlock.Text = "ALL";
+                    FilterLevelBlock.Text = "全難易度";
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
                         GameSpecificConfig.SetScoreFilterLevel(this.GameId, "ALL");
