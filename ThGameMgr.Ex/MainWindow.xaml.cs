@@ -124,13 +124,25 @@ namespace ThGameMgr.Ex
 
             set
             {
-                _filterPlayer = value;
-                FilterPlayerNameBlock.Text =
-                    value == "ALL" ? "全機体" : value;
-
-                if (!string.IsNullOrEmpty(this.GameId))
+                if (!string.IsNullOrEmpty(value))
                 {
-                    GameSpecificConfig.SetScoreFilterPlayer(this.GameId, value);
+                    _filterPlayer = value;
+                    FilterPlayerNameBlock.Text =
+                        value == "ALL" ? "全機体" : value;
+
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterPlayer(this.GameId, value);
+                    }
+                }
+                else
+                {
+                    _filterPlayer = "ALL";
+                    FilterPlayerNameBlock.Text = "ALL";
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificConfig.SetScoreFilterPlayer(this.GameId, "ALL");
+                    }
                 }
             }
         }
