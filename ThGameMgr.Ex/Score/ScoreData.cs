@@ -121,6 +121,25 @@ namespace ThGameMgr.Ex.Score
                 }
             }
 
+            if (SpellPracticeRecordLists.Count > 0)
+            {
+                data += $"スペルプラクティス\r\n-----------------------------------------------------\r\n";
+                foreach (SpellCardRecordData spellCardRecordData in SpellPracticeRecordLists)
+                {
+                    if (int.Parse(spellCardRecordData.TryCount) > 0)
+                    {
+                        data += $"No.{spellCardRecordData.CardID}\r\n{spellCardRecordData.CardName}\r\n取得数: {spellCardRecordData.GetCount}\r\n挑戦数: {spellCardRecordData.TryCount}\r\n取得率: {spellCardRecordData.Rate}\r\n発動場所: {spellCardRecordData.Place}\r\n術者: {spellCardRecordData.Enemy}\r\n\r\n";
+                    }
+                    else
+                    {
+                        if (outputUntriedCardData)
+                        {
+                            data += $"No.{spellCardRecordData.CardID}\r\n{spellCardRecordData.CardName}\r\n取得数: {spellCardRecordData.GetCount}\r\n挑戦数: {spellCardRecordData.TryCount}\r\n取得率: {spellCardRecordData.Rate}\r\n発動場所: {spellCardRecordData.Place}\r\n術者: {spellCardRecordData.Enemy}\r\n\r\n";
+                        }
+                    }
+                }
+            }
+
             if (!string.IsNullOrEmpty(comment))
             {
                 data += $"コメント\r\n-----------------------------------------------------\r\n{comment}\r\n";
