@@ -941,7 +941,16 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        selectedGamePlugin.Main(this.GameId, GameFile.GetGameFilePath(this.GameId));
+                        string gameFilePath = GameFile.GetGameFilePath(this.GameId);
+                        if (!string.IsNullOrEmpty(this.GameId) && !string.IsNullOrEmpty(gameFilePath))
+                        {
+                            selectedGamePlugin.Main(this.GameId, gameFilePath);
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "利用可能なデータがありません。", "プラグインの実行",
+                                            MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -973,7 +982,7 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        if (ScoreData.ScoreRecordLists.Count > 0)
+                        if (!string.IsNullOrEmpty(this.GameId) && ScoreData.ScoreRecordLists.Count > 0)
                         {
                             scoreRecordsPlugin.Main(this.GameId, ScoreData.ScoreRecordLists);
                         }
@@ -1013,7 +1022,7 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        if (ScoreData.SpellCardRecordLists.Count > 0)
+                        if (!string.IsNullOrEmpty(this.GameId) && ScoreData.SpellCardRecordLists.Count > 0)
                         {
                             spellCardRecordsPlugin.Main(this.GameId, ScoreData.SpellCardRecordLists);
                         }
