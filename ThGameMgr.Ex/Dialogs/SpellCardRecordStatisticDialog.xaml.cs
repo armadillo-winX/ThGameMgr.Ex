@@ -36,11 +36,18 @@
             }
         }
 
-        public string GetCardRate
+        public string? GetCardRate
         {
             set
             {
-                GetCardRateBlock.Text = value;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    GetCardRateBlock.Text = value;
+                }
+                else
+                {
+                    GetCardRateBlock.Text = "0.00%";
+                }
             }
         }
 
@@ -60,11 +67,18 @@
             }
         }
 
-        public string TotalGetRate
+        public string? TotalGetRate
         {
             set
             {
-                TotalGetRateBlock.Text = value;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    TotalGetRateBlock.Text = value;
+                }
+                else
+                {
+                    TotalGetRateBlock.Text = "0.00%";
+                }
             }
         }
 
