@@ -121,6 +121,19 @@ namespace ThGameMgr.Ex.Score
                 }
             }
 
+            SpellCardStatisticsData? spellCardStatisticsData = AnalyzeSpellCardStatisitcs();
+            if (spellCardStatisticsData != null)
+            {
+                data += $"御札戦歴の統計\r\n-----------------------------------------------------\r\n";
+                data +=
+                    $"取得済みスペルカードの数: {spellCardStatisticsData.GetCardCount}\r\n" +
+                    $"挑戦済みスペルカードの数: {spellCardStatisticsData.TriedCardCount}\r\n" +
+                    $"取得済みスペルカードの挑戦済みスペルカードに対する割合: {spellCardStatisticsData.GetCardCountRate}\r\n\r\n" +
+                    $"スペルカード取得数の合計: {spellCardStatisticsData.TotalGetCount}\r\n" +
+                    $"スペルカード挑戦数の合計: {spellCardStatisticsData.TotalTryCount}\r\n" +
+                    $"スペルカード合計取得数のスペルカード合計挑戦数に対する割合: {spellCardStatisticsData.TotalGetCountRate}\r\n\r\n";
+            }
+
             if (SpellPracticeRecordLists.Count > 0)
             {
                 data += $"スペルプラクティス\r\n-----------------------------------------------------\r\n";
