@@ -961,6 +961,10 @@ namespace ThGameMgr.Ex
                         && PluginHandler.SpellCardRecordsPlugins.Count > 0)
                         SetSpellCardRecordsPluginMenu(PluginHandler.SpellCardRecordsPlugins);
 
+                    if (PluginHandler.AllScoreRecordsPlugins != null
+                        && PluginHandler.AllScoreRecordsPlugins.Count > 0)
+                        SetAllScoreRecordsPluginMenu(PluginHandler.AllScoreRecordsPlugins);
+
                     if (PluginHandler.ToolPlugins != null && PluginHandler.ToolPlugins.Count > 0)
                         SetToolPluginMenu(PluginHandler.ToolPlugins);
                 }
@@ -1184,6 +1188,49 @@ namespace ThGameMgr.Ex
                         if (!string.IsNullOrEmpty(this.GameId) && ScoreData.SpellCardRecordLists.Count > 0)
                         {
                             spellCardRecordsPlugin.Main(this.GameId, ScoreData.SpellCardRecordLists);
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, "利用可能なデータがありません。", "プラグインの実行",
+                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, "エラー",
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                };
+
+                ScoreMenu.Items.Add(menuItem);
+            }
+        }
+
+        private void SetAllScoreRecordsPluginMenu(List<dynamic> allScoreRecordsPlugins)
+        {
+            foreach (dynamic allScoreRecordsPlugin in allScoreRecordsPlugins)
+            {
+                try
+                {
+                    allScoreRecordsPlugin.MainWindow = this;
+                }
+                catch (Exception) { }
+
+                MenuItem menuItem = new()
+                {
+                    Header = allScoreRecordsPlugin.CommandName
+                };
+
+                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                {
+                    try
+                    {
+                        if (!string.IsNullOrEmpty(this.GameId) && 
+                            ScoreData.ScoreRecordLists.Count > 0 &&
+                            ScoreData.SpellCardRecordLists.Count > 0)
+                        {
+                            allScoreRecordsPlugin.Main(
+                                this.GameId, ScoreData.ScoreRecordLists, ScoreData.SpellCardRecordLists);
                         }
                         else
                         {
