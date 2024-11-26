@@ -150,7 +150,7 @@ namespace ThGameMgr.Ex.Score
             streamWriter.Close();
         }
 
-        public SpellCardStatisticsData? AnalyzeSpellCardStatisitcs()
+        public static SpellCardStatisticsData? AnalyzeSpellCardStatisitcs()
         {
             if (SpellCardRecordLists != null &&
                 SpellCardRecordLists.Count > 0)
