@@ -161,9 +161,9 @@ namespace ThGameMgr.Ex.Score
                 int totalChallengeCount = 0;
                 int totalGetCount = 0;
 
-                for (int i = 0; i < ScoreData.SpellCardRecordLists.Count; i++)
+                for (int i = 0; i < SpellCardRecordLists.Count; i++)
                 {
-                    SpellCardRecordData spellCardRecordList = ScoreData.SpellCardRecordLists[i];
+                    SpellCardRecordData spellCardRecordList = SpellCardRecordLists[i];
                     int challengeCount = int.Parse(spellCardRecordList.TryCount);
                     int getCount = int.Parse(spellCardRecordList.GetCount);
 
