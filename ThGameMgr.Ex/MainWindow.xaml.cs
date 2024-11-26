@@ -1768,43 +1768,27 @@ namespace ThGameMgr.Ex
 
         private void StatisticSpellCardRecordMenuItemClick(object sender, RoutedEventArgs e)
         {
-            if (ScoreData.SpellCardRecordLists != null &&
-                ScoreData.SpellCardRecordLists.Count > 0)
+            SpellCardStatisticsData? spellCardStatisticsData = ScoreData.AnalyzeSpellCardStatisitcs();
+            if (spellCardStatisticsData != null)
             {
-                int challengedCardCount = 0;
-                int getCardCount = 0;
-
-                int totalChallengeCount = 0;
-                int totalGetCount = 0;
-
-                for (int i = 0; i < ScoreData.SpellCardRecordLists.Count; i++)
-                {
-                    SpellCardRecordData spellCardRecordList = ScoreData.SpellCardRecordLists[i];
-                    int challengeCount = int.Parse(spellCardRecordList.TryCount);
-                    int getCount = int.Parse(spellCardRecordList.GetCount);
-
-                    if (challengeCount > 0) challengedCardCount++;
-                    if (getCount > 0) getCardCount++;
-
-                    totalChallengeCount += challengeCount;
-                    totalGetCount += getCount;
-                }
-
-                string getCardRate = ScoreCalculator.CalcSpellCardGetRate(getCardCount, challengedCardCount);
-                string totalGetRate = ScoreCalculator.CalcSpellCardGetRate(totalGetCount, totalChallengeCount);
-
                 SpellCardRecordStatisticDialog spellCardRecordStatisticDialog = new()
                 {
                     GameId = this.GameId,
-                    ChallengedCardCount = challengedCardCount,
-                    GetCardCount = getCardCount,
-                    GetCardRate = getCardRate,
-                    TotalChallengeCount = totalChallengeCount,
-                    TotalGetCount = totalGetCount,
-                    TotalGetRate = totalGetRate,
+                    ChallengedCardCount = spellCardStatisticsData.TriedCardCount,
+                    GetCardCount = spellCardStatisticsData.GetCardCount,
+                    GetCardRate = spellCardStatisticsData.GetCardCountRate,
+                    TotalChallengeCount = spellCardStatisticsData.TotalTryCount,
+                    TotalGetCount = spellCardStatisticsData.TotalGetCount,
+                    TotalGetRate = spellCardStatisticsData.TotalGetCountRate,
                     Owner = this
                 };
                 spellCardRecordStatisticDialog.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(
+                    this, "利用可能なデータがありません。", "御札戦歴統計",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
 
