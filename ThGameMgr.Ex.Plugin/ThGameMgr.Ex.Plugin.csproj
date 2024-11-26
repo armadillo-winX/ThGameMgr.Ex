@@ -10,7 +10,7 @@
 	  <AssemblyVersion></AssemblyVersion>
 	  <FileVersion></FileVersion>
 	  <Version>$(VersionPrefix)$(VersionSuffix)</Version>
-	  <VersionPrefix>0.2.0</VersionPrefix>
+	  <VersionPrefix>0.3.0</VersionPrefix>
 	  <VersionSuffix>beta</VersionSuffix>
 	  <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>

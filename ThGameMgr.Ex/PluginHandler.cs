@@ -15,6 +15,8 @@ namespace ThGameMgr.Ex
 
         public static List<dynamic>? SpellCardRecordsPlugins { get; set; }
 
+        public static List<dynamic>? AllScoreRecordsPlugins { get; set; }
+
         public static List<dynamic>? ToolPlugins { get; set; }
 
         public static void GetPlugins()
@@ -24,6 +26,7 @@ namespace ThGameMgr.Ex
             SelectedGamePlugins = [];
             ScoreRecordsPlugins = []; 
             SpellCardRecordsPlugins = [];
+            AllScoreRecordsPlugins = [];
             ToolPlugins = [];
 
             string[] pluginFiles = Directory.GetFiles(
@@ -74,6 +77,10 @@ namespace ThGameMgr.Ex
                 else if (type.BaseType == typeof(SpellCardRecordsPluginBase))
                 {
                     SpellCardRecordsPlugins.Add(plugin);
+                }
+                else if (type.BaseType == typeof(AllScoreRecordsPluginBase))
+                {
+                    AllScoreRecordsPlugins.Add(plugin);
                 }
                 else if (type.BaseType == typeof(ToolPluginBase))
                 {

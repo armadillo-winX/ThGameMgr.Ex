@@ -83,6 +83,20 @@ namespace ThGameMgr.Ex.Dialogs
                 }
             }
 
+            if (PluginHandler.AllScoreRecordsPlugins != null && PluginHandler.AllScoreRecordsPlugins.Count > 0)
+            {
+                foreach (dynamic plugin in PluginHandler.AllScoreRecordsPlugins)
+                {
+                    PluginDataGrid.Items.Add(new PluginInfo()
+                    {
+                        Name = plugin.Name,
+                        Version = plugin.Version,
+                        Developer = plugin.Developer,
+                        Description = plugin.Description
+                    });
+                }
+            }
+
             if (PluginHandler.ToolPlugins != null && PluginHandler.ToolPlugins.Count > 0)
             {
                 foreach (dynamic plugin in PluginHandler.ToolPlugins)
