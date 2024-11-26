@@ -149,5 +149,48 @@ namespace ThGameMgr.Ex.Score
             streamWriter.Write(data);
             streamWriter.Close();
         }
+
+        public SpellCardStatisticsData? AnalyzeSpellCardStatisitcs()
+        {
+            if (SpellCardRecordLists != null &&
+                SpellCardRecordLists.Count > 0)
+            {
+                int challengedCardCount = 0;
+                int getCardCount = 0;
+
+                int totalChallengeCount = 0;
+                int totalGetCount = 0;
+
+                for (int i = 0; i < ScoreData.SpellCardRecordLists.Count; i++)
+                {
+                    SpellCardRecordData spellCardRecordList = ScoreData.SpellCardRecordLists[i];
+                    int challengeCount = int.Parse(spellCardRecordList.TryCount);
+                    int getCount = int.Parse(spellCardRecordList.GetCount);
+
+                    if (challengeCount > 0) challengedCardCount++;
+                    if (getCount > 0) getCardCount++;
+
+                    totalChallengeCount += challengeCount;
+                    totalGetCount += getCount;
+                }
+
+                string getCardRate = ScoreCalculator.CalcSpellCardGetRate(getCardCount, challengedCardCount);
+                string totalGetRate = ScoreCalculator.CalcSpellCardGetRate(totalGetCount, totalChallengeCount);
+
+                return new SpellCardStatisticsData
+                {
+                    GetCardCount = getCardCount,
+                    TryCardCount = challengedCardCount,
+                    GetCardCountRate = getCardRate,
+                    TotalGetCount = totalGetCount,
+                    TotalTryCount = totalChallengeCount,
+                    TotalGetCountRate = totalGetRate
+                };
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
