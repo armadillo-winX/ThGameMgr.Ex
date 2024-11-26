@@ -180,7 +180,7 @@ namespace ThGameMgr.Ex.Score
                 return new SpellCardStatisticsData
                 {
                     GetCardCount = getCardCount,
-                    TryCardCount = challengedCardCount,
+                    TriedCardCount = challengedCardCount,
                     GetCardCountRate = getCardRate,
                     TotalGetCount = totalGetCount,
                     TotalTryCount = totalChallengeCount,

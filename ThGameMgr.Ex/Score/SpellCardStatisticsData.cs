@@ -10,7 +10,7 @@
         /// <summary>
         /// 挑戦したことのあるスペルカードの数
         /// </summary>
-        public int TryCardCount { get; set; }
+        public int TriedCardCount { get; set; }
 
         /// <summary>
         /// 取得したことのあるスペルカードの挑戦したことのあるスペルカードに対する割合(%)
