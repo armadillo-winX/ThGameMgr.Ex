@@ -2350,5 +2350,16 @@ namespace ThGameMgr.Ex
                 }
             }
         }
+
+        private void ImportReplayFilesMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ImportReplayFilesDialog importReplayFilesDialog = new()
+            {
+                Owner = this
+            };
+            importReplayFilesDialog.ShowDialog();
+            
+            GetReplayFiles();
+        }
     }
 }
