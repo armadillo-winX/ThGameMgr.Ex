@@ -525,6 +525,16 @@ namespace ThGameMgr.Ex
                         Uid = gameId
                     };
 
+                    System.Drawing.Icon? gameIcon = GameFile.GetGameIcon(gameId);
+                    if (gameIcon != null)
+                    {
+                        gameMenuItem.Icon = new Image
+                        {
+                            Source = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
+                                gameIcon.ToBitmap().GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions())
+                        };
+                    }
+
                     gameMenuItem.Click += new RoutedEventHandler(GameSelectionMenuItemClick);
 
                     GameSelectionButtonContextMenu.Items.Add(gameMenuItem);
