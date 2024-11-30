@@ -530,6 +530,8 @@ namespace ThGameMgr.Ex
                     {
                         gameMenuItem.Icon = new Image
                         {
+                            //GetHbitmap()で Bitmap のハンドルを取得する
+                            // CreateBitmapSourceFromHBitmap()で System.Windows.Media.Imaging.BitmapSource に変換する
                             Source = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
                                 gameIcon.ToBitmap().GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions())
                         };
