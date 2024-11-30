@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Drawing;
+using System.Collections.Generic;
 
 namespace ThGameMgr.Ex.Game
 {
@@ -71,6 +72,20 @@ namespace ThGameMgr.Ex.Game
             else
             {
                 throw new DirectoryNotFoundException("ゲームがインストールされているフォルダが見つかりませんでした。");
+            }
+        }
+
+        public static Icon? GetGameIcon(string gameId)
+        {
+            try
+            {
+                string gameFilePath = GetGameFilePath(gameId);
+                Icon? gameIcon = Icon.ExtractAssociatedIcon(gameFilePath);
+                return gameIcon;
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 
