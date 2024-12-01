@@ -57,7 +57,7 @@ namespace ThGameMgr.Ex
             {
                 _gameId = value;
 
-                if (!string.IsNullOrWhiteSpace(value))
+                if (!string.IsNullOrEmpty(value))
                 {
                     GameIdBlock.Text = value;
 
