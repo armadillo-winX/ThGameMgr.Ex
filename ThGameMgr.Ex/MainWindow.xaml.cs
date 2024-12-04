@@ -372,12 +372,20 @@ namespace ThGameMgr.Ex
                                 );
                     StartGameEndWaitingMode(gameProcess);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show(this, $"ゲームの起動に失敗しました。\n{ex.Message}", "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                    EnableGameEndWaitingLimitationMode(false);
-                    SetStartGameStatus(string.Empty);
+                    MessageBoxResult result =
+                    MessageBox.Show(this, $"ゲームの起動に失敗しました。\n再試行しますか？", "エラー",
+                        MessageBoxButton.YesNo, MessageBoxImage.Error);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        StartGameWithApplyingTool("vpatch.exe");
+                    }
+                    else
+                    {
+                        EnableGameEndWaitingLimitationMode(false);
+                        SetStartGameStatus(string.Empty);
+                    }
                 }
             }
         }
