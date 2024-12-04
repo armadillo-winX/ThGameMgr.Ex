@@ -2130,6 +2130,19 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private bool IsManagePluginPageOpened()
+        {
+            foreach (TabItem tabItem in MainTabControl.Items)
+            {
+                if (tabItem.Header.ToString() == "プラグインの管理")
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void ManagePluginsMenuItemClick(object sender, RoutedEventArgs e)
         {
             ManagePluginsDialog managePluginsDialog = new()
