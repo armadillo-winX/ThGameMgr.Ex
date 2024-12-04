@@ -324,6 +324,39 @@ namespace ThGameMgr.Ex
             ConfigurePlugins();
         }
 
+        private async void StartGame()
+        {
+            string gameId = this.GameId;
+            if (!string.IsNullOrEmpty(gameId))
+            {
+                EnableGameEndWaitingLimitationMode(true);
+                SetStartGameStatus("ゲームの起動を待機中...");
+                try
+                {
+                    Process gameProcess
+                        = await Task.Run(()
+                                => GameProcessHandler.StartGameProcess(gameId)
+                                );
+                    StartGameEndWaitingMode(gameProcess);
+                }
+                catch (Exception)
+                {
+                    MessageBoxResult result = 
+                        MessageBox.Show(this, $"ゲームの起動に失敗しました。\n再試行しますか？", "エラー",
+                        MessageBoxButton.YesNo, MessageBoxImage.Error);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        StartGame();
+                    }
+                    else
+                    {
+                        EnableGameEndWaitingLimitationMode(false);
+                        SetStartGameStatus(string.Empty);
+                    }
+                }
+            }
+        }
+
         private async void GetScoreData()
         {
             ScoreDataGrid.DataContext = null;
@@ -1502,29 +1535,9 @@ namespace ThGameMgr.Ex
             SetGameSelectionMenu();
         }
 
-        private async void StartGameMenuItemClick(object sender, RoutedEventArgs e)
+        private void StartGameMenuItemClick(object sender, RoutedEventArgs e)
         {
-            string gameId = this.GameId;
-            if (!string.IsNullOrEmpty(gameId))
-            {
-                EnableGameEndWaitingLimitationMode(true);
-                SetStartGameStatus("ゲームの起動を待機中...");
-                try
-                {
-                    Process gameProcess
-                        = await Task.Run(()
-                                => GameProcessHandler.StartGameProcess(gameId)
-                                );
-                    StartGameEndWaitingMode(gameProcess);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, $"ゲームの起動に失敗しました。\n{ex.Message}", "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                    EnableGameEndWaitingLimitationMode(false);
-                    SetStartGameStatus(string.Empty);
-                }
-            }
+            StartGame();
         }
 
         private async void StartGameWithVpatchMenuItemClick(object sender, RoutedEventArgs e)
