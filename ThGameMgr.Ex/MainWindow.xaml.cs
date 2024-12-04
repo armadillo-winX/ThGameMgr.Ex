@@ -357,6 +357,31 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private async void StartGameWithApplyingTool(string toolName)
+        {
+            string gameId = this.GameId;
+            if (!string.IsNullOrEmpty(gameId))
+            {
+                EnableGameEndWaitingLimitationMode(true);
+                SetStartGameStatus("ゲームの起動を待機中(約5秒)...");
+                try
+                {
+                    Process gameProcess
+                        = await Task.Run(()
+                                => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, toolName)
+                                );
+                    StartGameEndWaitingMode(gameProcess);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"ゲームの起動に失敗しました。\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    EnableGameEndWaitingLimitationMode(false);
+                    SetStartGameStatus(string.Empty);
+                }
+            }
+        }
+
         private async void GetScoreData()
         {
             ScoreDataGrid.DataContext = null;
@@ -1540,29 +1565,9 @@ namespace ThGameMgr.Ex
             StartGame();
         }
 
-        private async void StartGameWithVpatchMenuItemClick(object sender, RoutedEventArgs e)
+        private void StartGameWithVpatchMenuItemClick(object sender, RoutedEventArgs e)
         {
-            string gameId = this.GameId;
-            if (!string.IsNullOrEmpty(gameId))
-            {
-                EnableGameEndWaitingLimitationMode(true);
-                SetStartGameStatus("ゲームの起動を待機中(約5秒)...");
-                try
-                {
-                    Process gameProcess
-                        = await Task.Run(()
-                                => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, "vpatch.exe")
-                                );
-                    StartGameEndWaitingMode(gameProcess);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, $"ゲームの起動に失敗しました。\n{ex.Message}", "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                    EnableGameEndWaitingLimitationMode(false);
-                    SetStartGameStatus(string.Empty);
-                }
-            }
+            StartGameWithApplyingTool("vpatch.exe");
         }
 
         private async void StartGameWithThpracMenuItemClick(object sender, RoutedEventArgs e)
