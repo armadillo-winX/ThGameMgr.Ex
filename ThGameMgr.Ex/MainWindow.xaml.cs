@@ -2178,6 +2178,14 @@ namespace ThGameMgr.Ex
 
                 MainTabControl.SelectedIndex = MainTabControl.Items.Count - 1;
             }
+            else
+            {
+                int index = GetManagePluginPageIndex();
+                if (index > -1)
+                {
+                    MainTabControl.SelectedIndex = index;
+                }
+            }
         }
 
         private void AboutPluginBaseLibraryMenuItemClick(object sender, RoutedEventArgs e)
