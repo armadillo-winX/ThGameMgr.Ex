@@ -2149,7 +2149,7 @@ namespace ThGameMgr.Ex
             for (int i = 0; i < MainTabControl.Items.Count; i++)
             {
                 TabItem tabItem = MainTabControl.Items[i] as TabItem;
-                if (tabItem.ToString() == "プラグインの管理")
+                if (tabItem.Header.ToString() == "プラグインの管理")
                 {
                     return i;
                 }
