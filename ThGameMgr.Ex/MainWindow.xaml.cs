@@ -2144,6 +2144,20 @@ namespace ThGameMgr.Ex
             return false;
         }
 
+        private int GetManagePluginPageIndex()
+        {
+            for (int i = 0; i < MainTabControl.Items.Count; i++)
+            {
+                TabItem tabItem = MainTabControl.Items[i] as TabItem;
+                if (tabItem.ToString() == "プラグインの管理")
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
         private void ManagePluginsMenuItemClick(object sender, RoutedEventArgs e)
         {
             if (!IsManagePluginPageOpened())
