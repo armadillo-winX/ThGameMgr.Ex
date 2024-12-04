@@ -9,6 +9,7 @@ global using ThGameMgr.Ex.Data;
 global using ThGameMgr.Ex.Exceptions;
 global using ThGameMgr.Ex.Extensions;
 global using ThGameMgr.Ex.Game;
+global using ThGameMgr.Ex.Pages;
 global using ThGameMgr.Ex.Plugin;
 global using ThGameMgr.Ex.Replay;
 global using ThGameMgr.Ex.Score;
@@ -2145,12 +2146,24 @@ namespace ThGameMgr.Ex
 
         private void ManagePluginsMenuItemClick(object sender, RoutedEventArgs e)
         {
-            ManagePluginsDialog managePluginsDialog = new()
+            if (!IsManagePluginPageOpened())
             {
-                Owner = this
-            };
+                ManagePluginPage managePluginPage = new();
+                Frame tabFrame = new()
+                {
+                    Content = managePluginPage
+                };
 
-            managePluginsDialog.ShowDialog();
+                TabItem item = new()
+                {
+                    Header = "プラグインの管理",
+                    Content = tabFrame 
+                };
+
+                MainTabControl.Items.Add(item);
+
+                MainTabControl.SelectedIndex = MainTabControl.Items.Count - 1;
+            }
         }
 
         private void AboutPluginBaseLibraryMenuItemClick(object sender, RoutedEventArgs e)
