@@ -1,0 +1,28 @@
+﻿<Page x:Class="ThGameMgr.Ex.Pages.ManagePluginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ThGameMgr.Ex.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ManagePluginPage">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
+           Text="プラグインの一覧:" VerticalAlignment="Top"/>
+        <DataGrid x:Name="PluginDataGrid" Margin="10,31,10,0" ItemsSource="{Binding}" Height="122" VerticalAlignment="Top" SelectionChanged="PluginDataGridSelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="名前" Width="120" IsReadOnly="True"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="バージョン" Width="75" IsReadOnly="True"
+                                    Binding="{Binding Version}"/>
+                <DataGridTextColumn Header="開発者" Width="150" IsReadOnly="True"
+                                    Binding="{Binding Developer}"/>
+                <DataGridTextColumn Header="説明" Width="150" IsReadOnly="True"
+                                    Binding="{Binding Description}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="DetailBox" IsReadOnly="True" Margin="10,158,10,10" TextWrapping="Wrap" Text=""/>
+    </Grid>
+</Page>
