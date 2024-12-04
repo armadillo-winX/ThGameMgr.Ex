@@ -6,23 +6,23 @@
       xmlns:local="clr-namespace:ThGameMgr.Ex.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ManagePluginPage">
+      Title="プラグインの管理">
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
            Text="プラグインの一覧:" VerticalAlignment="Top"/>
-        <DataGrid x:Name="PluginDataGrid" Margin="10,31,10,0" ItemsSource="{Binding}" Height="122" VerticalAlignment="Top" SelectionChanged="PluginDataGridSelectionChanged">
+        <DataGrid x:Name="PluginDataGrid" Margin="10,31,10,0" ItemsSource="{Binding}" Height="234" VerticalAlignment="Top" SelectionChanged="PluginDataGridSelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="名前" Width="120" IsReadOnly="True"
+                <DataGridTextColumn Header="名前" Width="150" IsReadOnly="True"
                                     Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="バージョン" Width="75" IsReadOnly="True"
                                     Binding="{Binding Version}"/>
-                <DataGridTextColumn Header="開発者" Width="150" IsReadOnly="True"
+                <DataGridTextColumn Header="開発者" Width="200" IsReadOnly="True"
                                     Binding="{Binding Developer}"/>
-                <DataGridTextColumn Header="説明" Width="150" IsReadOnly="True"
+                <DataGridTextColumn Header="説明" Width="300" IsReadOnly="True"
                                     Binding="{Binding Description}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="DetailBox" IsReadOnly="True" Margin="10,158,10,10" TextWrapping="Wrap" Text=""/>
+        <TextBox x:Name="DetailBox" IsReadOnly="True" Margin="10,270,10,10" TextWrapping="Wrap" Text=""/>
     </Grid>
 </Page>
