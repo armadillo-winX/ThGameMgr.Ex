@@ -2148,7 +2148,7 @@ namespace ThGameMgr.Ex
         {
             if (!IsManagePluginPageOpened())
             {
-                ManagePluginPage managePluginPage = new();
+                ManagePluginsPage managePluginPage = new();
                 Frame tabFrame = new()
                 {
                     Content = managePluginPage

@@ -5,9 +5,9 @@ namespace ThGameMgr.Ex.Pages
     /// <summary>
     /// ManagePluginPage.xaml の相互作用ロジック
     /// </summary>
-    public partial class ManagePluginPage : Page
+    public partial class ManagePluginsPage : Page
     {
-        public ManagePluginPage()
+        public ManagePluginsPage()
         {
             InitializeComponent();
 
