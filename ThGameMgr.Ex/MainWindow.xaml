@@ -319,6 +319,10 @@
                             IsReadOnly="True"
                             Header="スペルカード名" 
                             Binding="{Binding CardName}" Width="225"/>
+                            <DataGridTextColumn x:Name="SpellPracticeLevelColumn"
+                            IsReadOnly="True"
+                            Header="出現難易度"
+                            Binding="{Binding Level}" Width="75"/>
                             <DataGridTextColumn x:Name="SpellPracticeGetColumn"
                             IsReadOnly="True"
                             Header="取得数"
