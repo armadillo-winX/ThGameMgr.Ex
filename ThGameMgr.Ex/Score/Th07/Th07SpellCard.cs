@@ -823,175 +823,175 @@ namespace ThGameMgr.Ex.Score.Th07
                 CardID = "117",
                 CardName = "鬼符「青鬼赤鬼」",
                 Enemy = "橙",
-                Place = "EXTRA道中"
+                Place = "Extra道中"
             },
             new SpellCard()
             {
                 CardID = "118",
                 CardName = "鬼神「飛翔毘沙門天」",
                 Enemy = "橙",
-                Place = "EXTRA道中"
+                Place = "Extra道中"
             },
             new SpellCard()
             {
                 CardID = "119",
                 CardName = "式神「仙狐思念」",
                 Enemy = "八雲藍",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "120",
                 CardName = "式神「十二神将の宴」",
                 Enemy = "八雲藍",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "121",
                 CardName = "式輝「狐狸妖怪レーザー」",
                 Enemy = "八雲藍",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "122",
                 CardName = "式輝「四面楚歌チャーミング」",
                 Enemy = "八雲藍",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "123",
                 CardName = "式輝「プリンセス天狐 -Illusion-」",
                 Enemy = "八雲藍",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "124",
                 CardName = "式弾「アルティメットブディスト」",
                 Enemy = "八雲藍",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "125",
                 CardName = "式弾「ユーニラタルコンタクト」",
                 Enemy = "八雲藍",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "126",
                 CardName = "式神「橙」",
                 Enemy = "八雲藍",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "127",
                 CardName = "「狐狗狸さんの契約」",
                 Enemy = "八雲藍",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "128",
                 CardName = "幻神「飯綱権現降臨」",
                 Enemy = "八雲藍",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "129",
                 CardName = "式神「前鬼後鬼の守護」",
                 Enemy = "八雲藍",
-                Place = "PHANTASM道中"
+                Place = "Phantasm道中"
             },
             new SpellCard()
             {
                 CardID = "130",
                 CardName = "式神「憑依荼吉尼天」",
                 Enemy = "八雲藍",
-                Place = "PHANTASM道中"
+                Place = "Phantasm道中"
             },
             new SpellCard()
             {
                 CardID = "131",
                 CardName = "結界「夢と現の呪」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             },
             new SpellCard()
             {
                 CardID = "132",
                 CardName = "結界「動と静の均衡」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             },
             new SpellCard()
             {
                 CardID = "133",
                 CardName = "結界「光と闇の網目」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             },
             new SpellCard()
             {
                 CardID = "134",
                 CardName = "罔両「ストレートとカーブの夢郷」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             },
             new SpellCard()
             {
                 CardID = "135",
                 CardName = "罔両「八雲紫の神隠し」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             },
             new SpellCard()
             {
                 CardID = "136",
                 CardName = "罔両「禅寺に棲む妖蝶」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             },
             new SpellCard()
             {
                 CardID = "137",
                 CardName = "魍魎「二重黒死蝶」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             },
             new SpellCard()
             {
                 CardID = "138",
                 CardName = "式神「八雲藍」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             },
             new SpellCard()
             {
                 CardID = "139",
                 CardName = "「人間と妖怪の境界」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             },
             new SpellCard()
             {
                 CardID = "140",
                 CardName = "結界「生と死の境界」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             },
             new SpellCard()
             {
                 CardID = "141",
                 CardName = "紫奥義「弾幕結界」",
                 Enemy = "八雲紫",
-                Place = "PHANTASMボス"
+                Place = "Phantasmボス"
             }
         ];
 

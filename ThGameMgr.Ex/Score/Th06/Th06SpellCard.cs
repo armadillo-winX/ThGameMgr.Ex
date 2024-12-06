@@ -368,91 +368,91 @@ namespace ThGameMgr.Ex.Score.Th06
                 CardID = "52",
                 CardName = "月符「サイレントセレナ」",
                 Enemy = "パチュリー・ノーレッジ",
-                Place = "EXTRA道中"
+                Place = "Extra道中"
             },
             new SpellCard()
             {
                 CardID = "53",
                 CardName = "日符「ロイヤルフレア」",
                 Enemy = "パチュリー・ノーレッジ",
-                Place = "EXTRA道中"
+                Place = "Extra道中"
             },
             new SpellCard()
             {
                 CardID = "54",
                 CardName = "火水木金土符「賢者の石」",
                 Enemy = "パチュリー・ノーレッジ",
-                Place = "EXTRA道中"
+                Place = "Extra道中"
             },
             new SpellCard()
             {
                 CardID = "55",
                 CardName = "禁忌「クランベリートラップ」",
                 Enemy = "フランドール・スカーレット",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "56",
                 CardName = "禁忌「レーヴァテイン」",
                 Enemy = "フランドール・スカーレット",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "57",
                 CardName = "禁忌「フォーオブアカインド」",
                 Enemy = "フランドール・スカーレット",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "58",
                 CardName = "禁忌「カゴメカゴメ」",
                 Enemy = "フランドール・スカーレット",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "59",
                 CardName = "禁忌「恋の迷路」",
                 Enemy = "フランドール・スカーレット",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "60",
                 CardName = "禁弾「スターボウブレイク」",
                 Enemy = "フランドール・スカーレット",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "61",
                 CardName = "禁弾「カタディオプトリック」",
                 Enemy = "フランドール・スカーレット",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "62",
                 CardName = "禁弾「過去を刻む時計」",
                 Enemy = "フランドール・スカーレット",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "63",
                 CardName = "秘弾「そして誰もいなくなるか？」",
                 Enemy = "フランドール・スカーレット",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "64",
                 CardName = "ＱＥＤ「４９５年の波紋」",
                 Enemy = "フランドール・スカーレット",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             }
         ];
 

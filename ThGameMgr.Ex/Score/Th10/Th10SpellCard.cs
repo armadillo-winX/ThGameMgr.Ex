@@ -690,91 +690,91 @@ namespace ThGameMgr.Ex.Score.Th10
                 CardID = "98",
                 CardName = "神符「水眼の如き美しき源泉」",
                 Enemy = "八坂神奈子",
-                Place = "EXTRA道中"
+                Place = "Extra道中"
             },
             new SpellCard()
             {
                 CardID = "99",
                 CardName = "神符「杉で結ぶ古き縁」",
                 Enemy = "八坂神奈子",
-                Place = "EXTRA道中"
+                Place = "Extra道中"
             },
             new SpellCard()
             {
                 CardID = "100",
                 CardName = "神符「神が歩かれた御神渡り」",
                 Enemy = "八坂神奈子",
-                Place = "EXTRA道中"
+                Place = "Extra道中"
             },
             new SpellCard()
             {
                 CardID = "101",
                 CardName = "開宴「二拝二拍一拝」",
                 Enemy = "洩矢諏訪子",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "102",
                 CardName = "土着神「手長足長さま」",
                 Enemy = "洩矢諏訪子",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "103",
                 CardName = "神具「洩矢の鉄の輪」",
                 Enemy = "洩矢諏訪子",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "104",
                 CardName = "源符「厭い川の翡翠」",
                 Enemy = "洩矢諏訪子",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "105",
                 CardName = "蛙狩「蛙は口ゆえ蛇に呑まるる」",
                 Enemy = "洩矢諏訪子",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "106",
                 CardName = "土着神「七つの石と七つの木」",
                 Enemy = "洩矢諏訪子",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "107",
                 CardName = "土着神「ケロちゃん風雨に負けず」",
                 Enemy = "洩矢諏訪子",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "108",
                 CardName = "土着神「宝永四年の赤蛙」",
                 Enemy = "洩矢諏訪子",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "109",
                 CardName = "「諏訪大戦 ～ 土着神話 vs 中央神話」",
                 Enemy = "洩矢諏訪子",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             },
             new SpellCard()
             {
                 CardID = "110",
                 CardName = "祟符「ミシャグジさま」",
                 Enemy = "洩矢諏訪子",
-                Place = "EXTRAボス"
+                Place = "Extraボス"
             }
         ];
 
