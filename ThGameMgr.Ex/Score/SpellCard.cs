@@ -31,7 +31,7 @@ namespace ThGameMgr.Ex.Score
                     { 5, "Phantasm" }
                 };
 
-                int index = Convert.ToInt32(levelData);
+                int index = BitConverter.ToInt32(levelData);
                 if (levelDictionary.TryGetValue(index, out string level))
                 {
                     return level;
