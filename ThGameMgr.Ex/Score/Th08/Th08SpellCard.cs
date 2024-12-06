@@ -1369,77 +1369,77 @@ namespace ThGameMgr.Ex.Score.Th08
                 CardID = "195",
                 CardName = "時効「月のいはかさの呪い」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
                 CardID = "196",
                 CardName = "不死「火の鳥　-鳳翼天翔-」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
                 CardID = "197",
                 CardName = "藤原「滅罪寺院傷」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
                 CardID = "198",
                 CardName = "不死「徐福時空」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
                 CardID = "199",
                 CardName = "滅罪「正直者の死」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
                 CardID = "200",
                 CardName = "虚人「ウー」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
                 CardID = "201",
                 CardName = "不滅「フェニックスの尾」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
                 CardID = "202",
                 CardName = "蓬莱「凱風快晴　-フジヤマヴォルケイノ-」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
                 CardID = "203",
                 CardName = "「パゼストバイフェニックス」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
                 CardID = "204",
                 CardName = "「蓬莱人形」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
                 CardID = "205",
                 CardName = "「インペリシャブルシューティング」",
                 Enemy = "藤原妹紅",
-                Place = "ExtrA"
+                Place = "Extra"
             },
             new SpellCard()
             {
