@@ -1500,6 +1500,8 @@ namespace ThGameMgr.Ex
 
             gamePathSettingsDialog.ShowDialog();
             SetGameSelectionMenu();
+
+            GetScoreData();
         }
 
         private async void StartGameMenuItemClick(object sender, RoutedEventArgs e)
