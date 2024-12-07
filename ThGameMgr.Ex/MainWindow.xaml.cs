@@ -68,6 +68,17 @@ namespace ThGameMgr.Ex
                     LevelFilterButton.IsEnabled = true;
 
                     AutoStartWindowResizerCheckBox.IsChecked = GameSpecificConfig.GetAutoResizerConfig(value);
+                    if (value != GameIndex.Th06 && value != GameIndex.Th07)
+                    {
+                        SpellCardLevelColumn.Visibility = Visibility.Visible;
+                        SpellPracticeLevelColumn.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        SpellCardLevelColumn.Visibility = Visibility.Collapsed;
+                        SpellPracticeLevelColumn.Visibility = Visibility.Collapsed;
+                    }
+
                     this.FilterPlayer = GameSpecificConfig.GetScoreFilterPlayer(value);
                     this.FilterEnemy = GameSpecificConfig.GetScoreFilterEnemy(value);
                     this.FilterPracticeEnemy = GameSpecificConfig.GetScoreFilterPracticeEnemy(value);
