@@ -451,6 +451,7 @@ namespace ThGameMgr.Ex
                                 GetCount = spellCardRecordData.GetCount,
                                 TryCount = spellCardRecordData.TryCount,
                                 Rate = spellCardRecordData.Rate,
+                                Level = spellCardRecordData.Level,
                                 Place = spellCardRecordData.Place,
                                 Enemy = spellCardRecordData.Enemy
                             });
