@@ -162,7 +162,9 @@ namespace ThGameMgr.Ex.Score.Th08
             string rate = ScoreCalculator.CalcSpellCardGetRate(allGetCount, allChangeCount);
 
             string level = "";
-            if (_levelDictionary.TryGetValue(BitConverter.ToString(LEVEL_DATA, 0), out string levelName))
+            if (allChangeCount > 0 &&
+                _levelDictionary.TryGetValue(BitConverter.ToString(LEVEL_DATA, 0), out string levelName) &&
+                spellcardData.Place != "Last Word")
             {
                 level = levelName;
             }
