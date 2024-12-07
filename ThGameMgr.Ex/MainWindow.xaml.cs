@@ -392,9 +392,9 @@ namespace ThGameMgr.Ex
 
         private async void GetScoreData()
         {
-            ScoreDataGrid.DataContext = null;
-            SpellCardDataGrid.DataContext = null;
-            SpellPracticeDataGrid.DataContext = null;
+            ScoreDataGrid.Items.Clear();
+            SpellCardDataGrid.Items.Clear();
+            SpellPracticeDataGrid.Items.Clear();
             string gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
             {
@@ -1566,6 +1566,8 @@ namespace ThGameMgr.Ex
 
             gamePathSettingsDialog.ShowDialog();
             SetGameSelectionMenu();
+
+            GetScoreData();
         }
 
         private void StartGameMenuItemClick(object sender, RoutedEventArgs e)
