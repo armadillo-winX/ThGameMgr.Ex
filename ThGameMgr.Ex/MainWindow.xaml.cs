@@ -2025,6 +2025,27 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void CopySpellPracticeRecordMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            if (SpellPracticeDataGrid.Items.Count > 0 &&
+                SpellPracticeDataGrid.SelectedIndex > -1)
+            {
+                try
+                {
+                    SpellCardRecordData spellCardRecordList = (SpellCardRecordData)SpellPracticeDataGrid.SelectedItem;
+
+                    string data =
+                        $"No.{spellCardRecordList.CardID}\r\n{spellCardRecordList.CardName}\r\n取得数: {spellCardRecordList.GetCount}\r\n挑戦数: {spellCardRecordList.TryCount}\r\n取得率: {spellCardRecordList.Rate}\r\n発動場所: {spellCardRecordList.Place}\r\n術者: {spellCardRecordList.Enemy}";
+
+                    Clipboard.SetText(data);
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
+
         private void AboutNAudioMenuItemClick(object sender, RoutedEventArgs e)
         {
             string naudioCoreDllPath = $"{PathInfo.AppLocation}\\NAudio.Core.dll";

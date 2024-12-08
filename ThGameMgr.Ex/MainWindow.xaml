@@ -306,7 +306,8 @@
                     <DataGrid x:Name="SpellPracticeDataGrid" ItemsSource="{Binding}" Margin="10,39,10,10" >
                         <DataGrid.ContextMenu>
                             <ContextMenu>
-                                <MenuItem x:Name="CopySpellPracticeRecordMenuItem" Header="コピー" />
+                                <MenuItem x:Name="CopySpellPracticeRecordMenuItem" Header="コピー" 
+                                          Click="CopySpellPracticeRecordMenuItemClick"/>
                                 <MenuItem x:Name="ViewSpellPracticeRecordMenuItem" Header="詳細を表示" 
                                           Click="ViewSpellPracticeRecordMenuItemClick"/>
                             </ContextMenu>
