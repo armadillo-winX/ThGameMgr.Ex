@@ -1953,12 +1953,14 @@ namespace ThGameMgr.Ex
                         _spellCardRecordDetailDialog = new()
                         {
                             Owner = this,
-                            DataContext = spellCardRecordList
+                            DataContext = spellCardRecordList,
+                            Title = "御札戦歴詳細"
                         };
                         _spellCardRecordDetailDialog.Show();
                     }
                     else
                     {
+                        _spellCardRecordDetailDialog.Title = "御札戦歴詳細";
                         _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
                         _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
                         _spellCardRecordDetailDialog.Activate();
@@ -1982,6 +1984,7 @@ namespace ThGameMgr.Ex
                     if (_spellCardRecordDetailDialog != null &&
                         _spellCardRecordDetailDialog.IsLoaded)
                     {
+                        _spellCardRecordDetailDialog.Title = "御札戦歴詳細";
                         _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
                         _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
                     }
@@ -2007,12 +2010,14 @@ namespace ThGameMgr.Ex
                         _spellCardRecordDetailDialog = new()
                         {
                             Owner = this,
-                            DataContext = spellCardRecordList
+                            DataContext = spellCardRecordList,
+                            Title = "スペルプラクティス詳細"
                         };
                         _spellCardRecordDetailDialog.Show();
                     }
                     else
                     {
+                        _spellCardRecordDetailDialog.Title = "スペルプラクティス詳細";
                         _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
                         _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
                         _spellCardRecordDetailDialog.Activate();
@@ -2036,6 +2041,7 @@ namespace ThGameMgr.Ex
                     if (_spellCardRecordDetailDialog != null &&
                         _spellCardRecordDetailDialog.IsLoaded)
                     {
+                        _spellCardRecordDetailDialog.Title = "スペルプラクティス詳細";
                         _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
                         _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
                     }
