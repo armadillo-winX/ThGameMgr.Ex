@@ -1993,6 +1993,38 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void ViewSpellPracticeRecordMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            if (SpellPracticeDataGrid.Items.Count > 0 &&
+                SpellPracticeDataGrid.SelectedIndex > -1)
+            {
+                try
+                {
+                    SpellCardRecordData spellCardRecordList = (SpellCardRecordData)SpellPracticeDataGrid.SelectedItem;
+                    if (_spellCardRecordDetailDialog == null ||
+                        !_spellCardRecordDetailDialog.IsLoaded)
+                    {
+                        _spellCardRecordDetailDialog = new()
+                        {
+                            Owner = this,
+                            DataContext = spellCardRecordList
+                        };
+                        _spellCardRecordDetailDialog.Show();
+                    }
+                    else
+                    {
+                        _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
+                        _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
+                        _spellCardRecordDetailDialog.Activate();
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
+
         private void AboutNAudioMenuItemClick(object sender, RoutedEventArgs e)
         {
             string naudioCoreDllPath = $"{PathInfo.AppLocation}\\NAudio.Core.dll";
