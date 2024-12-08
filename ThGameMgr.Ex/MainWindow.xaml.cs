@@ -1979,12 +1979,14 @@ namespace ThGameMgr.Ex
                         _spellCardRecordDetailDialog = new()
                         {
                             Owner = this,
-                            DataContext = spellCardRecordList
+                            DataContext = spellCardRecordList,
+                            Title = "御札戦歴詳細"
                         };
                         _spellCardRecordDetailDialog.Show();
                     }
                     else
                     {
+                        _spellCardRecordDetailDialog.Title = "御札戦歴詳細";
                         _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
                         _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
                         _spellCardRecordDetailDialog.Activate();
@@ -2008,9 +2010,88 @@ namespace ThGameMgr.Ex
                     if (_spellCardRecordDetailDialog != null &&
                         _spellCardRecordDetailDialog.IsLoaded)
                     {
+                        _spellCardRecordDetailDialog.Title = "御札戦歴詳細";
                         _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
                         _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
                     }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
+
+        private void ViewSpellPracticeRecordMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            if (SpellPracticeDataGrid.Items.Count > 0 &&
+                SpellPracticeDataGrid.SelectedIndex > -1)
+            {
+                try
+                {
+                    SpellCardRecordData spellCardRecordList = (SpellCardRecordData)SpellPracticeDataGrid.SelectedItem;
+                    if (_spellCardRecordDetailDialog == null ||
+                        !_spellCardRecordDetailDialog.IsLoaded)
+                    {
+                        _spellCardRecordDetailDialog = new()
+                        {
+                            Owner = this,
+                            DataContext = spellCardRecordList,
+                            Title = "スペルプラクティス詳細"
+                        };
+                        _spellCardRecordDetailDialog.Show();
+                    }
+                    else
+                    {
+                        _spellCardRecordDetailDialog.Title = "スペルプラクティス詳細";
+                        _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
+                        _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
+                        _spellCardRecordDetailDialog.Activate();
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
+
+        private void SpellPracticeDataGridSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SpellPracticeDataGrid.Items.Count > 0 &&
+                SpellPracticeDataGrid.SelectedIndex > -1)
+            {
+                try
+                {
+                    SpellCardRecordData spellCardRecordList = (SpellCardRecordData)SpellPracticeDataGrid.SelectedItem;
+                    if (_spellCardRecordDetailDialog != null &&
+                        _spellCardRecordDetailDialog.IsLoaded)
+                    {
+                        _spellCardRecordDetailDialog.Title = "スペルプラクティス詳細";
+                        _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
+                        _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
+
+        private void CopySpellPracticeRecordMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            if (SpellPracticeDataGrid.Items.Count > 0 &&
+                SpellPracticeDataGrid.SelectedIndex > -1)
+            {
+                try
+                {
+                    SpellCardRecordData spellCardRecordList = (SpellCardRecordData)SpellPracticeDataGrid.SelectedItem;
+
+                    string data =
+                        $"No.{spellCardRecordList.CardID}\r\n{spellCardRecordList.CardName}\r\n取得数: {spellCardRecordList.GetCount}\r\n挑戦数: {spellCardRecordList.TryCount}\r\n取得率: {spellCardRecordList.Rate}\r\n発動場所: {spellCardRecordList.Place}\r\n術者: {spellCardRecordList.Enemy}";
+
+                    Clipboard.SetText(data);
                 }
                 catch (Exception)
                 {
