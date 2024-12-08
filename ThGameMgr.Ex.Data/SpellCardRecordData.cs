@@ -28,6 +28,11 @@
         public string? Rate { get; set; }
 
         /// <summary>
+        /// スペルカードの出現難易度
+        /// </summary>
+        public string? Level { get; set; }
+
+        /// <summary>
         /// スペルカードの発動場所
         /// </summary>
         public string? Place { get; set; }
