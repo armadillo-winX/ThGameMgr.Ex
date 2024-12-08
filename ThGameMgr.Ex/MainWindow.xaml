@@ -303,7 +303,8 @@
                     </Button>
                     <TextBlock x:Name="FilterPracticeEnemyNameBlock"
                         HorizontalAlignment="Left" Margin="135,13,0,0" TextWrapping="Wrap" Text="FilterEnemy" VerticalAlignment="Top" FontSize="14"/>
-                    <DataGrid x:Name="SpellPracticeDataGrid" ItemsSource="{Binding}" Margin="10,39,10,10" >
+                    <DataGrid x:Name="SpellPracticeDataGrid" ItemsSource="{Binding}" Margin="10,39,10,10" 
+                              SelectionChanged="SpellPracticeDataGridSelectionChanged">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="CopySpellPracticeRecordMenuItem" Header="コピー" 

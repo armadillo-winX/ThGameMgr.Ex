@@ -2025,6 +2025,28 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void SpellPracticeDataGridSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SpellPracticeDataGrid.Items.Count > 0 &&
+                SpellPracticeDataGrid.SelectedIndex > -1)
+            {
+                try
+                {
+                    SpellCardRecordData spellCardRecordList = (SpellCardRecordData)SpellPracticeDataGrid.SelectedItem;
+                    if (_spellCardRecordDetailDialog != null &&
+                        _spellCardRecordDetailDialog.IsLoaded)
+                    {
+                        _spellCardRecordDetailDialog.DataContext = spellCardRecordList;
+                        _spellCardRecordDetailDialog.WindowState = WindowState.Normal;
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
+
         private void CopySpellPracticeRecordMenuItemClick(object sender, RoutedEventArgs e)
         {
             if (SpellPracticeDataGrid.Items.Count > 0 &&
