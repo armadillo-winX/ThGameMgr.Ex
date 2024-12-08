@@ -291,168 +291,168 @@ namespace ThGameMgr.Ex.Score.Th14
                 CardID = "41",
                 CardName = "平曲「祇園精舎の鐘の音」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "42",
                 CardName = "平曲「祇園精舎の鐘の音」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "43",
                 CardName = "平曲「祇園精舎の鐘の音」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "44",
                 CardName = "平曲「祇園精舎の鐘の音」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "45",
                 CardName = "怨霊「耳無し芳一」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "46",
                 CardName = "怨霊「耳無し芳一」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "47",
                 CardName = "怨霊「平家の大怨霊」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "48",
                 CardName = "怨霊「平家の大怨霊」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "49",
                 CardName = "楽符「邪悪な五線譜」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "50",
                 CardName = "楽符「邪悪な五線譜」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "51",
                 CardName = "楽符「凶悪な五線譜」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "52",
                 CardName = "楽符「ダブルスコア」",
                 Enemy = "九十九弁々",
-                Place = "4A面"
+                Place = "4面A"
             },
             new SpellCard()
             {
                 CardID = "53",
                 CardName = "琴符「諸行無常の琴の音」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "54",
                 CardName = "琴符「諸行無常の琴の音」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "55",
                 CardName = "琴符「諸行無常の琴の音」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "56",
                 CardName = "琴符「諸行無常の琴の音」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "57",
                 CardName = "響符「平安の残響」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "58",
                 CardName = "響符「平安の残響」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "59",
                 CardName = "響符「エコーチェンバー」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "60",
                 CardName = "響符「エコーチェンバー」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "61",
                 CardName = "筝曲「下克上送筝曲」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "62",
                 CardName = "筝曲「下克上送筝曲」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "63",
                 CardName = "筝曲「下克上レクイエム」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
                 CardID = "64",
                 CardName = "筝曲「下克上レクイエム」",
                 Enemy = "九十九八橋",
-                Place = "4B面"
+                Place = "4面B"
             },
             new SpellCard()
             {
