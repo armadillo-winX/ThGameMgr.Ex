@@ -7,7 +7,7 @@
     <Authors>珠音茉白/東方管制塔開発部</Authors>
     <Product>東方管制塔 EX Data</Product>
     <Copyright>Copyright © 2024 $(Authors)</Copyright>
-	  <Version>0.1.0</Version>
+	  <Version>0.1.1</Version>
 	  <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
 

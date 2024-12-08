@@ -141,16 +141,20 @@ namespace ThGameMgr.Ex.Score.Th15
             int practiceGet = BitConverter.ToInt32(PRACTICE_GET_DATA, 0);
             int practiceChallenge = BitConverter.ToInt32(PRACTICE_CHALLENGE_DATA, 0);
 
+            string level = SpellCard.ParseLevelData(LEVEL_DATA);
+
             SpellCardRecordData spellCardRecordList = new()
             {
                 TryCount = challenge.ToString(),
-                GetCount = get.ToString()
+                GetCount = get.ToString(),
+                Level = level
             };
 
             SpellCardRecordData practiceSpellCardRecordList = new()
             {
                 TryCount = practiceChallenge.ToString(),
-                GetCount = practiceGet.ToString()
+                GetCount = practiceGet.ToString(),
+                Level = level
             };
 
             ObservableCollection<SpellCardRecordData> spellCardRecordLists = [spellCardRecordList, practiceSpellCardRecordList];
@@ -228,6 +232,7 @@ namespace ThGameMgr.Ex.Score.Th15
                 TryCount = allPerfectChallenge.ToString(),
                 GetCount = allPerfectGet.ToString(),
                 Rate = allPerfectGetRate,
+                Level = cardDataReimuA[0].Level,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place
             };
@@ -239,6 +244,7 @@ namespace ThGameMgr.Ex.Score.Th15
                 TryCount = allLegacyChallenge.ToString(),
                 GetCount = allLegacyGet.ToString(),
                 Rate = allLegacyGetRate,
+                Level = cardDataReimuA[0].Level,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place
             };
