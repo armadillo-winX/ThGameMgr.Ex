@@ -142,6 +142,7 @@ namespace ThGameMgr.Ex.Score.Th08
             byte[] CATK_DATA = data[0..4];
             byte[] SIZE_DATA = data[4..6];
             byte[] CARD_ID_DATA = data[12..14];
+            byte[] LEVEL_DATA = data[15..16];
             byte[] CARD_NAME_DATA = data[16..64];
             byte[] ENEMY_NAME_DATA = data[64..112];
             byte[] COMMENT_DATA = data[112..240];
@@ -160,6 +161,14 @@ namespace ThGameMgr.Ex.Score.Th08
 
             string rate = ScoreCalculator.CalcSpellCardGetRate(allGetCount, allChangeCount);
 
+            string level = "";
+            if (allChangeCount > 0 &&
+                _levelDictionary.TryGetValue(BitConverter.ToString(LEVEL_DATA, 0), out string levelName) &&
+                spellcardData.Place != "Last Word")
+            {
+                level = levelName;
+            }
+
             SpellCardRecordData spellCardRecordList = new()
             {
                 CardID = cardId.ToString(),
@@ -167,6 +176,7 @@ namespace ThGameMgr.Ex.Score.Th08
                 TryCount = allChangeCount.ToString(),
                 GetCount = allGetCount.ToString(),
                 Rate = rate,
+                Level = level,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place
             };

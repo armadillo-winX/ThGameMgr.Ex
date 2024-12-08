@@ -263,6 +263,10 @@
                             IsReadOnly="True"
                             Header="スペルカード名" 
                             Binding="{Binding CardName}" Width="225"/>
+                            <DataGridTextColumn x:Name="SpellCardLevelColumn"
+                            IsReadOnly="True"
+                            Header="出現難易度"
+                            Binding="{Binding Level}" Width="75"/>
                             <DataGridTextColumn x:Name="SpellCardGetColumn"
                             IsReadOnly="True"
                             Header="取得数"
@@ -277,8 +281,8 @@
                             Binding="{Binding Rate}" Width="75"/>
                             <DataGridTextColumn x:Name="SpellCardPlaceColumn"
                             IsReadOnly="True"
-                            Header="発動場所" 
-                            Binding="{Binding Place}" Width="110"/>
+                            Header="場所" 
+                            Binding="{Binding Place}" Width="70"/>
                             <DataGridTextColumn x:Name="SpellCardEnemyColumn"
                             IsReadOnly="True"
                             Header="敵機"
@@ -315,6 +319,10 @@
                             IsReadOnly="True"
                             Header="スペルカード名" 
                             Binding="{Binding CardName}" Width="225"/>
+                            <DataGridTextColumn x:Name="SpellPracticeLevelColumn"
+                            IsReadOnly="True"
+                            Header="出現難易度"
+                            Binding="{Binding Level}" Width="75"/>
                             <DataGridTextColumn x:Name="SpellPracticeGetColumn"
                             IsReadOnly="True"
                             Header="取得数"
@@ -329,8 +337,8 @@
                             Binding="{Binding Rate}" Width="75"/>
                             <DataGridTextColumn x:Name="SpellPracticePlaceColumn"
                             IsReadOnly="True"
-                            Header="発動場所" 
-                            Binding="{Binding Place}" Width="110"/>
+                            Header="場所" 
+                            Binding="{Binding Place}" Width="70"/>
                             <DataGridTextColumn x:Name="SpellPracticeEnemyColumn"
                             IsReadOnly="True"
                             Header="敵機"

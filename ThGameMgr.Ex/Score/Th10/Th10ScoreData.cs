@@ -128,11 +128,14 @@ namespace ThGameMgr.Ex.Score.Th10
             string get = BitConverter.ToInt32(GET_DATA, 0).ToString();
             string challenge = BitConverter.ToInt32(CHALLENGE_DATA, 0).ToString();
 
+            string level = SpellCard.ParseLevelData(LEVEL_DATA);
+
             SpellCardRecordData spellCardRecordList = new()
             {
                 CardID = cardId.ToString(),
                 GetCount = get,
-                TryCount = challenge
+                TryCount = challenge,
+                Level = level
             };
             return spellCardRecordList;
         }
@@ -194,6 +197,7 @@ namespace ThGameMgr.Ex.Score.Th10
                 TryCount = allChallenge.ToString(),
                 GetCount = allGet.ToString(),
                 Rate = allGetRate,
+                Level = cardDataReimuA.Level,
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place
             };
