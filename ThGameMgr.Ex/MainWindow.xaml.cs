@@ -79,6 +79,15 @@ namespace ThGameMgr.Ex
                         SpellPracticeLevelColumn.Visibility = Visibility.Collapsed;
                     }
 
+                    if (SpellCard.IsSpellPracticeAvailable(value))
+                    {
+                        SpellPracticeTabItem.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        SpellPracticeTabItem.Visibility = Visibility.Collapsed;
+                    }
+
                     this.FilterPlayer = GameSpecificConfig.GetScoreFilterPlayer(value);
                     this.FilterEnemy = GameSpecificConfig.GetScoreFilterEnemy(value);
                     this.FilterPracticeEnemy = GameSpecificConfig.GetScoreFilterPracticeEnemy(value);
