@@ -103,7 +103,7 @@
             x:Name="GameNameBlock"
             HorizontalAlignment="Left" Margin="105,27,0,0" TextWrapping="Wrap" Text="GameName" VerticalAlignment="Top" FontSize="14"/>
         <TabControl x:Name="MainTabControl" Margin="10,57,10,27">
-            <TabItem Header="管制パネル">
+            <TabItem Header="管制パネル" x:Name="ControlTabItem">
                 <Grid >
                     <TextBlock
                     x:Name="GameIdBlock"
@@ -167,7 +167,7 @@
                     </TextBlock>
                 </Grid>
             </TabItem>
-            <TabItem Header="ハイスコア">
+            <TabItem Header="ハイスコア" x:Name="HighScoreTabItem">
                 <Grid >
                     <Button x:Name="PlayersFilterButton"
                         Width="120" Height="24"
@@ -235,7 +235,7 @@
                         HorizontalAlignment="Left" Margin="135,12,0,0" TextWrapping="Wrap" Text="FilterLevel" VerticalAlignment="Top" FontSize="14"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="御札戦歴">
+            <TabItem Header="御札戦歴" x:Name="SpellCardRecordTabItem">
                 <Grid >
                     <Button x:Name="EnemiesFilterButton"
                         Width="120" Height="24"
@@ -291,7 +291,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="スペルプラクティス">
+            <TabItem Header="スペルプラクティス" x:Name="SpellPracticeTabItem">
                 <Grid>
                     <Button x:Name="PracticeEnemiesFilterButton"
                         Width="120" Height="24"
@@ -350,7 +350,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="リプレイファイル">
+            <TabItem Header="リプレイファイル" x:Name="ReplayTabItem">
                 <Grid>
                     <DataGrid x:Name="ReplayFilesDataGrid"
                         AutoGenerateColumns="False"
