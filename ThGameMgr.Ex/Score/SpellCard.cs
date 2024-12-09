@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ThGameMgr.Ex.Score
 {
@@ -44,6 +45,23 @@ namespace ThGameMgr.Ex.Score
             catch (Exception)
             {
                 return string.Empty;
+            }
+        }
+
+        public static bool IsSpellPracticeAvailable(string? gameId)
+        {
+            if (!string.IsNullOrEmpty(gameId))
+            {
+                string[] spellPracticeNonAvailableGames = 
+                [
+                    "Th06", "Th07", "Th08", "Th09", "Th10", "Th11", "Th12", "Th15"
+                ];
+
+                return !spellPracticeNonAvailableGames.Contains(gameId);
+            }
+            else
+            {
+                return false;
             }
         }
     }
