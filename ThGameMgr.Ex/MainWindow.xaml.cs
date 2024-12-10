@@ -342,6 +342,7 @@ namespace ThGameMgr.Ex
             }
 
             ConfigurePlugins();
+            SetLinksMenuItem();
         }
 
         private async void GetScoreData()
@@ -842,6 +843,70 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void SetLinksMenuItem()
+        {
+            LinksMenuItem.Items.Clear();
+
+            try
+            {
+                if (File.Exists(PathInfo.LinksListFile))
+                {
+                    using (StreamReader streamReader = new(PathInfo.LinksListFile))
+                    {
+                        string? line = streamReader.ReadLine();
+                        while (line != null)
+                        {
+                            string[] strings = line.Split('>');
+                            string linkName = strings[0];
+                            string linkUrl = strings[1];
+
+                            MenuItem item = new()
+                            {
+                                Header = linkName
+                            };
+
+                            item.Click += (object sender, RoutedEventArgs e) =>
+                            {
+                                ProcessStartInfo processStartInfo = new()
+                                {
+                                    FileName = linkUrl,
+                                    UseShellExecute = true
+                                };
+
+                                try
+                                {
+                                    Process.Start(processStartInfo);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(this, $"リンクを開けませんでした。\n{ex.Message}", "エラー",
+                                        MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                            };
+                        }
+                    }
+                }
+                else
+                {
+                    MenuItem item = new()
+                    {
+                        Header = "(なし)",
+                        IsEnabled = false
+                    };
+                    LinksMenuItem.Items.Add(item);
+                }
+            }
+            catch (Exception)
+            {
+                MenuItem item = new()
+                {
+                    Header = "リンクの読み込みに失敗",
+                    IsEnabled = false
+                };
+                LinksMenuItem.Items.Add(item);
+            }
+        }
+
         /// <summary>
         /// 初回起動時のセットアップ処理です。
         /// </summary>
@@ -864,6 +929,7 @@ namespace ThGameMgr.Ex
                 SetGameSelectionMenu();
 
                 SetExternalToolsMenu();
+                SetLinksMenuItem();
 
                 CurrentUserStatusBarItem.Content = User.CurrentUserName;
             }
