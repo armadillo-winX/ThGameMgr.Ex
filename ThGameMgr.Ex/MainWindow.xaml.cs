@@ -856,7 +856,7 @@ namespace ThGameMgr.Ex
                         string? line = streamReader.ReadLine();
                         while (line != null)
                         {
-                            string[] strings = line.Split('>');
+                            string[] strings = line.Split('|');
                             string linkName = strings[0];
                             string linkUrl = strings[1];
 
