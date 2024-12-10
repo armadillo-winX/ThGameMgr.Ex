@@ -18,5 +18,7 @@
         public static string SpellCardDataDirectory => $"{AppLocation}\\SpellCardData";
 
         public static string PluginDirectory => $"{AppLocation}\\Plugin";
+
+        public static string LinksListFile => $"{AppLocation}\\Links.txt";
     }
 }
