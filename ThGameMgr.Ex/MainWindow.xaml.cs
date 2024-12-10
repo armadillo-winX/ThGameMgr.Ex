@@ -851,10 +851,10 @@ namespace ThGameMgr.Ex
             {
                 if (File.Exists(PathInfo.LinksListFile))
                 {
-                    using (StreamReader streamReader = new(PathInfo.LinksListFile))
+                    IEnumerable<string> lines = File.ReadLines(PathInfo.LinksListFile);
+                    foreach (string line in lines)
                     {
-                        string? line = streamReader.ReadLine();
-                        while (line != null)
+                        if (line != string.Empty)
                         {
                             string[] strings = line.Split('|');
                             string linkName = strings[0];
@@ -883,6 +883,7 @@ namespace ThGameMgr.Ex
                                         MessageBoxButton.OK, MessageBoxImage.Error);
                                 }
                             };
+                            LinksMenuItem.Items.Add(item);
                         }
                     }
                 }
