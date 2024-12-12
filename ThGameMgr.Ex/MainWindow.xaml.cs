@@ -85,6 +85,10 @@ namespace ThGameMgr.Ex
                     }
                     else
                     {
+                        //スペルプラクティスタブを開いていたら自動で切り替え
+                        if (MainTabControl.SelectedIndex == 3)
+                            MainTabControl.SelectedIndex = 0;
+
                         SpellPracticeTabItem.Visibility = Visibility.Collapsed;
                     }
 
