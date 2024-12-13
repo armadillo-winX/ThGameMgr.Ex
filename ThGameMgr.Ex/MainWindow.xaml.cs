@@ -853,9 +853,9 @@ namespace ThGameMgr.Ex
 
             try
             {
-                if (File.Exists(PathInfo.LinksListFile))
+                if (File.Exists(PathInfo.DefaultLinksListFile))
                 {
-                    IEnumerable<string> lines = File.ReadLines(PathInfo.LinksListFile);
+                    IEnumerable<string> lines = File.ReadLines(PathInfo.DefaultLinksListFile);
                     foreach (string line in lines)
                     {
                         if (line != string.Empty)
