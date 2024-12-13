@@ -47,8 +47,8 @@
     <None Update="License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Links.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="default.thgmrlinks">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>
     <None Update="ReadMe.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
