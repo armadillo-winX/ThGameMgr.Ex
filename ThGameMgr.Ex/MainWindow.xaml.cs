@@ -892,6 +892,22 @@ namespace ThGameMgr.Ex
                         LinksMenuItem.Items.Add(item);
                     }
                 }
+
+                LinksMenuItem.Items.Add(new Separator());
+
+                MenuItem editLinksMenuItem = new()
+                {
+                    Header = "リンクを編集"
+                };
+                editLinksMenuItem.Click += (object sender, RoutedEventArgs e) =>
+                {
+                    EditLinksListDialog editLinksListDialog = new()
+                    {
+                        Owner = this
+                    };
+                    editLinksListDialog.ShowDialog();
+                    SetLinksMenuItem();
+                };
             }
             catch (Exception)
             {
