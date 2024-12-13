@@ -48,7 +48,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="default.thgmrlinks">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ReadMe.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
