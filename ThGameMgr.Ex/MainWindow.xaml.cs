@@ -908,6 +908,7 @@ namespace ThGameMgr.Ex
                     editLinksListDialog.ShowDialog();
                     SetLinksMenuItem();
                 };
+                LinksMenuItem.Items.Add(editLinksMenuItem);
             }
             catch (Exception)
             {
