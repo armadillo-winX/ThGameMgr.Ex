@@ -89,6 +89,8 @@ namespace ThGameMgr.Ex.Dialogs
                 StreamWriter streamWriter = new(linksListFile, false);
                 streamWriter.Write(data);
                 streamWriter.Close();
+
+                this.Close();
             }
             catch (Exception ex)
             {
