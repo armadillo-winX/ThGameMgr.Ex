@@ -853,52 +853,44 @@ namespace ThGameMgr.Ex
 
             try
             {
-                if (File.Exists(PathInfo.DefaultLinksListFile))
+                string linksListFile = $"{User.CurrentUserDirectoryPath}\\list.thgmrlinks";
+                if (!File.Exists(linksListFile))
+                    File.Copy(PathInfo.DefaultLinksListFile, linksListFile);
+
+                IEnumerable<string> lines = File.ReadLines(linksListFile);
+                foreach (string line in lines)
                 {
-                    IEnumerable<string> lines = File.ReadLines(PathInfo.DefaultLinksListFile);
-                    foreach (string line in lines)
+                    if (line != string.Empty)
                     {
-                        if (line != string.Empty)
+                        string[] strings = line.Split('|');
+                        string linkName = strings[0];
+                        string linkUrl = strings[1];
+
+                        MenuItem item = new()
                         {
-                            string[] strings = line.Split('|');
-                            string linkName = strings[0];
-                            string linkUrl = strings[1];
+                            Header = linkName
+                        };
 
-                            MenuItem item = new()
+                        item.Click += (object sender, RoutedEventArgs e) =>
+                        {
+                            ProcessStartInfo processStartInfo = new()
                             {
-                                Header = linkName
+                                FileName = linkUrl,
+                                UseShellExecute = true
                             };
 
-                            item.Click += (object sender, RoutedEventArgs e) =>
+                            try
                             {
-                                ProcessStartInfo processStartInfo = new()
-                                {
-                                    FileName = linkUrl,
-                                    UseShellExecute = true
-                                };
-
-                                try
-                                {
-                                    Process.Start(processStartInfo);
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show(this, $"リンクを開けませんでした。\n{ex.Message}", "エラー",
-                                        MessageBoxButton.OK, MessageBoxImage.Error);
-                                }
-                            };
-                            LinksMenuItem.Items.Add(item);
-                        }
+                                Process.Start(processStartInfo);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(this, $"リンクを開けませんでした。\n{ex.Message}", "エラー",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        };
+                        LinksMenuItem.Items.Add(item);
                     }
-                }
-                else
-                {
-                    MenuItem item = new()
-                    {
-                        Header = "(なし)",
-                        IsEnabled = false
-                    };
-                    LinksMenuItem.Items.Add(item);
                 }
             }
             catch (Exception)
