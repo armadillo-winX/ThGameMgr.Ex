@@ -1831,6 +1831,7 @@ namespace ThGameMgr.Ex
                 try
                 {
                     ConfigureSettings();
+                    SetLinksMenuItem();
                 }
                 catch (Exception ex)
                 {
