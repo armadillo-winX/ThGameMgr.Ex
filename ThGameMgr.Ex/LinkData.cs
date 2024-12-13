@@ -1,6 +1,6 @@
 ﻿namespace ThGameMgr.Ex
 {
-    internal class LinkData
+    public class LinkData
     {
         public string? Name { get; set; }
 
