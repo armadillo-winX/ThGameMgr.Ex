@@ -19,6 +19,6 @@
 
         public static string PluginDirectory => $"{AppLocation}\\Plugin";
 
-        public static string DefaultLinksListFile => $"{AppLocation}\\default.thgmrlinks";
+        public static string DefaultLinksListFile => $"{AppLocation}\\links.default.txt";
     }
 }

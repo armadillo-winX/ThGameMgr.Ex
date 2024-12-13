@@ -853,7 +853,7 @@ namespace ThGameMgr.Ex
 
             try
             {
-                string linksListFile = $"{User.CurrentUserDirectoryPath}\\list.thgmrlinks";
+                string linksListFile = $"{User.CurrentUserDirectoryPath}\\links.txt";
                 if (!File.Exists(linksListFile))
                     File.Copy(PathInfo.DefaultLinksListFile, linksListFile);
 
