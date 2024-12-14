@@ -9,8 +9,8 @@
     <Grid>
         <DataGrid x:Name="LinkListsDataGrid" Margin="10,10,105,10" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="名前" Width="120" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="リンク" Width="200" Binding="{Binding Url}"/>
+                <DataGridTextColumn Header="名前" Width="120" Binding="{Binding Name}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="リンク" Width="200" Binding="{Binding Url}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="AddButton"
