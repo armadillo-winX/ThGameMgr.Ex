@@ -2366,6 +2366,39 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void CopyReplayFileButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (ReplayFilesDataGrid.Items.Count > 0 &&
+                ReplayFilesDataGrid.SelectedIndex >= 0)
+            {
+                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                string replayFileName = selectedReplayFileInfo.FileName;
+                string replayDirectory = ReplayFile.GetReplayDirectory(this.GameId);
+
+                SaveFileDialog saveFileDialog = new()
+                {
+                    Filter = "リプレイファイル|*.rpy",
+                    FileName = replayFileName
+                };
+
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    try
+                    {
+                        File.Copy($"{replayDirectory}\\{replayFileName}", saveFileDialog.FileName, true);
+                        MessageBox.Show(this,
+                            $"複製しました。\n{saveFileDialog.FileName}", "リプレイファイルの複製",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, $"リプレイファイルの複製に失敗しました。\n{ex.Message}", "エラー",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+        }
+
         private void RenameReplayFileButtonClick(object sender, RoutedEventArgs e)
         {
             if (ReplayFilesDataGrid.Items.Count > 0
