@@ -19,12 +19,13 @@
                 Height="18" Click="ResizeButtonClick"/>
         <CheckBox x:Name="FixAspectRateCheckBox" 
             Content="縦横比を既定値で固定" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="White" Height="15" VerticalAlignment="Bottom" Click="FixAspectRateCheckBoxClick"/>
-        <Menu Height="18" VerticalAlignment="Top">
-            <MenuItem x:Name="OptionMenu" Header="オプション(_O)">
+        <Menu Height="18" VerticalAlignment="Top" Background="#FF7100FF">
+            <MenuItem x:Name="OptionMenu" Header="オプション(_O)" Foreground="White">
                 <MenuItem x:Name="AutoCloseMenuItem"
-                          Header="リサイズした時に閉じる" IsCheckable="True"/>
+                          Header="リサイズした時に閉じる" IsCheckable="True"
+                          Foreground="Black"/>
             </MenuItem>
-            <MenuItem x:Name="CloseMenu" Header="閉じる(_C)" Click="CloseMenuClick"/>
+            <MenuItem x:Name="CloseMenu" Header="閉じる(_C)" Click="CloseMenuClick" Foreground="White"/>
         </Menu>
 
     </Grid>
