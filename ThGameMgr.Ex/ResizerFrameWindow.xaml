@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThGameMgr.Ex"
         mc:Ignorable="d"
-        Title="東方管制塔ウィンドウリサイザ" Height="365" Width="604" ShowInTaskbar="False" 
+        Title="東方管制塔ウィンドウリサイザ" Height="365" Width="604" ShowInTaskbar="True" 
         ResizeMode="CanResizeWithGrip" WindowStyle="None"
         AllowsTransparency="True"
         Background="Transparent" SizeChanged="WindowSizeChanged" Closing="WindowClosing">
