@@ -1842,6 +1842,10 @@ namespace ThGameMgr.Ex
 
                 _resizerFrameWindow.Show();
             }
+            else
+            {
+                _resizerFrameWindow.Activate();
+            }
         }
 
         private void VersionInfoMenuItemClick(object sender, RoutedEventArgs e)
