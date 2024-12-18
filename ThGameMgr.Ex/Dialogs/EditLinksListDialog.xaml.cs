@@ -26,15 +26,18 @@ namespace ThGameMgr.Ex.Dialogs
                 IEnumerable<string> lines = File.ReadLines(linksListFile);
                 foreach (string line in lines)
                 {
-                    string[] strings = line.Split('|');
-                    string name = strings[0];
-                    string url = strings[1];
-
-                    LinkListsDataGrid.Items.Add(new LinkData
+                    if (line != string.Empty && line[0] != '#')
                     {
-                        Name = name,
-                        Url = url,
-                    });
+                        string[] strings = line.Split('|');
+                        string name = strings[0];
+                        string url = strings[1];
+
+                        LinkListsDataGrid.Items.Add(new LinkData
+                        {
+                            Name = name,
+                            Url = url,
+                        });
+                    }
                 }
             }
             catch (Exception ex)
