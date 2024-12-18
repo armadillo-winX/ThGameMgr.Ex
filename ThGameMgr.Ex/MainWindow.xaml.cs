@@ -860,7 +860,7 @@ namespace ThGameMgr.Ex
                 IEnumerable<string> lines = File.ReadLines(linksListFile);
                 foreach (string line in lines)
                 {
-                    if (line != string.Empty)
+                    if (line != string.Empty && line[0] != '#')
                     {
                         string[] strings = line.Split('|');
                         string linkName = strings[0];
