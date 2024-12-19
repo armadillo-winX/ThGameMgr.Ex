@@ -74,7 +74,7 @@ namespace ThGameMgr.Ex.Dialogs
 
         private void SaveButtonClick(object sender, RoutedEventArgs e)
         {
-            string data = "";
+            string data = "東方管制塔 EX リンク集設定ファイル\r\n\r\n";
 
             try
             {
@@ -88,6 +88,10 @@ namespace ThGameMgr.Ex.Dialogs
                         data += $"{linkData.Name}|{linkData.Url}\r\n";
                     }
                 }
+
+                data += "\r\n#このファイルは、[ツール(T)]→[リンク]でアクセスできるリンク集を設定するためのファイルです。\r\n";
+                data += "#先頭が \"#\" から始まる行はコメントとして扱われます。\r\n";
+                data += "#リンク名とURLを|区切りで1行ずつ入力します。";
 
                 StreamWriter streamWriter = new(linksListFile, false);
                 streamWriter.Write(data);
