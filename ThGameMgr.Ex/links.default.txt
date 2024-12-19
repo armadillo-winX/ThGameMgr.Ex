@@ -1,7 +1,10 @@
-#リンク名とURLを|区切りで入力
-#(リンク名)|(URL)
+#東方管制塔 EX リンク集設定ファイル
 
 上海アリス幻樂団|https://www16.big.or.jp/~zun/
 博麗幻想書譜|https://kourindou.exblog.jp/
 東方Projectよもやまニュース|https://touhou-project.news/
 東方Wiki|http://thwiki.info/
+
+#このファイルは、[ツール(T)]→[リンク]でアクセスできるリンク集を設定するためのファイルです。
+#先頭が "#" から始まる行はコメントとして扱われます。
+#リンク名とURLを|区切りで1行ずつ入力します。
