@@ -23,6 +23,11 @@ namespace ThGameMgr.Ex.Dialogs
                 AttentionBlock.Text = "リンクの名前に '|' を含むことはできません。";
                 AddButton.IsEnabled = false;
             }
+            else if(NameBox.Text.Length > 0 && NameBox.Text[0] == '#')
+            {
+                AttentionBlock.Text = "リンクの名前先頭に '#' を使うことはできません。";
+                AddButton.IsEnabled = false;
+            }
             else
             {
                 AttentionBlock.Text = "";
