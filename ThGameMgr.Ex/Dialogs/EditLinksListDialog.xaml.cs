@@ -74,7 +74,7 @@ namespace ThGameMgr.Ex.Dialogs
 
         private void SaveButtonClick(object sender, RoutedEventArgs e)
         {
-            string data = "東方管制塔 EX リンク集設定ファイル\r\n\r\n";
+            string data = "#東方管制塔 EX リンク集設定ファイル\r\n\r\n";
 
             try
             {
