@@ -385,6 +385,9 @@
                     <Button x:Name="CopyReolayFileButton" 
                             Click="CopyReplayFileButtonClick"
                         Content="複製(_C)" HorizontalAlignment="Right" Margin="0,126,10,0" VerticalAlignment="Top" Width="90" Height="24"/>
+                    <Button x:Name="MoveReplayFileButton"
+                            Click="MoveReplayFileButtonClick"
+                        Content="移動(_M)" HorizontalAlignment="Right" Margin="0,155,10,0" VerticalAlignment="Top" Width="90" Height="24"/>
                 </Grid>
             </TabItem>
         </TabControl>
