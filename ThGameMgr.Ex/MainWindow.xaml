@@ -359,6 +359,8 @@
                             <ContextMenu>
                                 <MenuItem Header="リネーム" Click="RenameReplayFileButtonClick"/>
                                 <MenuItem Header="削除" Click="DeleteReplayFileButtonClick"/>
+                                <MenuItem Header="複製" Click="CopyReplayFileButtonClick"/>
+                                <MenuItem Header="移動" Click="MoveReplayFileButtonClick"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>
