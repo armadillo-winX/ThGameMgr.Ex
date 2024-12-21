@@ -384,7 +384,7 @@
                     <Button x:Name="AddReplayFileButton"
                             Width="90" Height="24"
                             Content="追加(_A)" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Click="AddReplayFileButtonClick"/>
-                    <Button x:Name="CopyReolayFileButton" 
+                    <Button x:Name="CopyReplayFileButton" 
                             Click="CopyReplayFileButtonClick"
                         Content="複製(_C)" HorizontalAlignment="Right" Margin="0,126,10,0" VerticalAlignment="Top" Width="90" Height="24"/>
                     <Button x:Name="MoveReplayFileButton"
