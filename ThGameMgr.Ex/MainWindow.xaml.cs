@@ -1412,6 +1412,7 @@ namespace ThGameMgr.Ex
                         {
                             _resizerFrameWindow = new()
                             {
+                                Owner = this,
                                 GameWindow = gameProcess.MainWindowHandle
                             };
 
@@ -1835,10 +1836,15 @@ namespace ThGameMgr.Ex
             {
                 _resizerFrameWindow = new()
                 {
+                    Owner = this,
                     GameWindow = this.GameProcess.MainWindowHandle
                 };
 
                 _resizerFrameWindow.Show();
+            }
+            else
+            {
+                _resizerFrameWindow.Activate();
             }
         }
 
