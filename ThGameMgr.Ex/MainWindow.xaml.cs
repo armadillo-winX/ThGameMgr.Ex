@@ -1478,6 +1478,7 @@ namespace ThGameMgr.Ex
                         {
                             _resizerFrameWindow = new()
                             {
+                                Owner = this,
                                 GameWindow = gameProcess.MainWindowHandle
                             };
 
@@ -1861,10 +1862,15 @@ namespace ThGameMgr.Ex
             {
                 _resizerFrameWindow = new()
                 {
+                    Owner = this,
                     GameWindow = this.GameProcess.MainWindowHandle
                 };
 
                 _resizerFrameWindow.Show();
+            }
+            else
+            {
+                _resizerFrameWindow.Activate();
             }
         }
 
@@ -2386,6 +2392,74 @@ namespace ThGameMgr.Ex
                     catch (Exception ex)
                     {
                         MessageBox.Show(this, $"リプレイファイルの削除に失敗しました。\n{ex.Message}", "エラー",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+        }
+
+        private void CopyReplayFileButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (ReplayFilesDataGrid.Items.Count > 0 &&
+                ReplayFilesDataGrid.SelectedIndex >= 0)
+            {
+                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                string replayFileName = selectedReplayFileInfo.FileName;
+                string replayDirectory = ReplayFile.GetReplayDirectory(this.GameId);
+
+                SaveFileDialog saveFileDialog = new()
+                {
+                    Filter = "リプレイファイル|*.rpy",
+                    FileName = replayFileName
+                };
+
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    try
+                    {
+                        File.Copy($"{replayDirectory}\\{replayFileName}", saveFileDialog.FileName, true);
+                        MessageBox.Show(this,
+                            $"複製しました。\n{saveFileDialog.FileName}", "リプレイファイルの複製",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, $"リプレイファイルの複製に失敗しました。\n{ex.Message}", "エラー",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+            }
+        }
+
+        private void MoveReplayFileButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (ReplayFilesDataGrid.Items.Count > 0 &&
+                ReplayFilesDataGrid.SelectedIndex >= 0)
+            {
+                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                string replayFileName = selectedReplayFileInfo.FileName;
+                string replayDirectory = ReplayFile.GetReplayDirectory(this.GameId);
+
+                SaveFileDialog saveFileDialog = new()
+                {
+                    Filter = "リプレイファイル|*.rpy",
+                    FileName = replayFileName
+                };
+
+                if (saveFileDialog.ShowDialog() == true)
+                {
+                    try
+                    {
+                        File.Move($"{replayDirectory}\\{replayFileName}", saveFileDialog.FileName, true);
+                        MessageBox.Show(this,
+                            $"移動しました。\n{saveFileDialog.FileName}", "リプレイファイルの移動",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        GetReplayFiles();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, $"リプレイファイルの移動に失敗しました。\n{ex.Message}", "エラー",
                             MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
