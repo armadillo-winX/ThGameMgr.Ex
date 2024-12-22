@@ -155,6 +155,8 @@ namespace ThGameMgr.Ex
             {
                 Debug.WriteLine(ex.Message);
             }
+
+            this.Owner.Activate();
         }
 
         private void CloseMenuClick(object sender, RoutedEventArgs e)
