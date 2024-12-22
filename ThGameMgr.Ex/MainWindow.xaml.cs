@@ -1606,71 +1606,42 @@ namespace ThGameMgr.Ex
             StartGameWithApplyingTool("vpatch.exe");
         }
 
-        private async void StartGameWithThpracMenuItemClick(object sender, RoutedEventArgs e)
+        private void StartGameWithThpracMenuItemClick(object sender, RoutedEventArgs e)
         {
             string gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
             {
-                EnableGameEndWaitingLimitationMode(true);
-                SetStartGameStatus("ゲームの起動を待機中(約5秒)...");
-                try
+                List<string> thpracFiles = GameFile.GetThpracFiles(gameId);
+                if (thpracFiles.Count == 0)
                 {
-                    List<string> thpracFiles = GameFile.GetThpracFiles(gameId);
-                    if (thpracFiles.Count == 0)
+                    MessageBox.Show(this, "利用可能な thprac 実行ファイルが存在しません。", "thprac の適用",
+                        MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+                else if (thpracFiles.Count == 1)
+                {
+                    StartGameWithApplyingTool(thpracFiles[0]);
+                }
+                else
+                {
+                    SelectThpracDialog selectThpracDialog = new()
                     {
-                        MessageBox.Show(this, "利用可能な thprac 実行ファイルが存在しません。", "thprac の適用",
-                            MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        EnableGameEndWaitingLimitationMode(false);
-                        SetStartGameStatus(string.Empty);
-                    }
-                    else if (thpracFiles.Count == 1)
-                    {
-                        Process gameProcess
-                        = await Task.Run(()
-                                => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, thpracFiles[0])
-                                );
-                        StartGameEndWaitingMode(gameProcess);
-                    }
-                    else
-                    {
-                        SelectThpracDialog selectThpracDialog = new()
-                        {
-                            ThpracFiles = thpracFiles,
-                            Owner = this
-                        };
+                        ThpracFiles = thpracFiles,
+                        Owner = this
+                    };
 
-                        if (selectThpracDialog.ShowDialog() == true)
+                    if (selectThpracDialog.ShowDialog() == true)
+                    {
+                        string? thpracFile = selectThpracDialog.SelectedThpracFile;
+                        if (!string.IsNullOrEmpty(thpracFile))
                         {
-                            string? thpracFile = selectThpracDialog.SelectedThpracFile;
-                            if (!string.IsNullOrEmpty(thpracFile))
-                            {
-                                Process gameProcess
-                                = await Task.Run(()
-                                        => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, thpracFile)
-                                        );
-                                StartGameEndWaitingMode(gameProcess);
-                            }
-                            else
-                            {
-                                MessageBox.Show(this, "選択された thprac 実行ファイルが不正です。", "エラー",
-                                    MessageBoxButton.OK, MessageBoxImage.Error);
-                                EnableGameEndWaitingLimitationMode(false);
-                                SetStartGameStatus(string.Empty);
-                            }
+                            StartGameWithApplyingTool(thpracFile);
                         }
                         else
                         {
-                            EnableGameEndWaitingLimitationMode(false);
-                            SetStartGameStatus(string.Empty);
+                            MessageBox.Show(this, "選択された thprac 実行ファイルが不正です。", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, $"ゲームの起動に失敗しました。\n{ex.Message}", "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
-                    EnableGameEndWaitingLimitationMode(false);
-                    SetStartGameStatus(string.Empty);
                 }
             }
         }
