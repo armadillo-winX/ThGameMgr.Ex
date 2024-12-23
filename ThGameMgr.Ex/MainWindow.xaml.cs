@@ -403,7 +403,7 @@ namespace ThGameMgr.Ex
                         MessageBoxButton.YesNo, MessageBoxImage.Error);
                     if (result == MessageBoxResult.Yes)
                     {
-                        StartGameWithApplyingTool("vpatch.exe");
+                        StartGameWithApplyingTool(toolName);
                     }
                     else
                     {
