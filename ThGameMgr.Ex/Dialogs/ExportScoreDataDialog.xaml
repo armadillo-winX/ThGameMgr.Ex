@@ -5,24 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
         mc:Ignorable="d"
-        Title="スコアデータのエクスポート" Height="286" Width="316" WindowStyle="ToolWindow"
+        Title="スコアデータのエクスポート" Height="350" Width="351" WindowStyle="ToolWindow"
         ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
     <Grid>
         <TextBlock 
             x:Name="GameNameBlock"
-            HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" 
+            HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" 
             Text="GameName" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <CheckBox
             x:Name="OutputUnTriedCardDataCheckBox"
-            Content="未挑戦の御札戦歴のデータも出力する" HorizontalAlignment="Center" Margin="0,59,0,0" VerticalAlignment="Top"/>
-        <Label Content="コメント:" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top"/>
+            Content="未挑戦の御札戦歴のデータも出力する" HorizontalAlignment="Center" Margin="0,101,0,0" VerticalAlignment="Top"/>
+        <Label Content="コメント:" HorizontalAlignment="Left" Margin="10,121,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="CommentBox"
             AcceptsReturn="True"
-            VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="10,105,10,39" TextWrapping="Wrap" Text=""/>
+            VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Margin="10,152,10,39" TextWrapping="Wrap" Text=""/>
         <Button 
             x:Name="ExportButton"
             Width="90" Height="24"
-            Content="エクスポート(_E)" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="ExportButtonClick"/>
+            Content="エクスポート(_E)" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="ExportButtonClick"/>
+        <Label Content="難易度:" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="LevelFilterComboBox" Margin="64,41,10,0" VerticalAlignment="Top">
+            <ComboBoxItem Content="All"/>
+            <ComboBoxItem Content="Easy"/>
+            <ComboBoxItem Content="Normal"/>
+            <ComboBoxItem Content="Hard"/>
+            <ComboBoxItem Content="Lunatic"/>
+            <ComboBoxItem Content="Extra"/>
+        </ComboBox>
+        <Label Content="自機:" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="PlayerFilterComboBox" Margin="64,72,10,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

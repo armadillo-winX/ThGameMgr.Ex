@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using System.Windows.Controls;
 
 namespace ThGameMgr.Ex.Dialogs
 {
@@ -15,6 +16,19 @@ namespace ThGameMgr.Ex.Dialogs
 
             this.GameId = ScoreData.GameId;
             GameNameBlock.Text = GameIndex.GetGameName(this.GameId);
+
+            LevelFilterComboBox.SelectedIndex = 0;
+            if (this.GameId == GameIndex.Th07)
+                LevelFilterComboBox.Items.Add(new ComboBoxItem() { Content = "Phantasm"});
+
+            PlayerFilterComboBox.Items.Add(new ComboBoxItem() { Content = "All" });
+            string[] players = GamePlayers.GetGamePlayers(this.GameId).Split(',');
+            foreach (string player in players)
+            {
+                PlayerFilterComboBox.Items.Add(new ComboBoxItem() { Content = player });
+            }
+
+            PlayerFilterComboBox.SelectedIndex = 0;
         }
 
         private void ExportButtonClick(object sender, RoutedEventArgs e)
