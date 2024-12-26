@@ -35,28 +35,46 @@ namespace ThGameMgr.Ex.Dialogs
         {
             if (!string.IsNullOrEmpty(this.GameId))
             {
-                SaveFileDialog saveFileDialog = new()
+                if (PlayerFilterComboBox.SelectedIndex > 0 && LevelFilterComboBox.SelectedIndex > 0)
                 {
-                    FileName = $"{GameIndex.GetGameName(this.GameId)}スコアデータ.txt",
-                    Filter = "テキストファイル|*.txt|すべてのファイル|*.*"
-                };
+                    ComboBoxItem selectedPlayerItem = PlayerFilterComboBox.SelectedItem as ComboBoxItem;
+                    ComboBoxItem selectedLevelItem = LevelFilterComboBox.SelectedItem as ComboBoxItem;
 
-                if (saveFileDialog.ShowDialog() == true)
+                    ScoreFilter scoreFilter = new()
+                    {
+                        Player = selectedPlayerItem.Content.ToString(),
+                        Level = selectedLevelItem.Content.ToString()
+                    };
+
+                    SaveFileDialog saveFileDialog = new()
+                    {
+                        FileName = $"{GameIndex.GetGameName(this.GameId)}スコアデータ.txt",
+                        Filter = "テキストファイル|*.txt|すべてのファイル|*.*"
+                    };
+
+                    if (saveFileDialog.ShowDialog() == true)
+                    {
+                        string outputPath = saveFileDialog.FileName;
+                        try
+                        {
+                            ScoreData.ExportToTextFile(
+                                outputPath, OutputUnTriedCardDataCheckBox.IsChecked == true, scoreFilter, CommentBox.Text
+                                );
+
+                            MessageBox.Show(this, $"エクスポートしました。", "スコアデータをエクスポート",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(this, $"エクスポートに失敗しました。\n{ex.Message}", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                }
+                else
                 {
-                    string outputPath = saveFileDialog.FileName;
-                    try
-                    {
-                        ScoreData.ExportToTextFile(
-                            outputPath, OutputUnTriedCardDataCheckBox.IsChecked == true, CommentBox.Text);
-
-                        MessageBox.Show(this, $"エクスポートしました。", "スコアデータをエクスポート",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(this, $"エクスポートに失敗しました。\n{ex.Message}", "エラー",
-                            MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                    MessageBox.Show(this, "出力する自機または難易度が指定されていません。", "スコアデータをエクスポート",
+                        MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
             }
             else
