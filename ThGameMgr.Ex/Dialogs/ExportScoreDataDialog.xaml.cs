@@ -22,6 +22,7 @@ namespace ThGameMgr.Ex.Dialogs
                 LevelFilterComboBox.Items.Add(new ComboBoxItem() { Content = "Phantasm"});
 
             PlayerFilterComboBox.Items.Add(new ComboBoxItem() { Content = "All" });
+            PlayerFilterComboBox.Items.Add(new Separator());
             string[] players = GamePlayers.GetGamePlayers(this.GameId).Split(',');
             foreach (string player in players)
             {
