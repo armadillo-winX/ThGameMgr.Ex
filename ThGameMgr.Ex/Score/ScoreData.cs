@@ -84,7 +84,7 @@ namespace ThGameMgr.Ex.Score
 
             IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreRecordLists;
 
-            if (!string.IsNullOrEmpty(scoreFilter.Level) || scoreFilter.Level.ToLower() != "all")
+            if (!string.IsNullOrEmpty(scoreFilter.Level) && scoreFilter.Level.ToLower() != "all")
             {
                 filteredScoreRecordLists = filteredScoreRecordLists.Where(
                         x =>
@@ -94,7 +94,7 @@ namespace ThGameMgr.Ex.Score
                     );
             }
 
-            if (!string.IsNullOrEmpty(scoreFilter.Player) || scoreFilter.Player.ToLower() != "all")
+            if (!string.IsNullOrEmpty(scoreFilter.Player) && scoreFilter.Player.ToLower() != "all")
             {
                 filteredScoreRecordLists = filteredScoreRecordLists.Where(
                         x =>
