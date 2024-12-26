@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace ThGameMgr.Ex.Score
 {
@@ -75,15 +77,37 @@ namespace ThGameMgr.Ex.Score
         }
 
         public static void ExportToTextFile(
-            string outputPath, bool outputUntriedCardData, string? comment)
+            string outputPath, bool outputUntriedCardData, ScoreFilter scoreFilter,  string? comment)
         {
             string data 
                 = $"{GameIndex.GetGameName(GameId)}スコアデータ\r\nExported by {VersionInfo.AppName} Version.{VersionInfo.AppVersion}\r\n\r\n";
-            
+
+            IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreRecordLists;
+
+            if (!string.IsNullOrEmpty(scoreFilter.Level) || scoreFilter.Level.ToLower() != "all")
+            {
+                filteredScoreRecordLists = filteredScoreRecordLists.Where(
+                        x =>
+                        {
+                            return x.Level == scoreFilter.Level;
+                        }
+                    );
+            }
+
+            if (!string.IsNullOrEmpty(scoreFilter.Player) || scoreFilter.Player.ToLower() != "all")
+            {
+                filteredScoreRecordLists = filteredScoreRecordLists.Where(
+                        x =>
+                        {
+                            return x.Player == scoreFilter.Player;
+                        }
+                    );
+            }
+
             if (ScoreRecordLists.Count > 0)
             {
                 data += $"ハイスコア\r\n-----------------------------------------------------\r\n";
-                foreach (ScoreRecordData scoreRecordData in ScoreRecordLists)
+                foreach (ScoreRecordData scoreRecordData in filteredScoreRecordLists)
                 {
                     data +=
                         $"スコア: {scoreRecordData.Score}\r\n自機:{scoreRecordData.Player}\r\n難易度:{scoreRecordData.Level}\r\n名前:{scoreRecordData.Name.TrimEnd('\0')}";
