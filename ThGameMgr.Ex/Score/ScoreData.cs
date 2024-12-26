@@ -152,10 +152,10 @@ namespace ThGameMgr.Ex.Score
                 data +=
                     $"取得済みスペルカードの数: {spellCardStatisticsData.GetCardCount}\r\n" +
                     $"挑戦済みスペルカードの数: {spellCardStatisticsData.TriedCardCount}\r\n" +
-                    $"取得済みスペルカードの挑戦済みスペルカードに対する割合: {spellCardStatisticsData.GetCardCountRate}\r\n\r\n" +
+                    $"挑戦済みスペルカードに対する取得済みスペルカードの割合: {spellCardStatisticsData.GetCardCountRate}\r\n\r\n" +
                     $"スペルカード取得数の合計: {spellCardStatisticsData.TotalGetCount}\r\n" +
                     $"スペルカード挑戦数の合計: {spellCardStatisticsData.TotalTryCount}\r\n" +
-                    $"スペルカード合計取得数のスペルカード合計挑戦数に対する割合: {spellCardStatisticsData.TotalGetCountRate}\r\n\r\n";
+                    $"スペルカード合計挑戦数に対するスペルカード合計取得数の割合: {spellCardStatisticsData.TotalGetCountRate}\r\n\r\n";
             }
 
             if (SpellPracticeRecordLists.Count > 0)
