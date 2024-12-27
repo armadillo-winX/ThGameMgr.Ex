@@ -106,7 +106,18 @@ namespace ThGameMgr.Ex.Score
 
             if (ScoreRecordLists.Count > 0)
             {
+                string level
+                    = !string.IsNullOrEmpty(scoreFilter.Level) && scoreFilter.Level.ToLower() != "all" ?
+                    scoreFilter.Level
+                    : "全難易度";
+
+                string player 
+                    = !string.IsNullOrEmpty(scoreFilter.Player) && scoreFilter.Player.ToLower() != "all" ? 
+                    scoreFilter.Player 
+                    : "全機体";
+
                 data += $"ハイスコア\r\n-----------------------------------------------------\r\n";
+                data += $"難易度:{level}    自機:{player}\r\n\r\n";
                 foreach (ScoreRecordData scoreRecordData in filteredScoreRecordLists)
                 {
                     data +=
