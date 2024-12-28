@@ -19,6 +19,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\ErrorIcon32x32.png" />
     <None Remove="Images\History.png" />
     <None Remove="Images\Settings.png" />
     <None Remove="Images\Start.png" />
@@ -34,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Images\ErrorIcon32x32.png" />
     <Resource Include="Images\History.png" />
     <Resource Include="Images\Settings.png" />
     <Resource Include="Images\Start.png" />
