@@ -11,7 +11,7 @@
     <Product>東方管制塔 EX</Product>
     <Copyright>Copyright © 2024 $(Authors)</Copyright>
 	  <Version>$(VersionPrefix)$(VersionSuffix)</Version>
-	  <VersionPrefix>0.6.2</VersionPrefix>
+	  <VersionPrefix>0.7.0</VersionPrefix>
 	  <VersionSuffix>beta.4</VersionSuffix>
 	  <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
 	  <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
