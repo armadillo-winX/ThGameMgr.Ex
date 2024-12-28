@@ -446,6 +446,8 @@ namespace ThGameMgr.Ex
                 }
                 catch (Exception)
                 {
+                    System.Media.SystemSounds.Hand.Play();
+
                     BlurEffect blurEffect = new()
                     {
                         Radius = 7,
