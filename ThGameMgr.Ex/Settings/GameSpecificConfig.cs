@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ThGameMgr.Ex.Game
+namespace ThGameMgr.Ex.Settings
 {
     class GameSpecificConfig
     {
