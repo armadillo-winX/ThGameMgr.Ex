@@ -2,7 +2,7 @@
 
 namespace ThGameMgr.Ex.Data
 {
-    internal class GameEnemies
+    public class GameEnemies
     {
         private readonly static Dictionary<string, string> _gameEnemiesDictionary = new()
         {
