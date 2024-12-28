@@ -424,8 +424,11 @@ namespace ThGameMgr.Ex
             SpellPracticeDataGrid.Effect = null;
             SpellPracticeDataGrid.IsEnabled = true;
 
+            ScoreDataErrorImage1.Visibility = Visibility.Hidden;
             ScoreDataErrorBlock1.Visibility = Visibility.Hidden;
+            ScoreDataErrorImage2.Visibility = Visibility.Hidden;
             ScoreDataErrorBlock2.Visibility = Visibility.Hidden;
+            ScoreDataErrorImage3.Visibility = Visibility.Hidden;
             ScoreDataErrorBlock3.Visibility = Visibility.Hidden;
 
             ScoreDataGrid.Items.Clear();
@@ -460,10 +463,15 @@ namespace ThGameMgr.Ex
                     SpellPracticeDataGrid.Effect = blurEffect;
                     SpellPracticeDataGrid.IsEnabled = false;
 
+                    ScoreDataErrorImage1.Visibility = Visibility.Visible;
                     ScoreDataErrorBlock1.Text = "エラー:スコアデータの取得に失敗しました。";
                     ScoreDataErrorBlock1.Visibility = Visibility.Visible;
+
+                    ScoreDataErrorImage2.Visibility = Visibility.Visible;
                     ScoreDataErrorBlock2.Text = "エラー:スコアデータの取得に失敗しました。";
                     ScoreDataErrorBlock2.Visibility = Visibility.Visible;
+
+                    ScoreDataErrorImage3.Visibility = Visibility.Visible;
                     ScoreDataErrorBlock3.Text = "エラー:スコアデータの取得に失敗しました。";
                     ScoreDataErrorBlock3.Visibility = Visibility.Visible;
                 }

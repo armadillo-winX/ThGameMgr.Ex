@@ -238,7 +238,11 @@
                         FontSize="14"
                         Foreground="Black"
                         Visibility="Hidden"
-                        HorizontalAlignment="Center" TextWrapping="Wrap" Text="ErrorMessage" VerticalAlignment="Center"/>
+                        HorizontalAlignment="Center" TextWrapping="Wrap" Text="ErrorMessage" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                    <Image x:Name="ScoreDataErrorImage1"
+                        Visibility="Hidden"
+                        HorizontalAlignment="Center" Height="32" Margin="0,-55,0,0" VerticalAlignment="Center"
+                        Width="32" Source="/Images/ErrorIcon32x32.png" Stretch="None"/>
                 </Grid>
             </TabItem>
             <TabItem Header="御札戦歴" x:Name="SpellCardRecordTabItem">
@@ -300,7 +304,11 @@
                         FontSize="14"
                         Foreground="Black"
                         Visibility="Hidden"
-                        HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
+                        HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                    <Image x:Name="ScoreDataErrorImage2"
+                        Visibility="Hidden"
+                        HorizontalAlignment="Center" Height="32" Margin="0,-55,0,0" VerticalAlignment="Center"
+                        Width="32" Source="/Images/ErrorIcon32x32.png" Stretch="None"/>
                 </Grid>
             </TabItem>
             <TabItem Header="スペルプラクティス" x:Name="SpellPracticeTabItem">
@@ -365,7 +373,11 @@
                             FontSize="14"
                             Foreground="Black"
                             Visibility="Hidden"
-                            HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
+                            HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Margin="0,0,0,0" />
+                    <Image x:Name="ScoreDataErrorImage3"
+                            Visibility="Hidden"
+                            HorizontalAlignment="Center" Height="32" Margin="0,-55,0,0" VerticalAlignment="Center"
+                            Width="32" Source="/Images/ErrorIcon32x32.png" Stretch="None"/>
                 </Grid>
             </TabItem>
             <TabItem Header="リプレイファイル" x:Name="ReplayTabItem">
