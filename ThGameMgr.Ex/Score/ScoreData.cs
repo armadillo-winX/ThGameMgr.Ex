@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace ThGameMgr.Ex.Score
 {
@@ -75,15 +77,48 @@ namespace ThGameMgr.Ex.Score
         }
 
         public static void ExportToTextFile(
-            string outputPath, bool outputUntriedCardData, string? comment)
+            string outputPath, bool outputUntriedCardData, ScoreFilter scoreFilter,  string? comment)
         {
             string data 
                 = $"{GameIndex.GetGameName(GameId)}スコアデータ\r\nExported by {VersionInfo.AppName} Version.{VersionInfo.AppVersion}\r\n\r\n";
-            
+
+            IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreRecordLists;
+
+            if (!string.IsNullOrEmpty(scoreFilter.Level) && scoreFilter.Level.ToLower() != "all")
+            {
+                filteredScoreRecordLists = filteredScoreRecordLists.Where(
+                        x =>
+                        {
+                            return x.Level == scoreFilter.Level;
+                        }
+                    );
+            }
+
+            if (!string.IsNullOrEmpty(scoreFilter.Player) && scoreFilter.Player.ToLower() != "all")
+            {
+                filteredScoreRecordLists = filteredScoreRecordLists.Where(
+                        x =>
+                        {
+                            return x.Player == scoreFilter.Player;
+                        }
+                    );
+            }
+
             if (ScoreRecordLists.Count > 0)
             {
+                string level
+                    = !string.IsNullOrEmpty(scoreFilter.Level) && scoreFilter.Level.ToLower() != "all" ?
+                    scoreFilter.Level
+                    : "全難易度";
+
+                string player 
+                    = !string.IsNullOrEmpty(scoreFilter.Player) && scoreFilter.Player.ToLower() != "all" ? 
+                    scoreFilter.Player 
+                    : "全機体";
+
                 data += $"ハイスコア\r\n-----------------------------------------------------\r\n";
-                foreach (ScoreRecordData scoreRecordData in ScoreRecordLists)
+                data += $"難易度:{level}    自機:{player}\r\n\r\n";
+                foreach (ScoreRecordData scoreRecordData in filteredScoreRecordLists)
                 {
                     data +=
                         $"スコア: {scoreRecordData.Score}\r\n自機:{scoreRecordData.Player}\r\n難易度:{scoreRecordData.Level}\r\n名前:{scoreRecordData.Name.TrimEnd('\0')}";
@@ -128,10 +163,10 @@ namespace ThGameMgr.Ex.Score
                 data +=
                     $"取得済みスペルカードの数: {spellCardStatisticsData.GetCardCount}\r\n" +
                     $"挑戦済みスペルカードの数: {spellCardStatisticsData.TriedCardCount}\r\n" +
-                    $"取得済みスペルカードの挑戦済みスペルカードに対する割合: {spellCardStatisticsData.GetCardCountRate}\r\n\r\n" +
+                    $"挑戦済みスペルカードに対する取得済みスペルカードの割合: {spellCardStatisticsData.GetCardCountRate}\r\n\r\n" +
                     $"スペルカード取得数の合計: {spellCardStatisticsData.TotalGetCount}\r\n" +
                     $"スペルカード挑戦数の合計: {spellCardStatisticsData.TotalTryCount}\r\n" +
-                    $"スペルカード合計取得数のスペルカード合計挑戦数に対する割合: {spellCardStatisticsData.TotalGetCountRate}\r\n\r\n";
+                    $"スペルカード合計挑戦数に対するスペルカード合計取得数の割合: {spellCardStatisticsData.TotalGetCountRate}\r\n\r\n";
             }
 
             if (SpellPracticeRecordLists.Count > 0)
