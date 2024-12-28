@@ -21,6 +21,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml;
@@ -416,6 +417,17 @@ namespace ThGameMgr.Ex
 
         private async void GetScoreData()
         {
+            ScoreDataGrid.Effect = null;
+            ScoreDataGrid.IsEnabled = true;
+            SpellCardDataGrid.Effect = null;
+            SpellCardDataGrid.IsEnabled = true;
+            SpellPracticeDataGrid.Effect = null;
+            SpellPracticeDataGrid.IsEnabled = true;
+
+            ScoreDataErrorBlock1.Visibility = Visibility.Hidden;
+            ScoreDataErrorBlock2.Visibility = Visibility.Hidden;
+            ScoreDataErrorBlock3.Visibility = Visibility.Hidden;
+
             ScoreDataGrid.Items.Clear();
             SpellCardDataGrid.Items.Clear();
             SpellPracticeDataGrid.Items.Clear();
@@ -432,10 +444,26 @@ namespace ThGameMgr.Ex
 
                     ApplyScoreViewFilter();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show(this, $"スコアデータの取得に失敗しました。\n{ex.Message}", "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    BlurEffect blurEffect = new()
+                    {
+                        Radius = 7,
+                        KernelType = KernelType.Gaussian
+                    };
+                    ScoreDataGrid.Effect = blurEffect;
+                    ScoreDataGrid.IsEnabled = false;
+                    SpellCardDataGrid.Effect = blurEffect;
+                    SpellCardDataGrid.IsEnabled = false;
+                    SpellPracticeDataGrid.Effect = blurEffect;
+                    SpellPracticeDataGrid.IsEnabled = false;
+
+                    ScoreDataErrorBlock1.Text = "エラー:スコアデータの取得に失敗しました。";
+                    ScoreDataErrorBlock1.Visibility = Visibility.Visible;
+                    ScoreDataErrorBlock2.Text = "エラー:スコアデータの取得に失敗しました。";
+                    ScoreDataErrorBlock2.Visibility = Visibility.Visible;
+                    ScoreDataErrorBlock3.Text = "エラー:スコアデータの取得に失敗しました。";
+                    ScoreDataErrorBlock3.Visibility = Visibility.Visible;
                 }
 
                 EnableGettingScoreDataLimitationMode(false);
