@@ -121,31 +121,31 @@ namespace ThGameMgr.Ex.Settings
 
                 foreach (string gameId in allGamesList)
                 {
-                    bool? config = GameSpecificConfig.GetAutoResizerConfig(gameId);
+                    bool? config = GameSpecificSettings.GetAutoResizerConfig(gameId);
                     XmlElement autoResizerConfigNode = gameSpecificConfigXml.CreateElement(gameId);
                     autoResizerConfigNode.InnerText = (config == true).ToString(); //nullチェック
 
                     _ = autoResizerConfigRootNode.AppendChild(autoResizerConfigNode);
 
-                    string filterPlayer = GameSpecificConfig.GetScoreFilterPlayer(gameId);
+                    string filterPlayer = GameSpecificSettings.GetScoreFilterPlayer(gameId);
                     XmlElement scoreFilterPlayerConfigNode = gameSpecificConfigXml.CreateElement(gameId);
                     scoreFilterPlayerConfigNode.InnerText = filterPlayer;
 
                     _ = scoreFilterPlayerConfigRootNode.AppendChild(scoreFilterPlayerConfigNode);
 
-                    string filterEnemy = GameSpecificConfig.GetScoreFilterEnemy(gameId);
+                    string filterEnemy = GameSpecificSettings.GetScoreFilterEnemy(gameId);
                     XmlElement scoreFilterEnemyConfigNode = gameSpecificConfigXml.CreateElement(gameId);
                     scoreFilterEnemyConfigNode.InnerText = filterEnemy;
 
                     _ = scoreFilterEnemyConfigRootNode.AppendChild(scoreFilterEnemyConfigNode);
 
-                    string filterPracticeEnemy = GameSpecificConfig.GetScoreFilterPracticeEnemy(gameId);
+                    string filterPracticeEnemy = GameSpecificSettings.GetScoreFilterPracticeEnemy(gameId);
                     XmlElement scoreFilterPracticeEnemyConfigNode = gameSpecificConfigXml.CreateElement(gameId);
                     scoreFilterPracticeEnemyConfigNode.InnerText = filterPracticeEnemy;
 
                     _ = scoreFilterPracticeEnemyConfigRootNode.AppendChild(scoreFilterPracticeEnemyConfigNode);
 
-                    string filterLevel = GameSpecificConfig.GetScoreFilterLevel(gameId);
+                    string filterLevel = GameSpecificSettings.GetScoreFilterLevel(gameId);
                     XmlElement scoreFilterLevelConfigNode = gameSpecificConfigXml.CreateElement(gameId);
                     scoreFilterLevelConfigNode.InnerText = filterLevel;
 
@@ -196,48 +196,48 @@ namespace ThGameMgr.Ex.Settings
 
                     if (autoResizerConfigNode != null)
                     {
-                        GameSpecificConfig.SetAutoResizerConfig(gameId, autoResizerConfigNode.InnerText.ToLower() == "true");
+                        GameSpecificSettings.SetAutoResizerConfig(gameId, autoResizerConfigNode.InnerText.ToLower() == "true");
                     }
                     else
                     {
-                        GameSpecificConfig.SetAutoResizerConfig(gameId, false);
+                        GameSpecificSettings.SetAutoResizerConfig(gameId, false);
                     }
 
                     if (scoreFilterPlayerConfigNode != null)
                     {
-                        GameSpecificConfig.SetScoreFilterPlayer(gameId, scoreFilterPlayerConfigNode.InnerText);
+                        GameSpecificSettings.SetScoreFilterPlayer(gameId, scoreFilterPlayerConfigNode.InnerText);
                     }
                     else
                     {
-                        GameSpecificConfig.SetScoreFilterPlayer(gameId, "ALL");
+                        GameSpecificSettings.SetScoreFilterPlayer(gameId, "ALL");
                     }
 
                     if (scoreFilterEnemyConfigNode != null)
                     {
-                        GameSpecificConfig.SetScoreFilterEnemy(gameId, scoreFilterEnemyConfigNode.InnerText);
+                        GameSpecificSettings.SetScoreFilterEnemy(gameId, scoreFilterEnemyConfigNode.InnerText);
                     }
                     else
                     {
-                        GameSpecificConfig.SetScoreFilterEnemy(gameId, "ALL");
+                        GameSpecificSettings.SetScoreFilterEnemy(gameId, "ALL");
                     }
 
                     if (scoreFilterPracticeEnemyConfigNode != null)
                     {
-                        GameSpecificConfig.SetScoreFilterPracticeEnemy(
+                        GameSpecificSettings.SetScoreFilterPracticeEnemy(
                             gameId, scoreFilterPracticeEnemyConfigNode.InnerText);
                     }
                     else
                     {
-                        GameSpecificConfig.SetScoreFilterPracticeEnemy(gameId, "ALL");
+                        GameSpecificSettings.SetScoreFilterPracticeEnemy(gameId, "ALL");
                     }
 
                     if (scoreFilterLevelConfigNode != null)
                     {
-                        GameSpecificConfig.SetScoreFilterLevel(gameId, scoreFilterLevelConfigNode.InnerText);
+                        GameSpecificSettings.SetScoreFilterLevel(gameId, scoreFilterLevelConfigNode.InnerText);
                     }
                     else
                     {
-                        GameSpecificConfig.SetScoreFilterLevel(gameId, "ALL");
+                        GameSpecificSettings.SetScoreFilterLevel(gameId, "ALL");
                     }
                 }
             }
@@ -245,11 +245,11 @@ namespace ThGameMgr.Ex.Settings
             {
                 foreach (string gameId in allGamesList)
                 {
-                    GameSpecificConfig.SetAutoResizerConfig(gameId, false);
-                    GameSpecificConfig.SetScoreFilterPlayer(gameId, "ALL");
-                    GameSpecificConfig.SetScoreFilterEnemy(gameId, "ALL");
-                    GameSpecificConfig.SetScoreFilterPracticeEnemy(gameId, "ALL");
-                    GameSpecificConfig.SetScoreFilterLevel(gameId, "ALL");
+                    GameSpecificSettings.SetAutoResizerConfig(gameId, false);
+                    GameSpecificSettings.SetScoreFilterPlayer(gameId, "ALL");
+                    GameSpecificSettings.SetScoreFilterEnemy(gameId, "ALL");
+                    GameSpecificSettings.SetScoreFilterPracticeEnemy(gameId, "ALL");
+                    GameSpecificSettings.SetScoreFilterLevel(gameId, "ALL");
                 }
             }
         }

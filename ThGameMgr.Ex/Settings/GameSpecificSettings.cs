@@ -2,7 +2,7 @@
 
 namespace ThGameMgr.Ex.Settings
 {
-    class GameSpecificConfig
+    class GameSpecificSettings
     {
         private static Dictionary<string, bool?>? _autoResizerConfigDictionary;
 

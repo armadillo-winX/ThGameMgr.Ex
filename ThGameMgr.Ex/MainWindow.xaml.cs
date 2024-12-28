@@ -67,7 +67,7 @@ namespace ThGameMgr.Ex
                     EnemiesFilterButton.IsEnabled = true;
                     LevelFilterButton.IsEnabled = true;
 
-                    AutoStartWindowResizerCheckBox.IsChecked = GameSpecificConfig.GetAutoResizerConfig(value);
+                    AutoStartWindowResizerCheckBox.IsChecked = GameSpecificSettings.GetAutoResizerConfig(value);
                     if (value != GameIndex.Th06 && value != GameIndex.Th07)
                     {
                         SpellCardLevelColumn.Visibility = Visibility.Visible;
@@ -92,10 +92,10 @@ namespace ThGameMgr.Ex
                         SpellPracticeTabItem.Visibility = Visibility.Collapsed;
                     }
 
-                    this.FilterPlayer = GameSpecificConfig.GetScoreFilterPlayer(value);
-                    this.FilterEnemy = GameSpecificConfig.GetScoreFilterEnemy(value);
-                    this.FilterPracticeEnemy = GameSpecificConfig.GetScoreFilterPracticeEnemy(value);
-                    this.FilterLevel = GameSpecificConfig.GetScoreFilterLevel(value);
+                    this.FilterPlayer = GameSpecificSettings.GetScoreFilterPlayer(value);
+                    this.FilterEnemy = GameSpecificSettings.GetScoreFilterEnemy(value);
+                    this.FilterPracticeEnemy = GameSpecificSettings.GetScoreFilterPracticeEnemy(value);
+                    this.FilterLevel = GameSpecificSettings.GetScoreFilterLevel(value);
 
                     string gameName = GameIndex.GetGameName(value);
                     this.GameName = gameName;
@@ -158,7 +158,7 @@ namespace ThGameMgr.Ex
 
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
-                        GameSpecificConfig.SetScoreFilterPlayer(this.GameId, value);
+                        GameSpecificSettings.SetScoreFilterPlayer(this.GameId, value);
                     }
                 }
                 else
@@ -167,7 +167,7 @@ namespace ThGameMgr.Ex
                     FilterPlayerNameBlock.Text = "全機体";
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
-                        GameSpecificConfig.SetScoreFilterPlayer(this.GameId, "ALL");
+                        GameSpecificSettings.SetScoreFilterPlayer(this.GameId, "ALL");
                     }
                 }
             }
@@ -190,7 +190,7 @@ namespace ThGameMgr.Ex
 
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
-                        GameSpecificConfig.SetScoreFilterEnemy(this.GameId, value);
+                        GameSpecificSettings.SetScoreFilterEnemy(this.GameId, value);
                     }
                 }
                 else
@@ -199,7 +199,7 @@ namespace ThGameMgr.Ex
                     FilterEnemyNameBlock.Text = "全敵機体";
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
-                        GameSpecificConfig.SetScoreFilterEnemy(this.GameId, "ALL");
+                        GameSpecificSettings.SetScoreFilterEnemy(this.GameId, "ALL");
                     }
                 }
             }
@@ -222,7 +222,7 @@ namespace ThGameMgr.Ex
 
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
-                        GameSpecificConfig.SetScoreFilterPracticeEnemy(this.GameId, value);
+                        GameSpecificSettings.SetScoreFilterPracticeEnemy(this.GameId, value);
                     }
                 }
                 else
@@ -231,7 +231,7 @@ namespace ThGameMgr.Ex
                     FilterPracticeEnemyNameBlock.Text = "全敵機体";
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
-                        GameSpecificConfig.SetScoreFilterPracticeEnemy(this.GameId, "ALL");
+                        GameSpecificSettings.SetScoreFilterPracticeEnemy(this.GameId, "ALL");
                     }
                 }
             }
@@ -254,7 +254,7 @@ namespace ThGameMgr.Ex
 
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
-                        GameSpecificConfig.SetScoreFilterLevel(this.GameId, value);
+                        GameSpecificSettings.SetScoreFilterLevel(this.GameId, value);
                     }
                 }
                 else
@@ -263,7 +263,7 @@ namespace ThGameMgr.Ex
                     FilterLevelBlock.Text = "全難易度";
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
-                        GameSpecificConfig.SetScoreFilterLevel(this.GameId, "ALL");
+                        GameSpecificSettings.SetScoreFilterLevel(this.GameId, "ALL");
                     }
                 }
             }
@@ -1015,7 +1015,7 @@ namespace ThGameMgr.Ex
             SetLevelFilterMenu();
             SetExternalToolsMenu();
 
-            AutoStartWindowResizerCheckBox.IsChecked = GameSpecificConfig.GetAutoResizerConfig(this.GameId);
+            AutoStartWindowResizerCheckBox.IsChecked = GameSpecificSettings.GetAutoResizerConfig(this.GameId);
             CurrentUserStatusBarItem.Content = User.CurrentUserName;
 
             GetScoreData();
@@ -1710,7 +1710,7 @@ namespace ThGameMgr.Ex
         {
             if (!string.IsNullOrEmpty(this.GameId))
             {
-                GameSpecificConfig.SetAutoResizerConfig(
+                GameSpecificSettings.SetAutoResizerConfig(
                     this.GameId, AutoStartWindowResizerCheckBox.IsChecked);
             }
         }
