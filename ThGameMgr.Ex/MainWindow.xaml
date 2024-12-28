@@ -233,6 +233,12 @@
                     <TextBlock 
                         x:Name="FilterLevelBlock"
                         HorizontalAlignment="Left" Margin="135,12,0,0" TextWrapping="Wrap" Text="FilterLevel" VerticalAlignment="Top" FontSize="14"/>
+                    <TextBlock
+                        x:Name="ScoreDataErrorBlock1"
+                        FontSize="14"
+                        Foreground="Black"
+                        Visibility="Hidden"
+                        HorizontalAlignment="Center" TextWrapping="Wrap" Text="ErrorMessage" VerticalAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="御札戦歴" x:Name="SpellCardRecordTabItem">
@@ -289,6 +295,12 @@
                             Binding="{Binding Enemy}" Width="135"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <TextBlock
+                        x:Name="ScoreDataErrorBlock2"
+                        FontSize="14"
+                        Foreground="Black"
+                        Visibility="Hidden"
+                        HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="スペルプラクティス" x:Name="SpellPracticeTabItem">
@@ -348,6 +360,12 @@
                             Binding="{Binding Enemy}" Width="135"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <TextBlock
+                            x:Name="ScoreDataErrorBlock3"
+                            FontSize="14"
+                            Foreground="Black"
+                            Visibility="Hidden"
+                            HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center"/>
                 </Grid>
             </TabItem>
             <TabItem Header="リプレイファイル" x:Name="ReplayTabItem">
