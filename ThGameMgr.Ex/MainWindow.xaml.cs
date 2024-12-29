@@ -484,6 +484,8 @@ namespace ThGameMgr.Ex
         private void GetReplayFiles()
         {
             ReplayFilesDataGrid.Effect = null;
+            ReplayFilesDataGrid.IsEnabled = true;
+
             ReplayFileErrorBlock.Visibility = Visibility.Hidden;
             ReplayFileErrorImage.Visibility = Visibility.Hidden;
 
