@@ -485,6 +485,11 @@ namespace ThGameMgr.Ex
         {
             ReplayFilesDataGrid.Effect = null;
             ReplayFilesDataGrid.IsEnabled = true;
+            AddReplayFileButton.IsEnabled = true;
+            RenameReplayFileButton.IsEnabled = true;
+            DeleteReplayFileButton.IsEnabled = true;
+            CopyReplayFileButton.IsEnabled = true;
+            MoveReplayFileButton.IsEnabled = true;
 
             ReplayFileErrorBlock.Visibility = Visibility.Hidden;
             ReplayFileErrorImage.Visibility = Visibility.Hidden;
@@ -513,6 +518,11 @@ namespace ThGameMgr.Ex
                     };
                     ReplayFilesDataGrid.Effect = blurEffect;
                     ReplayFilesDataGrid.IsEnabled = false;
+                    AddReplayFileButton.IsEnabled = false;
+                    RenameReplayFileButton.IsEnabled = false;
+                    DeleteReplayFileButton.IsEnabled = false;
+                    CopyReplayFileButton.IsEnabled = false;
+                    MoveReplayFileButton.IsEnabled = false;
                     ReplayFileErrorBlock.Text = "エラー:リプレイファイルの取得に失敗しました。";
                     ReplayFileErrorBlock.Visibility = Visibility.Visible;
                     ReplayFileErrorImage.Visibility = Visibility.Visible;
