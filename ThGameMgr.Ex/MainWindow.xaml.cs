@@ -483,6 +483,10 @@ namespace ThGameMgr.Ex
 
         private void GetReplayFiles()
         {
+            ReplayFilesDataGrid.Effect = null;
+            ReplayFileErrorBlock.Visibility = Visibility.Hidden;
+            ReplayFileErrorImage.Visibility = Visibility.Hidden;
+
             ReplayFilesDataGrid.Items.Clear();
             string gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
@@ -496,10 +500,20 @@ namespace ThGameMgr.Ex
                         ReplayFilesDataGrid.Items.Add(replayFileInfo);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    MessageBox.Show(this, $"リプレイファイルの取得に失敗しました。\n{ex.Message}", "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    System.Media.SystemSounds.Hand.Play();
+
+                    BlurEffect blurEffect = new()
+                    {
+                        Radius = 7,
+                        KernelType = KernelType.Gaussian
+                    };
+                    ReplayFilesDataGrid.Effect = blurEffect;
+                    ReplayFilesDataGrid.IsEnabled = false;
+                    ReplayFileErrorBlock.Text = "エラー:リプレイファイルの取得に失敗しました。";
+                    ReplayFileErrorBlock.Visibility = Visibility.Visible;
+                    ReplayFileErrorImage.Visibility = Visibility.Visible;
                 }
             }
         }

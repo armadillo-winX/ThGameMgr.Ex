@@ -420,6 +420,16 @@
                     <Button x:Name="MoveReplayFileButton"
                             Click="MoveReplayFileButtonClick"
                         Content="移動(_M)" HorizontalAlignment="Right" Margin="0,155,10,0" VerticalAlignment="Top" Width="90" Height="24"/>
+                    <TextBlock
+                        x:Name="ReplayFileErrorBlock"
+                        FontSize="14"
+                        Foreground="Black"
+                        Visibility="Hidden"
+                        HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                    <Image x:Name="ReplayFileErrorImage"
+                        Visibility="Hidden"
+                        HorizontalAlignment="Center" Height="32" Margin="0,-55,0,0" VerticalAlignment="Center"
+                        Width="32" Source="/Images/ErrorIcon32x32.png" Stretch="None"/>
                 </Grid>
             </TabItem>
         </TabControl>
