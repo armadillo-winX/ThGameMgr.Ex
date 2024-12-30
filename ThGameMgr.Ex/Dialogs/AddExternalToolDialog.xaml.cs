@@ -18,7 +18,7 @@ namespace ThGameMgr.Ex.Dialogs
         {
             OpenFileDialog openFileDialog = new()
             {
-                Filter = $"すべての実行ファイル|*.exe;*.bat;*.cmd;*.vbs",
+                Filter = $"すべての実行ファイル|*.exe;*.bat;*.cmd",
                 FileName = ""
             };
             if (openFileDialog.ShowDialog(this) == true)
