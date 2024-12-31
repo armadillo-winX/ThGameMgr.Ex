@@ -14,6 +14,8 @@ namespace ThGameMgr.Ex.Score
 
         public static ObservableCollection<SpellCardRecordData>? SpellPracticeRecordLists { get; set; }
 
+        public static ObservableCollection<ClearRecordData>? ClearRecordsLists { get; set; }
+
         public static void Get(string gameId)
         {
             GameId = gameId;
