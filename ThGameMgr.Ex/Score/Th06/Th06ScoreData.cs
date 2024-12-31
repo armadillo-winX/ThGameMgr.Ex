@@ -70,6 +70,11 @@ namespace ThGameMgr.Ex.Score.Th06
                             }
                             else if (type == "CLRD")
                             {
+                                byte[] clearRecordData = bytes[i..r];
+                                ClearRecordData clearRecordList 
+                                    = GetClearRecord(clearRecordData);
+                                ScoreData.ClearRecordsLists.Add(clearRecordList);
+
                                 i += size;
                             }
                             else if (type == "CATK")
