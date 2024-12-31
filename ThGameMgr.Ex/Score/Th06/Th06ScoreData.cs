@@ -160,5 +160,46 @@ namespace ThGameMgr.Ex.Score.Th06
             };
             return spellCardRecordList;
         }
+
+        private static ClearRecordData GetClearRecord(byte[] data)
+        {
+            byte[] CLRD_DATA = data[0..4];
+            byte[] SIZE_DATA = data[4..6];
+            byte[] EASY_DATA = data[12..13];
+            byte[] NORMOAL_DATA = data[13..14];
+            byte[] HARD_DATA = data[14..15];
+            byte[] LUNATIC_DATA = data[15..16];
+            byte[] EXTRA_DATA = data[16..17];
+            byte[] PRACTICE_EASY_DATA = data[17..18];
+            byte[] PRACTICE_NORMAL_DATA = data[18..19];
+            byte[] PRACTICE_HARD_DATA = data[19..20];
+            byte[] PRACTICE_LUNATIC_DATA = data[20..21];
+            byte[] PRACTICE_EXTRA_DATA = data[21..22];
+            byte[] PLAYER_DATA = data[22..23];
+
+            int playerIndex = int.Parse(BitConverter.ToString(PLAYER_DATA));
+            string easyIndex = BitConverter.ToString(EASY_DATA);
+            string normalIndex = BitConverter.ToString(NORMOAL_DATA);
+            string hardIndex = BitConverter.ToString(HARD_DATA);
+            string lunaticIndex = BitConverter.ToString(LUNATIC_DATA);
+            string extraIndex = BitConverter.ToString(EXTRA_DATA);
+
+            string player = _th06PlayersList[playerIndex];
+            string easyProgress = _progressDictionary[easyIndex];
+            string normalProgress = _progressDictionary[normalIndex];
+            string hardProgress = _progressDictionary[hardIndex];
+            string lunaticProgress = _progressDictionary[lunaticIndex];
+            string extraProgress = extraIndex == "63" ? "All Clear" : "None-Clear";
+
+            return new ClearRecordData()
+            {
+                Player = player,
+                Easy = easyProgress,
+                Normal = normalProgress,
+                Hard = hardProgress,
+                Lunatic = lunaticProgress,
+                Extra = extraProgress
+            };
+        }
     }
 }
