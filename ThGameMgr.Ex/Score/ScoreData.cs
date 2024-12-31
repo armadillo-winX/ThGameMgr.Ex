@@ -23,6 +23,7 @@ namespace ThGameMgr.Ex.Score
             ScoreRecordLists = [];
             SpellCardRecordLists = [];
             SpellPracticeRecordLists = [];
+            ClearRecordsLists = [];
 
             if (gameId == GameIndex.Th06)
             {
