@@ -404,6 +404,9 @@
                             <DataGridTextColumn
                                Header="Extra" Binding="{Binding Extra}"
                                IsReadOnly="True" Width="75"/>
+                            <DataGridTextColumn
+                                Header="Phantasm" Binding="{Binding Phantasm}"
+                                IsReadOnly="True" Width="75"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <TextBlock
