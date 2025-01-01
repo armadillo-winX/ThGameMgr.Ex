@@ -423,6 +423,8 @@ namespace ThGameMgr.Ex
             SpellCardDataGrid.IsEnabled = true;
             SpellPracticeDataGrid.Effect = null;
             SpellPracticeDataGrid.IsEnabled = true;
+            ClearRecordDataGrid.Effect = null;
+            ClearRecordDataGrid.IsEnabled = true;
 
             ScoreDataErrorImage1.Visibility = Visibility.Hidden;
             ScoreDataErrorBlock1.Visibility = Visibility.Hidden;
@@ -430,10 +432,13 @@ namespace ThGameMgr.Ex
             ScoreDataErrorBlock2.Visibility = Visibility.Hidden;
             ScoreDataErrorImage3.Visibility = Visibility.Hidden;
             ScoreDataErrorBlock3.Visibility = Visibility.Hidden;
+            ScoreDataErrorImage4.Visibility = Visibility.Hidden;
+            ScoreDataErrorBlock4.Visibility = Visibility.Hidden;
 
             ScoreDataGrid.Items.Clear();
             SpellCardDataGrid.Items.Clear();
             SpellPracticeDataGrid.Items.Clear();
+            ClearRecordDataGrid.Items.Clear();
             string gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
             {
@@ -462,6 +467,8 @@ namespace ThGameMgr.Ex
                     SpellCardDataGrid.IsEnabled = false;
                     SpellPracticeDataGrid.Effect = blurEffect;
                     SpellPracticeDataGrid.IsEnabled = false;
+                    ClearRecordDataGrid.Effect = blurEffect;
+                    ClearRecordDataGrid.IsEnabled = false;
 
                     ScoreDataErrorImage1.Visibility = Visibility.Visible;
                     ScoreDataErrorBlock1.Text = "エラー:スコアデータの取得に失敗しました。";
@@ -474,6 +481,10 @@ namespace ThGameMgr.Ex
                     ScoreDataErrorImage3.Visibility = Visibility.Visible;
                     ScoreDataErrorBlock3.Text = "エラー:スコアデータの取得に失敗しました。";
                     ScoreDataErrorBlock3.Visibility = Visibility.Visible;
+
+                    ScoreDataErrorImage4.Visibility = Visibility.Visible;
+                    ScoreDataErrorBlock4.Text = "エラー:スコアデータの取得に失敗しました。";
+                    ScoreDataErrorBlock4.Visibility = Visibility.Visible;
                 }
 
                 EnableGettingScoreDataLimitationMode(false);
@@ -535,6 +546,7 @@ namespace ThGameMgr.Ex
             ScoreDataGrid.Items.Clear();
             SpellCardDataGrid.Items.Clear();
             SpellPracticeDataGrid.Items.Clear();
+            ClearRecordDataGrid.Items.Clear();
 
             if (ScoreData.ScoreRecordLists != null &&
                 ScoreData.ScoreRecordLists.Count >= 0)
@@ -658,6 +670,15 @@ namespace ThGameMgr.Ex
                             });
                         }
                     }
+                }
+            }
+
+            if (ScoreData.ClearRecordsLists != null &&
+                ScoreData.ClearRecordsLists.Count >= 0)
+            {
+                foreach (ClearRecordData clearRecordData in ScoreData.ClearRecordsLists)
+                {
+                    ClearRecordDataGrid.Items.Add(clearRecordData);
                 }
             }
         }
