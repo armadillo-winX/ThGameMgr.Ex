@@ -78,9 +78,14 @@ namespace ThGameMgr.Ex.Score.Th07
                             else if (type == "CATK")
                             {
                                 byte[] cardAttackData = bytes[i..r];
-                                SpellCardRecordData spellCardRecordList
+                                Dictionary<string, SpellCardRecordData>
+                                    spellCardRecordList
                                     = GetSpellCardRecord(cardAttackData);
-                                ScoreData.SpellCardRecordLists.Add(spellCardRecordList);
+                                ScoreData.SpellCardRecordLists.Add(spellCardRecordList["all"]);
+                                foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th07).Split(','))
+                                {
+                                    ScoreData.SpellCardRecordsByPlayer[player].Add(spellCardRecordList[player]);
+                                }
 
                                 i += size;
                             }
