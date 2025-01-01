@@ -80,6 +80,15 @@ namespace ThGameMgr.Ex
                         SpellPracticeLevelColumn.Visibility = Visibility.Collapsed;
                     }
 
+                    if (value == GameIndex.Th07)
+                    {
+                        ClearRecordPhantasmColumn.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        ClearRecordPhantasmColumn.Visibility = Visibility.Collapsed;
+                    }
+
                     if (SpellCard.IsSpellPracticeAvailable(value))
                     {
                         SpellPracticeTabItem.Visibility = Visibility.Visible;

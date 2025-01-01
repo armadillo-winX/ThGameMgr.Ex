@@ -404,7 +404,7 @@
                             <DataGridTextColumn x:Name="ClearRecordExtraColumn"
                                 Header="Extra" Binding="{Binding Extra}"
                                 IsReadOnly="True" Width="75"/>
-                            <DataGridTextColumn x:Name="ClearRecordPhatasmColumn"
+                            <DataGridTextColumn x:Name="ClearRecordPhantasmColumn"
                                 Header="Phantasm" Binding="{Binding Phantasm}"
                                 IsReadOnly="True" Width="75"/>
                         </DataGrid.Columns>
