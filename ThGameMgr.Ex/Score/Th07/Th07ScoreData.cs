@@ -138,7 +138,7 @@ namespace ThGameMgr.Ex.Score.Th07
             return scoreRecordList;
         }
 
-        private static SpellCardRecordData GetSpellCardRecord(byte[] data)
+        private static Dictionary<string, SpellCardRecordData> GetSpellCardRecord(byte[] data)
         {
             byte[] CATK_DATA = data[0..4];
             byte[] SIZE_DATA = data[4..6];
@@ -161,6 +161,24 @@ namespace ThGameMgr.Ex.Score.Th07
 
             int cardId = BitConverter.ToInt16(CARD_ID_DATA, 0) + 1;
 
+            int reimuAChallengeCount = BitConverter.ToInt16(RA_CHALLANGE_DATA, 0);
+            int reimuAGetCount = BitConverter.ToInt16(RA_GET_DATA, 0);
+
+            int reimuBChallengeCount = BitConverter.ToInt16(RB_CHALANGE_DATA, 0);
+            int reimuBGetCount = BitConverter.ToInt16(RB_GET_DATA, 0);
+
+            int marisaAChallengeCount = BitConverter.ToInt16(MA_CHALLANGE_DATA, 0);
+            int marisaAGetCount = BitConverter.ToInt16(MA_GET_DATA, 0);
+
+            int marisaBChallengeCount = BitConverter.ToInt16(MB_CHALLANGE_DATA, 0);
+            int marisaBGetCount = BitConverter.ToInt16(MB_GET_DATA, 0);
+
+            int sakuyaAChallengeCount = BitConverter.ToInt16(SA_CHALLANGE_DATA, 0);
+            int sakuyaAGetCount = BitConverter.ToInt16(SA_GET_DATA, 0);
+
+            int sakuyaBChallengeCount = BitConverter.ToInt16(SB_CHALLANGE_DATA, 0);
+            int sakuyaBGetCount = BitConverter.ToInt16(SB_GET_DATA, 0);
+
             int allChangeCount = BitConverter.ToInt16(ALL_CHALLANGE_DATA, 0);
             int allGetCount = BitConverter.ToInt16(ALL_GET_DATA, 0);
 
@@ -169,6 +187,72 @@ namespace ThGameMgr.Ex.Score.Th07
                 = spellcardData.CardName;
 
             string rate = ScoreCalculator.CalcSpellCardGetRate(allGetCount, allChangeCount);
+
+            SpellCardRecordData reimuACardRecordData = new()
+            {
+                CardID = cardId.ToString(),
+                CardName = cardName,
+                TryCount = reimuAChallengeCount.ToString(),
+                GetCount = reimuAGetCount.ToString(),
+                Rate = ScoreCalculator.CalcSpellCardGetRate(reimuAGetCount, reimuAChallengeCount),
+                Enemy = spellcardData.Enemy,
+                Place = spellcardData.Place
+            };
+
+            SpellCardRecordData reimuBCardRecordData = new()
+            {
+                CardID = cardId.ToString(),
+                CardName = cardName,
+                TryCount = reimuBChallengeCount.ToString(),
+                GetCount = reimuBGetCount.ToString(),
+                Rate = ScoreCalculator.CalcSpellCardGetRate(reimuBGetCount, reimuBChallengeCount),
+                Enemy = spellcardData.Enemy,
+                Place = spellcardData.Place
+            };
+
+            SpellCardRecordData marisaACardRecordData = new()
+            {
+                CardID = cardId.ToString(),
+                CardName = cardName,
+                TryCount = marisaAChallengeCount.ToString(),
+                GetCount = marisaAGetCount.ToString(),
+                Rate = ScoreCalculator.CalcSpellCardGetRate(marisaAGetCount, marisaAChallengeCount),
+                Enemy = spellcardData.Enemy,
+                Place = spellcardData.Place
+            };
+
+            SpellCardRecordData marisaBCardRecordData = new()
+            {
+                CardID = cardId.ToString(),
+                CardName = cardName,
+                TryCount = marisaBChallengeCount.ToString(),
+                GetCount = marisaBGetCount.ToString(),
+                Rate = ScoreCalculator.CalcSpellCardGetRate(marisaBGetCount, marisaBChallengeCount),
+                Enemy = spellcardData.Enemy,
+                Place = spellcardData.Place
+            };
+
+            SpellCardRecordData sakuyaACardRecordData = new()
+            {
+                CardID = cardId.ToString(),
+                CardName = cardName,
+                TryCount = sakuyaAChallengeCount.ToString(),
+                GetCount = sakuyaAGetCount.ToString(),
+                Rate = ScoreCalculator.CalcSpellCardGetRate(sakuyaAGetCount, sakuyaAChallengeCount),
+                Enemy = spellcardData.Enemy,
+                Place = spellcardData.Place
+            };
+
+            SpellCardRecordData sakuyaBCardRecordData = new()
+            {
+                CardID = cardId.ToString(),
+                CardName = cardName,
+                TryCount = sakuyaBChallengeCount.ToString(),
+                GetCount = sakuyaBGetCount.ToString(),
+                Rate = ScoreCalculator.CalcSpellCardGetRate(sakuyaBGetCount, sakuyaBChallengeCount),
+                Enemy = spellcardData.Enemy,
+                Place = spellcardData.Place
+            };
 
             SpellCardRecordData spellCardRecordList = new()
             {
@@ -180,7 +264,17 @@ namespace ThGameMgr.Ex.Score.Th07
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place
             };
-            return spellCardRecordList;
+
+            return new Dictionary<string, SpellCardRecordData>
+            {
+                { "all", spellCardRecordList },
+                { "博麗霊夢(霊)", reimuACardRecordData },
+                { "博麗霊夢(夢)", reimuBCardRecordData },
+                { "霧雨魔理沙(魔)", marisaACardRecordData },
+                { "霧雨魔理沙(恋)", marisaBCardRecordData },
+                { "十六夜咲夜(幻)", sakuyaACardRecordData },
+                { "十六夜咲夜(時)", sakuyaBCardRecordData}
+            };
         }
     }
 }
