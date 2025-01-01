@@ -24,6 +24,16 @@ namespace ThGameMgr.Ex.Score
             SpellCardRecordLists = [];
             SpellPracticeRecordLists = [];
 
+            SpellCardRecordsByPlayer.Clear();
+            string players = GamePlayers.GetGamePlayers(gameId);
+            if (players.Length > 0)
+            {
+                foreach (string player in players.Split(','))
+                {
+                    SpellCardRecordsByPlayer.Add(player, []);
+                }
+            }
+
             if (gameId == GameIndex.Th06)
             {
                 Th06.Th06ScoreData.Get();
