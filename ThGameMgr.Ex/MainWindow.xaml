@@ -380,6 +380,44 @@
                             Width="32" Source="/Images/ErrorIcon32x32.png" Stretch="None"/>
                 </Grid>
             </TabItem>
+            <TabItem Header="クリア達成度" x:Name="ClearRecordTabItem">
+                <Grid>
+                    <DataGrid
+                        x:Name="ClearRecordDataGrid" ItemsSource="{Binding}"
+                        Margin="10,10,10,10">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn 
+                                Header="自機" Binding="{Binding Player}"
+                                IsReadOnly="True" Width="150"/>
+                            <DataGridTextColumn
+                                Header="Easy" Binding="{Binding Easy}"
+                                IsReadOnly="True" Width="100"/>
+                            <DataGridTextColumn
+                                Header="Normal" Binding="{Binding Normal}"
+                                IsReadOnly="True" Width="100"/>
+                            <DataGridTextColumn
+                                Header="Hard" Binding="{Binding Hard}"
+                                IsReadOnly="True" Width="100"/>
+                            <DataGridTextColumn
+                                Header="Lunatic" Binding="{Binding Lunatic}"
+                                IsReadOnly="True" Width="100"/>
+                            <DataGridTextColumn
+                               Header="Extra" Binding="{Binding Extra}"
+                               IsReadOnly="True" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBlock
+                        x:Name="ScoreDataErrorBlock4"
+                        FontSize="14"
+                        Foreground="Black"
+                        Visibility="Hidden"
+                        HorizontalAlignment="Center" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Margin="0,0,0,0" />
+                    <Image x:Name="ScoreDataErrorImage4"
+                        Visibility="Hidden"
+                        HorizontalAlignment="Center" Height="32" Margin="0,-55,0,0" VerticalAlignment="Center"
+                        Width="32" Source="/Images/ErrorIcon32x32.png" Stretch="None"/>
+                </Grid>
+            </TabItem>
             <TabItem Header="リプレイファイル" x:Name="ReplayTabItem">
                 <Grid>
                     <DataGrid x:Name="ReplayFilesDataGrid"
