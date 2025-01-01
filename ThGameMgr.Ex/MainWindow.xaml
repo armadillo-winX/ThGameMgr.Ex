@@ -386,25 +386,25 @@
                         x:Name="ClearRecordDataGrid" ItemsSource="{Binding}"
                         Margin="10,10,10,10">
                         <DataGrid.Columns>
-                            <DataGridTextColumn 
+                            <DataGridTextColumn x:Name="ClearRecordPlayerColumn"
                                 Header="自機" Binding="{Binding Player}"
                                 IsReadOnly="True" Width="150"/>
-                            <DataGridTextColumn
+                            <DataGridTextColumn x:Name="ClearRecordEasyColumn"
                                 Header="Easy" Binding="{Binding Easy}"
                                 IsReadOnly="True" Width="75"/>
-                            <DataGridTextColumn
+                            <DataGridTextColumn x:Name="ClearRecordNormalColumn"
                                 Header="Normal" Binding="{Binding Normal}"
                                 IsReadOnly="True" Width="75"/>
-                            <DataGridTextColumn
+                            <DataGridTextColumn x:Name="ClearRecordHardColumn"
                                 Header="Hard" Binding="{Binding Hard}"
                                 IsReadOnly="True" Width="75"/>
-                            <DataGridTextColumn
+                            <DataGridTextColumn x:Name="ClearRecordLunaticColumn"
                                 Header="Lunatic" Binding="{Binding Lunatic}"
                                 IsReadOnly="True" Width="75"/>
-                            <DataGridTextColumn
-                               Header="Extra" Binding="{Binding Extra}"
-                               IsReadOnly="True" Width="75"/>
-                            <DataGridTextColumn
+                            <DataGridTextColumn x:Name="ClearRecordExtraColumn"
+                                Header="Extra" Binding="{Binding Extra}"
+                                IsReadOnly="True" Width="75"/>
+                            <DataGridTextColumn x:Name="ClearRecordPhatasmColumn"
                                 Header="Phantasm" Binding="{Binding Phantasm}"
                                 IsReadOnly="True" Width="75"/>
                         </DataGrid.Columns>
