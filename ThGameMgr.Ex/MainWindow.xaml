@@ -391,19 +391,19 @@
                                 IsReadOnly="True" Width="150"/>
                             <DataGridTextColumn
                                 Header="Easy" Binding="{Binding Easy}"
-                                IsReadOnly="True" Width="100"/>
+                                IsReadOnly="True" Width="75"/>
                             <DataGridTextColumn
                                 Header="Normal" Binding="{Binding Normal}"
-                                IsReadOnly="True" Width="100"/>
+                                IsReadOnly="True" Width="75"/>
                             <DataGridTextColumn
                                 Header="Hard" Binding="{Binding Hard}"
-                                IsReadOnly="True" Width="100"/>
+                                IsReadOnly="True" Width="75"/>
                             <DataGridTextColumn
                                 Header="Lunatic" Binding="{Binding Lunatic}"
-                                IsReadOnly="True" Width="100"/>
+                                IsReadOnly="True" Width="75"/>
                             <DataGridTextColumn
                                Header="Extra" Binding="{Binding Extra}"
-                               IsReadOnly="True" Width="100"/>
+                               IsReadOnly="True" Width="75"/>
                         </DataGrid.Columns>
                     </DataGrid>
                     <TextBlock
