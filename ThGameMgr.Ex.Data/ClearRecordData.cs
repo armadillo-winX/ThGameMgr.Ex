@@ -31,5 +31,10 @@
         /// 難易度 Extra でのクリア達成度
         /// </summary>
         public string? Extra { get; set; }
+
+        /// <summary>
+        /// 難易度 Phantasm でのクリア達成度
+        /// </summary>
+        public string? Phantasm { get; set; }
     }
 }
