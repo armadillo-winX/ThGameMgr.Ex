@@ -24,7 +24,8 @@ namespace ThGameMgr.Ex.Score
             SpellCardRecordLists = [];
             SpellPracticeRecordLists = [];
 
-            SpellCardRecordsByPlayer.Clear();
+            SpellCardRecordsByPlayer = [];
+
             string players = GamePlayers.GetGamePlayers(gameId);
             if (players.Length > 0)
             {
