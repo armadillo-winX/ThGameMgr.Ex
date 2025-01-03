@@ -37,6 +37,7 @@ namespace ThGameMgr.Ex
         private string? _gameId;
         private string? _gameName;
         private string? _filterPlayer;
+        private string? _spellCardPlayer;
         private string? _filterEnemy;
         private string? _filterPracticeEnemy;
         private string? _filterLevel;
@@ -170,6 +171,28 @@ namespace ThGameMgr.Ex
                     {
                         GameSpecificSettings.SetScoreFilterPlayer(this.GameId, "ALL");
                     }
+                }
+            }
+        }
+
+        private string? SpellCardPlayer
+        {
+            get
+            {
+                return _spellCardPlayer;
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    SpellCardPlayerBlock.Text =
+                        value == "ALL" ? "全自機合計" : value;
+                }
+                else
+                {
+                    _spellCardPlayer = "ALL";
+                    SpellCardPlayerBlock.Text = "全自機合計";
                 }
             }
         }
