@@ -175,7 +175,7 @@ namespace ThGameMgr.Ex
             }
         }
 
-        private string? SpellCardPlayer
+        private string? FilterSpellCardPlayer
         {
             get
             {
@@ -843,7 +843,7 @@ namespace ThGameMgr.Ex
         private void SpellCardPlayerSwitchMenuClick(object sender, RoutedEventArgs e)
         {
             string playerName = ((MenuItem)sender).Header.ToString();
-            this.SpellCardPlayer = playerName;
+            this.FilterSpellCardPlayer = playerName;
             ApplyScoreViewFilter();
         }
 
