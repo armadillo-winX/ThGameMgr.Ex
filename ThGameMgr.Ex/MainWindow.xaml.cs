@@ -1899,6 +1899,16 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void SpellCardPlayersSwitchButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (!SpellCardPlayerContextMenu.IsOpen)
+            {
+                SpellCardPlayerContextMenu.PlacementTarget = SpellCardPlayersSwitchButton;
+                SpellCardPlayerContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+                SpellCardPlayerContextMenu.IsOpen = true;
+            }
+        }
+
         private void EnemiesFilterButtonClick(object sender, RoutedEventArgs e)
         {
             if (!EnemiesFilterButtonContextMenu.IsOpen)

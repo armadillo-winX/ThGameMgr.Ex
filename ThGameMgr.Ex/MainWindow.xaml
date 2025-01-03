@@ -250,7 +250,8 @@
                     <Button x:Name="SpellCardPlayersSwitchButton" 
                         Width="90" Height="24"
                         Content="自機▾" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
-                        ContextMenuService.Placement="Bottom">
+                        ContextMenuService.Placement="Bottom"
+                        Click="SpellCardPlayersSwitchButtonClick">
                         <Button.ContextMenu>
                             <ContextMenu x:Name="SpellCardPlayerContextMenu" Placement="Bottom"/>
                         </Button.ContextMenu>
