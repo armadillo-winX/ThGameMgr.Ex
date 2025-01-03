@@ -188,11 +188,20 @@ namespace ThGameMgr.Ex
                 {
                     SpellCardPlayerBlock.Text =
                         value == "ALL" ? "全自機合計" : value;
+
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificSettings.SetSpellCardFilterPlayer(this.GameId, value);
+                    }
                 }
                 else
                 {
                     _spellCardPlayer = "ALL";
                     SpellCardPlayerBlock.Text = "全自機合計";
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificSettings.SetSpellCardFilterPlayer(this.GameId, "ALL");
+                    }
                 }
             }
         }
