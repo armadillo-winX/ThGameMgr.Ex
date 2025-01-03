@@ -247,16 +247,21 @@
             </TabItem>
             <TabItem Header="御札戦歴" x:Name="SpellCardRecordTabItem">
                 <Grid >
+                    <Button x:Name="SpellCardPlayersSwitchButton" 
+                        Width="90" Height="24"
+                        Content="自機▾" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBlock x:Name="SpellCardPlayerBlock"
+                        HorizontalAlignment="Left" Margin="105,12,0,0" TextWrapping="Wrap" Text="Player" VerticalAlignment="Top" FontSize="14"/>
                     <Button x:Name="EnemiesFilterButton"
                         Width="120" Height="24"
-                        Content="敵機フィルター▾" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
+                        Content="敵機フィルター▾" HorizontalAlignment="Left"  Margin="271,10,0,0" VerticalAlignment="Top"
                         ContextMenuService.Placement="Bottom" Click="EnemiesFilterButtonClick">
                         <Button.ContextMenu>
                             <ContextMenu x:Name="EnemiesFilterButtonContextMenu" Placement="Bottom" />
                         </Button.ContextMenu>
                     </Button>
                     <TextBlock x:Name="FilterEnemyNameBlock"
-                        HorizontalAlignment="Left" Margin="135,13,0,0" TextWrapping="Wrap" Text="FilterEnemy" VerticalAlignment="Top" FontSize="14"/>
+                        HorizontalAlignment="Left" Margin="396,12,0,0" TextWrapping="Wrap" Text="FilterEnemy" VerticalAlignment="Top" FontSize="14"/>
                     <DataGrid x:Name="SpellCardDataGrid" ItemsSource="{Binding}" Margin="10,39,10,10" SelectionChanged="SpellCardDataGridSelectionChanged">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
