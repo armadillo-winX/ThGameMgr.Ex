@@ -108,7 +108,7 @@ namespace ThGameMgr.Ex.Settings
                 _ = rootNode.AppendChild(scoreFilterPlayerConfigRootNode);
 
                 XmlNode spellCardPlayerConfigRootNode =
-                    gameSpecificConfigXml.CreateElement("SpellCardFilterPlayerConfig");
+                    gameSpecificConfigXml.CreateElement("ScoreFilterCardPlayerConfig");
                 _ = rootNode.AppendChild(spellCardPlayerConfigRootNode);
 
                 XmlNode scoreFilterEnemyConfigRootNode =
@@ -188,7 +188,7 @@ namespace ThGameMgr.Ex.Settings
                     rootNode?.SelectSingleNode("ScoreFilterPlayerConfig");
 
                 XmlNode? spellCardFilterPlayerConfigRootNode =
-                    rootNode?.SelectSingleNode("SpellCardFilterPlayerConfig");
+                    rootNode?.SelectSingleNode("ScoreFilterCardPlayerConfig");
 
                 XmlNode ? scoreFilterEnemyConfigRootNode =
                     rootNode?.SelectSingleNode("ScoreFilterEnemyConfig");
