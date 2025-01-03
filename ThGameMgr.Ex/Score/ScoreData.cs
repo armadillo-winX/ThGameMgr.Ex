@@ -163,6 +163,33 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        public static IEnumerable<SpellCardRecordData>? RetrieveSpellPracticeData(
+            SpellCardRecordFilter spellPracticeRecordFilter)
+        {
+            if (SpellPracticeRecordLists != null &&
+                SpellPracticeRecordLists.Count >= 0)
+            {
+                IEnumerable<SpellCardRecordData> filteredSpellPracticeRecordLists = SpellPracticeRecordLists;
+
+                //自機別の切り替えについてはまだ対応しない
+
+                if (!string.IsNullOrEmpty(spellPracticeRecordFilter.Enemy) && spellPracticeRecordFilter.Enemy != "ALL")
+                {
+                    filteredSpellPracticeRecordLists = filteredSpellPracticeRecordLists.Where(
+                        x =>
+                        {
+                            return x.Enemy == spellPracticeRecordFilter.Enemy;
+                        });
+                }
+
+                return filteredSpellPracticeRecordLists;
+            }
+            else
+            {
+                return SpellPracticeRecordLists;
+            }
+        }
+
         public static void ExportToTextFile(
             string outputPath, bool outputUntriedCardData, ScoreFilter scoreFilter,  string? comment)
         {
