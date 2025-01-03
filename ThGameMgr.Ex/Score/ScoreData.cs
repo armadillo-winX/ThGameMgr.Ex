@@ -121,6 +121,48 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        public static IEnumerable<SpellCardRecordData>? RetrieveSpellCardData(
+            SpellCardRecordFilter spellCardRecordFilter)
+        {
+            if (SpellCardRecordLists != null &&
+                SpellCardRecordLists.Count >= 0)
+            {
+                IEnumerable<SpellCardRecordData> filteredSpellCardRecordLists;
+
+                if (!string.IsNullOrEmpty(spellCardRecordFilter.Player) &&  spellCardRecordFilter.Player != "ALL")
+                {
+                    if (SpellCardRecordsByPlayer.TryGetValue(spellCardRecordFilter.Player,
+                        out ObservableCollection<SpellCardRecordData>? spellCardRecordsByPlayer))
+                    {
+                        filteredSpellCardRecordLists = spellCardRecordsByPlayer;
+                    }
+                    else
+                    {
+                        filteredSpellCardRecordLists = [];
+                    }
+                }
+                else
+                {
+                    filteredSpellCardRecordLists = SpellCardRecordLists;
+                }
+
+                if (!string.IsNullOrEmpty(spellCardRecordFilter.Enemy) && spellCardRecordFilter.Enemy != "ALL")
+                {
+                    filteredSpellCardRecordLists = filteredSpellCardRecordLists.Where(
+                        x =>
+                        {
+                            return x.Enemy == spellCardRecordFilter.Enemy;
+                        });
+                }
+
+                return filteredSpellCardRecordLists;
+            }
+            else
+            {
+                return SpellCardRecordLists;
+            }
+        }
+
         public static void ExportToTextFile(
             string outputPath, bool outputUntriedCardData, ScoreFilter scoreFilter,  string? comment)
         {
