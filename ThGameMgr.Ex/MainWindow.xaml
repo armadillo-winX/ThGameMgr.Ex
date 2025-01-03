@@ -253,7 +253,7 @@
                         ContextMenuService.Placement="Bottom"
                         Click="SpellCardPlayersSwitchButtonClick">
                         <Button.ContextMenu>
-                            <ContextMenu x:Name="SpellCardPlayerContextMenu" Placement="Bottom"/>
+                            <ContextMenu x:Name="SpellCardPlayersSwitchButtonContextMenu" Placement="Bottom"/>
                         </Button.ContextMenu>
                     </Button>
                     <TextBlock x:Name="SpellCardPlayerBlock"

@@ -749,7 +749,7 @@ namespace ThGameMgr.Ex
                     this.GameId = gameId;
 
                     SetPlayersFilterMenu();
-                    SetSpellCardPlayerMenu();
+                    SetSpellCardPlayerSwitchMenu();
                     SetEnemiesFilterMenu();
                     SetPracticeEnemiesFilterMenu();
                     SetLevelFilterMenu();
@@ -809,19 +809,19 @@ namespace ThGameMgr.Ex
             ApplyScoreViewFilter();
         }
 
-        private void SetSpellCardPlayerMenu()
+        private void SetSpellCardPlayerSwitchMenu()
         {
-            SpellCardPlayerContextMenu.Items.Clear();
+            SpellCardPlayersSwitchButtonContextMenu.Items.Clear();
 
             MenuItem allItem = new()
             {
                 Header = "ALL"
             };
-            allItem.Click += new RoutedEventHandler(SpellCardPlayerMenuClick);
-            SpellCardPlayerContextMenu.Items.Add(allItem);
+            allItem.Click += new RoutedEventHandler(SpellCardPlayerSwitchMenuClick);
+            SpellCardPlayersSwitchButtonContextMenu.Items.Add(allItem);
 
             Separator separator = new();
-            SpellCardPlayerContextMenu.Items.Add(separator);
+            SpellCardPlayersSwitchButtonContextMenu.Items.Add(separator);
 
             string gameId = this.GameId;
             string gamePlayers = GamePlayers.GetGamePlayers(gameId);
@@ -834,13 +834,13 @@ namespace ThGameMgr.Ex
                     {
                         Header = gamePlayer
                     };
-                    item.Click += new RoutedEventHandler(SpellCardPlayerMenuClick);
-                    SpellCardPlayerContextMenu.Items.Add(item);
+                    item.Click += new RoutedEventHandler(SpellCardPlayerSwitchMenuClick);
+                    SpellCardPlayersSwitchButtonContextMenu.Items.Add(item);
                 }
             }
         }
 
-        private void SpellCardPlayerMenuClick(object sender, RoutedEventArgs e)
+        private void SpellCardPlayerSwitchMenuClick(object sender, RoutedEventArgs e)
         {
             string playerName = ((MenuItem)sender).Header.ToString();
             this.SpellCardPlayer = playerName;
@@ -1136,7 +1136,7 @@ namespace ThGameMgr.Ex
 
             SetGameSelectionMenu();
             SetPlayersFilterMenu();
-            SetSpellCardPlayerMenu();
+            SetSpellCardPlayerSwitchMenu();
             SetEnemiesFilterMenu();
             SetPracticeEnemiesFilterMenu();
             SetLevelFilterMenu();
@@ -1901,11 +1901,11 @@ namespace ThGameMgr.Ex
 
         private void SpellCardPlayersSwitchButtonClick(object sender, RoutedEventArgs e)
         {
-            if (!SpellCardPlayerContextMenu.IsOpen)
+            if (!SpellCardPlayersSwitchButtonContextMenu.IsOpen)
             {
-                SpellCardPlayerContextMenu.PlacementTarget = SpellCardPlayersSwitchButton;
-                SpellCardPlayerContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
-                SpellCardPlayerContextMenu.IsOpen = true;
+                SpellCardPlayersSwitchButtonContextMenu.PlacementTarget = SpellCardPlayersSwitchButton;
+                SpellCardPlayersSwitchButtonContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+                SpellCardPlayersSwitchButtonContextMenu.IsOpen = true;
             }
         }
 
