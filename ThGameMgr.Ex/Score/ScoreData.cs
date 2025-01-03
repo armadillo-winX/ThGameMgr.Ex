@@ -88,6 +88,39 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        public static IEnumerable<ScoreRecordData>? RetrieveScoreData(ScoreFilter scoreFilter)
+        {
+            if (ScoreRecordLists != null &&
+                ScoreRecordLists.Count >= 0)
+            {
+                IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreRecordLists;
+
+                if (!string.IsNullOrEmpty(scoreFilter.Level) && scoreFilter.Level != "ALL")
+                {
+                    filteredScoreRecordLists = filteredScoreRecordLists.Where(
+                        x =>
+                        {
+                            return x.Level == scoreFilter.Level;
+                        });
+                }
+
+                if (!string.IsNullOrEmpty(scoreFilter.Player) && scoreFilter.Player != "ALL")
+                {
+                    filteredScoreRecordLists = filteredScoreRecordLists.Where(
+                        x =>
+                        {
+                            return x.Player == scoreFilter.Player;
+                        });
+                }
+
+                return filteredScoreRecordLists;
+            }
+            else
+            {
+                return ScoreRecordLists;
+            }
+        }
+
         public static void ExportToTextFile(
             string outputPath, bool outputUntriedCardData, ScoreFilter scoreFilter,  string? comment)
         {
