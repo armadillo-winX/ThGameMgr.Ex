@@ -249,7 +249,12 @@
                 <Grid >
                     <Button x:Name="SpellCardPlayersSwitchButton" 
                         Width="90" Height="24"
-                        Content="自機▾" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                        Content="自機▾" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
+                        ContextMenuService.Placement="Bottom">
+                        <Button.ContextMenu>
+                            <ContextMenu x:Name="SpellCardPlayerContextMenu" Placement="Bottom"/>
+                        </Button.ContextMenu>
+                    </Button>
                     <TextBlock x:Name="SpellCardPlayerBlock"
                         HorizontalAlignment="Left" Margin="105,12,0,0" TextWrapping="Wrap" Text="Player" VerticalAlignment="Top" FontSize="14"/>
                     <Button x:Name="EnemiesFilterButton"
