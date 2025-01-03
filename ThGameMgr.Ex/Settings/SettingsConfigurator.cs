@@ -107,6 +107,10 @@ namespace ThGameMgr.Ex.Settings
                     gameSpecificConfigXml.CreateElement("ScoreFilterPlayerConfig");
                 _ = rootNode.AppendChild(scoreFilterPlayerConfigRootNode);
 
+                XmlNode spellCardPlayerConfigRootNode =
+                    gameSpecificConfigXml.CreateElement("SpellCardFilterPlayerConfig");
+                _ = rootNode.AppendChild(spellCardPlayerConfigRootNode);
+
                 XmlNode scoreFilterEnemyConfigRootNode =
                     gameSpecificConfigXml.CreateElement("ScoreFilterEnemyConfig");
                 _ = rootNode.AppendChild(scoreFilterEnemyConfigRootNode);
@@ -132,6 +136,13 @@ namespace ThGameMgr.Ex.Settings
                     scoreFilterPlayerConfigNode.InnerText = filterPlayer;
 
                     _ = scoreFilterPlayerConfigRootNode.AppendChild(scoreFilterPlayerConfigNode);
+
+
+                    string spellCardFilterPlayer = GameSpecificSettings.GetSpellCardFilterPlayer(gameId);
+                    XmlElement spellCardFilterPlayerConfigNode = gameSpecificConfigXml.CreateElement(gameId);
+                    spellCardFilterPlayerConfigNode.InnerText= spellCardFilterPlayer;
+
+                    _ = spellCardPlayerConfigRootNode.AppendChild(spellCardFilterPlayerConfigNode);
 
                     string filterEnemy = GameSpecificSettings.GetScoreFilterEnemy(gameId);
                     XmlElement scoreFilterEnemyConfigNode = gameSpecificConfigXml.CreateElement(gameId);
