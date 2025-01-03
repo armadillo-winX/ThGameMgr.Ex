@@ -568,50 +568,34 @@ namespace ThGameMgr.Ex
             SpellCardDataGrid.Items.Clear();
             SpellPracticeDataGrid.Items.Clear();
 
-            if (ScoreData.ScoreRecordLists != null &&
-                ScoreData.ScoreRecordLists.Count >= 0)
+            ScoreFilter scoreFilter = new()
             {
-                IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreData.ScoreRecordLists;
+                Level = this.FilterLevel,
+                Player = this.FilterPlayer,
+            };
 
-                if (this.FilterLevel != "ALL")
-                {
-                    filteredScoreRecordLists = filteredScoreRecordLists.Where(
-                        x =>
-                        {
-                            return x.Level == this.FilterLevel;
-                        });
-                }
-
-                if (this.FilterPlayer != "ALL") 
-                {
-                    filteredScoreRecordLists = filteredScoreRecordLists.Where(
-                        x =>
-                        {
-                            return x.Player == this.FilterPlayer;
-                        });
-                }
-
+            IEnumerable<ScoreRecordData>? filteredScoreDataRecords = ScoreData.RetrieveScoreData(scoreFilter);
+            if (filteredScoreDataRecords != null &&
+                filteredScoreDataRecords.Count() >= 0)
+            {
                 ScoreDataGrid.AutoGenerateColumns = false;
-                foreach (ScoreRecordData scoreRecordData in filteredScoreRecordLists)
+                foreach (ScoreRecordData scoreRecordData in filteredScoreDataRecords)
                 {
                     ScoreDataGrid.Items.Add(scoreRecordData);
                 }
             }
 
-            if (ScoreData.SpellCardRecordLists != null &&
-                ScoreData.SpellCardRecordLists.Count >= 0)
+            SpellCardRecordFilter spellCardRecordFilter = new()
             {
-                IEnumerable<SpellCardRecordData> filteredSpellCardRecordLists = ScoreData.SpellCardRecordLists;
+                Player = this.FilterSpellCardPlayer,
+                Enemy = this.FilterEnemy
+            };
+            IEnumerable<SpellCardRecordData>? filteredSpellCardRecordLists
+                = ScoreData.RetrieveSpellCardData(spellCardRecordFilter);
 
-                if (this.FilterEnemy != "ALL")
-                {
-                    filteredSpellCardRecordLists = filteredSpellCardRecordLists.Where(
-                        x =>
-                        {
-                            return x.Enemy == this.FilterEnemy;
-                        });
-                }
-
+            if (filteredSpellCardRecordLists != null &&
+                filteredSpellCardRecordLists.Count() >= 0)
+            {
                 SpellCardDataGrid.AutoGenerateColumns = false;
                 if (DisplayUnchallengedCardMenuItem.IsChecked)
                 {
@@ -646,20 +630,17 @@ namespace ThGameMgr.Ex
                 }
             }
 
-            if (ScoreData.SpellPracticeRecordLists != null &&
-                ScoreData.SpellPracticeRecordLists.Count >= 0)
+            SpellCardRecordFilter spellPracticeRecordFilter = new()
             {
-                IEnumerable<SpellCardRecordData> filteredSpellPracticeRecordLists = ScoreData.SpellPracticeRecordLists;
+                Player = "ALL",
+                Enemy = this.FilterPracticeEnemy
+            };
+            IEnumerable<SpellCardRecordData>? filteredSpellPracticeRecordLists
+                = ScoreData.RetrieveSpellPracticeData(spellPracticeRecordFilter);
 
-                if (this.FilterPracticeEnemy != "ALL")
-                {
-                    filteredSpellPracticeRecordLists = filteredSpellPracticeRecordLists.Where(
-                        x =>
-                        {
-                            return x.Enemy == this.FilterPracticeEnemy;
-                        });
-                }
-
+            if (filteredSpellPracticeRecordLists != null &&
+                filteredSpellPracticeRecordLists.Count() >= 0)
+            {
                 SpellPracticeDataGrid.AutoGenerateColumns = false;
                 if (DisplayUnchallengedCardMenuItem.IsChecked)
                 {
