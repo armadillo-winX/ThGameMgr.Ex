@@ -187,6 +187,7 @@ namespace ThGameMgr.Ex
             {
                 if (!string.IsNullOrEmpty(value))
                 {
+                    _spellCardPlayer = value;
                     SpellCardPlayerBlock.Text =
                         value == "ALL" ? "全自機合計" : value;
 
