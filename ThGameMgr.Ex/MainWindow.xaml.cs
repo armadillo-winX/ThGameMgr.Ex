@@ -749,6 +749,7 @@ namespace ThGameMgr.Ex
                     this.GameId = gameId;
 
                     SetPlayersFilterMenu();
+                    SetSpellCardPlayerMenu();
                     SetEnemiesFilterMenu();
                     SetPracticeEnemiesFilterMenu();
                     SetLevelFilterMenu();
@@ -805,6 +806,44 @@ namespace ThGameMgr.Ex
         {
             string playerName = ((MenuItem)sender).Header.ToString();
             this.FilterPlayer = playerName;
+            ApplyScoreViewFilter();
+        }
+
+        private void SetSpellCardPlayerMenu()
+        {
+            SpellCardPlayerContextMenu.Items.Clear();
+
+            MenuItem allItem = new()
+            {
+                Header = "ALL"
+            };
+            allItem.Click += new RoutedEventHandler(SpellCardPlayerMenuClick);
+            SpellCardPlayerContextMenu.Items.Add(allItem);
+
+            Separator separator = new();
+            SpellCardPlayerContextMenu.Items.Add(separator);
+
+            string gameId = this.GameId;
+            string gamePlayers = GamePlayers.GetGamePlayers(gameId);
+            if (gamePlayers != null)
+            {
+                string[] gamePlayersList = gamePlayers.Split(',');
+                foreach (string gamePlayer in gamePlayersList)
+                {
+                    MenuItem item = new()
+                    {
+                        Header = gamePlayer
+                    };
+                    item.Click += new RoutedEventHandler(SpellCardPlayerMenuClick);
+                    SpellCardPlayerContextMenu.Items.Add(item);
+                }
+            }
+        }
+
+        private void SpellCardPlayerMenuClick(object sender, RoutedEventArgs e)
+        {
+            string playerName = ((MenuItem)sender).Header.ToString();
+            this.SpellCardPlayer = playerName;
             ApplyScoreViewFilter();
         }
 
@@ -1097,6 +1136,7 @@ namespace ThGameMgr.Ex
 
             SetGameSelectionMenu();
             SetPlayersFilterMenu();
+            SetSpellCardPlayerMenu();
             SetEnemiesFilterMenu();
             SetPracticeEnemiesFilterMenu();
             SetLevelFilterMenu();
