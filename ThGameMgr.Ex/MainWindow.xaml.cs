@@ -95,6 +95,7 @@ namespace ThGameMgr.Ex
                     }
 
                     this.FilterPlayer = GameSpecificSettings.GetScoreFilterPlayer(value);
+                    this.FilterSpellCardPlayer = GameSpecificSettings.GetSpellCardFilterPlayer(value);
                     this.FilterEnemy = GameSpecificSettings.GetScoreFilterEnemy(value);
                     this.FilterPracticeEnemy = GameSpecificSettings.GetScoreFilterPracticeEnemy(value);
                     this.FilterLevel = GameSpecificSettings.GetScoreFilterLevel(value);
