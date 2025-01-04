@@ -81,6 +81,15 @@ namespace ThGameMgr.Ex
                         SpellPracticeLevelColumn.Visibility = Visibility.Collapsed;
                     }
 
+                    if (value != GameIndex.Th06)
+                    {
+                        SpellCardPlayersSwitchButton.IsEnabled = true;
+                    }
+                    else
+                    {
+                        SpellCardPlayersSwitchButton.IsEnabled = false;
+                    }
+
                     if (SpellCard.IsSpellPracticeAvailable(value))
                     {
                         SpellPracticeTabItem.Visibility = Visibility.Visible;
