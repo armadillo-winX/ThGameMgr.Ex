@@ -137,7 +137,7 @@ namespace ThGameMgr.Ex.Score.Th08
             return scoreRecordList;
         }
 
-        private static SpellCardRecordData GetSpellCardRecord(byte[] data)
+        private static Dictionary<string, SpellCardRecordData> GetSpellCardRecord(byte[] data)
         {
             byte[] CATK_DATA = data[0..4];
             byte[] SIZE_DATA = data[4..6];
@@ -147,7 +147,9 @@ namespace ThGameMgr.Ex.Score.Th08
             byte[] ENEMY_NAME_DATA = data[64..112];
             byte[] COMMENT_DATA = data[112..240];
             byte[] ALL_MAXBONUS_DATA = data[288..292];
+            byte[] CHALLENGE_DATA_BY_PLAYER = data[292..340]; //自機別の挑戦数データ(4bytesごと)
             byte[] ALL_CHALLANGE_DATA = data[340..344];
+            byte[] GET_DATA_BY_PLAYER = data[344..392]; //自機別の取得数データ(4bytesごと)
             byte[] ALL_GET_DATA = data[392..396];
 
             int cardId = BitConverter.ToInt16(CARD_ID_DATA, 0) + 1;
@@ -169,7 +171,8 @@ namespace ThGameMgr.Ex.Score.Th08
                 level = levelName;
             }
 
-            SpellCardRecordData spellCardRecordList = new()
+
+            SpellCardRecordData allSpellCardRecordList = new()
             {
                 CardID = cardId.ToString(),
                 CardName = cardName,
@@ -180,7 +183,40 @@ namespace ThGameMgr.Ex.Score.Th08
                 Enemy = spellcardData.Enemy,
                 Place = spellcardData.Place
             };
-            return spellCardRecordList;
+
+            Dictionary<string, SpellCardRecordData> spellCardRecordsDictionary = [];
+            spellCardRecordsDictionary.Add("all", allSpellCardRecordList);
+
+            string[] players = GamePlayers.GetGamePlayers(GameIndex.Th08).Split(',');
+
+            int playerIndex = 0;
+            for (int i = 0; i <= 44; i += 4)
+            {
+                byte[] PLAYER_CHALLENGE_DATA = CHALLENGE_DATA_BY_PLAYER[i..(i + 4)];
+                byte[] PLAYER_GET_DATA = GET_DATA_BY_PLAYER[i..(i + 4)];
+
+                int playerChallengeCount = BitConverter.ToInt32(PLAYER_CHALLENGE_DATA, 0);
+                int playerGetCount = BitConverter.ToInt32(PLAYER_GET_DATA, 0);
+
+                SpellCardRecordData playerSpellCardRecordData = new()
+                {
+                    CardID = cardId.ToString(),
+                    CardName = cardName,
+                    TryCount = playerChallengeCount.ToString(),
+                    GetCount = playerGetCount.ToString(),
+                    Rate = ScoreCalculator.CalcSpellCardGetRate(playerGetCount, playerChallengeCount),
+                    Level = level,
+                    Enemy = spellcardData.Enemy,
+                    Place = spellcardData.Place
+                };
+
+                string player = players[playerIndex];
+                playerIndex++;
+
+                spellCardRecordsDictionary.Add(player, playerSpellCardRecordData);
+            }
+
+            return spellCardRecordsDictionary;
         }
     }
 }
