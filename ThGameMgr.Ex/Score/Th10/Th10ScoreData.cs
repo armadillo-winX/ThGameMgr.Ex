@@ -171,9 +171,13 @@ namespace ThGameMgr.Ex.Score.Th10
 
                 SpellCardRecordData playerSpellCardRecordData = GetSpellCardRecordData(PLAYER_SPELL_CARD_DATA);
 
+                int playerTryCount = Convert.ToInt32(playerSpellCardRecordData.TryCount);
+                int playerGetCount = Convert.ToInt32(playerSpellCardRecordData.GetCount);
+
                 string player = players[l];
 
                 playerSpellCardRecordData.CardName = spellCard.CardName;
+                playerSpellCardRecordData.Rate = ScoreCalculator.CalcSpellCardGetRate(playerGetCount, playerTryCount);
                 playerSpellCardRecordData.Enemy = spellCard.Enemy;
                 playerSpellCardRecordData.Place = spellCard.Place;
 
