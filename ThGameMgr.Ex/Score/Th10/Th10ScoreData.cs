@@ -163,9 +163,9 @@ namespace ThGameMgr.Ex.Score.Th10
             SpellCard spellCard = Th10SpellCard.GetSpellCardData(cardId);
 
             //ReimuAから順に、cardIdに対応するスペルカードの戦歴を取得してspellCardReocrdsDictionaryに格納
-            for (int l = 0; l < 6; l++)
+            for (int playerIndex = 0; playerIndex < 6; playerIndex++)
             {
-                int i = 1460 + (17276 * l) + (n * 144);
+                int i = 1460 + (17276 * playerIndex) + (n * 144);
 
                 byte[] PLAYER_SPELL_CARD_DATA = data[i..(i + 144)];
 
@@ -174,7 +174,7 @@ namespace ThGameMgr.Ex.Score.Th10
                 int playerTryCount = Convert.ToInt32(playerSpellCardRecordData.TryCount);
                 int playerGetCount = Convert.ToInt32(playerSpellCardRecordData.GetCount);
 
-                string player = players[l];
+                string player = players[playerIndex];
 
                 playerSpellCardRecordData.CardName = spellCard.CardName;
                 playerSpellCardRecordData.Rate = ScoreCalculator.CalcSpellCardGetRate(playerGetCount, playerTryCount);
