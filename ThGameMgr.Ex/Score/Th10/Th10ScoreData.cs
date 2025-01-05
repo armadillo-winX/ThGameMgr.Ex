@@ -66,9 +66,15 @@ namespace ThGameMgr.Ex.Score.Th10
 
                         for (int p = 1; p < 111; p++)
                         {
-                            SpellCardRecordData spellCardRecordList =
+                            Dictionary<string, SpellCardRecordData>
+                                spellCardRecordList =
                                 GetAllSpellCardRecord(p, bytes);
-                            ScoreData.SpellCardRecordLists.Add(spellCardRecordList);
+                            ScoreData.SpellCardRecordLists.Add(spellCardRecordList["all"]);
+
+                            foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th10).Split(','))
+                            {
+                                ScoreData.SpellCardRecordsByPlayer[player].Add(spellCardRecordList[player]);
+                            }
                         }
                     }
                 }
