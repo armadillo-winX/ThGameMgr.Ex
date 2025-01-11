@@ -82,7 +82,7 @@ namespace ThGameMgr.Ex.Score.Th16
                                 GetAllSpellCardRecord(p, bytes);
                             ScoreData.SpellCardRecordLists.Add(spellCardRecordLists["all"][0]);
 
-                            foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th14).Split(','))
+                            foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th16).Split(','))
                             {
                                 ScoreData.SpellCardRecordsByPlayer[player].Add(spellCardRecordLists[player][0]);
                             }
