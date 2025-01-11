@@ -67,10 +67,15 @@ namespace ThGameMgr.Ex.Score.Th15
 
                         for (int p = 1; p < 120; p++)
                         {
-                            ObservableCollection<SpellCardRecordData> spellCardRecordLists
+                            Dictionary<string, SpellCardRecordData> spellCardRecordLists
                                 = GetAllSpellCardRecord(p, bytes);
-                            ScoreData.SpellCardRecordLists.Add(spellCardRecordLists[0]);
-                            ScoreData.SpellCardRecordLists.Add(spellCardRecordLists[1]);
+                            ScoreData.SpellCardRecordLists.Add(spellCardRecordLists["allPerfect"]);
+                            ScoreData.SpellCardRecordLists.Add(spellCardRecordLists["allLegacy"]);
+
+                            foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th15).Split(','))
+                            {
+                                ScoreData.SpellCardRecordsByPlayer[player].Add(spellCardRecordLists[player]);
+                            }
                         }
                     }
                 }
