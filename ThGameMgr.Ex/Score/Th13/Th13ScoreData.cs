@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace ThGameMgr.Ex.Score.Th13
 {
@@ -161,90 +162,96 @@ namespace ThGameMgr.Ex.Score.Th13
             return spellCardRecordLists;
         }
 
-        private static ObservableCollection<SpellCardRecordData> GetAllSpellCardRecord(
+        private static Dictionary<string, ObservableCollection<SpellCardRecordData>> GetAllSpellCardRecord(
             int cardId, byte[] data)
         {
             int n = cardId - 1;
 
-            int i0 = 2448 + (n * 156);
-            int i1 = 24684 + (n * 156);
-            int i2 = 46920 + (n * 156);
-            int i3 = 69156 + (n * 156);
+            //Reimu  Spell Card Record start at:   2448 bytes
+            //Marisa Spell Card Record start at:  24684 bytes
+            //Sanae  Spell Card Record start at:  46920 btyes
+            //Youmu  Spell Card Record start at:  69156 bytes
 
-            int i0end = i0 + 156;
-            int i1end = i1 + 156;
-            int i2end = i2 + 156;
-            int i3end = i3 + 156;
+            Dictionary<string, ObservableCollection<SpellCardRecordData>> spellCardRecordsDictionary = [];
+            string[] players = GamePlayers.GetGamePlayers(GameIndex.Th13).Split(',');
+            SpellCard spellCard = Th13SpellCard.GetSpellCardData(cardId);
 
-            ObservableCollection<SpellCardRecordData> cardDataReimu = GetSpellCardRecordData(data[i0..i0end]);
-            ObservableCollection<SpellCardRecordData> cardDataMarisa = GetSpellCardRecordData(data[i1..i1end]);
-            ObservableCollection<SpellCardRecordData> cardDataSanae = GetSpellCardRecordData(data[i2..i2end]);
-            ObservableCollection<SpellCardRecordData> cardDataYoumu = GetSpellCardRecordData(data[i3..i3end]);
+            for (int playerIndex = 0; playerIndex < 4; playerIndex++)
+            {
+                int i = 2448 + (22236 * playerIndex) + (n * 156);
 
-            int challengeReimu = int.Parse(cardDataReimu[0].TryCount);
-            int challengeMarisa = int.Parse(cardDataMarisa[0].TryCount);
-            int challengeSanae = int.Parse(cardDataSanae[0].TryCount);
-            int challengeYoumu = int.Parse(cardDataYoumu[0].TryCount);
+                byte[] PLAYER_SPELL_CARD_DATA = data[i..(i + 156)];
 
-            int getReimu = int.Parse(cardDataReimu[0].GetCount);
-            int getMarisa = int.Parse(cardDataMarisa[0].GetCount);
-            int getSanae = int.Parse(cardDataSanae[0].GetCount);
-            int getYoumu = int.Parse(cardDataYoumu[0].GetCount);
+                ObservableCollection<SpellCardRecordData>
+                    playerSpellCardRecordData = GetSpellCardRecordData(PLAYER_SPELL_CARD_DATA);
 
-            int practiceChallengeReimu = int.Parse(cardDataReimu[1].TryCount);
-            int practiceChallengeMarisa = int.Parse(cardDataMarisa[1].TryCount);
-            int practiceChallengeSanae = int.Parse(cardDataSanae[1].TryCount);
-            int practiceChallengeYoumu = int.Parse(cardDataYoumu[1].TryCount);
+                int playerTryCount = Convert.ToInt32(playerSpellCardRecordData[0].TryCount);
+                int playerGetCount = Convert.ToInt32(playerSpellCardRecordData[0].GetCount);
 
-            int practiceGetReimu = int.Parse(cardDataReimu[1].GetCount);
-            int practiceGetMarisa = int.Parse(cardDataMarisa[1].GetCount);
-            int practiceGetSanae = int.Parse(cardDataSanae[1].GetCount);
-            int practiceGetYoumu = int.Parse(cardDataYoumu[1].GetCount);
+                int playerPracticeTryCount = Convert.ToInt32(playerSpellCardRecordData[1].TryCount);
+                int playerPracticeGetCount = Convert.ToInt32(playerSpellCardRecordData[1].GetCount);
 
-            int allChallengeCount
-                = challengeReimu + challengeMarisa + challengeSanae + challengeYoumu;
-            int allGetCount
-                = getReimu + getMarisa + getSanae + getYoumu;
+                string player = players[playerIndex];
 
-            int allPracticeChallengeCount
-                = practiceChallengeReimu + practiceChallengeMarisa + practiceChallengeSanae + practiceChallengeYoumu;
-            int allPracitceGetCount
-                = practiceGetReimu + practiceGetMarisa + practiceGetSanae + practiceGetYoumu;
+                playerSpellCardRecordData[0].CardName = spellCard.CardName;
+                playerSpellCardRecordData[1].CardName = spellCard.CardName;
+                playerSpellCardRecordData[0].Rate
+                    = ScoreCalculator.CalcSpellCardGetRate(playerGetCount, playerTryCount);
+                playerSpellCardRecordData[1].Rate
+                    = ScoreCalculator.CalcSpellCardGetRate(playerPracticeGetCount, playerPracticeTryCount);
+                playerSpellCardRecordData[0].Enemy = spellCard.Enemy;
+                playerSpellCardRecordData[1].Enemy = spellCard.Enemy;
+                playerSpellCardRecordData[0].Place = spellCard.Place;
+                playerSpellCardRecordData[1].Place = spellCard.Place;
 
-            SpellCard spellcardData = Th13SpellCard.GetSpellCardData(cardId);
+                spellCardRecordsDictionary.Add(player, playerSpellCardRecordData);
+            }
 
-            string cardName = spellcardData.CardName;
-            string practiceCardName = spellcardData.CardName;
+            int allTryCount = 0;
+            int allGetCount = 0;
 
-            string allGetRate = ScoreCalculator.CalcSpellCardGetRate(allGetCount, allChallengeCount);
-            string allPracticeGetRate = ScoreCalculator.CalcSpellCardGetRate(allPracitceGetCount, allPracticeChallengeCount);
+            int allPracticeTryCount = 0;
+            int allPracticeGetCount = 0;
 
-            SpellCardRecordData allSpellCardRecordList = new()
+            foreach (
+                KeyValuePair<string, ObservableCollection<SpellCardRecordData>> keyValuePair in spellCardRecordsDictionary)
+            {
+                allTryCount += Convert.ToInt32(keyValuePair.Value[0].TryCount);
+                allGetCount += Convert.ToInt32(keyValuePair.Value[0].GetCount);
+                allPracticeTryCount += Convert.ToInt32(keyValuePair.Value[1].TryCount);
+                allPracticeGetCount += Convert.ToInt32(keyValuePair.Value[1].GetCount);
+            }
+
+            string allGetRate = ScoreCalculator.CalcSpellCardGetRate(allGetCount, allTryCount);
+            string allPracticeGetRate = ScoreCalculator.CalcSpellCardGetRate(allPracticeGetCount, allPracticeTryCount);
+
+            SpellCardRecordData allSpellCardRecord = new()
             {
                 CardID = cardId.ToString(),
-                CardName = cardName,
-                TryCount = allChallengeCount.ToString(),
+                CardName = spellCard.CardName,
+                TryCount = allTryCount.ToString(),
                 GetCount = allGetCount.ToString(),
                 Rate = allGetRate,
-                Level = cardDataReimu[0].Level,
-                Enemy = spellcardData.Enemy,
-                Place = spellcardData.Place
+                Level = spellCardRecordsDictionary.FirstOrDefault().Value[0].Level,
+                Enemy = spellCard.Enemy,
+                Place = spellCard.Place
             };
 
-            SpellCardRecordData allPracticeSpellCardRecordList = new()
+            SpellCardRecordData allSpellPracticeRecord = new()
             {
                 CardID = cardId.ToString(),
-                CardName = practiceCardName,
-                TryCount = allPracticeChallengeCount.ToString(),
-                GetCount = allPracitceGetCount.ToString(),
+                CardName = spellCard.CardName,
+                TryCount = allPracticeTryCount.ToString(),
+                GetCount = allPracticeGetCount.ToString(),
                 Rate = allPracticeGetRate,
-                Level = cardDataReimu[1].Level,
-                Enemy = spellcardData.Enemy,
-                Place = spellcardData.Place
+                Level = spellCardRecordsDictionary.FirstOrDefault().Value[1].Level,
+                Enemy = spellCard.Enemy,
+                Place = spellCard.Place
             };
 
-            ObservableCollection<SpellCardRecordData> allSpellCardRecordLists = [allSpellCardRecordList, allPracticeSpellCardRecordList];
-            return allSpellCardRecordLists;
+            spellCardRecordsDictionary.Add("all", [allSpellCardRecord, allSpellPracticeRecord]);
+
+            return spellCardRecordsDictionary;
         }
 
         private static string LevelReplace(int l)
