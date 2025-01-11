@@ -160,7 +160,7 @@ namespace ThGameMgr.Ex.Score.Th11
             //MarisaC Spell Card Record start at: 135840 bytes
 
             Dictionary<string, SpellCardRecordData> spellCardRecordsDictionary = [];
-            string[] players = GamePlayers.GetGamePlayers(GameIndex.Th10).Split(',');
+            string[] players = GamePlayers.GetGamePlayers(GameIndex.Th11).Split(',');
             SpellCard spellCard = Th11SpellCard.GetSpellCardData(cardId);
 
             for (int playerIndex = 0; playerIndex < 6; playerIndex++)
