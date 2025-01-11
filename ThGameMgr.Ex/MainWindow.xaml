@@ -435,9 +435,10 @@
         </TabControl>
         <StatusBar x:Name="MainStatusBar" Height="22" VerticalAlignment="Bottom">
             <StatusBarItem Content="現在のユーザー:"/>
-            <StatusBarItem x:Name="CurrentUserStatusBarItem" />
+            <StatusBarItem x:Name="CurrentUserStatusBarItem"
+                        MouseDown="SelectUserMenuItemClick"/>
             <Separator/>
-            <StatusBarItem x:Name="StartGameStatusBarItem" />
+            <StatusBarItem x:Name="StartGameStatusBarItem"/>
         </StatusBar>
     </Grid>
 </Window>
