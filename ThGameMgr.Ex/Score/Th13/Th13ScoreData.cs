@@ -154,6 +154,7 @@ namespace ThGameMgr.Ex.Score.Th13
 
             SpellCardRecordData spellCardRecordList = new()
             {
+                CardID = cardId.ToString(),
                 TryCount = challenge.ToString(),
                 GetCount = get.ToString(),
                 Level = level
@@ -161,6 +162,7 @@ namespace ThGameMgr.Ex.Score.Th13
 
             SpellCardRecordData practiceSpellCardRecordList = new()
             {
+                CardID = cardId.ToString(),
                 TryCount = practiceChallenge.ToString(),
                 GetCount = practiceGet.ToString(),
                 Level = level
