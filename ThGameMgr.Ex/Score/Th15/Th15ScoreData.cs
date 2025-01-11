@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace ThGameMgr.Ex.Score.Th15
 {
@@ -163,96 +164,95 @@ namespace ThGameMgr.Ex.Score.Th15
             return spellCardRecordLists;
         }
 
-        private static ObservableCollection<SpellCardRecordData> GetAllSpellCardRecord(
+        private static Dictionary<string, SpellCardRecordData> GetAllSpellCardRecord(
             int cardId, byte[] data)
         {
             int n = cardId - 1;
 
-            int i0 = 2280 + (n * 156);
-            int i1 = 23152 + (n * 156);
-            int i2 = 44424 + (n * 156);
-            int i3 = 65296 + (n * 156);
-            int i4 = 86568 + (n * 156);
-            int i5 = 107440 + (n * 156);
-            int i6 = 128712 + (n * 156);
-            int i7 = 149584 + (n * 156);
+            //各自機の御札戦歴データ開始位置
+            int[] spellCardRecordStartPositions = [2280, 23152, 44424, 65296, 86568, 107440, 128712, 149584];
 
-            int i0end = i0 + 156;
-            int i1end = i1 + 156;
-            int i2end = i2 + 156;
-            int i3end = i3 + 156;
-            int i4end = i4 + 156;
-            int i5end = i5 + 156;
-            int i6end = i6 + 156;
-            int i7end = i7 + 156;
+            Dictionary<string, SpellCardRecordData> spellCardRecordsDictionary = [];
+            string[] players = GamePlayers.GetGamePlayers(GameIndex.Th15).Split(',');
+            SpellCard spellCard = Th15SpellCard.GetSpellCardData(cardId);
 
-            ObservableCollection<SpellCardRecordData> cardDataReimuA = GetSpellCardRecordData(data[i0..i0end]);
-            ObservableCollection<SpellCardRecordData> cardDataReimuB = GetSpellCardRecordData(data[i1..i1end]);
-            ObservableCollection<SpellCardRecordData> cardDataMarisaA = GetSpellCardRecordData(data[i2..i2end]);
-            ObservableCollection<SpellCardRecordData> cardDataMarisaB = GetSpellCardRecordData(data[i3..i3end]);
-            ObservableCollection<SpellCardRecordData> cardDataSanaeA = GetSpellCardRecordData(data[i4..i4end]);
-            ObservableCollection<SpellCardRecordData> cardDataSanaeB = GetSpellCardRecordData(data[i5..i5end]);
-            ObservableCollection<SpellCardRecordData> cardDataUdonA = GetSpellCardRecordData(data[i6..i6end]);
-            ObservableCollection<SpellCardRecordData> cardDataUdonB = GetSpellCardRecordData(data[i7..i7end]);
+            for (int playerIndex = 0; playerIndex < 6; playerIndex++)
+            {
+                int i = spellCardRecordStartPositions[playerIndex] + (n * 156);
 
-            int challengeReimuA = int.Parse(cardDataReimuA[0].TryCount);
-            int challengeReimuB = int.Parse(cardDataReimuB[0].TryCount);
-            int challengeMarisaA = int.Parse(cardDataMarisaA[0].TryCount);
-            int challengeMarisaB = int.Parse(cardDataMarisaB[0].TryCount);
-            int challengeSanaeA = int.Parse(cardDataSanaeA[0].TryCount);
-            int challengeSanaeB = int.Parse(cardDataSanaeB[0].TryCount);
-            int challengeUdonA = int.Parse(cardDataUdonA[0].TryCount);
-            int challengeUdonB = int.Parse(cardDataUdonB[0].TryCount);
+                byte[] PLAYER_SPELL_CARD_DATA = data[i..(i + 156)];
 
-            int getReimuA = int.Parse(cardDataReimuA[0].GetCount);
-            int getReimuB = int.Parse(cardDataReimuB[0].GetCount);
-            int getMarisaA = int.Parse(cardDataMarisaA[0].GetCount);
-            int getMarisaB = int.Parse(cardDataMarisaB[0].GetCount);
-            int getSanaeA = int.Parse(cardDataSanaeA[0].GetCount);
-            int getSanaeB = int.Parse(cardDataSanaeB[0].GetCount);
-            int getUdonA = int.Parse(cardDataUdonA[0].GetCount);
-            int getUdonB = int.Parse(cardDataUdonB[0].GetCount);
+                ObservableCollection<SpellCardRecordData>
+                    playerSpellCardRecordData = GetSpellCardRecordData(PLAYER_SPELL_CARD_DATA);
 
-            int allPerfectChallenge = challengeReimuA + challengeMarisaA + challengeSanaeA + challengeUdonA;
-            int allPerfectGet = getReimuA + getMarisaA + getSanaeA + getUdonA;
+                int playerTryCount = Convert.ToInt32(playerSpellCardRecordData[0].TryCount);
+                int playerGetCount = Convert.ToInt32(playerSpellCardRecordData[0].GetCount);
 
-            int allLegacyChallenge = challengeReimuB + challengeMarisaB + challengeSanaeB + challengeUdonB;
-            int allLegacyGet = getReimuB + getMarisaB + getSanaeB + getUdonB;
+                string player = players[playerIndex];
 
-            SpellCard spellcardData = Th15SpellCard.GetSpellCardData(cardId);
+                playerSpellCardRecordData[0].CardName = spellCard.CardName;
+                playerSpellCardRecordData[0].Rate
+                    = ScoreCalculator.CalcSpellCardGetRate(playerGetCount, playerTryCount);
+                playerSpellCardRecordData[0].Enemy = spellCard.Enemy;
+                playerSpellCardRecordData[0].Place = spellCard.Place;
 
-            string perfectCardName = $"{spellcardData.CardName}(P)";
-            string legacyCardName = $"{spellcardData.CardName}(L)";
+                spellCardRecordsDictionary.Add(player, playerSpellCardRecordData[0]);
+            }
 
-            string allPerfectGetRate = ScoreCalculator.CalcSpellCardGetRate(allPerfectGet, allPerfectChallenge);
-            string allLegacyGetRate = ScoreCalculator.CalcSpellCardGetRate(allLegacyGet, allLegacyChallenge);
+            int allPerfectTryCount = 0;
+            int allPerfectGetCount = 0;
 
-            SpellCardRecordData perfectSpellCardRecordList = new()
+            int allLegacyTryCount = 0;
+            int allLegacyGetCount = 0;
+
+            string[] perfectPlayers = ["博麗霊夢(P)", "霧雨魔理沙(P)", "東風谷早苗(P)", "鈴仙・優曇華院・イナバ(P)"];
+            string[] legacyPlayers = ["博麗霊夢(L)", "霧雨魔理沙(L)", "東風谷早苗(L)", "鈴仙・優曇華院・イナバ(L)"];
+
+            foreach (string perfectPlayer in perfectPlayers)
+            {
+                SpellCardRecordData perfectPlayerSpellCardRecord = spellCardRecordsDictionary[perfectPlayer];
+                allPerfectTryCount += Convert.ToInt32(perfectPlayerSpellCardRecord.TryCount);
+                allPerfectGetCount += Convert.ToInt32(perfectPlayerSpellCardRecord.GetCount);
+            }
+
+            foreach (string legacyPlayer in legacyPlayers)
+            {
+                SpellCardRecordData legacyPlayerSpellCardRecord = spellCardRecordsDictionary[legacyPlayer];
+                allLegacyTryCount += Convert.ToInt32(legacyPlayerSpellCardRecord.TryCount);
+                allLegacyGetCount += Convert.ToInt32(legacyPlayerSpellCardRecord.GetCount);
+            }
+
+            string allPerfectGetRate = ScoreCalculator.CalcSpellCardGetRate(allPerfectGetCount, allPerfectTryCount);
+            string allLegacyGetRate = ScoreCalculator.CalcSpellCardGetRate(allLegacyGetCount, allLegacyTryCount);
+
+            SpellCardRecordData allPerfectSpellCardRecord = new()
             {
                 CardID = cardId.ToString(),
-                CardName = perfectCardName,
-                TryCount = allPerfectChallenge.ToString(),
-                GetCount = allPerfectGet.ToString(),
+                CardName = $"{spellCard.CardName}(完全無欠)",
+                TryCount = allPerfectTryCount.ToString(),
+                GetCount = allPerfectGetCount.ToString(),
                 Rate = allPerfectGetRate,
-                Level = cardDataReimuA[0].Level,
-                Enemy = spellcardData.Enemy,
-                Place = spellcardData.Place
+                Level = spellCardRecordsDictionary.FirstOrDefault().Value.Level,
+                Enemy = spellCard.Enemy,
+                Place = spellCard.Place
             };
 
-            SpellCardRecordData legacySpellCardRecordList = new()
+            SpellCardRecordData allLegacySpellCardRecord = new()
             {
                 CardID = cardId.ToString(),
-                CardName = legacyCardName,
-                TryCount = allLegacyChallenge.ToString(),
-                GetCount = allLegacyGet.ToString(),
+                CardName = $"{spellCard.CardName}(レガシー)",
+                TryCount = allLegacyTryCount.ToString(),
+                GetCount = allLegacyGetCount.ToString(),
                 Rate = allLegacyGetRate,
-                Level = cardDataReimuA[0].Level,
-                Enemy = spellcardData.Enemy,
-                Place = spellcardData.Place
+                Level = spellCardRecordsDictionary.FirstOrDefault().Value.Level,
+                Enemy = spellCard.Enemy,
+                Place = spellCard.Place
             };
 
-            ObservableCollection<SpellCardRecordData> allSpellCardRecordLists = [perfectSpellCardRecordList, legacySpellCardRecordList];
-            return allSpellCardRecordLists;
+            spellCardRecordsDictionary.Add("allPerfect", allPerfectSpellCardRecord);
+            spellCardRecordsDictionary.Add("allLegacy", allLegacySpellCardRecord);
+
+            return spellCardRecordsDictionary;
         }
 
         private static string LevelReplace(int l)
