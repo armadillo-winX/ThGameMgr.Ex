@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ThGameMgr.Ex.Score.Th12
 {
@@ -141,68 +142,68 @@ namespace ThGameMgr.Ex.Score.Th12
             return spellCardRecordList;
         }
 
-        private static SpellCardRecordData GetAllSpellCardRecord(int cardId, byte[] data)
+        private static Dictionary<string, SpellCardRecordData> GetAllSpellCardRecord(int cardId, byte[] data)
         {
             int n = cardId - 1;
 
-            int i0 = 1660 + (n * 144);
-            int i1 = 19568 + (n * 144);
-            int i2 = 37476 + (n * 144);
-            int i3 = 55384 + (n * 144);
-            int i4 = 73292 + (n * 144);
-            int i5 = 91200 + (n * 144);
+            //ReimuA  Spell Card Record start at:  1660 bytes
+            //ReimuB  Spell Card Record start at: 19568 btyes
+            //MarisaA Spell Card Record start at: 37476 bytes
+            //MarisaB Spell Card Record start at: 55384 bytes
+            //SanaeA  Spell Card Record start at: 73292 bytes
+            //SanaeB  Spell Card Record start at: 91200 bytes
 
-            int i0end = i0 + 144;
-            int i1end = i1 + 144;
-            int i2end = i2 + 144;
-            int i3end = i3 + 144;
-            int i4end = i4 + 144;
-            int i5end = i5 + 144;
+            Dictionary<string, SpellCardRecordData> spellCardRecordsDictionary = [];
+            string[] players = GamePlayers.GetGamePlayers(GameIndex.Th12).Split(',');
+            SpellCard spellCard = Th12SpellCard.GetSpellCardData(cardId);
 
-            SpellCardRecordData cardDataReimuA = GetSpellCardRecordData(data[i0..i0end]);
-            SpellCardRecordData cardDataReimuB = GetSpellCardRecordData(data[i1..i1end]);
-            SpellCardRecordData cardDataMarisaA = GetSpellCardRecordData(data[i2..i2end]);
-            SpellCardRecordData cardDataMarisaB = GetSpellCardRecordData(data[i3..i3end]);
-            SpellCardRecordData cardDataSanaeA = GetSpellCardRecordData(data[i4..i4end]);
-            SpellCardRecordData cardDataSanaeB = GetSpellCardRecordData(data[i5..i5end]);
+            for (int playerIndex = 0; playerIndex < 6; playerIndex++)
+            {
+                int i = 1660 + (17908 * playerIndex) + (n * 144);
 
-            int challengeReimuA = int.Parse(cardDataReimuA.TryCount);
-            int challengeReimuB = int.Parse(cardDataReimuB.TryCount);
-            int challengeMarisaA = int.Parse(cardDataMarisaA.TryCount);
-            int challengeMarisaB = int.Parse(cardDataMarisaB.TryCount);
-            int challengeSanaeA = int.Parse(cardDataSanaeA.TryCount);
-            int challengeSanaeB = int.Parse(cardDataSanaeB.TryCount);
+                byte[] PLAYER_SPELL_CARD_DATA = data[i..(i + 144)];
 
-            int getReimuA = int.Parse(cardDataReimuA.GetCount);
-            int getReimuB = int.Parse(cardDataReimuB.GetCount);
-            int getMarisaA = int.Parse(cardDataMarisaA.GetCount);
-            int getMarisaB = int.Parse(cardDataMarisaB.GetCount);
-            int getSanaeA = int.Parse(cardDataSanaeA.GetCount);
-            int getSanaeB = int.Parse(cardDataSanaeB.GetCount);
+                SpellCardRecordData playerSpellCardRecordData = GetSpellCardRecordData(PLAYER_SPELL_CARD_DATA);
 
-            int allChallenge
-                = challengeReimuA + challengeReimuB + challengeMarisaA + challengeMarisaB + challengeSanaeA + challengeSanaeB;
-            int allGet
-                = getReimuA + getReimuB + getMarisaA + getMarisaB + getSanaeA + getSanaeB;
+                int playerTryCount = Convert.ToInt32(playerSpellCardRecordData.TryCount);
+                int playerGetCount = Convert.ToInt32(playerSpellCardRecordData.GetCount);
 
-            SpellCard spellcardData = Th12SpellCard.GetSpellCardData(cardId);
-            string cardName
-                = spellcardData.CardName;
+                string player = players[playerIndex];
 
-            string allGetRate = ScoreCalculator.CalcSpellCardGetRate(allGet, allChallenge);
+                playerSpellCardRecordData.CardName = spellCard.CardName;
+                playerSpellCardRecordData.Rate = ScoreCalculator.CalcSpellCardGetRate(playerGetCount, playerTryCount);
+                playerSpellCardRecordData.Enemy = spellCard.Enemy;
+                playerSpellCardRecordData.Place = spellCard.Place;
+
+                spellCardRecordsDictionary.Add(player, playerSpellCardRecordData);
+            }
+
+            int allTryCount = 0;
+            int allGetCount = 0;
+
+            foreach (KeyValuePair<string, SpellCardRecordData> keyValuePair in spellCardRecordsDictionary)
+            {
+                allTryCount += Convert.ToInt32(keyValuePair.Value.TryCount);
+                allGetCount += Convert.ToInt32(keyValuePair.Value.GetCount);
+            }
+
+            string allGetRate = ScoreCalculator.CalcSpellCardGetRate(allGetCount, allTryCount);
 
             SpellCardRecordData allSpellCardRecordList = new()
             {
                 CardID = cardId.ToString(),
-                CardName = cardName,
-                TryCount = allChallenge.ToString(),
-                GetCount = allGet.ToString(),
+                CardName = spellCard.CardName,
+                TryCount = allTryCount.ToString(),
+                GetCount = allGetCount.ToString(),
                 Rate = allGetRate,
-                Level = cardDataReimuA.Level,
-                Enemy = spellcardData.Enemy,
-                Place = spellcardData.Place
+                Level = spellCardRecordsDictionary.FirstOrDefault().Value.Level,
+                Enemy = spellCard.Enemy,
+                Place = spellCard.Place
             };
-            return allSpellCardRecordList;
+
+            spellCardRecordsDictionary.Add("all", allSpellCardRecordList);
+
+            return spellCardRecordsDictionary;
         }
 
         private static string LevelReplace(int l)
