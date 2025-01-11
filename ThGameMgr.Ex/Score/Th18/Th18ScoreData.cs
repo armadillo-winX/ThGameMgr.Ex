@@ -175,7 +175,7 @@ namespace ThGameMgr.Ex.Score.Th18
             string[] players = GamePlayers.GetGamePlayers(GameIndex.Th18).Split(',');
             SpellCard spellCard = Th18SpellCard.GetSpellCardData(cardId);
 
-            for (int playerIndex = 0; playerIndex < 9; playerIndex++)
+            for (int playerIndex = 0; playerIndex < 4; playerIndex++)
             {
                 int i = 2280 + (78064 * playerIndex) + (n * 220);
 
