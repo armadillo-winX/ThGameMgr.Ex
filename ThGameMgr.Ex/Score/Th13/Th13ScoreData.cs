@@ -67,14 +67,22 @@ namespace ThGameMgr.Ex.Score.Th13
 
                         for (int p = 1; p < 128; p++)
                         {
-                            ObservableCollection<SpellCardRecordData> spellCardRecordLists
-                                = GetAllSpellCardRecord(p, bytes);
-                            if (spellCardRecordLists[0].Place != "Over Drive")
+                            Dictionary<string, ObservableCollection<SpellCardRecordData>>
+                                spellCardRecordLists =
+                                GetAllSpellCardRecord(p, bytes);
+                            if (spellCardRecordLists["all"][0].Place != "Over Drive")
                             {
-                                ScoreData.SpellCardRecordLists.Add(spellCardRecordLists[0]);
+                                ScoreData.SpellCardRecordLists.Add(spellCardRecordLists["all"][0]);
                             }
 
-                            ScoreData.SpellPracticeRecordLists.Add(spellCardRecordLists[1]);
+                            foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th13).Split(','))
+                            {
+                                if (spellCardRecordLists[player][0].Place != "Over Drive")
+                                {
+                                    ScoreData.SpellCardRecordsByPlayer[player].Add(spellCardRecordLists[player][0]);
+                                }
+                            }
+                            ScoreData.SpellPracticeRecordLists.Add(spellCardRecordLists["all"][1]);
                         }
                     }
                 }
