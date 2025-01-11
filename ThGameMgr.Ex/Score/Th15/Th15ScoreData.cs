@@ -181,7 +181,7 @@ namespace ThGameMgr.Ex.Score.Th15
             string[] players = GamePlayers.GetGamePlayers(GameIndex.Th15).Split(',');
             SpellCard spellCard = Th15SpellCard.GetSpellCardData(cardId);
 
-            for (int playerIndex = 0; playerIndex < 6; playerIndex++)
+            for (int playerIndex = 0; playerIndex < 8; playerIndex++)
             {
                 int i = spellCardRecordStartPositions[playerIndex] + (n * 156);
 
