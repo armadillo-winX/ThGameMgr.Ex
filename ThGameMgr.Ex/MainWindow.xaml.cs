@@ -37,6 +37,7 @@ namespace ThGameMgr.Ex
         private string? _gameId;
         private string? _gameName;
         private string? _filterPlayer;
+        private string? _spellCardPlayer;
         private string? _filterEnemy;
         private string? _filterPracticeEnemy;
         private string? _filterLevel;
@@ -80,13 +81,13 @@ namespace ThGameMgr.Ex
                         SpellPracticeLevelColumn.Visibility = Visibility.Collapsed;
                     }
 
-                    if (value == GameIndex.Th07)
+                    if (value != GameIndex.Th06)
                     {
-                        ClearRecordPhantasmColumn.Visibility = Visibility.Visible;
+                        SpellCardPlayersSwitchButton.IsEnabled = true;
                     }
                     else
                     {
-                        ClearRecordPhantasmColumn.Visibility = Visibility.Collapsed;
+                        SpellCardPlayersSwitchButton.IsEnabled = false;
                     }
 
                     if (SpellCard.IsSpellPracticeAvailable(value))
@@ -103,6 +104,7 @@ namespace ThGameMgr.Ex
                     }
 
                     this.FilterPlayer = GameSpecificSettings.GetScoreFilterPlayer(value);
+                    this.FilterSpellCardPlayer = GameSpecificSettings.GetSpellCardFilterPlayer(value);
                     this.FilterEnemy = GameSpecificSettings.GetScoreFilterEnemy(value);
                     this.FilterPracticeEnemy = GameSpecificSettings.GetScoreFilterPracticeEnemy(value);
                     this.FilterLevel = GameSpecificSettings.GetScoreFilterLevel(value);
@@ -178,6 +180,38 @@ namespace ThGameMgr.Ex
                     if (!string.IsNullOrEmpty(this.GameId))
                     {
                         GameSpecificSettings.SetScoreFilterPlayer(this.GameId, "ALL");
+                    }
+                }
+            }
+        }
+
+        private string? FilterSpellCardPlayer
+        {
+            get
+            {
+                return _spellCardPlayer;
+            }
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _spellCardPlayer = value;
+                    SpellCardPlayerBlock.Text =
+                        value == "ALL" ? "全自機合計" : value;
+
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificSettings.SetSpellCardFilterPlayer(this.GameId, value);
+                    }
+                }
+                else
+                {
+                    _spellCardPlayer = "ALL";
+                    SpellCardPlayerBlock.Text = "全自機合計";
+                    if (!string.IsNullOrEmpty(this.GameId))
+                    {
+                        GameSpecificSettings.SetSpellCardFilterPlayer(this.GameId, "ALL");
                     }
                 }
             }
@@ -557,50 +591,34 @@ namespace ThGameMgr.Ex
             SpellPracticeDataGrid.Items.Clear();
             ClearRecordDataGrid.Items.Clear();
 
-            if (ScoreData.ScoreRecordLists != null &&
-                ScoreData.ScoreRecordLists.Count >= 0)
+            ScoreFilter scoreFilter = new()
             {
-                IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreData.ScoreRecordLists;
+                Level = this.FilterLevel,
+                Player = this.FilterPlayer,
+            };
 
-                if (this.FilterLevel != "ALL")
-                {
-                    filteredScoreRecordLists = filteredScoreRecordLists.Where(
-                        x =>
-                        {
-                            return x.Level == this.FilterLevel;
-                        });
-                }
-
-                if (this.FilterPlayer != "ALL") 
-                {
-                    filteredScoreRecordLists = filteredScoreRecordLists.Where(
-                        x =>
-                        {
-                            return x.Player == this.FilterPlayer;
-                        });
-                }
-
+            IEnumerable<ScoreRecordData>? filteredScoreDataRecords = ScoreData.RetrieveScoreData(scoreFilter);
+            if (filteredScoreDataRecords != null &&
+                filteredScoreDataRecords.Count() >= 0)
+            {
                 ScoreDataGrid.AutoGenerateColumns = false;
-                foreach (ScoreRecordData scoreRecordData in filteredScoreRecordLists)
+                foreach (ScoreRecordData scoreRecordData in filteredScoreDataRecords)
                 {
                     ScoreDataGrid.Items.Add(scoreRecordData);
                 }
             }
 
-            if (ScoreData.SpellCardRecordLists != null &&
-                ScoreData.SpellCardRecordLists.Count >= 0)
+            SpellCardRecordFilter spellCardRecordFilter = new()
             {
-                IEnumerable<SpellCardRecordData> filteredSpellCardRecordLists = ScoreData.SpellCardRecordLists;
+                Player = this.FilterSpellCardPlayer,
+                Enemy = this.FilterEnemy
+            };
+            IEnumerable<SpellCardRecordData>? filteredSpellCardRecordLists
+                = ScoreData.RetrieveSpellCardData(spellCardRecordFilter);
 
-                if (this.FilterEnemy != "ALL")
-                {
-                    filteredSpellCardRecordLists = filteredSpellCardRecordLists.Where(
-                        x =>
-                        {
-                            return x.Enemy == this.FilterEnemy;
-                        });
-                }
-
+            if (filteredSpellCardRecordLists != null &&
+                filteredSpellCardRecordLists.Count() >= 0)
+            {
                 SpellCardDataGrid.AutoGenerateColumns = false;
                 if (DisplayUnchallengedCardMenuItem.IsChecked)
                 {
@@ -635,20 +653,17 @@ namespace ThGameMgr.Ex
                 }
             }
 
-            if (ScoreData.SpellPracticeRecordLists != null &&
-                ScoreData.SpellPracticeRecordLists.Count >= 0)
+            SpellCardRecordFilter spellPracticeRecordFilter = new()
             {
-                IEnumerable<SpellCardRecordData> filteredSpellPracticeRecordLists = ScoreData.SpellPracticeRecordLists;
+                Player = "ALL",
+                Enemy = this.FilterPracticeEnemy
+            };
+            IEnumerable<SpellCardRecordData>? filteredSpellPracticeRecordLists
+                = ScoreData.RetrieveSpellPracticeData(spellPracticeRecordFilter);
 
-                if (this.FilterPracticeEnemy != "ALL")
-                {
-                    filteredSpellPracticeRecordLists = filteredSpellPracticeRecordLists.Where(
-                        x =>
-                        {
-                            return x.Enemy == this.FilterPracticeEnemy;
-                        });
-                }
-
+            if (filteredSpellPracticeRecordLists != null &&
+                filteredSpellPracticeRecordLists.Count() >= 0)
+            {
                 SpellPracticeDataGrid.AutoGenerateColumns = false;
                 if (DisplayUnchallengedCardMenuItem.IsChecked)
                 {
@@ -756,6 +771,7 @@ namespace ThGameMgr.Ex
                     this.GameId = gameId;
 
                     SetPlayersFilterMenu();
+                    SetSpellCardPlayerSwitchMenu();
                     SetEnemiesFilterMenu();
                     SetPracticeEnemiesFilterMenu();
                     SetLevelFilterMenu();
@@ -812,6 +828,44 @@ namespace ThGameMgr.Ex
         {
             string playerName = ((MenuItem)sender).Header.ToString();
             this.FilterPlayer = playerName;
+            ApplyScoreViewFilter();
+        }
+
+        private void SetSpellCardPlayerSwitchMenu()
+        {
+            SpellCardPlayersSwitchButtonContextMenu.Items.Clear();
+
+            MenuItem allItem = new()
+            {
+                Header = "ALL"
+            };
+            allItem.Click += new RoutedEventHandler(SpellCardPlayerSwitchMenuClick);
+            SpellCardPlayersSwitchButtonContextMenu.Items.Add(allItem);
+
+            Separator separator = new();
+            SpellCardPlayersSwitchButtonContextMenu.Items.Add(separator);
+
+            string gameId = this.GameId;
+            string gamePlayers = GamePlayers.GetGamePlayers(gameId);
+            if (gamePlayers != null)
+            {
+                string[] gamePlayersList = gamePlayers.Split(',');
+                foreach (string gamePlayer in gamePlayersList)
+                {
+                    MenuItem item = new()
+                    {
+                        Header = gamePlayer
+                    };
+                    item.Click += new RoutedEventHandler(SpellCardPlayerSwitchMenuClick);
+                    SpellCardPlayersSwitchButtonContextMenu.Items.Add(item);
+                }
+            }
+        }
+
+        private void SpellCardPlayerSwitchMenuClick(object sender, RoutedEventArgs e)
+        {
+            string playerName = ((MenuItem)sender).Header.ToString();
+            this.FilterSpellCardPlayer = playerName;
             ApplyScoreViewFilter();
         }
 
@@ -1104,6 +1158,7 @@ namespace ThGameMgr.Ex
 
             SetGameSelectionMenu();
             SetPlayersFilterMenu();
+            SetSpellCardPlayerSwitchMenu();
             SetEnemiesFilterMenu();
             SetPracticeEnemiesFilterMenu();
             SetLevelFilterMenu();
@@ -1863,6 +1918,16 @@ namespace ThGameMgr.Ex
                 PlayersFilterButtonContextMenu.PlacementTarget = PlayersFilterButton;
                 PlayersFilterButtonContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
                 PlayersFilterButtonContextMenu.IsOpen = true;
+            }
+        }
+
+        private void SpellCardPlayersSwitchButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (!SpellCardPlayersSwitchButtonContextMenu.IsOpen)
+            {
+                SpellCardPlayersSwitchButtonContextMenu.PlacementTarget = SpellCardPlayersSwitchButton;
+                SpellCardPlayersSwitchButtonContextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+                SpellCardPlayersSwitchButtonContextMenu.IsOpen = true;
             }
         }
 

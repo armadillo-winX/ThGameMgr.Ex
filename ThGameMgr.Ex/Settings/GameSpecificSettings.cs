@@ -8,6 +8,8 @@ namespace ThGameMgr.Ex.Settings
 
         private static Dictionary<string, string>? _scoreFilterPlayerDictionary;
 
+        private static Dictionary<string, string>? _spellCardPlayerDictionary;
+
         private static Dictionary<string, string>? _scoreFilterEnemyDictionary;
 
         private static Dictionary<string, string>? _scoreFilterPracticeEnemyDictionary;
@@ -98,6 +100,45 @@ namespace ThGameMgr.Ex.Settings
                 else
                 {
                     _scoreFilterPlayerDictionary.Add(gameId, filterPlayer);
+                }
+            }
+        }
+
+        public static string GetSpellCardFilterPlayer(string gameId)
+        {
+            if (_spellCardPlayerDictionary == null)
+            {
+                return "ALL";
+            }
+            else
+            {
+                if (_spellCardPlayerDictionary.TryGetValue(gameId, out string? filterPlayer))
+                {
+                    return filterPlayer;
+                }
+                else
+                {
+                    return "ALL";
+                }
+            }
+        }
+
+        public static void SetSpellCardFilterPlayer(string gameId, string filterPlayer)
+        {
+            if (_spellCardPlayerDictionary == null)
+            {
+                _spellCardPlayerDictionary = [];
+                _spellCardPlayerDictionary.Add(gameId, filterPlayer);
+            }
+            else
+            {
+                if (_spellCardPlayerDictionary.ContainsKey(gameId))
+                {
+                    _spellCardPlayerDictionary[gameId] = filterPlayer;
+                }
+                else
+                {
+                    _spellCardPlayerDictionary.Add(gameId, filterPlayer);
                 }
             }
         }

@@ -12,6 +12,8 @@ namespace ThGameMgr.Ex.Score
 
         public static ObservableCollection<SpellCardRecordData>? SpellCardRecordLists { get; set; }
 
+        public static Dictionary<string, ObservableCollection<SpellCardRecordData>?>? SpellCardRecordsByPlayer { get; set; }
+
         public static ObservableCollection<SpellCardRecordData>? SpellPracticeRecordLists { get; set; }
 
         public static ObservableCollection<ClearRecordData>? ClearRecordsLists { get; set; }
@@ -24,6 +26,17 @@ namespace ThGameMgr.Ex.Score
             SpellCardRecordLists = [];
             SpellPracticeRecordLists = [];
             ClearRecordsLists = [];
+
+            SpellCardRecordsByPlayer = [];
+
+            string players = GamePlayers.GetGamePlayers(gameId);
+            if (players.Length > 0)
+            {
+                foreach (string player in players.Split(','))
+                {
+                    SpellCardRecordsByPlayer.Add(player, []);
+                }
+            }
 
             if (gameId == GameIndex.Th06)
             {
@@ -76,6 +89,108 @@ namespace ThGameMgr.Ex.Score
             else if (gameId == GameIndex.Th18)
             {
                 Th18.Th18ScoreData.Get();
+            }
+        }
+
+        public static IEnumerable<ScoreRecordData>? RetrieveScoreData(ScoreFilter scoreFilter)
+        {
+            if (ScoreRecordLists != null &&
+                ScoreRecordLists.Count >= 0)
+            {
+                IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreRecordLists;
+
+                if (!string.IsNullOrEmpty(scoreFilter.Level) && scoreFilter.Level != "ALL")
+                {
+                    filteredScoreRecordLists = filteredScoreRecordLists.Where(
+                        x =>
+                        {
+                            return x.Level == scoreFilter.Level;
+                        });
+                }
+
+                if (!string.IsNullOrEmpty(scoreFilter.Player) && scoreFilter.Player != "ALL")
+                {
+                    filteredScoreRecordLists = filteredScoreRecordLists.Where(
+                        x =>
+                        {
+                            return x.Player == scoreFilter.Player;
+                        });
+                }
+
+                return filteredScoreRecordLists;
+            }
+            else
+            {
+                return ScoreRecordLists;
+            }
+        }
+
+        public static IEnumerable<SpellCardRecordData>? RetrieveSpellCardData(
+            SpellCardRecordFilter spellCardRecordFilter)
+        {
+            if (SpellCardRecordLists != null &&
+                SpellCardRecordLists.Count >= 0)
+            {
+                IEnumerable<SpellCardRecordData> filteredSpellCardRecordLists;
+
+                if (!string.IsNullOrEmpty(spellCardRecordFilter.Player) &&  spellCardRecordFilter.Player != "ALL")
+                {
+                    if (SpellCardRecordsByPlayer.TryGetValue(spellCardRecordFilter.Player,
+                        out ObservableCollection<SpellCardRecordData>? spellCardRecordsByPlayer))
+                    {
+                        filteredSpellCardRecordLists = spellCardRecordsByPlayer;
+                    }
+                    else
+                    {
+                        filteredSpellCardRecordLists = [];
+                    }
+                }
+                else
+                {
+                    filteredSpellCardRecordLists = SpellCardRecordLists;
+                }
+
+                if (!string.IsNullOrEmpty(spellCardRecordFilter.Enemy) && spellCardRecordFilter.Enemy != "ALL")
+                {
+                    filteredSpellCardRecordLists = filteredSpellCardRecordLists.Where(
+                        x =>
+                        {
+                            return x.Enemy == spellCardRecordFilter.Enemy;
+                        });
+                }
+
+                return filteredSpellCardRecordLists;
+            }
+            else
+            {
+                return SpellCardRecordLists;
+            }
+        }
+
+        public static IEnumerable<SpellCardRecordData>? RetrieveSpellPracticeData(
+            SpellCardRecordFilter spellPracticeRecordFilter)
+        {
+            if (SpellPracticeRecordLists != null &&
+                SpellPracticeRecordLists.Count >= 0)
+            {
+                IEnumerable<SpellCardRecordData> filteredSpellPracticeRecordLists = SpellPracticeRecordLists;
+
+                //自機別の切り替えについてはまだ対応しない
+
+                if (!string.IsNullOrEmpty(spellPracticeRecordFilter.Enemy) && spellPracticeRecordFilter.Enemy != "ALL")
+                {
+                    filteredSpellPracticeRecordLists = filteredSpellPracticeRecordLists.Where(
+                        x =>
+                        {
+                            return x.Enemy == spellPracticeRecordFilter.Enemy;
+                        });
+                }
+
+                return filteredSpellPracticeRecordLists;
+            }
+            else
+            {
+                return SpellPracticeRecordLists;
             }
         }
 

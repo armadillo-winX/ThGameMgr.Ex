@@ -107,6 +107,10 @@ namespace ThGameMgr.Ex.Settings
                     gameSpecificConfigXml.CreateElement("ScoreFilterPlayerConfig");
                 _ = rootNode.AppendChild(scoreFilterPlayerConfigRootNode);
 
+                XmlNode spellCardPlayerConfigRootNode =
+                    gameSpecificConfigXml.CreateElement("ScoreFilterCardPlayerConfig");
+                _ = rootNode.AppendChild(spellCardPlayerConfigRootNode);
+
                 XmlNode scoreFilterEnemyConfigRootNode =
                     gameSpecificConfigXml.CreateElement("ScoreFilterEnemyConfig");
                 _ = rootNode.AppendChild(scoreFilterEnemyConfigRootNode);
@@ -132,6 +136,13 @@ namespace ThGameMgr.Ex.Settings
                     scoreFilterPlayerConfigNode.InnerText = filterPlayer;
 
                     _ = scoreFilterPlayerConfigRootNode.AppendChild(scoreFilterPlayerConfigNode);
+
+
+                    string spellCardFilterPlayer = GameSpecificSettings.GetSpellCardFilterPlayer(gameId);
+                    XmlElement spellCardFilterPlayerConfigNode = gameSpecificConfigXml.CreateElement(gameId);
+                    spellCardFilterPlayerConfigNode.InnerText= spellCardFilterPlayer;
+
+                    _ = spellCardPlayerConfigRootNode.AppendChild(spellCardFilterPlayerConfigNode);
 
                     string filterEnemy = GameSpecificSettings.GetScoreFilterEnemy(gameId);
                     XmlElement scoreFilterEnemyConfigNode = gameSpecificConfigXml.CreateElement(gameId);
@@ -176,7 +187,10 @@ namespace ThGameMgr.Ex.Settings
                 XmlNode? scoreFilterPlayerConfigRootNode =
                     rootNode?.SelectSingleNode("ScoreFilterPlayerConfig");
 
-                XmlNode? scoreFilterEnemyConfigRootNode =
+                XmlNode? spellCardFilterPlayerConfigRootNode =
+                    rootNode?.SelectSingleNode("ScoreFilterCardPlayerConfig");
+
+                XmlNode ? scoreFilterEnemyConfigRootNode =
                     rootNode?.SelectSingleNode("ScoreFilterEnemyConfig");
 
                 XmlNode? scoreFilterPracticeEnemyConfigRootNode =
@@ -189,6 +203,8 @@ namespace ThGameMgr.Ex.Settings
                 {
                     XmlNode? autoResizerConfigNode = autoResizerConfigRootNode?.SelectSingleNode(gameId);
                     XmlNode? scoreFilterPlayerConfigNode = scoreFilterPlayerConfigRootNode?.SelectSingleNode(gameId);
+                    XmlNode? spellCardFilterPlayerConfigNode 
+                        = spellCardFilterPlayerConfigRootNode?.SelectSingleNode(gameId);
                     XmlNode? scoreFilterEnemyConfigNode = scoreFilterEnemyConfigRootNode?.SelectSingleNode(gameId);
                     XmlNode? scoreFilterPracticeEnemyConfigNode
                                 = scoreFilterPracticeEnemyConfigRootNode?.SelectSingleNode(gameId);
@@ -210,6 +226,15 @@ namespace ThGameMgr.Ex.Settings
                     else
                     {
                         GameSpecificSettings.SetScoreFilterPlayer(gameId, "ALL");
+                    }
+
+                    if (spellCardFilterPlayerConfigNode != null)
+                    {
+                        GameSpecificSettings.SetSpellCardFilterPlayer(gameId, spellCardFilterPlayerConfigNode.InnerText);
+                    }
+                    else
+                    {
+                        GameSpecificSettings.SetSpellCardFilterPlayer(gameId, "ALL");
                     }
 
                     if (scoreFilterEnemyConfigNode != null)
@@ -247,6 +272,7 @@ namespace ThGameMgr.Ex.Settings
                 {
                     GameSpecificSettings.SetAutoResizerConfig(gameId, false);
                     GameSpecificSettings.SetScoreFilterPlayer(gameId, "ALL");
+                    GameSpecificSettings.SetSpellCardFilterPlayer(gameId, "ALL");
                     GameSpecificSettings.SetScoreFilterEnemy(gameId, "ALL");
                     GameSpecificSettings.SetScoreFilterPracticeEnemy(gameId, "ALL");
                     GameSpecificSettings.SetScoreFilterLevel(gameId, "ALL");
