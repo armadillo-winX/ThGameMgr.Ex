@@ -90,6 +90,16 @@ namespace ThGameMgr.Ex
                         SpellCardPlayersSwitchButton.IsEnabled = false;
                     }
 
+                    if (value == GameIndex.Th07)
+                    {
+                        ClearRecordPhantasmColumn.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        ClearRecordPhantasmColumn.Visibility = Visibility.Collapsed;
+                    }
+
+
                     if (SpellCard.IsSpellPracticeAvailable(value))
                     {
                         SpellPracticeTabItem.Visibility = Visibility.Visible;
