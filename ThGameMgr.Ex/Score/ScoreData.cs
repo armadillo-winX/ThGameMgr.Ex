@@ -16,6 +16,11 @@ namespace ThGameMgr.Ex.Score
 
         public static ObservableCollection<SpellCardRecordData>? SpellPracticeRecordLists { get; set; }
 
+        /// <summary>
+        /// スコアデータを取得します。スコアデータローダが対応していない場合は false を返します。
+        /// </summary>
+        /// <param name="gameId"></param>
+        /// <returns></returns>
         public static bool Get(string gameId)
         {
             GameId = gameId;
