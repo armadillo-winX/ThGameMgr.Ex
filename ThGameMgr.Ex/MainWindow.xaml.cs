@@ -691,7 +691,10 @@ namespace ThGameMgr.Ex
 
             if (enabled)
             {
-                System.Media.SystemSounds.Hand.Play();
+                if (mode == DialogMode.Error)
+                {
+                    System.Media.SystemSounds.Hand.Play();
+                }
 
                 BlurEffect blurEffect = new()
                 {
