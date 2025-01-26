@@ -478,11 +478,18 @@ namespace ThGameMgr.Ex
 
                 try
                 {
-                    await Task.Run(()
+                    bool result = await Task.Run(()
                     => ScoreData.Get(gameId)
                     );
 
-                    ApplyScoreViewFilter();
+                    if (result)
+                    {
+                        ApplyScoreViewFilter();
+                    }
+                    else
+                    {
+                        ShowScoreDataViewerDialog(DialogMode.Information, true);
+                    }
                 }
                 catch (Exception)
                 {
