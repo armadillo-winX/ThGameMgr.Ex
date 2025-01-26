@@ -663,7 +663,7 @@ namespace ThGameMgr.Ex
             }
         }
 
-        private void ShowScoreDataViewerDialog(DialogMode mode, bool enabled)
+        private void ShowScoreDataViewerDialog(DialogMode mode, bool enabled, string? message)
         {
             if (mode == DialogMode.Information)
             {
@@ -717,15 +717,15 @@ namespace ThGameMgr.Ex
                 SpellPracticeDataGrid.IsEnabled = false;
 
                 ScoreDataErrorImage1.Visibility = Visibility.Visible;
-                ScoreDataErrorBlock1.Text = "エラー:スコアデータの取得に失敗しました。";
+                ScoreDataErrorBlock1.Text = message;
                 ScoreDataErrorBlock1.Visibility = Visibility.Visible;
 
                 ScoreDataErrorImage2.Visibility = Visibility.Visible;
-                ScoreDataErrorBlock2.Text = "エラー:スコアデータの取得に失敗しました。";
+                ScoreDataErrorBlock2.Text = message;
                 ScoreDataErrorBlock2.Visibility = Visibility.Visible;
 
                 ScoreDataErrorImage3.Visibility = Visibility.Visible;
-                ScoreDataErrorBlock3.Text = "エラー:スコアデータの取得に失敗しました。";
+                ScoreDataErrorBlock3.Text = message;
                 ScoreDataErrorBlock3.Visibility = Visibility.Visible;
             }
             else
