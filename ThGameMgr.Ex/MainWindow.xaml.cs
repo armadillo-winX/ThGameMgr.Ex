@@ -466,7 +466,7 @@ namespace ThGameMgr.Ex
 
         private async void GetScoreData()
         {
-            ShowScoreDataViewerDialog(DialogMode.Error, false);
+            ShowScoreDataViewerDialog(DialogMode.Error, false, string.Empty);
 
             ScoreDataGrid.Items.Clear();
             SpellCardDataGrid.Items.Clear();
@@ -488,12 +488,12 @@ namespace ThGameMgr.Ex
                     }
                     else
                     {
-                        ShowScoreDataViewerDialog(DialogMode.Information, true);
+                        ShowScoreDataViewerDialog(DialogMode.Information, true, "スコアデータビューアが未対応です。");
                     }
                 }
                 catch (Exception)
                 {
-                    ShowScoreDataViewerDialog(DialogMode.Error, true);
+                    ShowScoreDataViewerDialog(DialogMode.Error, true, "エラー:スコアデータの取得に失敗しました。");
                 }
 
                 EnableGettingScoreDataLimitationMode(false);
