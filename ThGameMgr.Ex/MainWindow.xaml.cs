@@ -658,6 +658,37 @@ namespace ThGameMgr.Ex
 
         private void ShowScoreDataViewerDialog(DialogMode mode, bool enabled)
         {
+            if (mode == DialogMode.Information)
+            {
+                ScoreDataErrorImage1.Source =
+                    new BitmapImage(
+                        new Uri("pack://application:,,,/ThGameMgr.Ex;component/Images/InformationIcon32x32.png")
+                    );
+                ScoreDataErrorImage2.Source =
+                    new BitmapImage(
+                        new Uri("pack://application:,,,/ThGameMgr.Ex;component/Images/InformationIcon32x32.png")
+                    );
+                ScoreDataErrorImage3.Source =
+                    new BitmapImage(
+                        new Uri("pack://application:,,,/ThGameMgr.Ex;component/Images/InformationIcon32x32.png")
+                    );
+            }
+            else
+            {
+                ScoreDataErrorImage1.Source =
+                    new BitmapImage(
+                        new Uri("pack://application:,,,/ThGameMgr.Ex;component/Images/ErrorIcon32x32.png")
+                    );
+                ScoreDataErrorImage2.Source =
+                    new BitmapImage(
+                        new Uri("pack://application:,,,/ThGameMgr.Ex;component/Images/ErrorIcon32x32.png")
+                    );
+                ScoreDataErrorImage3.Source =
+                    new BitmapImage(
+                        new Uri("pack://application:,,,/ThGameMgr.Ex;component/Images/ErrorIcon32x32.png")
+                    );
+            }
+
             if (enabled)
             {
                 System.Media.SystemSounds.Hand.Play();
