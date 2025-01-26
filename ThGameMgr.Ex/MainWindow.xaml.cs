@@ -466,19 +466,7 @@ namespace ThGameMgr.Ex
 
         private async void GetScoreData()
         {
-            ScoreDataGrid.Effect = null;
-            ScoreDataGrid.IsEnabled = true;
-            SpellCardDataGrid.Effect = null;
-            SpellCardDataGrid.IsEnabled = true;
-            SpellPracticeDataGrid.Effect = null;
-            SpellPracticeDataGrid.IsEnabled = true;
-
-            ScoreDataErrorImage1.Visibility = Visibility.Hidden;
-            ScoreDataErrorBlock1.Visibility = Visibility.Hidden;
-            ScoreDataErrorImage2.Visibility = Visibility.Hidden;
-            ScoreDataErrorBlock2.Visibility = Visibility.Hidden;
-            ScoreDataErrorImage3.Visibility = Visibility.Hidden;
-            ScoreDataErrorBlock3.Visibility = Visibility.Hidden;
+            ShowScoreDataViewerDialog(DialogMode.Error, false);
 
             ScoreDataGrid.Items.Clear();
             SpellCardDataGrid.Items.Clear();
@@ -498,31 +486,7 @@ namespace ThGameMgr.Ex
                 }
                 catch (Exception)
                 {
-                    System.Media.SystemSounds.Hand.Play();
-
-                    BlurEffect blurEffect = new()
-                    {
-                        Radius = 7,
-                        KernelType = KernelType.Gaussian
-                    };
-                    ScoreDataGrid.Effect = blurEffect;
-                    ScoreDataGrid.IsEnabled = false;
-                    SpellCardDataGrid.Effect = blurEffect;
-                    SpellCardDataGrid.IsEnabled = false;
-                    SpellPracticeDataGrid.Effect = blurEffect;
-                    SpellPracticeDataGrid.IsEnabled = false;
-
-                    ScoreDataErrorImage1.Visibility = Visibility.Visible;
-                    ScoreDataErrorBlock1.Text = "エラー:スコアデータの取得に失敗しました。";
-                    ScoreDataErrorBlock1.Visibility = Visibility.Visible;
-
-                    ScoreDataErrorImage2.Visibility = Visibility.Visible;
-                    ScoreDataErrorBlock2.Text = "エラー:スコアデータの取得に失敗しました。";
-                    ScoreDataErrorBlock2.Visibility = Visibility.Visible;
-
-                    ScoreDataErrorImage3.Visibility = Visibility.Visible;
-                    ScoreDataErrorBlock3.Text = "エラー:スコアデータの取得に失敗しました。";
-                    ScoreDataErrorBlock3.Visibility = Visibility.Visible;
+                    ShowScoreDataViewerDialog(DialogMode.Error, true);
                 }
 
                 EnableGettingScoreDataLimitationMode(false);
@@ -689,6 +653,55 @@ namespace ThGameMgr.Ex
                         }
                     }
                 }
+            }
+        }
+
+        private void ShowScoreDataViewerDialog(DialogMode mode, bool enabled)
+        {
+            if (enabled)
+            {
+                System.Media.SystemSounds.Hand.Play();
+
+                BlurEffect blurEffect = new()
+                {
+                    Radius = 7,
+                    KernelType = KernelType.Gaussian
+                };
+
+                ScoreDataGrid.Effect = blurEffect;
+                ScoreDataGrid.IsEnabled = false;
+                SpellCardDataGrid.Effect = blurEffect;
+                SpellCardDataGrid.IsEnabled = false;
+                SpellPracticeDataGrid.Effect = blurEffect;
+                SpellPracticeDataGrid.IsEnabled = false;
+
+                ScoreDataErrorImage1.Visibility = Visibility.Visible;
+                ScoreDataErrorBlock1.Text = "エラー:スコアデータの取得に失敗しました。";
+                ScoreDataErrorBlock1.Visibility = Visibility.Visible;
+
+                ScoreDataErrorImage2.Visibility = Visibility.Visible;
+                ScoreDataErrorBlock2.Text = "エラー:スコアデータの取得に失敗しました。";
+                ScoreDataErrorBlock2.Visibility = Visibility.Visible;
+
+                ScoreDataErrorImage3.Visibility = Visibility.Visible;
+                ScoreDataErrorBlock3.Text = "エラー:スコアデータの取得に失敗しました。";
+                ScoreDataErrorBlock3.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                ScoreDataGrid.Effect = null;
+                ScoreDataGrid.IsEnabled = true;
+                SpellCardDataGrid.Effect = null;
+                SpellCardDataGrid.IsEnabled = true;
+                SpellPracticeDataGrid.Effect = null;
+                SpellPracticeDataGrid.IsEnabled = true;
+
+                ScoreDataErrorImage1.Visibility = Visibility.Hidden;
+                ScoreDataErrorBlock1.Visibility = Visibility.Hidden;
+                ScoreDataErrorImage2.Visibility = Visibility.Hidden;
+                ScoreDataErrorBlock2.Visibility = Visibility.Hidden;
+                ScoreDataErrorImage3.Visibility = Visibility.Hidden;
+                ScoreDataErrorBlock3.Visibility = Visibility.Hidden;
             }
         }
 
