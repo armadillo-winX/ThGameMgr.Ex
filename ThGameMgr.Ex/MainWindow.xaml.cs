@@ -49,6 +49,12 @@ namespace ThGameMgr.Ex
         private ScoreRecordDetailDialog? _scoreRecordDetailDialog = null;
         private SpellCardRecordDetailDialog? _spellCardRecordDetailDialog = null;
 
+        private enum DialogMode
+        {
+            Information,
+            Error
+        };
+
         private string? GameId
         {
             get
