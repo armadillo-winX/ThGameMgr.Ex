@@ -849,7 +849,7 @@ namespace ThGameMgr.Ex
 
             string gameId = this.GameId;
             string gamePlayers = GamePlayers.GetGamePlayers(gameId);
-            if (gamePlayers != null)
+            if (!string.IsNullOrEmpty(gamePlayers))
             {
                 string[] gamePlayersList = gamePlayers.Split(',');
                 foreach (string gamePlayer in gamePlayersList)
