@@ -475,7 +475,7 @@ namespace ThGameMgr.Ex
             string gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
             {
-                EnableGettingScoreDataLimitationMode(true);
+                EnableRetrievingScoreDataLimitationMode(true);
 
                 try
                 {
@@ -497,7 +497,7 @@ namespace ThGameMgr.Ex
                     ShowScoreDataViewerDialog(DialogMode.Error, true, "エラー:スコアデータの取得に失敗しました。");
                 }
 
-                EnableGettingScoreDataLimitationMode(false);
+                EnableRetrievingScoreDataLimitationMode(false);
                 EnemiesFilterButton.IsEnabled = this.GameId != GameIndex.Th09;
             }
         }
@@ -1603,7 +1603,7 @@ namespace ThGameMgr.Ex
         /// スコアデータ取得中の機能制限モードを有効化します。
         /// </summary>
         /// <param name="enabled"></param>
-        private void EnableGettingScoreDataLimitationMode(bool enabled)
+        private void EnableRetrievingScoreDataLimitationMode(bool enabled)
         {
             AddUserMenuItem.IsEnabled = !enabled;
             SwitchUserMenuItem.IsEnabled = !enabled;
