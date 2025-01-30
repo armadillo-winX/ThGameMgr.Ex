@@ -963,7 +963,7 @@ namespace ThGameMgr.Ex
 
             string gameId = this.GameId;
             string gameEnemies = GameEnemies.GetGameEnemies(gameId);
-            if (gameEnemies != null)
+            if (!string.IsNullOrEmpty(gameEnemies))
             {
                 string[] gameEnemiesList = gameEnemies.Split(',');
                 foreach (string gameEnemy in gameEnemiesList)
