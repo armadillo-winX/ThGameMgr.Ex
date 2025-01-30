@@ -1615,9 +1615,6 @@ namespace ThGameMgr.Ex
             StartGameWithVpatchButton.IsEnabled = !enabled;
             StartGameWithThpracButton.IsEnabled = !enabled;
             StartCustomProgramButton.IsEnabled = !enabled;
-            PlayersFilterButton.IsEnabled = !enabled;
-            LevelFilterButton.IsEnabled = !enabled;
-            EnemiesFilterButton.IsEnabled = !enabled;
         }
 
         /// <summary>
