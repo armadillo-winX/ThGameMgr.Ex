@@ -9,7 +9,7 @@
     <Grid>
         <Label 
             Content="ユーザー一覧:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <ListBox x:Name="UsersListBox" Margin="10,41,10,39"/>
+        <ListBox x:Name="UsersListBox" Margin="10,41,10,39" FontSize="14"/>
         <Button x:Name="DeleteButton"
             Width="90" Height="24"
             Content="削除(_D)" HorizontalAlignment="Right" Margin="0,0,105,10" VerticalAlignment="Bottom" Click="DeleteButtonClick"/>
