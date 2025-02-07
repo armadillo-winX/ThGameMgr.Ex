@@ -366,6 +366,29 @@ namespace ThGameMgr.Ex.Settings
             }
         }
 
+        public static string ConfigureDefualtGameSettings()
+        {
+            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+            string? defaultGameSettingsFile = $"{settingsDirectory}\\DefaultGameSettings.xml";
+            if (!string.IsNullOrEmpty(defaultGameSettingsFile) && File.Exists(defaultGameSettingsFile))
+            {
+                XmlDocument defaultGameSettingsXml = new();
+                defaultGameSettingsXml.Load(defaultGameSettingsFile);
+
+                XmlElement? rootNode = defaultGameSettingsXml.DocumentElement;
+
+                XmlNode? defaultGameConfigNode
+                    = rootNode?.SelectSingleNode("DefaultGame");
+
+                string defaultGameId = defaultGameConfigNode?.InnerText;
+                return defaultGameId != null ? defaultGameId : string.Empty;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
         public static void SaveResizerFrameWindowSettings(ResizerFrameWindowSettings resizerFrameWindowSettings)
         {
             string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
