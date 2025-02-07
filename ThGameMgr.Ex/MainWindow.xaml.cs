@@ -2722,5 +2722,14 @@ namespace ThGameMgr.Ex
                 }
             }
         }
+
+        private void DefaultGameSettingsMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            DefaultGameSettingsDialog defaultGameSettingsDialog = new()
+            {
+                Owner = this
+            };
+            defaultGameSettingsDialog.ShowDialog();
+        }
     }
 }
