@@ -1177,11 +1177,31 @@ namespace ThGameMgr.Ex
         {
             SettingsConfigurator.ConfigureGamePathSettings();
             SettingsConfigurator.ConfigureGameSpecificConfig();
+
+            string defaultGameId;
+            try
+            {
+                defaultGameId = SettingsConfigurator.ConfigureDefualtGameSettings();
+            }
+            catch (Exception)
+            {
+                defaultGameId = string.Empty;
+            }
+
+            List<string> enabledGamesList = GameIndex.GetEnabledGamesList();
+
             MainWindowSettings mainWindowSettings = SettingsConfigurator.ConfigureMainWindowSettings();
 
             this.Width = mainWindowSettings.MainWindowWidth;
             this.Height = mainWindowSettings.MainWindowHeight;
-            this.GameId = mainWindowSettings.SelectedGameId;
+            if (!string.IsNullOrEmpty(defaultGameId) && enabledGamesList.Contains(defaultGameId))
+            {
+                this.GameId = defaultGameId;
+            }
+            else
+            {
+                this.GameId = mainWindowSettings.SelectedGameId;
+            }
             DisplayUnchallengedCardMenuItem.IsChecked = mainWindowSettings.DisplayUnchallengedCard;
             if (DisplayUnchallengedCardMenuItem.IsChecked)
             {
