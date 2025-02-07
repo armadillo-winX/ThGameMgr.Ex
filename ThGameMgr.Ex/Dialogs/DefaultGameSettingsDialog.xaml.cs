@@ -57,11 +57,13 @@ namespace ThGameMgr.Ex.Dialogs
             try
             {
                 SettingsConfigurator.SaveDefaultGameSettings(defaultGameId);
+                this.Close();
             }
             catch (Exception ex) 
             {
                 MessageBox.Show(this, $"設定の保存に失敗しました。\n{ex.Message}", "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+                this.Close();
             }
         }
     }
