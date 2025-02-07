@@ -55,7 +55,7 @@
                         <Image Source="/Images/Settings.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem x:Name="DefaultGameSettingsMenuItem" Header="規定のゲームを設定する" Click="DefaultGameSettingsMenuItemClick"/>
+                <MenuItem x:Name="DefaultGameSettingsMenuItem" Header="既定のゲームを設定する" Click="DefaultGameSettingsMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="GamePlayLogMenuItem" Header="ゲーム実行履歴" Click="GamePlayLogMenuItemClick"/>
             </MenuItem>

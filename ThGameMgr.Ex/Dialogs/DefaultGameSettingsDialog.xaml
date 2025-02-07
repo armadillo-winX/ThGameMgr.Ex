@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
         mc:Ignorable="d"
-        Title="規定のゲームを設定する" Height="211" Width="323" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
+        Title="既定のゲームを設定する" Height="211" Width="323" WindowStyle="ToolWindow" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner">
     <Grid>
         <TextBlock Margin="10,10,10,0" TextWrapping="Wrap" Text="東方管制塔の起動時に選択されるゲームを設定します。" VerticalAlignment="Top" Height="30"/>
         <ComboBox x:Name="DefaultGameConfigComboBox"
