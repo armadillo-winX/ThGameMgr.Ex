@@ -8,7 +8,7 @@ namespace ThGameMgr.Ex
 
         public static string? AppName => FileVersionInfo.GetVersionInfo(_appPath).ProductName;
 
-        public static string CodeName => "Shizuka";
+        public static string CodeName => "Seiran";
 
         public static string? AppVersion => FileVersionInfo.GetVersionInfo(_appPath).ProductVersion;
 
