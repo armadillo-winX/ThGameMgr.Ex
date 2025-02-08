@@ -57,7 +57,7 @@ Visual Studio Community 2022
 ・東方天空璋　～ Hidden Star in Four Seasons.
 ・東方鬼形獣　～ Wily Beast and Weakest Creature.
 ・東方虹龍洞　～ Unconnected Marketeers.
-・東方獣王園 〜 Unfinished Dream of All Living Ghost.(スコアデータビューアについては未対応)
+・東方獣王園　〜 Unfinished Dream of All Living Ghost.(スコアデータビューアについては未対応)
 
 
 §ソースコード
