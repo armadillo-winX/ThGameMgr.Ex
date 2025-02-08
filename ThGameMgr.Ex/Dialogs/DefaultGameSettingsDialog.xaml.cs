@@ -38,7 +38,16 @@ namespace ThGameMgr.Ex.Dialogs
                 }
             }
 
-            string defaultGameSettings = SettingsConfigurator.ConfigureDefualtGameSettings();
+            string defaultGameSettings;
+            try
+            {
+                defaultGameSettings = SettingsConfigurator.ConfigureDefualtGameSettings();
+            }
+            catch (Exception)
+            {
+                defaultGameSettings = string.Empty;
+            }
+
             if (enableGamesList.Contains(defaultGameSettings))
             {
                 int index = enableGamesList.IndexOf(defaultGameSettings);
