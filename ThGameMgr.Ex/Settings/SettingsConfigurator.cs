@@ -366,7 +366,7 @@ namespace ThGameMgr.Ex.Settings
             }
         }
 
-        public static string ConfigureDefualtGameSettings()
+        public static string ConfigureDefaultGameSettings()
         {
             string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
             string? defaultGameSettingsFile = $"{settingsDirectory}\\DefaultGameSettings.xml";

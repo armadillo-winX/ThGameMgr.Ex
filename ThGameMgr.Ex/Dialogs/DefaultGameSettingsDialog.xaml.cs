@@ -41,7 +41,7 @@ namespace ThGameMgr.Ex.Dialogs
             string defaultGameSettings;
             try
             {
-                defaultGameSettings = SettingsConfigurator.ConfigureDefualtGameSettings();
+                defaultGameSettings = SettingsConfigurator.ConfigureDefaultGameSettings();
             }
             catch (Exception)
             {

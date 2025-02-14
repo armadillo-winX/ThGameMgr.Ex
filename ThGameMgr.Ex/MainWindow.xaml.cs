@@ -1181,7 +1181,7 @@ namespace ThGameMgr.Ex
             string defaultGameId;
             try
             {
-                defaultGameId = SettingsConfigurator.ConfigureDefualtGameSettings();
+                defaultGameId = SettingsConfigurator.ConfigureDefaultGameSettings();
             }
             catch (Exception)
             {
