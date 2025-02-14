@@ -2722,5 +2722,24 @@ namespace ThGameMgr.Ex
                 }
             }
         }
+
+        private void DistributionSiteMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ProcessStartInfo processStartInfo = new()
+            {
+                FileName = "https://mashironn.net/ThGameMgr/Ex/",
+                UseShellExecute = true
+            };
+
+            try
+            {
+                Process.Start(processStartInfo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
