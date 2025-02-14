@@ -11,7 +11,7 @@
 	  <FileVersion></FileVersion>
 	  <Version>$(VersionPrefix)$(VersionSuffix)</Version>
 	  <VersionPrefix>0.3.0</VersionPrefix>
-	  <VersionSuffix>beta</VersionSuffix>
+	  <VersionSuffix>release</VersionSuffix>
 	  <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
 
