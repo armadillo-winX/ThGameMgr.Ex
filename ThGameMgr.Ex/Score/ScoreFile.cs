@@ -1,4 +1,6 @@
-﻿namespace ThGameMgr.Ex.Score
+﻿using System.Xml;
+
+namespace ThGameMgr.Ex.Score
 {
     internal class ScoreFile
     {
@@ -35,6 +37,41 @@
                     return $"{shanghaiAliceAppData}\\{gameId.ToLower()}\\score{gameId.ToLower()}.dat";
                 }
             }
+        }
+
+        /// <summary>
+        /// スコアデータの回帰元ファイルを作成します
+        /// </summary>
+        /// <param name="gameId"></param>
+        public static void CreateRecallSourceFile(string gameId)
+        {
+            string scoreDataFile = GetScoreFilePath(gameId);
+
+            string tempDirectory = $"{PathInfo.AppLocation}\\temp\\";
+            if (!Directory.Exists(tempDirectory))
+                Directory.CreateDirectory(tempDirectory);
+
+            string recallSourceFile = $"{tempDirectory}\\recall.dat";
+            File.Copy(scoreDataFile, recallSourceFile, true);
+
+            string recallSourceInfoFile = $"{tempDirectory}\\recall_information.xml";
+            XmlDocument recallSourceInfoXml = new();
+
+            XmlNode docNode = recallSourceInfoXml.CreateXmlDeclaration("1.0", "UTF-8", null);
+            _ = recallSourceInfoXml.AppendChild(docNode);
+
+            XmlNode rootNode = recallSourceInfoXml.CreateElement("RecallSourceInformation");
+            _ = recallSourceInfoXml.AppendChild(rootNode);
+
+            XmlNode gameIdNode = recallSourceInfoXml.CreateElement("GameId");
+            gameIdNode.InnerText = gameId;
+            _ = rootNode.AppendChild(gameIdNode);
+
+            XmlNode scoreFilePathNode = recallSourceInfoXml.CreateElement("ScoreDataFilePath");
+            scoreFilePathNode.InnerText = scoreDataFile;
+            _ = rootNode.AppendChild(scoreFilePathNode);
+
+            recallSourceInfoXml.Save(recallSourceInfoFile);
         }
     }
 }
