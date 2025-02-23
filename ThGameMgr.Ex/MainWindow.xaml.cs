@@ -1788,8 +1788,32 @@ namespace ThGameMgr.Ex
 
             EnableGameEndWaitingLimitationMode(false);
             SetStartGameStatus(string.Empty);
-            
-            GetScoreData();
+
+            if (EnableScoreDataFileRecallCheckBox.IsChecked == true)
+            {
+                try
+                {
+                    bool result = ScoreFile.RecallScoreDataFile(this.GameId);
+                    if (!result)
+                    {
+                        MessageBox.Show(this,
+                            "スコアデータファイルの回帰ができませんでした。", "スコアデータファイルの回帰",
+                            MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        GetScoreData();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"スコアデータファイルの回帰に失敗しました。\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    GetScoreData();
+                }
+            }
+            else
+            {
+                GetScoreData();
+            }
+ 
             GetReplayFiles();
         }
 
