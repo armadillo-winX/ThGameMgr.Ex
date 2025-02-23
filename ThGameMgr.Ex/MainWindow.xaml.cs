@@ -1648,6 +1648,18 @@ namespace ThGameMgr.Ex
 
             int gameProcessId = gameProcess.Id;
 
+            if (EnableScoreDataFileRecallCheckBox.IsChecked == true)
+            {
+                try
+                {
+                    ScoreFile.CreateRecallSourceFile(this.GameId);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
             EnableGameEndWaitingLimitationMode(true);
             SetStartGameStatus("ゲームが実行中..");
 
