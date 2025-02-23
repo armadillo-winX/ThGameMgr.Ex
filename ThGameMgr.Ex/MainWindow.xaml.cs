@@ -1815,6 +1815,8 @@ namespace ThGameMgr.Ex
             }
  
             GetReplayFiles();
+
+            EnableScoreDataFileRecallCheckBox.IsChecked = false;
         }
 
         private void ExitMenuItemClick(object sender, RoutedEventArgs e)
