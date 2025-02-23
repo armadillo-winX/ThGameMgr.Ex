@@ -47,14 +47,14 @@ namespace ThGameMgr.Ex.Score
         {
             string scoreDataFile = GetScoreFilePath(gameId);
 
-            string tempDirectory = $"{PathInfo.AppLocation}\\temp\\";
-            if (!Directory.Exists(tempDirectory))
-                Directory.CreateDirectory(tempDirectory);
+            string recallDirectory = $"{PathInfo.AppLocation}\\Recall\\";
+            if (!Directory.Exists(recallDirectory))
+                Directory.CreateDirectory(recallDirectory);
 
-            string recallSourceFile = $"{tempDirectory}\\recall.dat";
+            string recallSourceFile = $"{recallDirectory}\\recall.dat";
             File.Copy(scoreDataFile, recallSourceFile, true);
 
-            string recallSourceInfoFile = $"{tempDirectory}\\recall_information.xml";
+            string recallSourceInfoFile = $"{recallDirectory}\\recall_information.xml";
 
             CreateRecallSourceInfoFile(gameId, scoreDataFile, recallSourceInfoFile);
         }
