@@ -55,6 +55,19 @@ namespace ThGameMgr.Ex.Score
             File.Copy(scoreDataFile, recallSourceFile, true);
 
             string recallSourceInfoFile = $"{tempDirectory}\\recall_information.xml";
+
+            CreateRecallSourceInfoFile(gameId, scoreDataFile, recallSourceInfoFile);
+        }
+
+        /// <summary>
+        /// スコアデータ回帰元ファイルについての情報を記述します。
+        /// 記述される情報はゲーム種別(Game ID)とスコアデータファイルの元のパスです。
+        /// </summary>
+        /// <param name="gameId"></param>
+        /// <param name="scoreDataFile"></param>
+        /// <param name="recallSourceInfoFile"></param>
+        private static void CreateRecallSourceInfoFile(string gameId, string scoreDataFile, string recallSourceInfoFile)
+        {
             XmlDocument recallSourceInfoXml = new();
 
             XmlNode docNode = recallSourceInfoXml.CreateXmlDeclaration("1.0", "UTF-8", null);
