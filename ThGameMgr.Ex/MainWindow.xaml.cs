@@ -1616,6 +1616,7 @@ namespace ThGameMgr.Ex
             StartGameWithVpatchButton.IsEnabled = !enabled;
             StartGameWithThpracButton.IsEnabled = !enabled;
             StartCustomProgramButton.IsEnabled = !enabled;
+            EnableScoreDataFileRecallCheckBox.IsEnabled = !enabled;
             GameAudioControlSlider.IsEnabled = enabled;
         }
 
