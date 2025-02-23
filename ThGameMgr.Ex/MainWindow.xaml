@@ -168,6 +168,8 @@
                         <Run Text="ゲームの音量のみを調整します。"/><LineBreak/>
                         <Run Text="コンピュータそのものの音量は変更されません。"/>
                     </TextBlock>
+                    <CheckBox x:Name="EnableScoreDataFileRecallCheckBox"
+                        Content="スコアデータファイルの回帰を有効にする" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header="ハイスコア" x:Name="HighScoreTabItem">
