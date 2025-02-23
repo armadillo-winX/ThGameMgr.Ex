@@ -1789,6 +1789,7 @@ namespace ThGameMgr.Ex
             EnableGameEndWaitingLimitationMode(false);
             SetStartGameStatus(string.Empty);
 
+            //スコアデータファイルの回帰処理
             if (EnableScoreDataFileRecallCheckBox.IsChecked == true)
             {
                 try
