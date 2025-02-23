@@ -39,6 +39,11 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        /// <summary>
+        /// スコアデータファイルを回帰(以前のものへロールバック)します。
+        /// </summary>
+        /// <param name="gameId"></param>
+        /// <returns></returns>
         public static bool RecallScoreDataFile(string gameId)
         {
             string recallDirectory = $"{PathInfo.AppLocation}\\Recall\\";
