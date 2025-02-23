@@ -39,6 +39,41 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        public static bool RecallScoreDataFile(string gameId)
+        {
+            string recallDirectory = $"{PathInfo.AppLocation}\\Recall\\";
+            string recallSourceFile = $"{recallDirectory}\\recall.dat";
+            string recallSourceInfoFile = $"{recallDirectory}\\recall_information.xml";
+
+            XmlDocument recallSourceInfoXml = new();
+            recallSourceInfoXml.Load(recallSourceInfoFile);
+
+            XmlElement? rootNode = recallSourceInfoXml.DocumentElement;
+
+            XmlNode? gameIdNode
+                = rootNode?.SelectSingleNode("GameId");
+
+            if (gameIdNode?.InnerText == gameId)
+            {
+                XmlNode? scoreFilePathNode = rootNode?.SelectSingleNode("ScoreDataFilePath");
+
+                string? scoreDataFilePath = GetScoreFilePath(gameId);
+                if (scoreFilePathNode?.InnerText == scoreDataFilePath)
+                {
+                    File.Move(recallSourceFile, scoreDataFilePath, true);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         /// <summary>
         /// スコアデータの回帰元ファイルを作成します
         /// </summary>
