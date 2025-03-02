@@ -170,6 +170,8 @@
                     </TextBlock>
                     <CheckBox x:Name="EnableScoreDataFileRecallCheckBox"
                         Content="スコアデータファイルの回帰を有効にする" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,199,0,0" TextWrapping="Wrap" 
+                               Text="「スコアデータファイルの回帰」機能は、ゲームプレイ後にスコアデータファイルをプレイ前のものへ差し替える機能です。" VerticalAlignment="Top" Width="276"/>
                 </Grid>
             </TabItem>
             <TabItem Header="ハイスコア" x:Name="HighScoreTabItem">
