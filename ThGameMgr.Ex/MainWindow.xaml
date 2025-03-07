@@ -402,7 +402,7 @@
                 <Grid>
                     <DataGrid x:Name="ReplayFilesDataGrid"
                         AutoGenerateColumns="False"
-                        ItemsSource="{Binding}" Margin="0,0,105,0">
+                        ItemsSource="{Binding}" Margin="0,30,0,0">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="リネーム" Click="RenameReplayFileButtonClick"/>
@@ -420,24 +420,6 @@
                                             Binding="{Binding FileSize}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button x:Name="RenameReplayFileButton"
-                            Content="リネーム(_R)" HorizontalAlignment="Right" Margin="0,39,10,0" VerticalAlignment="Top"
-                            Width="90" Height="24" Click="RenameReplayFileButtonClick"/>
-                    <Button x:Name="DeleteReplayFileButton"
-                            Content="削除(_D)" HorizontalAlignment="Right" Margin="0,68,10,0" VerticalAlignment="Top"
-                            Width="90" Height="24" Click="DeleteReplayFileButtonClick"/>
-                    <Button x:Name="ReloadReplayFilesButton"
-                            Content="再読み込み" HorizontalAlignment="Right" Margin="0,97,10,0" VerticalAlignment="Top"
-                            Width="90" Height="24" Click="ReloadReplayFilesButtonClick"/>
-                    <Button x:Name="AddReplayFileButton"
-                            Width="90" Height="24"
-                            Content="追加(_A)" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Click="AddReplayFileButtonClick"/>
-                    <Button x:Name="CopyReplayFileButton" 
-                            Click="CopyReplayFileButtonClick"
-                        Content="複製(_C)" HorizontalAlignment="Right" Margin="0,126,10,0" VerticalAlignment="Top" Width="90" Height="24"/>
-                    <Button x:Name="MoveReplayFileButton"
-                            Click="MoveReplayFileButtonClick"
-                        Content="移動(_M)" HorizontalAlignment="Right" Margin="0,155,10,0" VerticalAlignment="Top" Width="90" Height="24"/>
                     <TextBlock
                         x:Name="ReplayFileErrorBlock"
                         FontSize="14"
@@ -448,6 +430,26 @@
                         Visibility="Hidden"
                         HorizontalAlignment="Center" Height="32" Margin="0,-55,0,0" VerticalAlignment="Center"
                         Width="32" Source="/Images/ErrorIcon32x32.png" Stretch="None"/>
+                    <ToolBar x:Name="ReplayToolsToolBar"
+                        Height="30" VerticalAlignment="Top">
+                        <Button x:Name="RenameReplayFileButton"
+                                Content="リネーム" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                Click="RenameReplayFileButtonClick"/>
+                        <Button x:Name="DeleteReplayFileButton"
+                                Content="削除" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                Click="DeleteReplayFileButtonClick"/>
+                        <Button x:Name="ReloadReplayFilesButton"
+                                Content="再読み込み" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                Click="ReloadReplayFilesButtonClick"/>
+                        <Button x:Name="AddReplayFileButton"
+                                Content="追加" HorizontalAlignment="Right" VerticalAlignment="Top" Click="AddReplayFileButtonClick"/>
+                        <Button x:Name="CopyReplayFileButton" 
+                                Click="CopyReplayFileButtonClick"
+                                Content="複製" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                        <Button x:Name="MoveReplayFileButton"
+                                Click="MoveReplayFileButtonClick"
+                                Content="移動" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    </ToolBar>
                 </Grid>
             </TabItem>
         </TabControl>
