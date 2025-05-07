@@ -118,6 +118,13 @@ namespace ThGameMgr.Ex
 
                     string gameName = GameIndex.GetGameName(value);
                     this.GameName = gameName;
+
+                    System.Drawing.Icon? gameIcon = GameFile.GetGameIcon(value);
+                    if (gameIcon != null)
+                    {
+                        GameIconImage.Source = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
+                                gameIcon.ToBitmap().GetHbitmap(), IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+                    }
                 }
                 else
                 {
