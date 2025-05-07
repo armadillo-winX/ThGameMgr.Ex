@@ -110,10 +110,10 @@
                 <Grid >
                     <TextBlock
                     x:Name="GameIdBlock"
-                    HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="Th00" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                    HorizontalAlignment="Left" Margin="57,14,0,0" TextWrapping="Wrap" Text="Th00" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
                     <TextBlock
                         x:Name="ControlPanelGameNameBlock"
-                        HorizontalAlignment="Left" Margin="70,10,0,0" TextWrapping="Wrap" Text="GameName" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                        HorizontalAlignment="Left" Margin="117,11,0,0" TextWrapping="Wrap" Text="GameName" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
                     <TextBlock
                         x:Name="GameRunningTimeBlock"
                         HorizontalAlignment="Left" Margin="102,103,0,0" TextWrapping="Wrap" Text="00min00sec" VerticalAlignment="Top" FontSize="18"/>
@@ -172,6 +172,9 @@
                         Content="スコアデータファイルの回帰を有効にする" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top"/>
                     <TextBlock HorizontalAlignment="Left" Margin="10,199,0,0" TextWrapping="Wrap" 
                                Text="「スコアデータファイルの回帰」機能は、ゲームプレイ後にスコアデータファイルをプレイ前のものへ差し替える機能です。" VerticalAlignment="Top" Width="276"/>
+                    <Image
+                        x:Name="GameIconImage"
+                        HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" VerticalAlignment="Top" Width="38"/>
                 </Grid>
             </TabItem>
             <TabItem Header="ハイスコア" x:Name="HighScoreTabItem">
