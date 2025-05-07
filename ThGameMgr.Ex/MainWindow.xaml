@@ -110,7 +110,7 @@
                 <Grid >
                     <TextBlock
                     x:Name="GameIdBlock"
-                    HorizontalAlignment="Left" Margin="57,14,0,0" TextWrapping="Wrap" Text="Th00" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                    HorizontalAlignment="Left" Margin="57,15,0,0" TextWrapping="Wrap" Text="Th00" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
                     <TextBlock
                         x:Name="ControlPanelGameNameBlock"
                         HorizontalAlignment="Left" Margin="117,11,0,0" TextWrapping="Wrap" Text="GameName" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
