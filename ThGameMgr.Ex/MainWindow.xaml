@@ -198,7 +198,13 @@
                             <DataGridTextColumn x:Name="ScoreColumn"
 		                    IsReadOnly="True"
                             Header="スコア" 
-                            Binding="{Binding Score}"  Width="110"/>
+                            Binding="{Binding Score}"  Width="110">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="PlayerColumn"
 		                    IsReadOnly="True"
                             Header="自機" 
@@ -222,7 +228,13 @@
                             <DataGridTextColumn x:Name="SlowRateColumn"
 	                    	IsReadOnly="True"
                             Header="処理落ち率" 
-                            Binding="{Binding SlowRate}" Width="75"/>
+                            Binding="{Binding SlowRate}" Width="75">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="OtherDataColumn"
                             IsReadOnly="True"
                             Header="その他"
