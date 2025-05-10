@@ -298,7 +298,13 @@
                             <DataGridTextColumn x:Name="SpellCardIdColumn"
                             IsReadOnly="True"
                             Header="No"
-                            Binding="{Binding CardID}" Width="45"/>
+                            Binding="{Binding CardID}" Width="45">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellCardNameColumn"
                             IsReadOnly="True"
                             Header="スペルカード名" 
@@ -310,15 +316,33 @@
                             <DataGridTextColumn x:Name="SpellCardGetColumn"
                             IsReadOnly="True"
                             Header="取得数"
-                            Binding="{Binding GetCount}" Width="50"/>
+                            Binding="{Binding GetCount}" Width="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellCardChallengeColumn"
                             IsReadOnly="True"
                             Header="挑戦数"
-                            Binding="{Binding TryCount}" Width="50"/>
+                            Binding="{Binding TryCount}" Width="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellCardRateColumn"
                             IsReadOnly="True"
                             Header="取得率"
-                            Binding="{Binding Rate}" Width="75"/>
+                            Binding="{Binding Rate}" Width="75">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellCardPlaceColumn"
                             IsReadOnly="True"
                             Header="場所" 
