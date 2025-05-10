@@ -201,7 +201,13 @@
                             <DataGridTextColumn x:Name="ScoreColumn"
 		                    IsReadOnly="True"
                             Header="スコア" 
-                            Binding="{Binding Score}"  Width="110"/>
+                            Binding="{Binding Score}"  Width="110">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="PlayerColumn"
 		                    IsReadOnly="True"
                             Header="自機" 
@@ -225,7 +231,13 @@
                             <DataGridTextColumn x:Name="SlowRateColumn"
 	                    	IsReadOnly="True"
                             Header="処理落ち率" 
-                            Binding="{Binding SlowRate}" Width="75"/>
+                            Binding="{Binding SlowRate}" Width="75">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="OtherDataColumn"
                             IsReadOnly="True"
                             Header="その他"
@@ -289,7 +301,13 @@
                             <DataGridTextColumn x:Name="SpellCardIdColumn"
                             IsReadOnly="True"
                             Header="No"
-                            Binding="{Binding CardID}" Width="45"/>
+                            Binding="{Binding CardID}" Width="45">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellCardNameColumn"
                             IsReadOnly="True"
                             Header="スペルカード名" 
@@ -301,15 +319,33 @@
                             <DataGridTextColumn x:Name="SpellCardGetColumn"
                             IsReadOnly="True"
                             Header="取得数"
-                            Binding="{Binding GetCount}" Width="50"/>
+                            Binding="{Binding GetCount}" Width="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellCardChallengeColumn"
                             IsReadOnly="True"
                             Header="挑戦数"
-                            Binding="{Binding TryCount}" Width="50"/>
+                            Binding="{Binding TryCount}" Width="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellCardRateColumn"
                             IsReadOnly="True"
                             Header="取得率"
-                            Binding="{Binding Rate}" Width="75"/>
+                            Binding="{Binding Rate}" Width="75">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellCardPlaceColumn"
                             IsReadOnly="True"
                             Header="場所" 
@@ -358,7 +394,13 @@
                             <DataGridTextColumn x:Name="SpellPracticeIdColumn"
                             IsReadOnly="True"
                             Header="No"
-                            Binding="{Binding CardID}" Width="45"/>
+                            Binding="{Binding CardID}" Width="45">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellPracticeNameColumn"
                             IsReadOnly="True"
                             Header="スペルカード名" 
@@ -370,15 +412,33 @@
                             <DataGridTextColumn x:Name="SpellPracticeGetColumn"
                             IsReadOnly="True"
                             Header="取得数"
-                            Binding="{Binding GetCount}" Width="50"/>
+                            Binding="{Binding GetCount}" Width="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellPracticeChallengeColumn"
                             IsReadOnly="True"
                             Header="挑戦数"
-                            Binding="{Binding TryCount}" Width="50"/>
+                            Binding="{Binding TryCount}" Width="50">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellPracticeRateColumn"
                             IsReadOnly="True"
                             Header="取得率"
-                            Binding="{Binding Rate}" Width="75"/>
+                            Binding="{Binding Rate}" Width="75">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}" >
+                                        <Setter Property="TextAlignment" Value="Right" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn x:Name="SpellPracticePlaceColumn"
                             IsReadOnly="True"
                             Header="場所" 
