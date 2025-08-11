@@ -1313,7 +1313,7 @@ namespace ThGameMgr.Ex
                     Header = startGamePlugin.CommandName
                 };
 
-                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                menuItem.Click += (sender, e) =>
                 {
                     string? gameId = this.GameId;
                     if (!string.IsNullOrEmpty(gameId))
@@ -1375,7 +1375,7 @@ namespace ThGameMgr.Ex
                     Header = gameFilesPlugin.CommandName
                 };
 
-                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                menuItem.Click += (sender, e) =>
                 {
                     List<string> availableGamesList = GameIndex.GetEnabledGamesList();
                     Dictionary<string, string> availableGameFilesDictionary = [];
@@ -1419,7 +1419,7 @@ namespace ThGameMgr.Ex
                     Header = selectedGamePlugin.CommandName
                 };
 
-                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                menuItem.Click += (sender, e) =>
                 {
                     try
                     {
@@ -1460,7 +1460,7 @@ namespace ThGameMgr.Ex
                     Header = scoreRecordsPlugin.CommandName
                 };
 
-                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                menuItem.Click += (sender, e) =>
                 {
                     try
                     {
@@ -1500,7 +1500,7 @@ namespace ThGameMgr.Ex
                     Header = spellCardRecordsPlugin.CommandName
                 };
 
-                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                menuItem.Click += (sender, e) =>
                 {
                     try
                     {
@@ -1540,7 +1540,7 @@ namespace ThGameMgr.Ex
                     Header = allScoreRecordsPlugin.CommandName
                 };
 
-                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                menuItem.Click += (sender, e) =>
                 {
                     try
                     {
@@ -1583,7 +1583,7 @@ namespace ThGameMgr.Ex
                     Header = toolPlugin.CommandName
                 };
 
-                menuItem.Click += (object sender, RoutedEventArgs e) =>
+                menuItem.Click += (sender, e) =>
                 {
                     try
                     {
