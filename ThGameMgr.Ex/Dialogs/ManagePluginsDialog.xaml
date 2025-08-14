@@ -25,6 +25,6 @@
         <TextBox x:Name="DetailBox" IsReadOnly="True" Margin="10,158,10,10" TextWrapping="Wrap" Text=""/>
         <TextBlock x:Name="FindPluginsLinkBlock"
             HorizontalAlignment="Right" Margin="0,10,10,0" TextWrapping="Wrap"
-            Text="プラグインを探す" VerticalAlignment="Top" TextDecorations="Underline" Foreground="#FF003EFF" Cursor="Hand"/>
+            Text="プラグインを探す" VerticalAlignment="Top" TextDecorations="Underline" Foreground="#FF003EFF" Cursor="Hand" MouseDown="FindPluginsLinkBlockMouseDown"/>
     </Grid>
 </Window>

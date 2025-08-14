@@ -129,5 +129,24 @@ Version.{pluginInfo.Version}
 {pluginInfo.Description}";
             }
         }
+
+        private void FindPluginsLinkBlockMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            ProcessStartInfo processStartInfo = new()
+            {
+                FileName = "https://mashironn.net/ThGameMgr/Ex/plugins/",
+                UseShellExecute = true
+            };
+
+            try
+            {
+                Process.Start(processStartInfo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message, "エラー",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
     }
 }
