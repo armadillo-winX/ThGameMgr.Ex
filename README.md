@@ -1,4 +1,6 @@
 # 東方管制塔 EX
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Farmadillo-winX%2FThGameMgr.Ex.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Farmadillo-winX%2FThGameMgr.Ex?ref=badge_shield)
+
 ## これは何?
 東方管制塔 EX は東方向けの多機能外部ツールです。<br>
 以下の機能が実装されています。
@@ -40,3 +42,7 @@ ThScoreFileConverter の著作権は IIHOSHI Yoshinori 様にあり、そのラ�
 東方管制塔 EX が使用しているライブラリのライセンスについては[License.txt](ThGameMgr.Ex/License.txt)を参照してください。
 ### NAudio
 Copyright 2020 Mark Heath
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Farmadillo-winX%2FThGameMgr.Ex.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Farmadillo-winX%2FThGameMgr.Ex?ref=badge_large)
