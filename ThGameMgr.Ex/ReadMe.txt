@@ -32,13 +32,13 @@ Copyright © 2024- 珠音茉白/東方管制塔開発部
 
 §推奨動作環境
 Microsoft Windows 10/11
-.NET Desktop Runtime 8.0 が必要です．
+.NET Desktop Runtime 10.0 が必要です．
 
 
 §開発環境
 Microsoft Windows 11 Insider Preview Canary
 Visual Studio Community 2022
-.NET 8.0
+.NET 10.0
 
 
 §対応作品
