@@ -2833,7 +2833,8 @@ namespace ThGameMgr.Ex
                 else if (fRate < 50.0)
                 {
                     //e.Row.Background = System.Windows.Media.Brushes.Red;
-                    e.Row.Foreground = System.Windows.Media.Brushes.Red;
+                    e.Row.Foreground =
+                        (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#ee3900");
                 }
                 else
                 {
