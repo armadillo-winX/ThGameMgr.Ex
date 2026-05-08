@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
         mc:Ignorable="d"
-        Title="御札戦歴統計" Height="334" Width="359" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
+        Title="御札戦歴統計" Height="297" Width="384" ResizeMode="NoResize" ShowInTaskbar="False" WindowStartupLocation="CenterOwner" WindowStyle="ToolWindow">
     <Grid>
         <TextBlock x:Name="GameNameBlock"
             HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="GameName" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
@@ -25,14 +25,8 @@
             x:Name="CloseButton"
             Width="90" Height="24"
             Content="閉じる(_C)" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="CloseButtonClick"/>
-        <Label Content="挑戦回数の合計" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TotalChallengeCountBlock" Margin="138,137,10,0" TextWrapping="Wrap" 
-                   FontSize="18" Text="0" VerticalAlignment="Top" TextAlignment="Center" FontWeight="Bold"/>
-        <Label Content="取得回数の合計" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TotalGetCountBlock" Margin="138,168,10,0" TextWrapping="Wrap" TextAlignment="Center" 
-                   Text="0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-        <Label Content="合計挑戦回数に対する合計取得回数" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="TotalGetRateBlock" Margin="209,199,10,0" TextWrapping="Wrap" Text="0.00%" VerticalAlignment="Top"
+        <Label Content="平均スペルカード取得率:" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TotalGetRateBlock" Margin="209,130,10,0" TextWrapping="Wrap" Text="0.00%" VerticalAlignment="Top"
                    FontSize="18" FontWeight="Bold" TextAlignment="Center"/>
 
     </Grid>
