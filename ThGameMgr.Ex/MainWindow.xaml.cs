@@ -2817,5 +2817,28 @@ namespace ThGameMgr.Ex
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void SpellCardDataGridLoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            SpellCardRecordData spellCardRecordData = e.Row.Item as SpellCardRecordData;
+            if (spellCardRecordData != null)
+            {
+                float fRate = float.Parse(spellCardRecordData.Rate.Trim('%'));
+                if (fRate >= 80.0)
+                {
+                    //e.Row.Background = System.Windows.Media.Brushes.Blue;
+                    e.Row.Foreground = System.Windows.Media.Brushes.Blue;
+                }
+                else if (fRate < 50.0)
+                {
+                    //e.Row.Background = System.Windows.Media.Brushes.Red;
+                    e.Row.Foreground = System.Windows.Media.Brushes.Red;
+                }
+                else
+                {
+                    e.Row.Foreground = System.Windows.Media.Brushes.Black;
+                }
+            }
+        }
     }
 }
