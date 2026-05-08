@@ -2827,7 +2827,8 @@ namespace ThGameMgr.Ex
                 if (fRate >= 80.0)
                 {
                     //e.Row.Background = System.Windows.Media.Brushes.Blue;
-                    e.Row.Foreground = System.Windows.Media.Brushes.Blue;
+                    e.Row.Foreground = 
+                        (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#262bc7");
                 }
                 else if (fRate < 50.0)
                 {
