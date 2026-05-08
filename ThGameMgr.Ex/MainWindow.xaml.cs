@@ -2838,14 +2838,15 @@ namespace ThGameMgr.Ex
                         e.Row.Background =
                             (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#F3D1D1");
                         e.Row.Foreground =
-                            (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#ee3900");
+                            System.Windows.Media.Brushes.Red;
+                            //(System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#ee3900");
                     }
                     else
                     {
                         e.Row.Background = 
                             (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#F3E7D1");
-                        e.Row.Foreground = 
-                            (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#E97132");
+                        e.Row.Foreground =
+                            (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#FE440A");
                     }
                 }
                 else
