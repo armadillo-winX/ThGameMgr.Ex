@@ -2126,8 +2126,6 @@ namespace ThGameMgr.Ex
                     ChallengedCardCount = spellCardStatisticsData.TriedCardCount,
                     GetCardCount = spellCardStatisticsData.GetCardCount,
                     GetCardRate = spellCardStatisticsData.GetCardCountRate,
-                    TotalChallengeCount = spellCardStatisticsData.TotalTryCount,
-                    TotalGetCount = spellCardStatisticsData.TotalGetCount,
                     TotalGetRate = spellCardStatisticsData.TotalGetCountRate,
                     Owner = this
                 };
