@@ -25,7 +25,7 @@
             x:Name="CloseButton"
             Width="90" Height="24"
             Content="閉じる(_C)" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="CloseButtonClick"/>
-        <Label Content="平均スペルカード取得率:" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top"/>
+        <Label Content="平均スペルカード取得率" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="TotalGetRateBlock" Margin="209,130,10,0" TextWrapping="Wrap" Text="0.00%" VerticalAlignment="Top"
                    FontSize="18" FontWeight="Bold" TextAlignment="Center"/>
 
