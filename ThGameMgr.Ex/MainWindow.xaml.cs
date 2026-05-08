@@ -2823,20 +2823,28 @@ namespace ThGameMgr.Ex
             SpellCardRecordData spellCardRecordData = e.Row.Item as SpellCardRecordData;
             if (spellCardRecordData != null)
             {
-                float fRate = float.Parse(spellCardRecordData.Rate.Trim('%'));
-                if (fRate >= 80.0)
+                bool result = float.TryParse(spellCardRecordData.Rate.Trim('%'), out float fRate);
+                if (result)
                 {
-                    e.Row.Background =
-                        (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#C3E1F5");
-                    e.Row.Foreground = 
-                        (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#262bc7");
-                }
-                else if (fRate < 50.0)
-                {
-                    e.Row.Background =
-                        (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#F3D1D1");
-                    e.Row.Foreground =
-                        (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#ee3900");
+                    if (fRate >= 80.0)
+                    {
+                        e.Row.Background =
+                            (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#C3E1F5");
+                        e.Row.Foreground =
+                            (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#262bc7");
+                    }
+                    else if (fRate < 50.0)
+                    {
+                        e.Row.Background =
+                            (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#F3D1D1");
+                        e.Row.Foreground =
+                            (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#ee3900");
+                    }
+                    else
+                    {
+                        e.Row.Background = System.Windows.Media.Brushes.White;
+                        e.Row.Foreground = System.Windows.Media.Brushes.Black;
+                    }
                 }
                 else
                 {
