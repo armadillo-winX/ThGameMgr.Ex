@@ -2826,18 +2826,21 @@ namespace ThGameMgr.Ex
                 float fRate = float.Parse(spellCardRecordData.Rate.Trim('%'));
                 if (fRate >= 80.0)
                 {
-                    //e.Row.Background = System.Windows.Media.Brushes.Blue;
+                    e.Row.Background =
+                        (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#C3E1F5");
                     e.Row.Foreground = 
                         (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#262bc7");
                 }
                 else if (fRate < 50.0)
                 {
-                    //e.Row.Background = System.Windows.Media.Brushes.Red;
+                    e.Row.Background =
+                        (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#F3D1D1");
                     e.Row.Foreground =
                         (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#ee3900");
                 }
                 else
                 {
+                    e.Row.Background = System.Windows.Media.Brushes.White;
                     e.Row.Foreground = System.Windows.Media.Brushes.Black;
                 }
             }
