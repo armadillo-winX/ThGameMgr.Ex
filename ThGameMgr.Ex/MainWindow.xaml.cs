@@ -2842,8 +2842,10 @@ namespace ThGameMgr.Ex
                     }
                     else
                     {
-                        e.Row.Background = System.Windows.Media.Brushes.White;
-                        e.Row.Foreground = System.Windows.Media.Brushes.Black;
+                        e.Row.Background = 
+                            (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#F3E7D1");
+                        e.Row.Foreground = 
+                            (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#E97132");
                     }
                 }
                 else
