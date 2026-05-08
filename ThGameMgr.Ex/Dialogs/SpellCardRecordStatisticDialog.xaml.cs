@@ -51,22 +51,6 @@
             }
         }
 
-        public int TotalChallengeCount
-        {
-            set
-            {
-                TotalChallengeCountBlock.Text = value.ToString();
-            }
-        }
-
-        public int TotalGetCount
-        {
-            set
-            {
-                TotalGetCountBlock.Text = value.ToString();
-            }
-        }
-
         public string? TotalGetRate
         {
             set
