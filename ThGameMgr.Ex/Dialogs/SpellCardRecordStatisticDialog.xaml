@@ -29,7 +29,7 @@
         <TextBlock x:Name="TotalGetRateBlock" Margin="209,130,10,0" TextWrapping="Wrap" Text="0.00%" VerticalAlignment="Top"
                    FontSize="18" FontWeight="Bold" TextAlignment="Center"/>
         <TextBlock HorizontalAlignment="Left" Margin="134,136,0,0" TextWrapping="Wrap" Text="?" 
-                   ToolTip="メインウィンドウの御札戦歴にある「取得率」の平均を算出します。"
+                   ToolTip="スペルカードに挑戦した回数に対して、平均してどれほどスペルカードを取得できたかを算出します。"
                    VerticalAlignment="Top" Foreground="#FF004AFF" FontWeight="Bold" FontFamily="Arial"/>
 
     </Grid>
