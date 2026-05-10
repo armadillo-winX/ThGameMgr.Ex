@@ -61,6 +61,22 @@ let addUser(userName: string, userIndexFilePath: string, usersDirectory: string)
     
     0
 
+let deleteUser(userName: string, userIndexFilePath: string, usersDirectory: string) =
+    if File.Exists(userIndexFilePath) then
+        let userIndexDocument = new XmlDocument()
+        userIndexDocument.Load(userIndexFilePath)
+
+        let userDirectoryName = userIndexDocument.SelectSingleNode($"//User[@Index='{userName}']/DirectoryName").InnerText
+
+        let rootNode = userIndexDocument.DocumentElement
+        let userNode = userIndexDocument.SelectSingleNode($"//User[@Index='{userName}']")
+        rootNode.RemoveChild(userNode) |> ignore
+        userIndexDocument.Save(userIndexFilePath)
+
+        0
+    else
+        1
+
 //スクリプトのある場所を取得する
 let scriptDirectory = __SOURCE_DIRECTORY__
 
