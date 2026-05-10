@@ -93,6 +93,7 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
         Console.WriteLine("操作を選択して数字を入力")
         Console.WriteLine("[0] 新しいユーザーを追加する")
         Console.WriteLine("[1] 複数の新しいユーザーを追加する")
+        Console.WriteLine("[2] ユーザーを削除する")
         Console.WriteLine("[9] スクリプトを終了する")
 
         let input = Console.ReadLine()
@@ -125,6 +126,17 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
                     j <- j + 1
             else
                 printfn "入力が不正です．入力を数字にできませんでした．\n"
+        elif input = "2" then
+            Console.WriteLine("削除するユーザー名を入力してください:")
+            let userName = Console.ReadLine()
+            if userExist(userName, userIndexFilePath) then
+                let result = deleteUser(userName, userIndexFilePath, usersDirectory)
+                if result = 0 then
+                    printfn "ユーザーを削除しました．\n"
+                else
+                    printfn "UsersIndex.xml が存在しなかったため，ユーザーを削除できませんでした．\n"
+            else
+                printfn "ユーザー '%s' は存在しません．\n" userName
         elif input = "9" then
             exit 0
         else 
