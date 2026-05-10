@@ -133,6 +133,7 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
         Console.WriteLine("[2] ユーザーを削除する")
         Console.WriteLine("[3] ユーザーのリストを取得する")
         Console.WriteLine("[4] UsersIndex.xml を編集 (notepad.exe)")
+        Console.WriteLine("[5] UserSelectionConfig.xml を編集 (notepad.exe)")
         Console.WriteLine("[7] UserSelectionConfig.xml を削除する")
         Console.WriteLine("[8] すべてのユーザー構成を削除する")
         Console.WriteLine("[9] スクリプトを終了する")
@@ -190,6 +191,8 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
                 printfn "ユーザーが存在しません．\n"
         elif input = "4" then
             ProcessStartInfo("notepad.exe", userIndexFilePath) |> Process.Start |> ignore
+        elif input = "5" then
+            ProcessStartInfo("notepad.exe", $"{scriptDirectory}\\UserSelectionConfig.xml") |> Process.Start |> ignore
         elif input = "7" then
             Console.WriteLine("UserSelectionConfig.xml を削除します．本当によろしいですか？ (y/n)")
             let confirmation = Console.ReadLine()
