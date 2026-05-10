@@ -97,6 +97,11 @@ let getUsersList(usersIndexFilePath: string, usersDirectory: string) =
     else
         users
 
+let deleteUserSelectionConfig(rootDirectory: string) =
+    let userSelectionConfigFilePath = $"{rootDirectory}\\UserSelectionConfig.xml"
+    if File.Exists(userSelectionConfigFilePath) then File.Delete(userSelectionConfigFilePath) |> ignore
+    0
+
 let deleteAllUsersConfig(rootDirectory: string) =
     let userIndexFilePath = $"{rootDirectory}\\UsersIndex.xml"
     let usersDirectory = $"{rootDirectory}\\Users"
