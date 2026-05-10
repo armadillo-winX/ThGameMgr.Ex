@@ -190,9 +190,15 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
             else
                 printfn "ユーザーが存在しません．\n"
         elif input = "4" then
-            ProcessStartInfo("notepad.exe", userIndexFilePath) |> Process.Start |> ignore
+            let psi = new ProcessStartInfo();
+            psi.FileName <- "notepad.exe"
+            psi.Arguments <- userIndexFilePath
+            Process.Start(psi) |> ignore
         elif input = "5" then
-            ProcessStartInfo("notepad.exe", $"{scriptDirectory}\\UserSelectionConfig.xml") |> Process.Start |> ignore
+            let psi = new ProcessStartInfo();
+            psi.FileName <- "notepad.exe"
+            psi.Arguments <- $"{scriptDirectory}\\UserSelectionConfig.xml"
+            Process.Start(psi) |> ignore
         elif input = "7" then
             Console.WriteLine("UserSelectionConfig.xml を削除します．本当によろしいですか？ (y/n)")
             let confirmation = Console.ReadLine()
