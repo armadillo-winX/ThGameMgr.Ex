@@ -131,6 +131,7 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
         Console.WriteLine("[1] 複数の新しいユーザーを追加する")
         Console.WriteLine("[2] ユーザーを削除する")
         Console.WriteLine("[3] ユーザーのリストを取得する")
+        Console.WriteLine("[7] UserSelectionConfig.xml を削除する")
         Console.WriteLine("[8] すべてのユーザー構成を削除する")
         Console.WriteLine("[9] スクリプトを終了する")
 
@@ -185,6 +186,14 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
                 printfn ""
             else
                 printfn "ユーザーが存在しません．\n"
+        elif input = "7" then
+            Console.WriteLine("UserSelectionConfig.xml を削除します．本当によろしいですか？ (y/n)")
+            let confirmation = Console.ReadLine()
+            if confirmation.ToLower() = "y" then
+                deleteUserSelectionConfig(scriptDirectory) |> ignore
+                printfn "UserSelectionConfig.xml を削除しました．\n"
+            else
+                printfn "操作がキャンセルされました．\n"
         elif input = "8" then
             Console.WriteLine("すべてのユーザー構成を削除します．本当によろしいですか？ (y/n)")
             let confirmation = Console.ReadLine()
