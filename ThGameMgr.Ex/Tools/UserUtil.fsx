@@ -126,7 +126,7 @@ let usersDirectory = $"{scriptDirectory}\\Users"
 
 if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
     while true do
-        Console.WriteLine("操作を選択して数字を入力")
+        Console.WriteLine("数字を入力して実行する操作を選択")
         Console.WriteLine("[0] 新しいユーザーを追加する")
         Console.WriteLine("[1] 複数の新しいユーザーを追加する")
         Console.WriteLine("[2] ユーザーを削除する")
