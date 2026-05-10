@@ -77,6 +77,26 @@ let deleteUser(userName: string, userIndexFilePath: string, usersDirectory: stri
     else
         1
 
+let getUsersList(usersIndexFilePath: string, usersDirectory: string) =
+    let users = new ResizeArray<string>()
+    if File.Exists(usersIndexFilePath) then
+        let userIndexDocument = new XmlDocument()
+        userIndexDocument.Load(usersIndexFilePath)
+        let userNodeList = userIndexDocument.SelectNodes("//User")
+        if userNodeList <> null && userNodeList.Count > 0 then
+            let mutable i = 0
+            while i < userNodeList.Count do
+                let userNode = userNodeList.Item(i)
+                let userName = userNode.SelectSingleNode("Name").InnerText
+                users.Add(userName)
+                i <- i + 1
+            
+            users
+        else
+            users
+    else
+        users
+
 //スクリプトのある場所を取得する
 let scriptDirectory = __SOURCE_DIRECTORY__
 
