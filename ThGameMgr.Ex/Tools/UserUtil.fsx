@@ -74,6 +74,8 @@ let deleteUser(userName: string, userIndexFilePath: string, usersDirectory: stri
         rootNode.RemoveChild(userNode) |> ignore
         userIndexDocument.Save(userIndexFilePath)
 
+        Directory.Delete($"{usersDirectory}\\{userDirectoryName}", true) |> ignore
+
         0
     else
         1
