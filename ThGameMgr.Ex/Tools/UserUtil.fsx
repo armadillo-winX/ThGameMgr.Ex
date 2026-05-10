@@ -161,7 +161,7 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
                 printfn "ユーザー '%s' は存在しません．\n" userName
         elif input = "3" then
             let users = getUsersList(userIndexFilePath, usersDirectory)
-            if users.Count > 0 then
+            if users <> null &&  users.Count > 0 then
                 printfn "ユーザーのリスト:"
                 for user in users do
                     printfn "- %s" user
