@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.5.11723.231 stable
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35309.182
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThGameMgr.Ex", "ThGameMgr.Ex\ThGameMgr.Ex.csproj", "{20108917-BE65-4872-82A1-A70D956567A3}"
 EndProject
@@ -13,11 +13,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThGameMgr.Ex.Plugin", "ThGameMgr.Ex.Plugin\ThGameMgr.Ex.Plugin.csproj", "{A021C4BE-774C-443B-8EF0-BECB0C02B44B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThGameMgr.Ex.Data", "ThGameMgr.Ex.Data\ThGameMgr.Ex.Data.csproj", "{460A6C59-179A-49BD-ADB2-79F1FBA78071}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{8F952589-CF7B-424B-BDD1-0F01CB3B1D89}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\FSharp-script\tools\UserUtil.fsx = ..\..\FSharp-script\tools\UserUtil.fsx
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
