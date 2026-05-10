@@ -114,6 +114,7 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
         Console.WriteLine("[0] 新しいユーザーを追加する")
         Console.WriteLine("[1] 複数の新しいユーザーを追加する")
         Console.WriteLine("[2] ユーザーを削除する")
+        Console.WriteLine("[3] ユーザーのリストを取得する")
         Console.WriteLine("[9] スクリプトを終了する")
 
         let input = Console.ReadLine()
@@ -157,6 +158,15 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
                     printfn "UsersIndex.xml が存在しなかったため，ユーザーを削除できませんでした．\n"
             else
                 printfn "ユーザー '%s' は存在しません．\n" userName
+        elif input = "3" then
+            let users = getUsersList(userIndexFilePath, usersDirectory)
+            if users.Count > 0 then
+                printfn "ユーザーのリスト:"
+                for user in users do
+                    printfn "- %s" user
+                printfn ""
+            else
+                printfn "ユーザーが存在しません．\n"
         elif input = "9" then
             exit 0
         else 
