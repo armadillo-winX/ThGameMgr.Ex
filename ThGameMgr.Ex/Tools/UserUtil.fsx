@@ -145,6 +145,7 @@ if File.Exists($"{scriptDirectory}\\ThGameMgr.Ex.exe") then
                         k <- k + 1
 
                     j <- j + 1
+                printfn ""
             else
                 printfn "入力が不正です．入力を数字にできませんでした．\n"
         elif input = "2" then
