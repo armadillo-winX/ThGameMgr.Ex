@@ -97,6 +97,17 @@ let getUsersList(usersIndexFilePath: string, usersDirectory: string) =
     else
         users
 
+let deleteAllUsersConfig(rootDirectory: string) =
+    let userIndexFilePath = $"{rootDirectory}\\UsersIndex.xml"
+    let usersDirectory = $"{rootDirectory}\\Users"
+    let userSelectionConfigFilePath = $"{rootDirectory}\\UserSelectionConfig.xml"
+
+    if Directory.Exists(usersDirectory) then Directory.Delete(usersDirectory, true) |> ignore
+    if File.Exists(userIndexFilePath) then File.Delete(userIndexFilePath) |> ignore
+    if File.Exists(userSelectionConfigFilePath) then File.Delete(userSelectionConfigFilePath) |> ignore
+
+    0
+
 //スクリプトのある場所を取得する
 let scriptDirectory = __SOURCE_DIRECTORY__
 
