@@ -6,7 +6,6 @@ namespace ThGameMgr.Ex.Score
 {
     internal class ScoreData
     {
-
         private static readonly object _lockObject = new();
 
         public static string? GameId { get; set; }
