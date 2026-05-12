@@ -6,6 +6,9 @@ namespace ThGameMgr.Ex.Score
 {
     internal class ScoreData
     {
+
+        private static readonly object _lockObject = new();
+
         public static string? GameId { get; set; }
 
         public static ObservableCollection<ScoreRecordData>? ScoreRecordLists { get; set; }
@@ -23,91 +26,94 @@ namespace ThGameMgr.Ex.Score
         /// <returns></returns>
         public static bool Get(string gameId)
         {
-            GameId = gameId;
-
-            ScoreRecordLists = [];
-            SpellCardRecordLists = [];
-            SpellPracticeRecordLists = [];
-
-            SpellCardRecordsByPlayer = [];
-
-            string players = GamePlayers.GetGamePlayers(gameId);
-            if (players.Length > 0)
+            lock (_lockObject)
             {
-                foreach (string player in players.Split(','))
+                GameId = gameId;
+
+                ScoreRecordLists = [];
+                SpellCardRecordLists = [];
+                SpellPracticeRecordLists = [];
+
+                SpellCardRecordsByPlayer = [];
+
+                string players = GamePlayers.GetGamePlayers(gameId);
+                if (players.Length > 0)
                 {
-                    SpellCardRecordsByPlayer.Add(player, []);
+                    foreach (string player in players.Split(','))
+                    {
+                        SpellCardRecordsByPlayer.Add(player, []);
+                    }
                 }
-            }
 
-            if (gameId == GameIndex.Th06)
-            {
-                Th06.Th06ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th07)
-            {
-                Th07.Th07ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th08)
-            {
-                Th08.Th08ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th09)
-            {
-                Th09.Th09ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th10)
-            {
-                Th10.Th10ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th11)
-            {
-                Th11.Th11ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th12)
-            {
-                Th12.Th12ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th13)
-            {
-                Th13.Th13ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th14)
-            {
-                Th14.Th14ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th15)
-            {
-                Th15.Th15ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th16)
-            {
-                Th16.Th16ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th17)
-            {
-                Th17.Th17ScoreData.Get();
-                return true;
-            }
-            else if (gameId == GameIndex.Th18)
-            {
-                Th18.Th18ScoreData.Get();
-                return true;
-            }
-            else
-            {
-                return false;
+                if (gameId == GameIndex.Th06)
+                {
+                    Th06.Th06ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th07)
+                {
+                    Th07.Th07ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th08)
+                {
+                    Th08.Th08ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th09)
+                {
+                    Th09.Th09ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th10)
+                {
+                    Th10.Th10ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th11)
+                {
+                    Th11.Th11ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th12)
+                {
+                    Th12.Th12ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th13)
+                {
+                    Th13.Th13ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th14)
+                {
+                    Th14.Th14ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th15)
+                {
+                    Th15.Th15ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th16)
+                {
+                    Th16.Th16ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th17)
+                {
+                    Th17.Th17ScoreData.Get();
+                    return true;
+                }
+                else if (gameId == GameIndex.Th18)
+                {
+                    Th18.Th18ScoreData.Get();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
 
