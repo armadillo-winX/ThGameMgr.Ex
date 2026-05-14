@@ -327,8 +327,6 @@ namespace ThGameMgr.Ex
             }
         }
 
-        private bool IsGameStartingUp { get; set; }
-
         public MainWindow()
         {
             InitializeComponent();
