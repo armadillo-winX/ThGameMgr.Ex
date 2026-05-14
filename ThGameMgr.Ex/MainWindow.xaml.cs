@@ -327,6 +327,9 @@ namespace ThGameMgr.Ex
             }
         }
 
+        /// <summary>
+        /// ゲームプロセスの開始処理中であるかどうかを示します．ゲーム起動処理の排他制御に用います．
+        /// </summary>
         private bool IsGameStartingUp { get; set; }
 
         public MainWindow()
