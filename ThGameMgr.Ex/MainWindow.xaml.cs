@@ -339,7 +339,6 @@ namespace ThGameMgr.Ex
             this.Title = $"{VersionInfo.AppName} {VersionInfo.CodeName}";
             this.GameId = string.Empty;
             this.GameProcess = new();
-            this.IsGameStartingUp = false;
 
             EnableGameEndWaitingLimitationMode(false);
             SetStartGameStatus(string.Empty);
