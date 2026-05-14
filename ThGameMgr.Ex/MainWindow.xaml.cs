@@ -409,33 +409,40 @@ namespace ThGameMgr.Ex
         private async void StartGame()
         {
             string gameId = this.GameId;
-            if (!string.IsNullOrEmpty(gameId))
+            if (this._gameEndWaitingModeWorker == null || !this._gameEndWaitingModeWorker.IsBusy)
             {
-                EnableGameEndWaitingLimitationMode(true);
-                SetStartGameStatus("ゲームの起動を待機中...");
-                try
+                if (!string.IsNullOrEmpty(gameId))
                 {
-                    Process gameProcess
-                        = await Task.Run(()
-                                => GameProcessHandler.StartGameProcess(gameId)
-                                );
-                    StartGameEndWaitingMode(gameProcess);
-                }
-                catch (Exception)
-                {
-                    MessageBoxResult result = 
-                        MessageBox.Show(this, $"ゲームの起動に失敗しました。\n再試行しますか？", "エラー",
-                        MessageBoxButton.YesNo, MessageBoxImage.Error);
-                    if (result == MessageBoxResult.Yes)
+                    EnableGameEndWaitingLimitationMode(true);
+                    SetStartGameStatus("ゲームの起動を待機中...");
+                    try
                     {
-                        StartGame();
+                        Process gameProcess
+                            = await Task.Run(()
+                                    => GameProcessHandler.StartGameProcess(gameId)
+                                    );
+                        StartGameEndWaitingMode(gameProcess);
                     }
-                    else
+                    catch (Exception)
                     {
-                        EnableGameEndWaitingLimitationMode(false);
-                        SetStartGameStatus(string.Empty);
+                        MessageBoxResult result =
+                            MessageBox.Show(this, $"ゲームの起動に失敗しました。\n再試行しますか？", "エラー",
+                            MessageBoxButton.YesNo, MessageBoxImage.Error);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            StartGame();
+                        }
+                        else
+                        {
+                            EnableGameEndWaitingLimitationMode(false);
+                            SetStartGameStatus(string.Empty);
+                        }
                     }
                 }
+            }
+            else
+            {
+                Debug.WriteLine("A game process is runnning. Failed to start new game process.");
             }
         }
 
