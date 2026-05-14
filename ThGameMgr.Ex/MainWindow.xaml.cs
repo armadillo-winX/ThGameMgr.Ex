@@ -1330,39 +1330,42 @@ namespace ThGameMgr.Ex
                 menuItem.Click += (sender, e) =>
                 {
                     string? gameId = this.GameId;
-                    if (!string.IsNullOrEmpty(gameId))
+                    if (this._gameEndWaitingModeWorker == null || !this._gameEndWaitingModeWorker.IsBusy)
                     {
-                        string gameFilePath = GameFile.GetGameFilePath(gameId);
-
-                        EnableGameEndWaitingLimitationMode(true);
-                        SetStartGameStatus("ゲームの起動を待機中...");
-                        try
+                        if (!string.IsNullOrEmpty(gameId))
                         {
-                            Process gameProcess = startGamePlugin.Main(gameId,  gameFilePath);
-                            if (gameProcess.ProcessName == Path.GetFileNameWithoutExtension(gameFilePath))
+                            string gameFilePath = GameFile.GetGameFilePath(gameId);
+
+                            EnableGameEndWaitingLimitationMode(true);
+                            SetStartGameStatus("ゲームの起動を待機中...");
+                            try
                             {
-                                gameProcess.WaitForInputIdle();
-                                StartGameEndWaitingMode(gameProcess);
+                                Process gameProcess = startGamePlugin.Main(gameId, gameFilePath);
+                                if (gameProcess.ProcessName == Path.GetFileNameWithoutExtension(gameFilePath))
+                                {
+                                    gameProcess.WaitForInputIdle();
+                                    StartGameEndWaitingMode(gameProcess);
+                                }
+                                else
+                                {
+                                    MessageBox.Show(this,
+                                        $"プラグインによって起動されたプロセスがゲームのものではありません。\n{startGamePlugin.Name}",
+                                        "プラグインによる実行",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Exclamation);
+                                    EnableGameEndWaitingLimitationMode(false);
+                                    SetStartGameStatus(string.Empty);
+                                }
                             }
-                            else
+                            catch (Exception ex)
                             {
                                 MessageBox.Show(this,
-                                    $"プラグインによって起動されたプロセスがゲームのものではありません。\n{startGamePlugin.Name}",
-                                    "プラグインによる実行",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Exclamation);
+                                    $"プラグインによるゲーム実行に失敗しました。\n{startGamePlugin.Name}\n{ex.Message}",
+                                    "エラー",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
                                 EnableGameEndWaitingLimitationMode(false);
                                 SetStartGameStatus(string.Empty);
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(this, 
-                                $"プラグインによるゲーム実行に失敗しました。\n{startGamePlugin.Name}\n{ex.Message}",
-                                "エラー",
-                                MessageBoxButton.OK, MessageBoxImage.Error);
-                            EnableGameEndWaitingLimitationMode(false);
-                            SetStartGameStatus(string.Empty);
                         }
                     }
                 };
