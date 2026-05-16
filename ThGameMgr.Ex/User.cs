@@ -45,7 +45,7 @@ namespace ThGameMgr.Ex
             XmlDocument usersIndexDocument = new();
             usersIndexDocument.Load(usersIndexFile);
 
-            XmlElement rootNode = usersIndexDocument.DocumentElement;
+            XmlElement? rootNode = usersIndexDocument.DocumentElement;
 
             XmlElement userElement = usersIndexDocument.CreateElement("User");
             XmlAttribute index = usersIndexDocument.CreateAttribute("Index");
