@@ -186,6 +186,9 @@ namespace ThGameMgr.Ex
                 XmlElement? rootNode = usersIndexDocument.DocumentElement;
                 XmlNode? userNode
                     = usersIndexDocument.SelectSingleNode($"//User[@Index='{userName}']");
+                if (userNode == null)
+                    throw new InvalidOperationException($"ユーザー '{userName}' を削除できません．このユーザーに関する情報を取得できませんでした");
+
                 _ = rootNode?.RemoveChild(userNode);
                 usersIndexDocument.Save(usersIndexFile);
             }
