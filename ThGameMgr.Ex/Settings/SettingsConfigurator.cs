@@ -408,7 +408,7 @@ namespace ThGameMgr.Ex.Settings
             string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
             string? resizerFrameWindowSettingsFile = $"{settingsDirectory}\\ResizerFrameWindowSettings.xml";
 
-            ResizerFrameWindowSettings resizerFrameWindowSettings = new();
+            ResizerFrameWindowSettings? resizerFrameWindowSettings = new();
 
             if (!string.IsNullOrEmpty(resizerFrameWindowSettingsFile) &&
                 File.Exists(resizerFrameWindowSettingsFile))
@@ -417,7 +417,7 @@ namespace ThGameMgr.Ex.Settings
                 FileStream fileStream = new(resizerFrameWindowSettingsFile, FileMode.Open);
 
                 resizerFrameWindowSettings
-                    = (ResizerFrameWindowSettings)resizerFrameWindowSettingsSerializer.Deserialize(fileStream);
+                    = (ResizerFrameWindowSettings?)resizerFrameWindowSettingsSerializer.Deserialize(fileStream);
                 fileStream.Close();
             }
             else
