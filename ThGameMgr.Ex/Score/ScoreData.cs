@@ -316,7 +316,8 @@ namespace ThGameMgr.Ex.Score
                 data += $"スペルプラクティス\r\n-----------------------------------------------------\r\n";
                 foreach (SpellCardRecordData spellCardRecordData in SpellPracticeRecordLists)
                 {
-                    if (int.Parse(spellCardRecordData.TryCount) > 0)
+                    if (!string.IsNullOrEmpty(spellCardRecordData.TryCount) &&
+                        int.Parse(spellCardRecordData.TryCount) > 0)
                     {
                         data += $"No.{spellCardRecordData.CardID}\r\n{spellCardRecordData.CardName}\r\n取得数: {spellCardRecordData.GetCount}\r\n挑戦数: {spellCardRecordData.TryCount}\r\n取得率: {spellCardRecordData.Rate}\r\n発動場所: {spellCardRecordData.Place}\r\n術者: {spellCardRecordData.Enemy}\r\n\r\n";
                     }
