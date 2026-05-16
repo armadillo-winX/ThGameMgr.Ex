@@ -10,13 +10,13 @@ namespace ThGameMgr.Ex.Score
 
         public static string? GameId { get; set; }
 
-        public static ObservableCollection<ScoreRecordData>? ScoreRecordLists { get; set; }
+        public static ObservableCollection<ScoreRecordData> ScoreRecordLists { get; set; } = [];
 
-        public static ObservableCollection<SpellCardRecordData>? SpellCardRecordLists { get; set; }
+        public static ObservableCollection<SpellCardRecordData> SpellCardRecordLists { get; set; } = [];
 
-        public static Dictionary<string, ObservableCollection<SpellCardRecordData>?>? SpellCardRecordsByPlayer { get; set; }
+        public static Dictionary<string, ObservableCollection<SpellCardRecordData>?> SpellCardRecordsByPlayer { get; set; } = [];
 
-        public static ObservableCollection<SpellCardRecordData>? SpellPracticeRecordLists { get; set; }
+        public static ObservableCollection<SpellCardRecordData> SpellPracticeRecordLists { get; set; } = [];
 
         /// <summary>
         /// スコアデータを取得します。スコアデータローダが対応していない場合は false を返します。
@@ -29,11 +29,11 @@ namespace ThGameMgr.Ex.Score
             {
                 GameId = gameId;
 
-                ScoreRecordLists = [];
-                SpellCardRecordLists = [];
-                SpellPracticeRecordLists = [];
+                ScoreRecordLists.Clear();
+                SpellCardRecordLists.Clear();
+                SpellPracticeRecordLists.Clear();
 
-                SpellCardRecordsByPlayer = [];
+                SpellCardRecordsByPlayer.Clear();
 
                 string players = GamePlayers.GetGamePlayers(gameId);
                 if (players.Length > 0)
