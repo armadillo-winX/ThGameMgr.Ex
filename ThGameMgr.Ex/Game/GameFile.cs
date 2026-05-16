@@ -55,7 +55,7 @@ namespace ThGameMgr.Ex.Game
         public static List<string> GetThpracFiles(string gameId)
         {
             string gameFile = GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gameFile);
+            string? gameDirectory = Path.GetDirectoryName(gameFile);
             if (!string.IsNullOrEmpty(gameDirectory))
             {
                 List<string> thpracFiles = [];
