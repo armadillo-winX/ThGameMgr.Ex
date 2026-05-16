@@ -100,7 +100,7 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public static bool Switch(string userName)
+        public static bool Switch(string? userName)
         {
             if (!string.IsNullOrEmpty(userName))
             {
