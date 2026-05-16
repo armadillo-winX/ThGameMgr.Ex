@@ -144,7 +144,7 @@ namespace ThGameMgr.Ex.Score.Th06
 
             SpellCard spellcardData = Th06SpellCard.GetSpellCardData(cardId);
             string cardName
-                = spellcardData.CardName;
+                = spellcardData.CardName != null ? spellcardData.CardName : string.Empty;
 
             string rate = ScoreCalculator.CalcSpellCardGetRate(get, challenge);
 
