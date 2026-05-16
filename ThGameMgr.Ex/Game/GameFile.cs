@@ -92,7 +92,7 @@ namespace ThGameMgr.Ex.Game
         public static void OpenGameDirectory(string gameId)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gamePath);
+            string? gameDirectory = Path.GetDirectoryName(gamePath);
             if (Directory.Exists(gameDirectory))
             {
                 Process.Start("explorer.exe", gameDirectory);
