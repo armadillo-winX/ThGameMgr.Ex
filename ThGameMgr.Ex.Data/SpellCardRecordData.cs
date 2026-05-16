@@ -30,7 +30,7 @@
         /// <summary>
         /// スペルカードの出現難易度
         /// </summary>
-        public required string Level { get; set; }
+        public string? Level { get; set; }
 
         /// <summary>
         /// スペルカードの発動場所
