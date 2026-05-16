@@ -5,7 +5,7 @@ namespace ThGameMgr.Ex
 {
     internal class User
     {
-        private readonly static string? _usersDirectory = PathInfo.UsersDirectory;
+        private readonly static string _usersDirectory = PathInfo.UsersDirectory;
 
         public static string? CurrentUserName { get; set; }
 
