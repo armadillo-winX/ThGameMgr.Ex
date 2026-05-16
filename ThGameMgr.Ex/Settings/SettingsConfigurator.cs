@@ -312,7 +312,7 @@ namespace ThGameMgr.Ex.Settings
                 XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
                 FileStream fileStream = new(mainWindowSettingsFile, FileMode.Open);
 
-                mainWindowSettings = (MainWindowSettings)mainWindowSettingsSerializer.Deserialize(fileStream);
+                mainWindowSettings = (MainWindowSettings?)mainWindowSettingsSerializer.Deserialize(fileStream);
                 fileStream.Close();
             }
             else
