@@ -205,7 +205,7 @@ namespace ThGameMgr.Ex
             {
                 XmlDocument usersIndexDocument = new();
                 usersIndexDocument.Load(PathInfo.UsersIndexFile);
-                XmlNodeList userNodeList = usersIndexDocument.SelectNodes("UsersIndex/User");
+                XmlNodeList? userNodeList = usersIndexDocument.SelectNodes("UsersIndex/User");
 
                 if (userNodeList.Count > 0)
                 {
