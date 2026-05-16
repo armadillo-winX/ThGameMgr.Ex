@@ -262,7 +262,7 @@ namespace ThGameMgr.Ex.Score
                 foreach (ScoreRecordData scoreRecordData in filteredScoreRecordLists)
                 {
                     data +=
-                        $"スコア: {scoreRecordData.Score}\r\n自機:{scoreRecordData.Player}\r\n難易度:{scoreRecordData.Level}\r\n名前:{scoreRecordData.Name.TrimEnd('\0')}";
+                        $"スコア: {scoreRecordData.Score}\r\n自機:{scoreRecordData.Player}\r\n難易度:{scoreRecordData.Level}\r\n名前:{(!string.IsNullOrEmpty(scoreRecordData.Name) ? scoreRecordData.Name.TrimEnd('\0') : string.Empty)}";
                     if (!string.IsNullOrEmpty(scoreRecordData.Progress))
                         data += $"\r\n到達面:{scoreRecordData.Progress}";
                     if (!string.IsNullOrEmpty(scoreRecordData.Date)
