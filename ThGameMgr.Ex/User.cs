@@ -104,7 +104,10 @@ namespace ThGameMgr.Ex
         {
             if (!string.IsNullOrEmpty(userName))
             {
-                string userDirectoryName = GetUserDirectoryName(userName);
+                string? userDirectoryName = GetUserDirectoryName(userName);
+                if (userDirectoryName == null)
+                    return false;
+
                 CurrentUserName = userName;
                 CurrentUserDirectoryPath = $"{_usersDirectory}\\{userDirectoryName}";
 
