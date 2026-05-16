@@ -428,8 +428,11 @@ namespace ThGameMgr.Ex.Settings
 
             if (resizerFrameWindowSettings == null)
             {
-                resizerFrameWindowSettings.FixAspectRate = true;
-                resizerFrameWindowSettings.AutoClose = false;
+                resizerFrameWindowSettings = new()
+                {
+                    FixAspectRate = true,
+                    AutoClose = false
+                };
             }
 
             return resizerFrameWindowSettings;
