@@ -265,7 +265,7 @@ namespace ThGameMgr.Ex.Score
                         $"スコア: {scoreRecordData.Score}\r\n自機:{scoreRecordData.Player}\r\n難易度:{scoreRecordData.Level}\r\n名前:{scoreRecordData.Name.TrimEnd('\0')}";
                     if (!string.IsNullOrEmpty(scoreRecordData.Progress))
                         data += $"\r\n到達面:{scoreRecordData.Progress}";
-                    if (!string.IsNullOrEmpty(scoreRecordData.Date.TrimEnd('\0'))
+                    if (!string.IsNullOrEmpty(scoreRecordData.Date)
                         && scoreRecordData.Date.TrimEnd('\0') != "--/--")
                         data += $"\r\n日時:{scoreRecordData.Date.TrimEnd('\0')}";
                     if (!string.IsNullOrEmpty(scoreRecordData.SlowRate)
