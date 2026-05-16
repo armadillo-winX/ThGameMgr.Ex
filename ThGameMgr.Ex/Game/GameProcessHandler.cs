@@ -47,6 +47,9 @@ namespace ThGameMgr.Ex.Game
             string patchPath = $"{gameDirectory}\\{toolName}";
             if (File.Exists(gamePath) && File.Exists(patchPath))
             {
+                if (string.IsNullOrEmpty(gameDirectory))
+                    throw new InvalidOperationException("ゲームのインストールフォルダが検出できませんでした．");
+
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
                     FileName = patchPath,
