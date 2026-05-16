@@ -125,7 +125,7 @@ namespace ThGameMgr.Ex.Game
             string? scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
             if (!string.IsNullOrEmpty(scoreFilePath))
             {
-                string scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
+                string? scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
                 string logFile = $"{scoreFileDirectory}\\log.txt";
 
                 return logFile;
