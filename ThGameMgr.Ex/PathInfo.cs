@@ -21,11 +21,11 @@
             }
         }
 
-        public static string? UsersDirectory => $"{AppLocation}\\Users";
+        public static string UsersDirectory => $"{AppLocation}\\Users";
 
-        public static string? UsersIndexFile => $"{AppLocation}\\UsersIndex.xml";
+        public static string UsersIndexFile => $"{AppLocation}\\UsersIndex.xml";
 
-        public static string? UserSelectionConfigFile => $"{AppLocation}\\UserSelectionConfig.xml";
+        public static string UserSelectionConfigFile => $"{AppLocation}\\UserSelectionConfig.xml";
 
         public static string ShanghaiAliceAppData => $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ShanghaiAlice";
 
