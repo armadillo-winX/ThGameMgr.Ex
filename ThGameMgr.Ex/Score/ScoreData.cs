@@ -118,8 +118,7 @@ namespace ThGameMgr.Ex.Score
 
         public static IEnumerable<ScoreRecordData>? RetrieveScoreData(ScoreFilter scoreFilter)
         {
-            if (ScoreRecordLists != null &&
-                ScoreRecordLists.Count >= 0)
+            if (ScoreRecordLists.Count >= 0)
             {
                 IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreRecordLists;
 
