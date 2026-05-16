@@ -148,7 +148,7 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
-        public static IEnumerable<SpellCardRecordData>? RetrieveSpellCardData(
+        public static IEnumerable<SpellCardRecordData> RetrieveSpellCardData(
             SpellCardRecordFilter spellCardRecordFilter)
         {
             if (SpellCardRecordLists.Count >= 0)
