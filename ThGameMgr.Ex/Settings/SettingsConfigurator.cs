@@ -383,7 +383,7 @@ namespace ThGameMgr.Ex.Settings
                 XmlNode? defaultGameConfigNode
                     = rootNode?.SelectSingleNode("DefaultGame");
 
-                string defaultGameId = defaultGameConfigNode?.InnerText;
+                string? defaultGameId = defaultGameConfigNode?.InnerText;
                 return defaultGameId != null ? defaultGameId : string.Empty;
             }
             else
