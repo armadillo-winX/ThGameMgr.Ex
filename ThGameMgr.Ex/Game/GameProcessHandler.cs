@@ -18,7 +18,7 @@ namespace ThGameMgr.Ex.Game
                     UseShellExecute = true
                 };
 
-                Process gameProcess = Process.Start(gameProcessStartInfo);
+                Process? gameProcess = Process.Start(gameProcessStartInfo);
 
                 if (gameProcess != null)
                 {
