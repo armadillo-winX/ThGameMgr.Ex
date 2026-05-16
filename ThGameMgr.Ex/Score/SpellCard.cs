@@ -33,7 +33,7 @@ namespace ThGameMgr.Ex.Score
                 };
 
                 int index = BitConverter.ToInt32(levelData);
-                if (levelDictionary.TryGetValue(index, out string level))
+                if (levelDictionary.TryGetValue(index, out string? level))
                 {
                     return level;
                 }
