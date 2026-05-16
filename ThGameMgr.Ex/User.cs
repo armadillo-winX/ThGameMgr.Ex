@@ -51,7 +51,7 @@ namespace ThGameMgr.Ex
             XmlAttribute index = usersIndexDocument.CreateAttribute("Index");
             index.Value = userName;
             _ = userElement.Attributes.Append(index);
-            _ = rootNode.AppendChild(userElement);
+            _ = rootNode?.AppendChild(userElement);
 
             XmlElement nameElement = usersIndexDocument.CreateElement("Name");
             _ = nameElement.AppendChild(usersIndexDocument.CreateTextNode(userName));
