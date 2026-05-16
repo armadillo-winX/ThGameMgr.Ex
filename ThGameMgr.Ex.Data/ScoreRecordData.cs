@@ -5,27 +5,27 @@
         /// <summary>
         /// スコア値
         /// </summary>
-        public string? Score { get; set; }
+        public required string Score { get; set; }
 
         /// <summary>
         /// 自機名
         /// </summary>
-        public string? Player { get; set; }
+        public required string Player { get; set; }
 
         /// <summary>
         /// 難易度
         /// </summary>
-        public string? Level { get; set; }
+        public required string Level { get; set; }
 
         /// <summary>
         /// 名前
         /// </summary>
-        public string? Name { get; set; }
+        public required string Name { get; set; }
 
         /// <summary>
         /// 到達面
         /// </summary>
-        public string? Progress { get; set; }
+        public required string Progress { get; set; }
 
         /// <summary>
         /// 日時
