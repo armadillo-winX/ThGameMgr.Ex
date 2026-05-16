@@ -170,7 +170,10 @@ namespace ThGameMgr.Ex
 
         public static void Delete(string userName)
         {
-            string userDirectoryName = GetUserDirectoryName(userName);
+            string? userDirectoryName = GetUserDirectoryName(userName);
+            if (userDirectoryName == null)
+                throw new InvalidOperationException($"ユーザー '{userName}' は存在しないユーザーです．");
+
             string userDirectory = $"{_usersDirectory}\\{userDirectoryName}";
 
             string? usersIndexFile = PathInfo.UsersIndexFile;
