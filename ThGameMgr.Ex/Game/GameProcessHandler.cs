@@ -11,6 +11,9 @@ namespace ThGameMgr.Ex.Game
             {
                 string? gameDirectory = Path.GetDirectoryName(gamePath);
 
+                if (string.IsNullOrEmpty(gameDirectory))
+                    throw new InvalidOperationException("ゲームのインストールフォルダが検出できませんでした．");
+
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
                     FileName = gamePath,
