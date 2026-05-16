@@ -64,8 +64,11 @@ namespace ThGameMgr.Ex
             usersIndexDocument.Save(usersIndexFile);
         }
 
-        public static bool Exists(string userName)
+        public static bool Exists(string? userName)
         {
+            if (string.IsNullOrEmpty(userName))
+                return false;
+
             string? usersIndexFile = PathInfo.UsersIndexFile;
             if (File.Exists(usersIndexFile))
             {
