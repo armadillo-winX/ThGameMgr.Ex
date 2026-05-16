@@ -207,13 +207,15 @@ namespace ThGameMgr.Ex
                 usersIndexDocument.Load(PathInfo.UsersIndexFile);
                 XmlNodeList? userNodeList = usersIndexDocument.SelectNodes("UsersIndex/User");
 
-                if (userNodeList.Count > 0)
+                if (userNodeList != null &&
+                    userNodeList.Count > 0)
                 {
                     List<string> usersList = [];
                     int i = 0;
                     foreach (XmlNode userNode in userNodeList)
                     {
-                        string userName = userNode.SelectSingleNode("Name").InnerText;
+                        XmlNode? nameNode = userNode.SelectSingleNode("Name");
+                        string userName = nameNode != null ? nameNode.InnerText : "";
                         usersList.Add(userName);
                         i++;
                     }
