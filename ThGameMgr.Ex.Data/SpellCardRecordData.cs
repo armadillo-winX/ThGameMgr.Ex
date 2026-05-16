@@ -5,27 +5,27 @@
         /// <summary>
         /// スペルカードの番号
         /// </summary>
-        public required string CardID { get; set; }
+        public string? CardID { get; set; }
 
         /// <summary>
         /// スペルカード名
         /// </summary>
-        public required string CardName { get; set; }
+        public string? CardName { get; set; }
 
         /// <summary>
         /// 挑戦回数
         /// </summary>
-        public required string TryCount { get; set; }
+        public string? TryCount { get; set; }
 
         /// <summary>
         /// 取得回数
         /// </summary>
-        public required string GetCount { get; set; }
+        public string? GetCount { get; set; }
 
         /// <summary>
         /// 取得率(百分率)
         /// </summary>
-        public required string Rate { get; set; }
+        public string? Rate { get; set; }
 
         /// <summary>
         /// スペルカードの出現難易度
@@ -35,11 +35,11 @@
         /// <summary>
         /// スペルカードの発動場所
         /// </summary>
-        public required string Place { get; set; }
+        public string? Place { get; set; }
 
         /// <summary>
         /// スペルカードの術者
         /// </summary>
-        public required string Enemy { get; set; }
+        public string? Enemy { get; set; }
     }
 }
