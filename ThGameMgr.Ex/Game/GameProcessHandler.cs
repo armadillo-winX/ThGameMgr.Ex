@@ -84,7 +84,7 @@ namespace ThGameMgr.Ex.Game
         public static void StartCustomProgramProcess(string gameId)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gamePath);
+            string? gameDirectory = Path.GetDirectoryName(gamePath);
             string customProgramPath = $"{gameDirectory}\\custom.exe";
             if (File.Exists(gamePath) && File.Exists(customProgramPath))
             {
