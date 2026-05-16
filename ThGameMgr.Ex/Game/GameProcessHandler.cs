@@ -9,7 +9,7 @@ namespace ThGameMgr.Ex.Game
             string? gamePath = GameFile.GetGameFilePath(gameId);
             if (File.Exists(gamePath))
             {
-                string gameDirectory = Path.GetDirectoryName(gamePath);
+                string? gameDirectory = Path.GetDirectoryName(gamePath);
 
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
@@ -40,7 +40,7 @@ namespace ThGameMgr.Ex.Game
         public static Process StartGameProcessWithApplyingTool(string gameId, string toolName)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gamePath);
+            string? gameDirectory = Path.GetDirectoryName(gamePath);
             string patchPath = $"{gameDirectory}\\{toolName}";
             if (File.Exists(gamePath) && File.Exists(patchPath))
             {
