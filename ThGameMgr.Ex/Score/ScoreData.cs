@@ -355,8 +355,8 @@ namespace ThGameMgr.Ex.Score
                 for (int i = 0; i < SpellCardRecordLists.Count; i++)
                 {
                     SpellCardRecordData spellCardRecordList = SpellCardRecordLists[i];
-                    int challengeCount = int.Parse(spellCardRecordList.TryCount);
-                    int getCount = int.Parse(spellCardRecordList.GetCount);
+                    int challengeCount = spellCardRecordList.TryCount != null ? int.Parse(spellCardRecordList.TryCount) : 0;
+                    int getCount = spellCardRecordList.GetCount != null ? int.Parse(spellCardRecordList.GetCount) : 0;
 
                     if (challengeCount > 0) challengedCardCount++;
                     if (getCount > 0) getCardCount++;
