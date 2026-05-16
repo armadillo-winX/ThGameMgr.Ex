@@ -160,7 +160,8 @@ namespace ThGameMgr.Ex.Score
                     if (SpellCardRecordsByPlayer.TryGetValue(spellCardRecordFilter.Player,
                         out ObservableCollection<SpellCardRecordData>? spellCardRecordsByPlayer))
                     {
-                        filteredSpellCardRecordLists = spellCardRecordsByPlayer;
+                        filteredSpellCardRecordLists 
+                            = spellCardRecordsByPlayer != null ? spellCardRecordsByPlayer : [];
                     }
                     else
                     {
