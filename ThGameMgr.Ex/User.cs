@@ -174,7 +174,7 @@ namespace ThGameMgr.Ex
             userSelectionConfigDocument.Load(userSelectionConfigFile);
             XmlNode? userSelectionNode = userSelectionConfigDocument.SelectSingleNode("//UserSelection");
             if (userSelectionNode == null)
-                throw new InvalidDataException("Failed to get user selection config.");
+                throw new InvalidDataException("Failed to get user selection configuration.");
 
             string userName = userSelectionNode.InnerText;
 
