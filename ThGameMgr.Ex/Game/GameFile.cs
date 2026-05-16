@@ -112,7 +112,7 @@ namespace ThGameMgr.Ex.Game
         public static void OpenGameLog(string gameId)
         {
             string? scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
-            string scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
+            string? scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
             string logFile = $"{scoreFileDirectory}\\log.txt";
             if (File.Exists(logFile))
             {
