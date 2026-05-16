@@ -32,7 +32,7 @@ namespace ThGameMgr.Ex.Settings
                 {
                     string gameFilePath = GameFile.GetGameFilePath(gameId);
                     XmlElement gamePathConfigNode = gamePathSettingsXml.CreateElement(gameId);
-                    gamePathConfigNode.InnerText = gameFilePath ?? string.Empty; //nullチェック
+                    gamePathConfigNode.InnerText = gameFilePath;
 
                     _ = rootNode.AppendChild(gamePathConfigNode);
                 }
