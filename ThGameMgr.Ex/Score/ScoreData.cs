@@ -8,15 +8,15 @@ namespace ThGameMgr.Ex.Score
     {
         private static readonly object _lockObject = new();
 
-        public static string? GameId { get; set; }
+        internal static string? GameId { get; set; }
 
-        public static ObservableCollection<ScoreRecordData> ScoreRecordLists { get; set; } = [];
+        internal static ObservableCollection<ScoreRecordData> ScoreRecordLists { get; set; } = [];
 
-        public static ObservableCollection<SpellCardRecordData> SpellCardRecordLists { get; set; } = [];
+        internal static ObservableCollection<SpellCardRecordData> SpellCardRecordLists { get; set; } = [];
 
-        public static Dictionary<string, ObservableCollection<SpellCardRecordData>?> SpellCardRecordsByPlayer { get; set; } = [];
+        internal static Dictionary<string, ObservableCollection<SpellCardRecordData>?> SpellCardRecordsByPlayer { get; set; } = [];
 
-        public static ObservableCollection<SpellCardRecordData> SpellPracticeRecordLists { get; set; } = [];
+        internal static ObservableCollection<SpellCardRecordData> SpellPracticeRecordLists { get; set; } = [];
 
         /// <summary>
         /// スコアデータを取得します。スコアデータローダが対応していない場合は false を返します。
