@@ -1506,9 +1506,10 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        if (!string.IsNullOrEmpty(this.GameId) && ScoreData.SpellCardRecordLists.Count > 0)
+                        ObservableCollection<SpellCardRecordData> spellCardRecords = ScoreData.GetSpellCardRecordsData();
+                        if (!string.IsNullOrEmpty(this.GameId) && spellCardRecords.Count > 0)
                         {
-                            spellCardRecordsPlugin.Main(this.GameId, ScoreData.SpellCardRecordLists);
+                            spellCardRecordsPlugin.Main(this.GameId, spellCardRecords);
                         }
                         else
                         {
