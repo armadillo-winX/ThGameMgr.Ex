@@ -66,7 +66,7 @@ namespace ThGameMgr.Ex.Score.Th08
                                 byte[] highscoreData = bytes[i..r];
                                 ScoreRecordData scoreRecordList
                                     = GetHighScoreData(highscoreData);
-                                ScoreData.ScoreRecordLists.Add(scoreRecordList);
+                                ScoreData.AddScoreData(scoreRecordList);
 
                                 i += size;
                             }
@@ -80,10 +80,10 @@ namespace ThGameMgr.Ex.Score.Th08
                                 Dictionary<string, SpellCardRecordData>
                                     spellCardRecordList
                                     = GetSpellCardRecord(cardAttackData);
-                                ScoreData.SpellCardRecordLists.Add(spellCardRecordList["all"]);
+                                ScoreData.AddSpellCardData(spellCardRecordList["all"]);
                                 foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th08).Split(','))
                                 {
-                                    ScoreData.SpellCardRecordsByPlayer[player].Add(spellCardRecordList[player]);
+                                    ScoreData.AddSpellCardDataByPlayers(player, spellCardRecordList[player]);
                                 }
 
                                 i += size;
