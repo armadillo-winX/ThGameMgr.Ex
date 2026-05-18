@@ -126,6 +126,15 @@ namespace ThGameMgr.Ex.Score
         }
 
         /// <summary>
+        /// ScoreData クラス ScoreRecordLists に値を追加します．
+        /// </summary>
+        /// <param name="scoreRecordData"></param>
+        public static void AddScoreData(ScoreRecordData scoreRecordData)
+        {
+            ScoreRecordLists.Add(scoreRecordData);
+        }
+
+        /// <summary>
         /// ScoreData クラスが保持しているハイスコアデータを取得します．
         /// </summary>
         /// <param name="scoreFilter"></param>
