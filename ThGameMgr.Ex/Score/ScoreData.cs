@@ -116,6 +116,15 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        /// <summary>
+        /// ScoreData クラスがいま保持しているスコアデータの Game ID を取得します．
+        /// </summary>
+        /// <returns></returns>
+        public static string? GetScoreDataStateGameId()
+        {
+            return GameId;
+        }
+
         public static IEnumerable<ScoreRecordData> RetrieveScoreData(ScoreFilter scoreFilter)
         {
             if (ScoreRecordLists.Count >= 0)
