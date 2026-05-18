@@ -144,6 +144,30 @@ namespace ThGameMgr.Ex.Score
         }
 
         /// <summary>
+        /// ScoreData クラス SpellCardRecordsByPlayer の指定した自機(key)に対するvalueに値を追加します．
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="spellCardRecordData"></param>
+        public static void AddSpellCardDataByPlayers(string player, SpellCardRecordData spellCardRecordData)
+        {
+            ObservableCollection<SpellCardRecordData>? spellCardRecordsByPlayer;
+            bool result = SpellCardRecordsByPlayer.TryGetValue(player, out spellCardRecordsByPlayer);
+            if (result)
+            {
+                if (spellCardRecordsByPlayer == null)
+                {
+                    spellCardRecordsByPlayer = [];
+                }
+                SpellCardRecordsByPlayer[player]!.Add(spellCardRecordData);
+            }
+            else
+            {
+                SpellCardRecordsByPlayer.Add(player, []);
+                SpellCardRecordsByPlayer[player]!.Add(spellCardRecordData);
+            }
+        }
+
+        /// <summary>
         /// ScoreData クラス SpellPracticeRecordLists に値を追加します．
         /// </summary>
         /// <param name="spellPracticeRecordData"></param>
