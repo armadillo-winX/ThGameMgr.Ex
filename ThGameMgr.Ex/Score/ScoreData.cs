@@ -250,6 +250,15 @@ namespace ThGameMgr.Ex.Score
             return ScoreRecordLists;
         }
 
+        /// <summary>
+        /// プラグイン用に ScoreData クラスが保持している御札戦歴データの全部を取得します．
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<SpellCardRecordData> GetSpellCardRecordsData()
+        {
+            return SpellCardRecordLists;
+        }
+
         public static void ExportToTextFile(
             string outputPath, bool outputUntriedCardData, ScoreFilter scoreFilter,  string? comment)
         {
