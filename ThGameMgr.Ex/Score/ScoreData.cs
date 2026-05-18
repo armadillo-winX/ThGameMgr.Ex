@@ -8,7 +8,7 @@ namespace ThGameMgr.Ex.Score
     {
         private static readonly object _lockObject = new();
 
-        internal static string? GameId { get; set; }
+        private static string? GameId { get; set; }
 
         private static ObservableCollection<ScoreRecordData> ScoreRecordLists { get; set; } = [];
 
