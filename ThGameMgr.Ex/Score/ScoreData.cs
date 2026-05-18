@@ -241,6 +241,15 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        /// <summary>
+        /// プラグイン用に ScoreData クラスが保持しているハイスコアデータの全部を取得します．
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<ScoreRecordData> GetScoreRecordsData()
+        {
+            return ScoreRecordLists;
+        }
+
         public static void ExportToTextFile(
             string outputPath, bool outputUntriedCardData, ScoreFilter scoreFilter,  string? comment)
         {
