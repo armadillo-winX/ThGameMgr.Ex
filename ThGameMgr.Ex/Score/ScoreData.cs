@@ -245,7 +245,7 @@ namespace ThGameMgr.Ex.Score
         /// プラグイン用に ScoreData クラスが保持しているハイスコアデータの全部を取得します．
         /// </summary>
         /// <returns></returns>
-        public static ObservableCollection<ScoreRecordData> GetScoreRecordsData()
+        public static ObservableCollection<ScoreRecordData> GetScoreRecordsDataForPlugin()
         {
             return ScoreRecordLists;
         }
@@ -254,7 +254,7 @@ namespace ThGameMgr.Ex.Score
         /// プラグイン用に ScoreData クラスが保持している御札戦歴データの全部を取得します．
         /// </summary>
         /// <returns></returns>
-        public static ObservableCollection<SpellCardRecordData> GetSpellCardRecordsData()
+        public static ObservableCollection<SpellCardRecordData> GetSpellCardRecordsDataForPlugin()
         {
             return SpellCardRecordLists;
         }

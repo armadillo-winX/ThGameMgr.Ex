@@ -1465,7 +1465,7 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        ObservableCollection<ScoreRecordData> scoreRecords = ScoreData.GetScoreRecordsData();
+                        ObservableCollection<ScoreRecordData> scoreRecords = ScoreData.GetScoreRecordsDataForPlugin();
                         if (!string.IsNullOrEmpty(this.GameId) && scoreRecords.Count > 0)
                         {
                             scoreRecordsPlugin.Main(this.GameId, scoreRecords);
@@ -1506,7 +1506,7 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        ObservableCollection<SpellCardRecordData> spellCardRecords = ScoreData.GetSpellCardRecordsData();
+                        ObservableCollection<SpellCardRecordData> spellCardRecords = ScoreData.GetSpellCardRecordsDataForPlugin();
                         if (!string.IsNullOrEmpty(this.GameId) && spellCardRecords.Count > 0)
                         {
                             spellCardRecordsPlugin.Main(this.GameId, spellCardRecords);
@@ -1547,8 +1547,8 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        ObservableCollection<ScoreRecordData> scoreRecords = ScoreData.GetScoreRecordsData();
-                        ObservableCollection<SpellCardRecordData> spellCardRecords = ScoreData.GetSpellCardRecordsData();
+                        ObservableCollection<ScoreRecordData> scoreRecords = ScoreData.GetScoreRecordsDataForPlugin();
+                        ObservableCollection<SpellCardRecordData> spellCardRecords = ScoreData.GetSpellCardRecordsDataForPlugin();
                         if (!string.IsNullOrEmpty(this.GameId) && 
                             scoreRecords.Count > 0 &&
                             spellCardRecords.Count > 0)
