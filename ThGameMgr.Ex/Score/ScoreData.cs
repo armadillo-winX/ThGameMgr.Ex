@@ -144,6 +144,15 @@ namespace ThGameMgr.Ex.Score
         }
 
         /// <summary>
+        /// ScoreData クラス SpellPracticeRecordLists に値を追加します．
+        /// </summary>
+        /// <param name="spellPracticeRecordData"></param>
+        public static void AddSpellParacticeData(SpellCardRecordData spellPracticeRecordData)
+        {
+            SpellPracticeRecordLists.Add(spellPracticeRecordData);
+        }
+
+        /// <summary>
         /// ScoreData クラスが保持しているハイスコアデータを取得します．
         /// </summary>
         /// <param name="scoreFilter"></param>
