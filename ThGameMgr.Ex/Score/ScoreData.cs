@@ -10,13 +10,13 @@ namespace ThGameMgr.Ex.Score
 
         internal static string? GameId { get; set; }
 
-        internal static ObservableCollection<ScoreRecordData> ScoreRecordLists { get; set; } = [];
+        private static ObservableCollection<ScoreRecordData> ScoreRecordLists { get; set; } = [];
 
-        internal static ObservableCollection<SpellCardRecordData> SpellCardRecordLists { get; set; } = [];
+        private static ObservableCollection<SpellCardRecordData> SpellCardRecordLists { get; set; } = [];
 
-        internal static Dictionary<string, ObservableCollection<SpellCardRecordData>?> SpellCardRecordsByPlayer { get; set; } = [];
+        private static Dictionary<string, ObservableCollection<SpellCardRecordData>?> SpellCardRecordsByPlayer { get; set; } = [];
 
-        internal static ObservableCollection<SpellCardRecordData> SpellPracticeRecordLists { get; set; } = [];
+        private static ObservableCollection<SpellCardRecordData> SpellPracticeRecordLists { get; set; } = [];
 
         /// <summary>
         /// スコアデータを取得します。スコアデータローダが対応していない場合は false を返します。
