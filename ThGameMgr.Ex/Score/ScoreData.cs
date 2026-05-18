@@ -125,15 +125,6 @@ namespace ThGameMgr.Ex.Score
             return GameId;
         }
 
-        /// <summary>
-        /// ScoreData クラスがいま保持しているスコアデータの全部を取得します．
-        /// </summary>
-        /// <returns></returns>
-        public static IEnumerable<ScoreRecordData> RetrieveScoreDataWithoutFiltering()
-        {
-            return ScoreRecordLists;
-        }
-
         public static IEnumerable<ScoreRecordData> RetrieveScoreData(ScoreFilter scoreFilter)
         {
             if (ScoreRecordLists.Count >= 0)
