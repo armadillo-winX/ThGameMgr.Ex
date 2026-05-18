@@ -1465,9 +1465,10 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        if (!string.IsNullOrEmpty(this.GameId) && ScoreData.ScoreRecordLists.Count > 0)
+                        ObservableCollection<ScoreRecordData> scoreRecords = ScoreData.GetScoreRecordsData();
+                        if (!string.IsNullOrEmpty(this.GameId) && scoreRecords.Count > 0)
                         {
-                            scoreRecordsPlugin.Main(this.GameId, ScoreData.ScoreRecordLists);
+                            scoreRecordsPlugin.Main(this.GameId, scoreRecords);
                         }
                         else
                         {
