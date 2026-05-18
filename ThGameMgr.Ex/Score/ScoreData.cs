@@ -125,6 +125,11 @@ namespace ThGameMgr.Ex.Score
             return GameId;
         }
 
+        /// <summary>
+        /// ScoreData クラスが保持しているハイスコアデータを取得します．
+        /// </summary>
+        /// <param name="scoreFilter"></param>
+        /// <returns></returns>
         public static IEnumerable<ScoreRecordData> RetrieveScoreData(ScoreFilter scoreFilter)
         {
             if (ScoreRecordLists.Count >= 0)
@@ -157,6 +162,11 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        /// <summary>
+        /// ScoreData クラスが保持している御札戦歴データを取得します．
+        /// </summary>
+        /// <param name="spellCardRecordFilter"></param>
+        /// <returns></returns>
         public static IEnumerable<SpellCardRecordData> RetrieveSpellCardData(
             SpellCardRecordFilter spellCardRecordFilter)
         {
@@ -199,6 +209,11 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        /// <summary>
+        /// ScoreData クラスが保持しているスペルプラクティスデータを取得します．
+        /// </summary>
+        /// <param name="spellPracticeRecordFilter"></param>
+        /// <returns></returns>
         public static IEnumerable<SpellCardRecordData>? RetrieveSpellPracticeData(
             SpellCardRecordFilter spellPracticeRecordFilter)
         {
