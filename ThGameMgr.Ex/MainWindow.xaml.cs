@@ -1547,12 +1547,14 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
+                        ObservableCollection<ScoreRecordData> scoreRecords = ScoreData.GetScoreRecordsData();
+                        ObservableCollection<SpellCardRecordData> spellCardRecords = ScoreData.GetSpellCardRecordsData();
                         if (!string.IsNullOrEmpty(this.GameId) && 
-                            ScoreData.ScoreRecordLists.Count > 0 &&
-                            ScoreData.SpellCardRecordLists.Count > 0)
+                            scoreRecords.Count > 0 &&
+                            spellCardRecords.Count > 0)
                         {
                             allScoreRecordsPlugin.Main(
-                                this.GameId, ScoreData.ScoreRecordLists, ScoreData.SpellCardRecordLists);
+                                this.GameId, scoreRecords, spellCardRecords);
                         }
                         else
                         {
