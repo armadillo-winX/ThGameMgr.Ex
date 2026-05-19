@@ -9,9 +9,9 @@ namespace ThGameMgr.Ex.Score
             string shanghaiAliceAppData = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ShanghaiAlice";
             string gamePath = GameFile.GetGameFilePath(gameId);
 
-            if (gamePath == null)
+            if (gamePath == string.Empty)
             {
-                return null;
+                return string.Empty;
             }
             else
             {
