@@ -17,7 +17,7 @@ namespace ThGameMgr.Ex.Score
             {
                 string? gameDirectory = Path.GetDirectoryName(gamePath);
                 if (gameDirectory == null)
-                    throw new InvalidOperationException("ゲームのインストールディレクトリを検出できませんでした．");
+                    return string.Empty;
 
                 if (
                     gameId == GameIndex.Th06 ||
