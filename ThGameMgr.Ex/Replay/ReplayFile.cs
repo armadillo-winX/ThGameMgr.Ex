@@ -14,6 +14,9 @@ namespace ThGameMgr.Ex.Replay
         {
             ObservableCollection<ReplayFileInfo> replayFileInfos = [];
 
+            if (string.IsNullOrEmpty(gameId))
+                return replayFileInfos;
+
             string? replayDirectory = GetReplayDirectory(gameId);
             if (!string.IsNullOrWhiteSpace(replayDirectory) &&
                 Directory.Exists(replayDirectory))
