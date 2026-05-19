@@ -64,7 +64,7 @@ namespace ThGameMgr.Ex.Score
             {
                 XmlNode? scoreFilePathNode = rootNode?.SelectSingleNode("ScoreDataFilePath");
 
-                string? scoreDataFilePath = GetScoreFilePath(gameId);
+                string scoreDataFilePath = GetScoreFilePath(gameId);
                 if (scoreFilePathNode?.InnerText == scoreDataFilePath)
                 {
                     File.Move(recallSourceFile, scoreDataFilePath, true);
