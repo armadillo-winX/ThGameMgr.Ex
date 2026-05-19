@@ -9,7 +9,10 @@ namespace ThGameMgr.Ex.Game
             string? gamePath = GameFile.GetGameFilePath(gameId);
             if (File.Exists(gamePath))
             {
-                string gameDirectory = Path.GetDirectoryName(gamePath);
+                string? gameDirectory = Path.GetDirectoryName(gamePath);
+
+                if (string.IsNullOrEmpty(gameDirectory))
+                    throw new InvalidOperationException("ゲームのインストールフォルダが検出できませんでした．");
 
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
@@ -18,7 +21,7 @@ namespace ThGameMgr.Ex.Game
                     UseShellExecute = true
                 };
 
-                Process gameProcess = Process.Start(gameProcessStartInfo);
+                Process? gameProcess = Process.Start(gameProcessStartInfo);
 
                 if (gameProcess != null)
                 {
@@ -40,10 +43,13 @@ namespace ThGameMgr.Ex.Game
         public static Process StartGameProcessWithApplyingTool(string gameId, string toolName)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gamePath);
+            string? gameDirectory = Path.GetDirectoryName(gamePath);
             string patchPath = $"{gameDirectory}\\{toolName}";
             if (File.Exists(gamePath) && File.Exists(patchPath))
             {
+                if (string.IsNullOrEmpty(gameDirectory))
+                    throw new InvalidOperationException("ゲームのインストールフォルダが検出できませんでした．");
+
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
                     FileName = patchPath,
@@ -84,7 +90,7 @@ namespace ThGameMgr.Ex.Game
         public static void StartCustomProgramProcess(string gameId)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gamePath);
+            string? gameDirectory = Path.GetDirectoryName(gamePath);
             string customProgramPath = $"{gameDirectory}\\custom.exe";
             if (File.Exists(gamePath) && File.Exists(customProgramPath))
             {

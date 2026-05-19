@@ -14,7 +14,7 @@ namespace ThGameMgr.Ex.Dialogs
         {
             InitializeComponent();
 
-            this.GameId = ScoreData.GameId;
+            this.GameId = ScoreData.GetScoreDataStateGameId();
             GameNameBlock.Text = GameIndex.GetGameName(this.GameId);
 
             LevelFilterComboBox.SelectedIndex = 0;

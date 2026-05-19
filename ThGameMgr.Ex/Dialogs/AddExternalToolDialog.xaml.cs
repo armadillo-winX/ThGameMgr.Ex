@@ -25,7 +25,7 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 string toolPath = openFileDialog.FileName;
                 FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(toolPath);
-                string productName = fileVersionInfo.ProductName;
+                string? productName = fileVersionInfo.ProductName;
                 if (ToolNameBox.Text.Length == 0 &&
                     !string.IsNullOrEmpty(productName))
                     ToolNameBox.Text = productName;

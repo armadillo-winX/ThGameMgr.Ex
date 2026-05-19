@@ -1465,9 +1465,10 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        if (!string.IsNullOrEmpty(this.GameId) && ScoreData.ScoreRecordLists.Count > 0)
+                        ObservableCollection<ScoreRecordData> scoreRecords = ScoreData.GetScoreRecordsDataForPlugin();
+                        if (!string.IsNullOrEmpty(this.GameId) && scoreRecords.Count > 0)
                         {
-                            scoreRecordsPlugin.Main(this.GameId, ScoreData.ScoreRecordLists);
+                            scoreRecordsPlugin.Main(this.GameId, scoreRecords);
                         }
                         else
                         {
@@ -1505,9 +1506,10 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        if (!string.IsNullOrEmpty(this.GameId) && ScoreData.SpellCardRecordLists.Count > 0)
+                        ObservableCollection<SpellCardRecordData> spellCardRecords = ScoreData.GetSpellCardRecordsDataForPlugin();
+                        if (!string.IsNullOrEmpty(this.GameId) && spellCardRecords.Count > 0)
                         {
-                            spellCardRecordsPlugin.Main(this.GameId, ScoreData.SpellCardRecordLists);
+                            spellCardRecordsPlugin.Main(this.GameId, spellCardRecords);
                         }
                         else
                         {
@@ -1545,12 +1547,14 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
+                        ObservableCollection<ScoreRecordData> scoreRecords = ScoreData.GetScoreRecordsDataForPlugin();
+                        ObservableCollection<SpellCardRecordData> spellCardRecords = ScoreData.GetSpellCardRecordsDataForPlugin();
                         if (!string.IsNullOrEmpty(this.GameId) && 
-                            ScoreData.ScoreRecordLists.Count > 0 &&
-                            ScoreData.SpellCardRecordLists.Count > 0)
+                            scoreRecords.Count > 0 &&
+                            spellCardRecords.Count > 0)
                         {
                             allScoreRecordsPlugin.Main(
-                                this.GameId, ScoreData.ScoreRecordLists, ScoreData.SpellCardRecordLists);
+                                this.GameId, scoreRecords, spellCardRecords);
                         }
                         else
                         {

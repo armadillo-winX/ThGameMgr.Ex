@@ -8,15 +8,15 @@ namespace ThGameMgr.Ex.Score
     {
         private static readonly object _lockObject = new();
 
-        public static string? GameId { get; set; }
+        private static string? GameId { get; set; }
 
-        public static ObservableCollection<ScoreRecordData>? ScoreRecordLists { get; set; }
+        private static ObservableCollection<ScoreRecordData> ScoreRecordLists { get; set; } = [];
 
-        public static ObservableCollection<SpellCardRecordData>? SpellCardRecordLists { get; set; }
+        private static ObservableCollection<SpellCardRecordData> SpellCardRecordLists { get; set; } = [];
 
-        public static Dictionary<string, ObservableCollection<SpellCardRecordData>?>? SpellCardRecordsByPlayer { get; set; }
+        private static Dictionary<string, ObservableCollection<SpellCardRecordData>?> SpellCardRecordsByPlayer { get; set; } = [];
 
-        public static ObservableCollection<SpellCardRecordData>? SpellPracticeRecordLists { get; set; }
+        private static ObservableCollection<SpellCardRecordData> SpellPracticeRecordLists { get; set; } = [];
 
         /// <summary>
         /// スコアデータを取得します。スコアデータローダが対応していない場合は false を返します。
@@ -29,11 +29,11 @@ namespace ThGameMgr.Ex.Score
             {
                 GameId = gameId;
 
-                ScoreRecordLists = [];
-                SpellCardRecordLists = [];
-                SpellPracticeRecordLists = [];
+                ScoreRecordLists.Clear();
+                SpellCardRecordLists.Clear();
+                SpellPracticeRecordLists.Clear();
 
-                SpellCardRecordsByPlayer = [];
+                SpellCardRecordsByPlayer.Clear();
 
                 string players = GamePlayers.GetGamePlayers(gameId);
                 if (players.Length > 0)
@@ -116,10 +116,74 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
-        public static IEnumerable<ScoreRecordData>? RetrieveScoreData(ScoreFilter scoreFilter)
+        /// <summary>
+        /// ScoreData クラスがいま保持しているスコアデータの Game ID を取得します．
+        /// </summary>
+        /// <returns></returns>
+        public static string? GetScoreDataStateGameId()
         {
-            if (ScoreRecordLists != null &&
-                ScoreRecordLists.Count >= 0)
+            return GameId;
+        }
+
+        /// <summary>
+        /// ScoreData クラス ScoreRecordLists に値を追加します．
+        /// </summary>
+        /// <param name="scoreRecordData"></param>
+        public static void AddScoreData(ScoreRecordData scoreRecordData)
+        {
+            ScoreRecordLists.Add(scoreRecordData);
+        }
+
+        /// <summary>
+        /// ScoreData クラス SpellCardRecordLists に値を追加します．
+        /// </summary>
+        /// <param name="spellCardRecordData"></param>
+        public static void AddSpellCardData(SpellCardRecordData spellCardRecordData)
+        {
+            SpellCardRecordLists.Add(spellCardRecordData);
+        }
+
+        /// <summary>
+        /// ScoreData クラス SpellCardRecordsByPlayer の指定した自機(key)に対するvalueに値を追加します．
+        /// </summary>
+        /// <param name="player"></param>
+        /// <param name="spellCardRecordData"></param>
+        public static void AddSpellCardDataByPlayers(string player, SpellCardRecordData spellCardRecordData)
+        {
+            ObservableCollection<SpellCardRecordData>? spellCardRecordsByPlayer;
+            bool result = SpellCardRecordsByPlayer.TryGetValue(player, out spellCardRecordsByPlayer);
+            if (result)
+            {
+                if (spellCardRecordsByPlayer == null)
+                {
+                    spellCardRecordsByPlayer = [];
+                }
+                SpellCardRecordsByPlayer[player]!.Add(spellCardRecordData);
+            }
+            else
+            {
+                SpellCardRecordsByPlayer.Add(player, []);
+                SpellCardRecordsByPlayer[player]!.Add(spellCardRecordData);
+            }
+        }
+
+        /// <summary>
+        /// ScoreData クラス SpellPracticeRecordLists に値を追加します．
+        /// </summary>
+        /// <param name="spellPracticeRecordData"></param>
+        public static void AddSpellParacticeData(SpellCardRecordData spellPracticeRecordData)
+        {
+            SpellPracticeRecordLists.Add(spellPracticeRecordData);
+        }
+
+        /// <summary>
+        /// ScoreData クラスが保持しているハイスコアデータを取得します．
+        /// </summary>
+        /// <param name="scoreFilter"></param>
+        /// <returns></returns>
+        public static IEnumerable<ScoreRecordData> RetrieveScoreData(ScoreFilter scoreFilter)
+        {
+            if (ScoreRecordLists.Count >= 0)
             {
                 IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreRecordLists;
 
@@ -149,11 +213,15 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
-        public static IEnumerable<SpellCardRecordData>? RetrieveSpellCardData(
+        /// <summary>
+        /// ScoreData クラスが保持している御札戦歴データを取得します．
+        /// </summary>
+        /// <param name="spellCardRecordFilter"></param>
+        /// <returns></returns>
+        public static IEnumerable<SpellCardRecordData> RetrieveSpellCardData(
             SpellCardRecordFilter spellCardRecordFilter)
         {
-            if (SpellCardRecordLists != null &&
-                SpellCardRecordLists.Count >= 0)
+            if (SpellCardRecordLists.Count >= 0)
             {
                 IEnumerable<SpellCardRecordData> filteredSpellCardRecordLists;
 
@@ -162,7 +230,8 @@ namespace ThGameMgr.Ex.Score
                     if (SpellCardRecordsByPlayer.TryGetValue(spellCardRecordFilter.Player,
                         out ObservableCollection<SpellCardRecordData>? spellCardRecordsByPlayer))
                     {
-                        filteredSpellCardRecordLists = spellCardRecordsByPlayer;
+                        filteredSpellCardRecordLists 
+                            = spellCardRecordsByPlayer != null ? spellCardRecordsByPlayer : [];
                     }
                     else
                     {
@@ -191,6 +260,11 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        /// <summary>
+        /// ScoreData クラスが保持しているスペルプラクティスデータを取得します．
+        /// </summary>
+        /// <param name="spellPracticeRecordFilter"></param>
+        /// <returns></returns>
         public static IEnumerable<SpellCardRecordData>? RetrieveSpellPracticeData(
             SpellCardRecordFilter spellPracticeRecordFilter)
         {
@@ -216,6 +290,24 @@ namespace ThGameMgr.Ex.Score
             {
                 return SpellPracticeRecordLists;
             }
+        }
+
+        /// <summary>
+        /// プラグイン用に ScoreData クラスが保持しているハイスコアデータの全部を取得します．
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<ScoreRecordData> GetScoreRecordsDataForPlugin()
+        {
+            return ScoreRecordLists;
+        }
+
+        /// <summary>
+        /// プラグイン用に ScoreData クラスが保持している御札戦歴データの全部を取得します．
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<SpellCardRecordData> GetSpellCardRecordsDataForPlugin()
+        {
+            return SpellCardRecordLists;
         }
 
         public static void ExportToTextFile(
@@ -263,10 +355,10 @@ namespace ThGameMgr.Ex.Score
                 foreach (ScoreRecordData scoreRecordData in filteredScoreRecordLists)
                 {
                     data +=
-                        $"スコア: {scoreRecordData.Score}\r\n自機:{scoreRecordData.Player}\r\n難易度:{scoreRecordData.Level}\r\n名前:{scoreRecordData.Name.TrimEnd('\0')}";
+                        $"スコア: {scoreRecordData.Score}\r\n自機:{scoreRecordData.Player}\r\n難易度:{scoreRecordData.Level}\r\n名前:{(!string.IsNullOrEmpty(scoreRecordData.Name) ? scoreRecordData.Name.TrimEnd('\0') : string.Empty)}";
                     if (!string.IsNullOrEmpty(scoreRecordData.Progress))
                         data += $"\r\n到達面:{scoreRecordData.Progress}";
-                    if (!string.IsNullOrEmpty(scoreRecordData.Date.TrimEnd('\0'))
+                    if (!string.IsNullOrEmpty(scoreRecordData.Date)
                         && scoreRecordData.Date.TrimEnd('\0') != "--/--")
                         data += $"\r\n日時:{scoreRecordData.Date.TrimEnd('\0')}";
                     if (!string.IsNullOrEmpty(scoreRecordData.SlowRate)
@@ -284,7 +376,8 @@ namespace ThGameMgr.Ex.Score
                 data += $"御札戦歴\r\n-----------------------------------------------------\r\n";
                 foreach (SpellCardRecordData spellCardRecordData in SpellCardRecordLists)
                 {
-                    if (int.Parse(spellCardRecordData.TryCount) > 0)
+                    if (!string.IsNullOrEmpty(spellCardRecordData.TryCount) &&
+                        int.Parse(spellCardRecordData.TryCount) > 0)
                     {
                         data += $"No.{spellCardRecordData.CardID}\r\n{spellCardRecordData.CardName}\r\n取得数: {spellCardRecordData.GetCount}\r\n挑戦数: {spellCardRecordData.TryCount}\r\n取得率: {spellCardRecordData.Rate}\r\n発動場所: {spellCardRecordData.Place}\r\n術者: {spellCardRecordData.Enemy}\r\n\r\n";
                     }
@@ -316,7 +409,8 @@ namespace ThGameMgr.Ex.Score
                 data += $"スペルプラクティス\r\n-----------------------------------------------------\r\n";
                 foreach (SpellCardRecordData spellCardRecordData in SpellPracticeRecordLists)
                 {
-                    if (int.Parse(spellCardRecordData.TryCount) > 0)
+                    if (!string.IsNullOrEmpty(spellCardRecordData.TryCount) &&
+                        int.Parse(spellCardRecordData.TryCount) > 0)
                     {
                         data += $"No.{spellCardRecordData.CardID}\r\n{spellCardRecordData.CardName}\r\n取得数: {spellCardRecordData.GetCount}\r\n挑戦数: {spellCardRecordData.TryCount}\r\n取得率: {spellCardRecordData.Rate}\r\n発動場所: {spellCardRecordData.Place}\r\n術者: {spellCardRecordData.Enemy}\r\n\r\n";
                     }
@@ -354,8 +448,8 @@ namespace ThGameMgr.Ex.Score
                 for (int i = 0; i < SpellCardRecordLists.Count; i++)
                 {
                     SpellCardRecordData spellCardRecordList = SpellCardRecordLists[i];
-                    int challengeCount = int.Parse(spellCardRecordList.TryCount);
-                    int getCount = int.Parse(spellCardRecordList.GetCount);
+                    int challengeCount = spellCardRecordList.TryCount != null ? int.Parse(spellCardRecordList.TryCount) : 0;
+                    int getCount = spellCardRecordList.GetCount != null ? int.Parse(spellCardRecordList.GetCount) : 0;
 
                     if (challengeCount > 0) challengedCardCount++;
                     if (getCount > 0) getCardCount++;

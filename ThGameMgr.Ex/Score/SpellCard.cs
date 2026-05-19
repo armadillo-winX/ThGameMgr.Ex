@@ -5,13 +5,13 @@ namespace ThGameMgr.Ex.Score
 {
     internal class SpellCard
     {
-        public string? CardID { get; set; }
+        public required string CardID { get; set; }
 
-        public string? CardName { get; set; }
+        public required string CardName { get; set; }
 
-        public string? Enemy { get; set; }
+        public required string Enemy { get; set; }
 
-        public string? Place { get; set; }
+        public required string Place { get; set; }
 
         /// <summary>
         /// Th10以降のスコアデータで、バイナリ形式のレベルデータからレベルを string 値で返します。
@@ -33,7 +33,7 @@ namespace ThGameMgr.Ex.Score
                 };
 
                 int index = BitConverter.ToInt32(levelData);
-                if (levelDictionary.TryGetValue(index, out string level))
+                if (levelDictionary.TryGetValue(index, out string? level))
                 {
                     return level;
                 }
