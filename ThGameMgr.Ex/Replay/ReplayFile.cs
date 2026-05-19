@@ -5,24 +5,6 @@ namespace ThGameMgr.Ex.Replay
 {
     internal class ReplayFile
     {
-        private readonly static Dictionary<string, string> _gameIdDictionary
-            = new()
-            {
-                { "th6", "Th06" },
-                { "th7", "Th07" },
-                { "th8", "Th08" },
-                { "th9", "Th09" },
-                { "th10", "Th10" },
-                { "th11", "Th11" },
-                { "th12", "Th12" },
-                { "th13", "Th13" },
-                { "th14", "Th14" },
-                { "th15", "Th15" },
-                { "th16", "Th16" },
-                { "th17", "Th17" },
-                { "th18", "Th18" }
-            };
-
         public static string GetReplayDirectory(string gameId)
         {
             string scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
