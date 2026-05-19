@@ -88,12 +88,6 @@ namespace ThGameMgr.Ex.Replay
             return $"{fileSize / 1024} KiB";
         }
 
-        public static string? GetGameId(string replayFilePath)
-        {
-            string replayName = Path.GetFileNameWithoutExtension(replayFilePath);
-            return _gameIdDictionary[replayName.Split('_')[0]];
-        }
-
         public static void Rename(string gameId, string replayFileName, string newReplayFileName)
         {
             string replayDirectory = GetReplayDirectory(gameId);
