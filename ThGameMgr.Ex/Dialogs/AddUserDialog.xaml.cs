@@ -14,7 +14,7 @@
 
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
-            if (UserNameBox.Text.Length > 0)
+            if (!string.IsNullOrWhiteSpace(UserNameBox.Text))
             {
                 string userName = UserNameBox.Text;
                 if (User.Exists(userName))
