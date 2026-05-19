@@ -94,37 +94,6 @@ namespace ThGameMgr.Ex.Replay
             return _gameIdDictionary[replayName.Split('_')[0]];
         }
 
-        public static string Import(string replayFilePath)
-        {
-            string gameId = GetGameId(replayFilePath);
-            string? replayDirectory = GetReplayDirectory(gameId);
-            string replayName = Path.GetFileNameWithoutExtension(replayFilePath);
-            if (Directory.Exists(replayDirectory))
-            {
-                try
-                {
-                    string newReplayFile = $"{replayDirectory}\\{replayName}.rpy";
-                    int i = 0;
-                    while (File.Exists(newReplayFile))
-                    {
-                        i++;
-                        newReplayFile = $"{replayDirectory}\\{replayName}-{i}.rpy";
-                    }
-
-                    File.Move(replayFilePath, newReplayFile);
-                    return $"成功:{newReplayFile}";
-                }
-                catch (Exception ex)
-                {
-                    return $"エラー:{ex.Message}";
-                }
-            }
-            else
-            {
-                return $"取り込み先ディレクトリが存在しませんでした。Game:{gameId}";
-            }
-        }
-
         public static void Rename(string gameId, string replayFileName, string newReplayFileName)
         {
             string replayDirectory = GetReplayDirectory(gameId);
