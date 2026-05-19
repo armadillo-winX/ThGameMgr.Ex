@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score
 {
     internal class ScoreFile
     {
-        public static string? GetScoreFilePath(string gameId)
+        public static string GetScoreFilePath(string gameId)
         {
             string shanghaiAliceAppData = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ShanghaiAlice";
             string gamePath = GameFile.GetGameFilePath(gameId);
