@@ -16,12 +16,12 @@ namespace ThGameMgr.Ex.Game
 
             XmlDocument gamePlayLogXml = new();
             gamePlayLogXml.Load(gamePlayLogFile);
-            XmlElement rootNode = gamePlayLogXml.DocumentElement;
+            XmlElement? rootNode = gamePlayLogXml.DocumentElement;
 
             XmlElement gamePlayLog = gamePlayLogXml.CreateElement("GamePlayLog");
 
             //ノードをRootノードに追加
-            _ = rootNode.AppendChild(gamePlayLog);
+            _ = rootNode?.AppendChild(gamePlayLog);
 
             XmlElement gameId = gamePlayLogXml.CreateElement("GameId");
             _ = gameId.AppendChild(gamePlayLogXml.CreateTextNode(gamePlayLogData.GameId));
