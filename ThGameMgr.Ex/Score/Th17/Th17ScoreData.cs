@@ -135,7 +135,7 @@ namespace ThGameMgr.Ex.Score.Th17
             byte[] PRACTICE_CHALLENGE_DATA = data[140..144];
             byte[] CARD_ID_DATA = data[144..148];
             byte[] LEVEL_DATA = data[148..152];
-            byte[] PRACTOCE_SCORE = data[152..156];
+            byte[] PRACTICE_SCORE = data[152..156];
 
             int cardId = BitConverter.ToInt32(CARD_ID_DATA, 0) + 1;
 

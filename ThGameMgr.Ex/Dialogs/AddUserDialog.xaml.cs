@@ -14,7 +14,7 @@
 
         private void AddButtonClick(object sender, RoutedEventArgs e)
         {
-            if (UserNameBox.Text.Length > 0)
+            if (!string.IsNullOrWhiteSpace(UserNameBox.Text))
             {
                 string userName = UserNameBox.Text;
                 if (User.Exists(userName))
@@ -40,7 +40,8 @@
             }
             else
             {
-                MessageBox.Show(this, "追加するユーザー名を入力してください。", "ユーザーの追加",
+                MessageBox.Show(this, "追加するユーザー名を入力してください。" +
+                    "ユーザー名を空あるいはスペースだけにすることはできません。", "ユーザーの追加",
                     MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }

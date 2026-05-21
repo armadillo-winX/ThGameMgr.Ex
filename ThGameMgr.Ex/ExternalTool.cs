@@ -52,8 +52,11 @@ namespace ThGameMgr.Ex
 
             XmlDocument exToolsConfigXml = new();
             exToolsConfigXml.Load(exToolsConfig);
-            XmlElement rootNode = exToolsConfigXml.DocumentElement;
-            XmlNode externalToolNode = exToolsConfigXml.DocumentElement.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
+            XmlElement? rootNode = exToolsConfigXml.DocumentElement;
+            if (rootNode == null)
+                throw new InvalidDataException("外部ツール管理ファイルが不正です。外部ツールを追加できませんでした。");
+
+            XmlNode? externalToolNode = rootNode.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
 
             if (externalToolNode == null)
             {
@@ -101,8 +104,13 @@ namespace ThGameMgr.Ex
             exToolsConfigXml.Load(exToolsConfig);
 
             //ルート要素の取得
-            XmlElement rootElement = exToolsConfigXml.DocumentElement;
-            XmlNode node = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
+            XmlElement? rootElement = exToolsConfigXml.DocumentElement;
+            if (rootElement == null)
+                throw new InvalidDataException("外部ツール管理ファイルが不正です。外部ツールを削除できませんでした。");
+
+            XmlNode? node = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
+            if (node == null)
+                throw new InvalidOperationException($"外部ツール '{toolName}' が見つかりません。外部ツールを削除できませんでした。");
             //タグの削除
             _ = rootElement.RemoveChild(node);
 
@@ -116,11 +124,16 @@ namespace ThGameMgr.Ex
             XmlDocument exToolsConfigXml = new();
             exToolsConfigXml.Load(exToolsConfig);
 
+            XmlNode? toolPathNode = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Path");
+            XmlNode? optionNode = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Option");
+            XmlNode? adminNode = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Admin");
+
             ExternalTool externalTool = new()
             {
-                ToolPath = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Path").InnerText,
-                Option = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Option").InnerText,
-                AsAdmin = Convert.ToBoolean(exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Admin").InnerText)
+                ToolPath = toolPathNode != null ? toolPathNode.InnerText : string.Empty,
+                Option = optionNode != null ? optionNode.InnerText : string.Empty,
+                AsAdmin = 
+                adminNode != null ? Convert.ToBoolean(adminNode.InnerText) : false
             };
 
             return externalTool;
