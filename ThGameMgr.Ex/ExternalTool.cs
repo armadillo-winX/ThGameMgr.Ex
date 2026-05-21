@@ -124,11 +124,16 @@ namespace ThGameMgr.Ex
             XmlDocument exToolsConfigXml = new();
             exToolsConfigXml.Load(exToolsConfig);
 
+            XmlNode? toolPathNode = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Path");
+            XmlNode? optionNode = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Option");
+            XmlNode? adminNode = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Admin");
+
             ExternalTool externalTool = new()
             {
-                ToolPath = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Path").InnerText,
-                Option = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Option").InnerText,
-                AsAdmin = Convert.ToBoolean(exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']/Admin").InnerText)
+                ToolPath = toolPathNode != null ? toolPathNode.InnerText : string.Empty,
+                Option = optionNode != null ? optionNode.InnerText : string.Empty,
+                AsAdmin = 
+                adminNode != null ? Convert.ToBoolean(adminNode.InnerText) : false
             };
 
             return externalTool;
