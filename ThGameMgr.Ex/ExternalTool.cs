@@ -108,7 +108,9 @@ namespace ThGameMgr.Ex
             if (rootElement == null)
                 throw new InvalidDataException("外部ツール管理ファイルが不正です。外部ツールを削除できませんでした。");
 
-            XmlNode node = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
+            XmlNode? node = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
+            if (node == null)
+                throw new InvalidOperationException($"外部ツール '{toolName}' が見つかりません。外部ツールを削除できませんでした。");
             //タグの削除
             _ = rootElement.RemoveChild(node);
 
