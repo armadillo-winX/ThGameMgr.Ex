@@ -307,6 +307,19 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        public static string GetScoreDataRetrieveTime()
+        {
+            DateTime? scoreDataRetrieveDateTime = ScoreDataRetrieveTime;
+            if (scoreDataRetrieveDateTime != null)
+            {
+                return scoreDataRetrieveDateTime.ToString("yyyy/MM/dd HH:mm:ss");
+            }
+            else
+            {
+                return "----/--/-- --:--:--";
+            }
+        }
+
         /// <summary>
         /// プラグイン用に ScoreData クラスが保持しているハイスコアデータの全部を取得します．
         /// </summary>
