@@ -52,8 +52,8 @@ namespace ThGameMgr.Ex
 
             XmlDocument exToolsConfigXml = new();
             exToolsConfigXml.Load(exToolsConfig);
-            XmlElement rootNode = exToolsConfigXml.DocumentElement;
-            XmlNode externalToolNode = exToolsConfigXml.DocumentElement.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
+            XmlElement? rootNode = exToolsConfigXml.DocumentElement;
+            XmlNode? externalToolNode = exToolsConfigXml.DocumentElement.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
 
             if (externalToolNode == null)
             {
