@@ -56,7 +56,7 @@ namespace ThGameMgr.Ex
             foreach (Type type in dllAssembly.GetTypes())
             {
                 //対象のクラスのインスタンスを作成
-                dynamic plugin = Activator.CreateInstance(type);
+                dynamic? plugin = Activator.CreateInstance(type);
 
                 if (type.BaseType == typeof(StartGamePluginBase))
                 {
