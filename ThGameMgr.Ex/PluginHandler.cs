@@ -58,33 +58,36 @@ namespace ThGameMgr.Ex
                 //対象のクラスのインスタンスを作成
                 dynamic? plugin = Activator.CreateInstance(type);
 
-                if (type.BaseType == typeof(StartGamePluginBase))
+                if (plugin != null)
                 {
-                    StartGamePlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(GameFilesPluginBase))
-                {
-                    GameFilesPlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(SelectedGamePluginBase))
-                {
-                    SelectedGamePlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(ScoreRecordsPluginBase))
-                {
-                    ScoreRecordsPlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(SpellCardRecordsPluginBase))
-                {
-                    SpellCardRecordsPlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(AllScoreRecordsPluginBase))
-                {
-                    AllScoreRecordsPlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(ToolPluginBase))
-                {
-                    ToolPlugins.Add(plugin);
+                    if (type.BaseType == typeof(StartGamePluginBase))
+                    {
+                        StartGamePlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(GameFilesPluginBase))
+                    {
+                        GameFilesPlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(SelectedGamePluginBase))
+                    {
+                        SelectedGamePlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(ScoreRecordsPluginBase))
+                    {
+                        ScoreRecordsPlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(SpellCardRecordsPluginBase))
+                    {
+                        SpellCardRecordsPlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(AllScoreRecordsPluginBase))
+                    {
+                        AllScoreRecordsPlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(ToolPluginBase))
+                    {
+                        ToolPlugins.Add(plugin);
+                    }
                 }
             }
         }
