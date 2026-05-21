@@ -309,15 +309,7 @@ namespace ThGameMgr.Ex.Score
 
         public static string GetScoreDataRetrieveTime()
         {
-            DateTime? scoreDataRetrieveDateTime = ScoreDataRetrieveTime;
-            if (scoreDataRetrieveDateTime != null)
-            {
-                return scoreDataRetrieveDateTime.ToString("yyyy/MM/dd HH:mm:ss");
-            }
-            else
-            {
-                return "----/--/-- --:--:--";
-            }
+            return ScoreDataRetrieveTime.ToString("yyyy/MM/dd HH:mm:ss");
         }
 
         /// <summary>
