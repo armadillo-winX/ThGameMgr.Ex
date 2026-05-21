@@ -23,7 +23,16 @@ namespace ThGameMgr.Ex.Dialogs
 
             PlayerFilterComboBox.Items.Add(new ComboBoxItem() { Content = "All" });
             PlayerFilterComboBox.Items.Add(new Separator());
-            string[] players = GamePlayers.GetGamePlayers(this.GameId).Split(',');
+            string[] players;
+            if (!string.IsNullOrEmpty(this.GameId))
+            {
+                players = GamePlayers.GetGamePlayers(this.GameId).Split(',');
+            }
+            else
+            {
+                players = [];
+            }
+
             foreach (string player in players)
             {
                 PlayerFilterComboBox.Items.Add(new ComboBoxItem() { Content = player });
