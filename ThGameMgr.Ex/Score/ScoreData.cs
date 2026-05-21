@@ -10,7 +10,7 @@ namespace ThGameMgr.Ex.Score
 
         private static string? GameId { get; set; }
 
-        private static DateTime? ScoreDataRetrieveTime { get; set; }
+        private static DateTime ScoreDataRetrieveTime { get; set; }
 
         private static ObservableCollection<ScoreRecordData> ScoreRecordLists { get; set; } = [];
 
