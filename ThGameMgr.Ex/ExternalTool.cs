@@ -106,7 +106,7 @@ namespace ThGameMgr.Ex
             //ルート要素の取得
             XmlElement? rootElement = exToolsConfigXml.DocumentElement;
             if (rootElement == null)
-                throw new InvalidDataException("外部ツール管理ファイルが不正です。外部ツールを追加できませんでした。");
+                throw new InvalidDataException("外部ツール管理ファイルが不正です。外部ツールを削除できませんでした。");
 
             XmlNode node = exToolsConfigXml.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
             //タグの削除
