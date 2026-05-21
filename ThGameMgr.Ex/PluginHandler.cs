@@ -21,13 +21,13 @@ namespace ThGameMgr.Ex
 
         public static void GetPlugins()
         {
-            StartGamePlugins = [];
-            GameFilesPlugins = [];
-            SelectedGamePlugins = [];
-            ScoreRecordsPlugins = []; 
-            SpellCardRecordsPlugins = [];
-            AllScoreRecordsPlugins = [];
-            ToolPlugins = [];
+            StartGamePlugins.Clear();
+            GameFilesPlugins.Clear();
+            SelectedGamePlugins.Clear();
+            ScoreRecordsPlugins.Clear(); 
+            SpellCardRecordsPlugins.Clear();
+            AllScoreRecordsPlugins.Clear();
+            ToolPlugins.Clear();
 
             string[] pluginFiles = Directory.GetFiles(
                 PathInfo.PluginDirectory, "*.dll", SearchOption.AllDirectories);
