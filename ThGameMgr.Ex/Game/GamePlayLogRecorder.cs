@@ -54,8 +54,9 @@ namespace ThGameMgr.Ex.Game
 
             XmlDocument gameLogDataXml = new();
             gameLogDataXml.Load(gamePlayLogFile);
-            XmlNodeList allGameLogs = gameLogDataXml.SelectNodes("GamePlayLogData/GamePlayLog");
-            if (allGameLogs.Count != 0)
+            XmlNodeList? allGameLogs = gameLogDataXml.SelectNodes("GamePlayLogData/GamePlayLog");
+            if (allGameLogs != null &&
+                allGameLogs.Count != 0)
             {
                 foreach (XmlNode gameLog in allGameLogs)
                 {
