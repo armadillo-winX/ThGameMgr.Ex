@@ -53,7 +53,10 @@ namespace ThGameMgr.Ex
             XmlDocument exToolsConfigXml = new();
             exToolsConfigXml.Load(exToolsConfig);
             XmlElement? rootNode = exToolsConfigXml.DocumentElement;
-            XmlNode? externalToolNode = exToolsConfigXml.DocumentElement.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
+            if (rootNode == null)
+                throw new InvalidDataException("外部ツール管理ファイルが不正です。外部ツールを追加できませんでした。");
+
+            XmlNode? externalToolNode = rootNode.SelectSingleNode($"//ExternalTool[@Index='{toolName}']");
 
             if (externalToolNode == null)
             {
