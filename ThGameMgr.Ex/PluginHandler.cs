@@ -5,19 +5,19 @@ namespace ThGameMgr.Ex
 {
     internal class PluginHandler
     {
-        public static List<dynamic>? StartGamePlugins { get; set; }
+        public static List<dynamic> StartGamePlugins { get; set; } = [];
 
-        public static List<dynamic>? GameFilesPlugins { get; set; }
+        public static List<dynamic> GameFilesPlugins { get; set; } = [];
 
-        public static List<dynamic>? SelectedGamePlugins { get; set; }
+        public static List<dynamic> SelectedGamePlugins { get; set; } = [];
 
-        public static List<dynamic>? ScoreRecordsPlugins { get; set; }
+        public static List<dynamic> ScoreRecordsPlugins { get; set; } = [];
 
-        public static List<dynamic>? SpellCardRecordsPlugins { get; set; }
+        public static List<dynamic> SpellCardRecordsPlugins { get; set; } = [];
 
-        public static List<dynamic>? AllScoreRecordsPlugins { get; set; }
+        public static List<dynamic> AllScoreRecordsPlugins { get; set; } = [];
 
-        public static List<dynamic>? ToolPlugins { get; set; }
+        public static List<dynamic> ToolPlugins { get; set; } = [];
 
         public static void GetPlugins()
         {
