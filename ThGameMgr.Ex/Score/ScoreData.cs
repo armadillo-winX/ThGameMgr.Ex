@@ -307,6 +307,10 @@ namespace ThGameMgr.Ex.Score
             }
         }
 
+        /// <summary>
+        /// ScoreData クラスが保持しているスコアデータを取得した日時を返します．
+        /// </summary>
+        /// <returns></returns>
         public static string GetScoreDataRetrieveTime()
         {
             return ScoreDataRetrieveTime.ToString("yyyy/MM/dd HH:mm:ss");
