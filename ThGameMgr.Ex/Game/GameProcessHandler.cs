@@ -31,12 +31,12 @@ namespace ThGameMgr.Ex.Game
                 }
                 else
                 {
-                    throw new ProcessNotFoundException("ゲームプロセスの起動が確認できませんでした。");
+                    throw new ProcessNotFoundException($"{GameIndex.GetGameName(gameId)}の起動が確認できませんでした。");
                 }
             }
             else
             {
-                throw new FileNotFoundException("ゲーム実行ファイルが見つかりませんでした。");
+                throw new FileNotFoundException($"{GameIndex.GetGameName(gameId)}の実行ファイルが見つかりませんでした。");
             }
         }
 
