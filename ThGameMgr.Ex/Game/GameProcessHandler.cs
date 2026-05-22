@@ -108,7 +108,7 @@ namespace ThGameMgr.Ex.Game
             }
             else
             {
-                throw new FileNotFoundException("ゲーム実行ファイルが見つかりませんでした。");
+                throw new FileNotFoundException($"{GameIndex.GetGameName(gameId)}の実行ファイルが見つかりませんでした。");
             }
         }
     }
