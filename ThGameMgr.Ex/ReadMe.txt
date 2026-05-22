@@ -36,7 +36,7 @@ Microsoft Windows 11
 
 
 §開発環境
-Microsoft Windows 11 Insider Preview Dev
+Microsoft Windows 11 Insider Preview Canary
 Visual Studio Community 2026
 .NET 10.0
 
