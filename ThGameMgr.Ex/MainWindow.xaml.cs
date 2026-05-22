@@ -477,6 +477,7 @@ namespace ThGameMgr.Ex
             ScoreDataGrid.Items.Clear();
             SpellCardDataGrid.Items.Clear();
             SpellPracticeDataGrid.Items.Clear();
+            ScoreDataRetrieveTimeBlock.Text = "----/--/-- --:--:--";
             string gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
             {
@@ -490,16 +491,19 @@ namespace ThGameMgr.Ex
 
                     if (result)
                     {
+                        ScoreDataRetrieveTimeBlock.Text = ScoreData.GetScoreDataRetrieveTime();
                         ApplyScoreViewFilter();
                     }
                     else
                     {
                         ShowScoreDataViewerDialog(DialogMode.Information, true, "スコアデータビューアが未対応です。");
+                        ScoreDataRetrieveTimeBlock.Text = "----/--/-- --:--:--";
                     }
                 }
                 catch (Exception)
                 {
                     ShowScoreDataViewerDialog(DialogMode.Error, true, "エラー:スコアデータの取得に失敗しました。");
+                    ScoreDataRetrieveTimeBlock.Text = "----/--/-- --:--:--";
                 }
 
                 EnableRetrievingScoreDataLimitationMode(false);
