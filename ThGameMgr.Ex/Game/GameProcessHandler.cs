@@ -48,7 +48,7 @@ namespace ThGameMgr.Ex.Game
             if (File.Exists(gamePath) && File.Exists(patchPath))
             {
                 if (string.IsNullOrEmpty(gameDirectory))
-                    throw new InvalidOperationException("ゲームのインストールフォルダが検出できませんでした．");
+                    throw new InvalidOperationException($"{GameIndex.GetGameName(gameId)}のインストールフォルダが検出できませんでした．");
 
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
@@ -66,7 +66,7 @@ namespace ThGameMgr.Ex.Game
                     Thread.Sleep(100);
                     if (i == 50)
                     {
-                        throw new ProcessNotFoundException("ゲームプロセスの検出に失敗しました。");
+                        throw new ProcessNotFoundException($"{GameIndex.GetGameName(gameId)}のプロセスの検出に失敗しました。");
                     }
                     i++;
                 }
@@ -83,7 +83,7 @@ namespace ThGameMgr.Ex.Game
             }
             else
             {
-                throw new FileNotFoundException("ゲーム実行ファイルが見つかりませんでした。");
+                throw new FileNotFoundException($"{GameIndex.GetGameName(gameId)}の実行ファイルが見つかりませんでした。");
             }
         }
 
