@@ -34,9 +34,9 @@ namespace ThGameMgr.Ex.Dialogs
         {
             BackupListBox.Items.Clear();
 
-            if (BackupGameListBox.Items.Count > 0 && BackupGameListBox.SelectedIndex > -1)
+            string? selectedGameName = BackupGameListBox.SelectedItem as string;
+            if (BackupGameListBox.Items.Count > 0 && selectedGameName != null)
             {
-                string selectedGameName = BackupGameListBox.SelectedItem as string;
                 string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
 
                 try
