@@ -105,13 +105,13 @@ namespace ThGameMgr.Ex.Dialogs
 
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
         {
-            if (BackupListBox.SelectedIndex > -1)
+            string? selectedGameName = BackupGameListBox.SelectedItem as string;
+            string? backupFile = BackupListBox.SelectedItem as string;
+            if (selectedGameName != null && backupFile != null)
             {
                 try
                 {
-                    string selectedGameName = BackupGameListBox.SelectedItem as string;
                     string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
-                    string backupFile = BackupListBox.SelectedItem as string;
 
                     MessageBoxResult result = MessageBox.Show(
                         this, $"'{backupFile}' を削除してもよろしいですか。", "スコアバックアップの削除",
