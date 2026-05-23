@@ -49,23 +49,25 @@ namespace ThGameMgr.Ex.Dialogs
         {
             try
             {
-                if (UsersListBox.SelectedIndex > -1)
+                ListBoxItem? selectedItem = UsersListBox.SelectedItem as ListBoxItem;
+                if (selectedItem != null)
                 {
-                    ListBoxItem? selectedItem = UsersListBox.SelectedItem as ListBoxItem;
-                    if (selectedItem != null)
-                    {
-                        string? userName = selectedItem.Content.ToString();
+                    string? userName = selectedItem.Content.ToString();
 
-                        MessageBoxResult result = MessageBox.Show(
-                            $"ユーザー '{userName}' を削除してもよろしいですか。", "ユーザーの削除",
-                            MessageBoxButton.YesNo, MessageBoxImage.Information);
-                        if (result == MessageBoxResult.Yes &&
-                            !string.IsNullOrEmpty(userName))
-                        {
-                            User.Delete(userName);
-                            UsersListBox.Items.Remove(selectedItem);
-                        }
+                    MessageBoxResult result = MessageBox.Show(
+                        $"ユーザー '{userName}' を削除してもよろしいですか。", "ユーザーの削除",
+                        MessageBoxButton.YesNo, MessageBoxImage.Information);
+                    if (result == MessageBoxResult.Yes &&
+                        !string.IsNullOrEmpty(userName))
+                    {
+                        User.Delete(userName);
+                        UsersListBox.Items.Remove(selectedItem);
                     }
+                }
+                else
+                {
+                    MessageBox.Show(this, "削除するユーザーを選択してください。", "ユーザーの削除",
+                        MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
             }
             catch (Exception ex)
