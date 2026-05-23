@@ -118,7 +118,7 @@ namespace ThGameMgr.Ex.Dialogs
                 PluginDataGrid.Items.Count > 0 &&
                 PluginDataGrid.SelectedIndex > -1)
             {
-                PluginInfo pluginInfo = PluginDataGrid.SelectedItem as PluginInfo;
+                PluginInfo? pluginInfo = PluginDataGrid.SelectedItem as PluginInfo;
                 if (pluginInfo != null)
                     DetailBox.Text
                         = @$"{pluginInfo.Name}
