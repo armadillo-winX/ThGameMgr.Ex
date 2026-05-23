@@ -37,25 +37,28 @@ namespace ThGameMgr.Ex.Dialogs
             string? selectedGameName = BackupGameListBox.SelectedItem as string;
             if (BackupGameListBox.Items.Count > 0 && selectedGameName != null)
             {
-                string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
+                string? gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
 
-                try
+                if (!string.IsNullOrEmpty(gameId))
                 {
-                    string[] backupFiles = ScoreBackup.GetScoreBackupFiles(gameId);
-                    if (backupFiles.Length > 0)
+                    try
                     {
-                        for (int i = backupFiles.Length - 1; i >= 0; i--)
+                        string[] backupFiles = ScoreBackup.GetScoreBackupFiles(gameId);
+                        if (backupFiles.Length > 0)
                         {
-                            string backupFile = backupFiles[i];
-                            string backupFileName = Path.GetFileName(backupFile);
-                            BackupListBox.Items.Add(backupFileName);
+                            for (int i = backupFiles.Length - 1; i >= 0; i--)
+                            {
+                                string backupFile = backupFiles[i];
+                                string backupFileName = Path.GetFileName(backupFile);
+                                BackupListBox.Items.Add(backupFileName);
+                            }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, ex.Message, "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, "エラー",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
         }
