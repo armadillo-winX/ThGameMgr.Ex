@@ -70,20 +70,23 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 try
                 {
-                    string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
-                    string backupFile = BackupListBox.SelectedItem as string;
+                    string? gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
+                    string? backupFile = BackupListBox.SelectedItem as string;
 
-                    MessageBoxResult result = MessageBox.Show(
+                    if (!string.IsNullOrEmpty(gameId) && !string.IsNullOrEmpty(backupFile))
+                    {
+                        MessageBoxResult result = MessageBox.Show(
                         this,
                         $"'{GameIndex.GetGameName(gameId)}' のスコアファイルを、バックアップ '{backupFile}' から復元します。よろしいですか。",
                         "スコアファイルの復元",
                         MessageBoxButton.YesNo, MessageBoxImage.Information);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        ScoreBackup.Restore(gameId, backupFile);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            ScoreBackup.Restore(gameId, backupFile);
 
-                        MessageBox.Show(this, "復元しました。", "スコアファイルの復元",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show(this, "復元しました。", "スコアファイルの復元",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
                     }
                 }
                 catch (Exception ex)
