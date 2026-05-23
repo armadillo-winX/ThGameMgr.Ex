@@ -111,15 +111,18 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 try
                 {
-                    string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
+                    string? gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
 
                     MessageBoxResult result = MessageBox.Show(
                         this, $"'{backupFile}' を削除してもよろしいですか。", "スコアバックアップの削除",
                         MessageBoxButton.YesNo, MessageBoxImage.Information);
                     if (result == MessageBoxResult.Yes)
                     {
-                        ScoreBackup.Delete(gameId, backupFile);
-                        BackupListBox.Items.Remove(backupFile);
+                        if (gameId != null)
+                        {
+                            ScoreBackup.Delete(gameId, backupFile);
+                            BackupListBox.Items.Remove(backupFile);
+                        }
                     }
                 }
                 catch (Exception ex)
