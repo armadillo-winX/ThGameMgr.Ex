@@ -52,8 +52,12 @@ namespace ThGameMgr.Ex.Dialogs
                 {
                     foreach (XmlNode toolNode in exToolsNodeList)
                     {
-                        string name = toolNode.SelectSingleNode("Name").InnerText;
-                        ExternalToolsListBox.Items.Add(name);
+                        XmlNode? nameNode = toolNode.SelectSingleNode("Name");
+                        if (nameNode != null)
+                        {
+                            string name = nameNode.InnerText;
+                            ExternalToolsListBox.Items.Add(name);
+                        }
                     }
                 }
             }
