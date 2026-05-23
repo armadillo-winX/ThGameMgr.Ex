@@ -45,11 +45,11 @@ namespace ThGameMgr.Ex.Dialogs
         {
             if (!string.IsNullOrEmpty(this.GameId))
             {
-                if (PlayerFilterComboBox.SelectedIndex >= 0 && LevelFilterComboBox.SelectedIndex >= 0)
-                {
-                    ComboBoxItem selectedPlayerItem = PlayerFilterComboBox.SelectedItem as ComboBoxItem;
-                    ComboBoxItem selectedLevelItem = LevelFilterComboBox.SelectedItem as ComboBoxItem;
+                ComboBoxItem? selectedPlayerItem = PlayerFilterComboBox.SelectedItem as ComboBoxItem;
+                ComboBoxItem? selectedLevelItem = LevelFilterComboBox.SelectedItem as ComboBoxItem;
 
+                if (selectedPlayerItem != null && selectedLevelItem != null)
+                {
                     ScoreFilter scoreFilter = new()
                     {
                         Player = selectedPlayerItem.Content.ToString(),
