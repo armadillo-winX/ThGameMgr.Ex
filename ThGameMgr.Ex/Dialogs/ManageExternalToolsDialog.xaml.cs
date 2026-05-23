@@ -46,8 +46,9 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 XmlDocument exToolsConfigXml = new();
                 exToolsConfigXml.Load(exToolsConfig);
-                XmlNodeList exToolsNodeList = exToolsConfigXml.SelectNodes("ExternalTools/ExternalTool");
-                if (exToolsNodeList.Count > 0)
+                XmlNodeList? exToolsNodeList = exToolsConfigXml.SelectNodes("ExternalTools/ExternalTool");
+                if (exToolsNodeList != null &&
+                    exToolsNodeList.Count > 0)
                 {
                     foreach (XmlNode toolNode in exToolsNodeList)
                     {
