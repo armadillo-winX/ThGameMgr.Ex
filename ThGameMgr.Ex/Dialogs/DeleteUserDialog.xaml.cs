@@ -54,12 +54,13 @@ namespace ThGameMgr.Ex.Dialogs
                     ListBoxItem? selectedItem = UsersListBox.SelectedItem as ListBoxItem;
                     if (selectedItem != null)
                     {
-                        string userName = selectedItem.Content.ToString();
+                        string? userName = selectedItem.Content.ToString();
 
                         MessageBoxResult result = MessageBox.Show(
                             $"ユーザー '{userName}' を削除してもよろしいですか。", "ユーザーの削除",
                             MessageBoxButton.YesNo, MessageBoxImage.Information);
-                        if (result == MessageBoxResult.Yes)
+                        if (result == MessageBoxResult.Yes &&
+                            !string.IsNullOrEmpty(userName))
                         {
                             User.Delete(userName);
                             UsersListBox.Items.Remove(selectedItem);
