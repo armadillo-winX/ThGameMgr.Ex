@@ -57,7 +57,11 @@ namespace ThGameMgr.Ex.Dialogs
                         if (nameNode != null)
                         {
                             string name = nameNode.InnerText;
-                            ExternalToolsListBox.Items.Add(name);
+                            ListBoxItem item = new()
+                            {
+                                Content = name,
+                            };
+                            ExternalToolsListBox.Items.Add(item);
                         }
                     }
                 }
