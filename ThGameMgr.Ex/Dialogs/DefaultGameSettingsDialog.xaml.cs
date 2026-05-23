@@ -77,6 +77,11 @@ namespace ThGameMgr.Ex.Dialogs
                     this.Close();
                 }
             }
+            else
+            {
+                MessageBox.Show(this, "既定にするゲームを選択してください。", "既定のゲームを設定する",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
     }
 }
