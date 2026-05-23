@@ -170,7 +170,7 @@ namespace ThGameMgr.Ex.Score.Th08
 
             string level = "";
             if (allChangeCount > 0 &&
-                _levelDictionary.TryGetValue(BitConverter.ToString(LEVEL_DATA, 0), out string levelName) &&
+                _levelDictionary.TryGetValue(BitConverter.ToString(LEVEL_DATA, 0), out string? levelName) &&
                 spellcardData.Place != "Last Word")
             {
                 level = levelName;

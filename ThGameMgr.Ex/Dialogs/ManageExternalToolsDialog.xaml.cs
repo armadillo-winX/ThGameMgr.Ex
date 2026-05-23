@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Windows.Controls;
+using System.Xml;
 
 namespace ThGameMgr.Ex.Dialogs
 {
@@ -46,13 +47,22 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 XmlDocument exToolsConfigXml = new();
                 exToolsConfigXml.Load(exToolsConfig);
-                XmlNodeList exToolsNodeList = exToolsConfigXml.SelectNodes("ExternalTools/ExternalTool");
-                if (exToolsNodeList.Count > 0)
+                XmlNodeList? exToolsNodeList = exToolsConfigXml.SelectNodes("ExternalTools/ExternalTool");
+                if (exToolsNodeList != null &&
+                    exToolsNodeList.Count > 0)
                 {
                     foreach (XmlNode toolNode in exToolsNodeList)
                     {
-                        string name = toolNode.SelectSingleNode("Name").InnerText;
-                        ExternalToolsListBox.Items.Add(name);
+                        XmlNode? nameNode = toolNode.SelectSingleNode("Name");
+                        if (nameNode != null)
+                        {
+                            string name = nameNode.InnerText;
+                            ListBoxItem item = new()
+                            {
+                                Content = name,
+                            };
+                            ExternalToolsListBox.Items.Add(item);
+                        }
                     }
                 }
             }
@@ -80,13 +90,17 @@ namespace ThGameMgr.Ex.Dialogs
 
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
         {
-            if (ExternalToolsListBox.SelectedIndex > -1)
+            ListBoxItem? selectedItem = ExternalToolsListBox.SelectedItem as ListBoxItem;
+            if (selectedItem != null)
             {
                 try
                 {
-                    string toolName = ExternalToolsListBox.SelectedItem.ToString();
-                    ExternalTool.Delete(toolName);
-                    GetExternalTools();
+                    string? toolName = selectedItem.Content.ToString();
+                    if (!string.IsNullOrEmpty(toolName))
+                    {
+                        ExternalTool.Delete(toolName);
+                        GetExternalTools();
+                    }
                 }
                 catch (Exception ex)
                 {

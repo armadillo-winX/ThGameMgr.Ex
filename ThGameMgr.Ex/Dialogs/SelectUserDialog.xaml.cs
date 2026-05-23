@@ -47,10 +47,22 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 if (UsersListBox.SelectedIndex > -1)
                 {
-                    ListBoxItem selectedItem = UsersListBox.SelectedItem as ListBoxItem;
-                    string userName = selectedItem.Content.ToString();
-                    User.Switch(userName);
-                    this.DialogResult = true;
+                    ListBoxItem? selectedItem = UsersListBox.SelectedItem as ListBoxItem;
+                    if (selectedItem != null)
+                    {
+                        string? userName = selectedItem.Content.ToString();
+                        bool switchResult = User.Switch(userName);
+                        if (switchResult)
+                        {
+                            this.DialogResult = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show(
+                                this, "ユーザーを切り替えられませんでした。", "ユーザーの切り替え",
+                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
