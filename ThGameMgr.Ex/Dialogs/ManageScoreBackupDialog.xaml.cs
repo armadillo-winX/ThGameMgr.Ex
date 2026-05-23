@@ -65,11 +65,11 @@ namespace ThGameMgr.Ex.Dialogs
 
         private void RestoreButtonClick(object sender, RoutedEventArgs e)
         {
-            if (BackupListBox.SelectedIndex > -1)
+            string? selectedGameName = BackupGameListBox.SelectedItem as string;
+            if (selectedGameName != null)
             {
                 try
                 {
-                    string selectedGameName = BackupGameListBox.SelectedItem as string;
                     string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
                     string backupFile = BackupListBox.SelectedItem as string;
 
