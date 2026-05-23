@@ -1,4 +1,5 @@
-﻿using System.Xml;
+﻿using System.Windows.Controls;
+using System.Xml;
 
 namespace ThGameMgr.Ex.Dialogs
 {
@@ -85,11 +86,12 @@ namespace ThGameMgr.Ex.Dialogs
 
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
         {
-            if (ExternalToolsListBox.SelectedIndex > -1)
+            ListBoxItem? selectedItem = ExternalToolsListBox.SelectedItem as ListBoxItem;
+            if (selectedItem != null)
             {
                 try
                 {
-                    string toolName = ExternalToolsListBox.SelectedItem.ToString();
+                    string toolName = selectedItem.ToString();
                     ExternalTool.Delete(toolName);
                     GetExternalTools();
                 }
