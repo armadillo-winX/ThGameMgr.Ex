@@ -66,14 +66,14 @@ namespace ThGameMgr.Ex.Dialogs
         private void RestoreButtonClick(object sender, RoutedEventArgs e)
         {
             string? selectedGameName = BackupGameListBox.SelectedItem as string;
-            if (selectedGameName != null)
+            string? backupFile = BackupListBox.SelectedItem as string;
+            if (selectedGameName != null && backupFile != null)
             {
                 try
                 {
                     string? gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
-                    string? backupFile = BackupListBox.SelectedItem as string;
 
-                    if (!string.IsNullOrEmpty(gameId) && !string.IsNullOrEmpty(backupFile))
+                    if (!string.IsNullOrEmpty(gameId))
                     {
                         MessageBoxResult result = MessageBox.Show(
                         this,
