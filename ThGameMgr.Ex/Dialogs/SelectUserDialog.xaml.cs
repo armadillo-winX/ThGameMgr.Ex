@@ -51,8 +51,17 @@ namespace ThGameMgr.Ex.Dialogs
                     if (selectedItem != null)
                     {
                         string? userName = selectedItem.Content.ToString();
-                        User.Switch(userName);
-                        this.DialogResult = true;
+                        bool switchResult = User.Switch(userName);
+                        if (switchResult)
+                        {
+                            this.DialogResult = true;
+                        }
+                        else
+                        {
+                            MessageBox.Show(
+                                this, "ユーザーを切り替えられませんでした。", "ユーザーの切り替え",
+                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
                     }
                 }
             }
