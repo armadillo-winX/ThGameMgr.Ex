@@ -1165,7 +1165,14 @@ namespace ThGameMgr.Ex
                 else
                 {
                     SelectUserDialog selectUserDialog = new();
-                    if (selectUserDialog.ShowDialog() != true)
+                    if (selectUserDialog.ShowDialog() == true
+                        && !string.IsNullOrWhiteSpace(selectUserDialog.SelectedUserName))
+                    {
+                        UserService userService = new();
+                        userService.SwitchUser(selectUserDialog.SelectedUserName);
+                        _currentUserService = userService;
+                    }
+                    else
                     {
                         MessageBox.Show("ユーザーが選択されませんでした。\nアプリケーションを終了します。",
                             VersionInfo.AppName,
@@ -1178,7 +1185,14 @@ namespace ThGameMgr.Ex
             else
             {
                 SelectUserDialog selectUserDialog = new();
-                if (selectUserDialog.ShowDialog() != true)
+                if (selectUserDialog.ShowDialog() == true
+                    && !string.IsNullOrWhiteSpace(selectUserDialog.SelectedUserName))
+                {
+                    UserService userService = new();
+                    userService.SwitchUser(selectUserDialog.SelectedUserName);
+                    _currentUserService = userService;
+                }
+                else
                 {
                     MessageBox.Show("ユーザーが選択されませんでした。\nアプリケーションを終了します。",
                         VersionInfo.AppName,
