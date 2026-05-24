@@ -102,25 +102,6 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public static bool Switch(string? userName)
-        {
-            if (!string.IsNullOrEmpty(userName))
-            {
-                string? userDirectoryName = GetUserDirectoryName(userName);
-                if (userDirectoryName == null)
-                    return false;
-
-                CurrentUserName = userName;
-                CurrentUserDirectoryPath = $"{_usersDirectory}\\{userDirectoryName}";
-
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         public static void CreateUsersIndex()
         {
             if (!Directory.Exists(_usersDirectory))
