@@ -13,5 +13,7 @@
         public bool ExcludeUnchallengedCardData { get; set; }
 
         public bool AutoBackup { get; set; }
+
+        public bool DisableSpellCardDataColoring { get; set; }
     }
 }
