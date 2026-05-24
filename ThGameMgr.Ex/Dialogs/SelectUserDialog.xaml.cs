@@ -29,7 +29,7 @@ namespace ThGameMgr.Ex.Dialogs
                             ListBoxItem userItem = new()
                             {
                                 Content = userName,
-                                IsEnabled = userName != UserConfigurator.CurrentUserName
+                                IsEnabled = userName != this.SelectedUserName
                             };
                             _ = UsersListBox.Items.Add(userItem);
                         }
