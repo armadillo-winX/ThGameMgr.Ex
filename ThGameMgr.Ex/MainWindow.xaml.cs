@@ -1674,7 +1674,7 @@ namespace ThGameMgr.Ex
             }
 
             EnableGameEndWaitingLimitationMode(true);
-            SetStartGameStatus("ゲームが実行中..");
+            SetStartGameStatus($"{this.GameName} が実行中..");
 
             _gameEndWaitingModeWorker = new BackgroundWorker();
             _gameEndWaitingModeWorker.DoWork += new DoWorkEventHandler(WorkerDoWork);
