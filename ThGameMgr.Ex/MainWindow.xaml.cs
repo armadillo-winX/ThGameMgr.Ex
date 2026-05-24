@@ -1151,7 +1151,9 @@ namespace ThGameMgr.Ex
                 string userName = UserConfigurator.GetUserSelection();
                 if (UserConfigurator.Exists(userName))
                 {
-                    UserConfigurator.Switch(userName);
+                    UserService userService = new();
+                    userService.SwitchUser(userName);
+                    this._currentUserService = userService;
                 }
                 else
                 {
