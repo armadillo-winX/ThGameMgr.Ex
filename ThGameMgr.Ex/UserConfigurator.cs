@@ -95,8 +95,8 @@ namespace ThGameMgr.Ex
                 XmlNode? userDirectoryNameNode
                     = usersIndexDocument.SelectSingleNode($"//User[@Index='{userName}']/DirectoryName");
 
-                string? userDirectoryName
-                    = userDirectoryNameNode != null ? userDirectoryNameNode.InnerText : null;
+                string userDirectoryName
+                    = userDirectoryNameNode != null ? userDirectoryNameNode.InnerText : string.Empty;
 
                 return userDirectoryName;
             }
