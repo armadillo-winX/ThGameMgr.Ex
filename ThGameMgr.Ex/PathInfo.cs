@@ -5,13 +5,27 @@
 
         public static string AppPath => typeof(App).Assembly.Location;
 
-        public static string? AppLocation => Path.GetDirectoryName(AppPath);
+        public static string AppLocation
+        {
+            get
+            {
+                string? applicationDirectory = Path.GetDirectoryName(AppPath);
+                if (applicationDirectory != null)
+                {
+                    return applicationDirectory;
+                }
+                else
+                {
+                    throw new InvalidOperationException("Failed to get application working directory.");
+                }
+            }
+        }
 
-        public static string? UsersDirectory => $"{AppLocation}\\Users";
+        public static string UsersDirectory => $"{AppLocation}\\Users";
 
-        public static string? UsersIndexFile => $"{AppLocation}\\UsersIndex.xml";
+        public static string UsersIndexFile => $"{AppLocation}\\UsersIndex.xml";
 
-        public static string? UserSelectionConfigFile => $"{AppLocation}\\UserSelectionConfig.xml";
+        public static string UserSelectionConfigFile => $"{AppLocation}\\UserSelectionConfig.xml";
 
         public static string ShanghaiAliceAppData => $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ShanghaiAlice";
 

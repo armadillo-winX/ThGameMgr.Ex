@@ -5,7 +5,7 @@ namespace ThGameMgr.Ex
 {
     internal class User
     {
-        private readonly static string? _usersDirectory = PathInfo.UsersDirectory;
+        private readonly static string _usersDirectory = PathInfo.UsersDirectory;
 
         public static string? CurrentUserName { get; set; }
 
@@ -45,13 +45,13 @@ namespace ThGameMgr.Ex
             XmlDocument usersIndexDocument = new();
             usersIndexDocument.Load(usersIndexFile);
 
-            XmlElement rootNode = usersIndexDocument.DocumentElement;
+            XmlElement? rootNode = usersIndexDocument.DocumentElement;
 
             XmlElement userElement = usersIndexDocument.CreateElement("User");
             XmlAttribute index = usersIndexDocument.CreateAttribute("Index");
             index.Value = userName;
             _ = userElement.Attributes.Append(index);
-            _ = rootNode.AppendChild(userElement);
+            _ = rootNode?.AppendChild(userElement);
 
             XmlElement nameElement = usersIndexDocument.CreateElement("Name");
             _ = nameElement.AppendChild(usersIndexDocument.CreateTextNode(userName));
@@ -64,8 +64,11 @@ namespace ThGameMgr.Ex
             usersIndexDocument.Save(usersIndexFile);
         }
 
-        public static bool Exists(string userName)
+        public static bool Exists(string? userName)
         {
+            if (string.IsNullOrEmpty(userName))
+                return false;
+
             string? usersIndexFile = PathInfo.UsersIndexFile;
             if (File.Exists(usersIndexFile))
             {
@@ -89,8 +92,11 @@ namespace ThGameMgr.Ex
                 XmlDocument usersIndexDocument = new();
                 usersIndexDocument.Load(usersIndexFile);
 
-                string userDirectoryName
-                    = usersIndexDocument.SelectSingleNode($"//User[@Index='{userName}']/DirectoryName").InnerText;
+                XmlNode? userDirectoryNameNode
+                    = usersIndexDocument.SelectSingleNode($"//User[@Index='{userName}']/DirectoryName");
+
+                string? userDirectoryName
+                    = userDirectoryNameNode != null ? userDirectoryNameNode.InnerText : null;
 
                 return userDirectoryName;
             }
@@ -100,11 +106,14 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public static bool Switch(string userName)
+        public static bool Switch(string? userName)
         {
             if (!string.IsNullOrEmpty(userName))
             {
-                string userDirectoryName = GetUserDirectoryName(userName);
+                string? userDirectoryName = GetUserDirectoryName(userName);
+                if (userDirectoryName == null)
+                    return false;
+
                 CurrentUserName = userName;
                 CurrentUserDirectoryPath = $"{_usersDirectory}\\{userDirectoryName}";
 
@@ -163,14 +172,19 @@ namespace ThGameMgr.Ex
 
             XmlDocument userSelectionConfigDocument = new();
             userSelectionConfigDocument.Load(userSelectionConfigFile);
-            string userName = userSelectionConfigDocument.SelectSingleNode("//UserSelection").InnerText;
+            XmlNode? userSelectionNode = userSelectionConfigDocument.SelectSingleNode("//UserSelection");
+            if (userSelectionNode == null)
+                throw new InvalidDataException("Failed to get user selection configuration.");
+
+            string userName = userSelectionNode.InnerText;
 
             return userName;
         }
 
         public static void Delete(string userName)
         {
-            string userDirectoryName = GetUserDirectoryName(userName);
+            string? userDirectoryName = GetUserDirectoryName(userName);
+            
             string userDirectory = $"{_usersDirectory}\\{userDirectoryName}";
 
             string? usersIndexFile = PathInfo.UsersIndexFile;
@@ -182,6 +196,9 @@ namespace ThGameMgr.Ex
                 XmlElement? rootNode = usersIndexDocument.DocumentElement;
                 XmlNode? userNode
                     = usersIndexDocument.SelectSingleNode($"//User[@Index='{userName}']");
+                if (userNode == null)
+                    throw new InvalidOperationException($"ユーザー '{userName}' を削除できません．このユーザーに関する情報を取得できませんでした");
+
                 _ = rootNode?.RemoveChild(userNode);
                 usersIndexDocument.Save(usersIndexFile);
             }
@@ -205,15 +222,17 @@ namespace ThGameMgr.Ex
             {
                 XmlDocument usersIndexDocument = new();
                 usersIndexDocument.Load(PathInfo.UsersIndexFile);
-                XmlNodeList userNodeList = usersIndexDocument.SelectNodes("UsersIndex/User");
+                XmlNodeList? userNodeList = usersIndexDocument.SelectNodes("UsersIndex/User");
 
-                if (userNodeList.Count > 0)
+                if (userNodeList != null &&
+                    userNodeList.Count > 0)
                 {
                     List<string> usersList = [];
                     int i = 0;
                     foreach (XmlNode userNode in userNodeList)
                     {
-                        string userName = userNode.SelectSingleNode("Name").InnerText;
+                        XmlNode? nameNode = userNode.SelectSingleNode("Name");
+                        string userName = nameNode != null ? nameNode.InnerText : "";
                         usersList.Add(userName);
                         i++;
                     }

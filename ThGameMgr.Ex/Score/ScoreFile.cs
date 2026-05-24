@@ -4,18 +4,20 @@ namespace ThGameMgr.Ex.Score
 {
     internal class ScoreFile
     {
-        public static string? GetScoreFilePath(string gameId)
+        public static string GetScoreFilePath(string gameId)
         {
             string shanghaiAliceAppData = $"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)}\\ShanghaiAlice";
             string gamePath = GameFile.GetGameFilePath(gameId);
 
-            if (gamePath == null)
+            if (gamePath == string.Empty)
             {
-                return null;
+                return string.Empty;
             }
             else
             {
-                string gameDirectory = Path.GetDirectoryName(gamePath);
+                string? gameDirectory = Path.GetDirectoryName(gamePath);
+                if (gameDirectory == null)
+                    return string.Empty;
 
                 if (
                     gameId == GameIndex.Th06 ||
@@ -62,7 +64,7 @@ namespace ThGameMgr.Ex.Score
             {
                 XmlNode? scoreFilePathNode = rootNode?.SelectSingleNode("ScoreDataFilePath");
 
-                string? scoreDataFilePath = GetScoreFilePath(gameId);
+                string scoreDataFilePath = GetScoreFilePath(gameId);
                 if (scoreFilePathNode?.InnerText == scoreDataFilePath)
                 {
                     File.Move(recallSourceFile, scoreDataFilePath, true);

@@ -16,12 +16,12 @@ namespace ThGameMgr.Ex.Game
 
             XmlDocument gamePlayLogXml = new();
             gamePlayLogXml.Load(gamePlayLogFile);
-            XmlElement rootNode = gamePlayLogXml.DocumentElement;
+            XmlElement? rootNode = gamePlayLogXml.DocumentElement;
 
             XmlElement gamePlayLog = gamePlayLogXml.CreateElement("GamePlayLog");
 
             //ノードをRootノードに追加
-            _ = rootNode.AppendChild(gamePlayLog);
+            _ = rootNode?.AppendChild(gamePlayLog);
 
             XmlElement gameId = gamePlayLogXml.CreateElement("GameId");
             _ = gameId.AppendChild(gamePlayLogXml.CreateTextNode(gamePlayLogData.GameId));
@@ -54,18 +54,25 @@ namespace ThGameMgr.Ex.Game
 
             XmlDocument gameLogDataXml = new();
             gameLogDataXml.Load(gamePlayLogFile);
-            XmlNodeList allGameLogs = gameLogDataXml.SelectNodes("GamePlayLogData/GamePlayLog");
-            if (allGameLogs.Count != 0)
+            XmlNodeList? allGameLogs = gameLogDataXml.SelectNodes("GamePlayLogData/GamePlayLog");
+            if (allGameLogs != null &&
+                allGameLogs.Count != 0)
             {
                 foreach (XmlNode gameLog in allGameLogs)
                 {
+                    XmlNode? gameIdNode = gameLog.SelectSingleNode("GameId");
+                    XmlNode? gameNameNode = gameLog.SelectSingleNode("GameName");
+                    XmlNode? gameStartTimeNode = gameLog.SelectSingleNode("GameStartTime");
+                    XmlNode? gameEndTimeNode = gameLog.SelectSingleNode("GameEndTime");
+                    XmlNode? gameRunningTimeNode = gameLog.SelectSingleNode("GameRunningTime");
+
                     GamePlayLogData gamePlayLogData = new()
                     {
-                        GameId = gameLog.SelectSingleNode("GameId").InnerText,
-                        GameName = gameLog.SelectSingleNode("GameName").InnerText,
-                        GameStartTime = gameLog.SelectSingleNode("GameStartTime").InnerText,
-                        GameEndTime = gameLog.SelectSingleNode("GameEndTime").InnerText,
-                        GameRunningTime = gameLog.SelectSingleNode("GameRunningTime").InnerText
+                        GameId = gameIdNode != null ? gameIdNode.InnerText : string.Empty,
+                        GameName = gameNameNode != null ? gameNameNode.InnerText : string.Empty,
+                        GameStartTime = gameStartTimeNode != null ? gameStartTimeNode.InnerText : string.Empty,
+                        GameEndTime = gameEndTimeNode != null ? gameEndTimeNode.InnerText : string.Empty,
+                        GameRunningTime = gameRunningTimeNode != null ? gameRunningTimeNode.InnerText : string.Empty
                     };
 
                     gamePlayLogDataCollection.Add(gamePlayLogData);

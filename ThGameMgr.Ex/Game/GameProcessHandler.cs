@@ -9,7 +9,10 @@ namespace ThGameMgr.Ex.Game
             string? gamePath = GameFile.GetGameFilePath(gameId);
             if (File.Exists(gamePath))
             {
-                string gameDirectory = Path.GetDirectoryName(gamePath);
+                string? gameDirectory = Path.GetDirectoryName(gamePath);
+
+                if (string.IsNullOrEmpty(gameDirectory))
+                    throw new InvalidOperationException($"{GameIndex.GetGameName(gameId)}のインストールフォルダが検出できませんでした．");
 
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
@@ -18,7 +21,7 @@ namespace ThGameMgr.Ex.Game
                     UseShellExecute = true
                 };
 
-                Process gameProcess = Process.Start(gameProcessStartInfo);
+                Process? gameProcess = Process.Start(gameProcessStartInfo);
 
                 if (gameProcess != null)
                 {
@@ -28,22 +31,25 @@ namespace ThGameMgr.Ex.Game
                 }
                 else
                 {
-                    throw new ProcessNotFoundException("ゲームプロセスの起動が確認できませんでした。");
+                    throw new ProcessNotFoundException($"{GameIndex.GetGameName(gameId)}の起動が確認できませんでした。");
                 }
             }
             else
             {
-                throw new FileNotFoundException("ゲーム実行ファイルが見つかりませんでした。");
+                throw new FileNotFoundException($"{GameIndex.GetGameName(gameId)}の実行ファイルが見つかりませんでした。");
             }
         }
 
         public static Process StartGameProcessWithApplyingTool(string gameId, string toolName)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gamePath);
+            string? gameDirectory = Path.GetDirectoryName(gamePath);
             string patchPath = $"{gameDirectory}\\{toolName}";
             if (File.Exists(gamePath) && File.Exists(patchPath))
             {
+                if (string.IsNullOrEmpty(gameDirectory))
+                    throw new InvalidOperationException($"{GameIndex.GetGameName(gameId)}のインストールフォルダが検出できませんでした．");
+
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
                     FileName = patchPath,
@@ -60,7 +66,7 @@ namespace ThGameMgr.Ex.Game
                     Thread.Sleep(100);
                     if (i == 50)
                     {
-                        throw new ProcessNotFoundException("ゲームプロセスの検出に失敗しました。");
+                        throw new ProcessNotFoundException($"{GameIndex.GetGameName(gameId)}のプロセスの検出に失敗しました。");
                     }
                     i++;
                 }
@@ -77,14 +83,14 @@ namespace ThGameMgr.Ex.Game
             }
             else
             {
-                throw new FileNotFoundException("ゲーム実行ファイルが見つかりませんでした。");
+                throw new FileNotFoundException($"{GameIndex.GetGameName(gameId)}の実行ファイルが見つかりませんでした。");
             }
         }
 
         public static void StartCustomProgramProcess(string gameId)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gamePath);
+            string? gameDirectory = Path.GetDirectoryName(gamePath);
             string customProgramPath = $"{gameDirectory}\\custom.exe";
             if (File.Exists(gamePath) && File.Exists(customProgramPath))
             {
@@ -102,7 +108,7 @@ namespace ThGameMgr.Ex.Game
             }
             else
             {
-                throw new FileNotFoundException("ゲーム実行ファイルが見つかりませんでした。");
+                throw new FileNotFoundException($"{GameIndex.GetGameName(gameId)}の実行ファイルが見つかりませんでした。");
             }
         }
     }

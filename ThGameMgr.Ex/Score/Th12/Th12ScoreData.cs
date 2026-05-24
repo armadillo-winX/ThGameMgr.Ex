@@ -55,7 +55,7 @@ namespace ThGameMgr.Ex.Score.Th12
 
                                 if (scoreRecordList.Name != "--------")
                                 {
-                                    ScoreData.ScoreRecordLists.Add(scoreRecordList);
+                                    ScoreData.AddScoreData(scoreRecordList);
                                 }
 
                                 i += size;
@@ -69,11 +69,11 @@ namespace ThGameMgr.Ex.Score.Th12
                             Dictionary<string, SpellCardRecordData>
                                 spellCardRecordList =
                                 GetAllSpellCardRecord(p, bytes);
-                            ScoreData.SpellCardRecordLists.Add(spellCardRecordList["all"]);
+                            ScoreData.AddSpellCardData(spellCardRecordList["all"]);
 
                             foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th12).Split(','))
                             {
-                                ScoreData.SpellCardRecordsByPlayer[player].Add(spellCardRecordList[player]);
+                                ScoreData.AddSpellCardDataByPlayers(player, spellCardRecordList[player]);
                             }
                         }
                     }

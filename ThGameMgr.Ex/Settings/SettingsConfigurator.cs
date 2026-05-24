@@ -32,7 +32,7 @@ namespace ThGameMgr.Ex.Settings
                 {
                     string gameFilePath = GameFile.GetGameFilePath(gameId);
                     XmlElement gamePathConfigNode = gamePathSettingsXml.CreateElement(gameId);
-                    gamePathConfigNode.InnerText = gameFilePath ?? string.Empty; //nullチェック
+                    gamePathConfigNode.InnerText = gameFilePath;
 
                     _ = rootNode.AppendChild(gamePathConfigNode);
                 }
@@ -312,7 +312,7 @@ namespace ThGameMgr.Ex.Settings
                 XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
                 FileStream fileStream = new(mainWindowSettingsFile, FileMode.Open);
 
-                mainWindowSettings = (MainWindowSettings)mainWindowSettingsSerializer.Deserialize(fileStream);
+                mainWindowSettings = (MainWindowSettings?)mainWindowSettingsSerializer.Deserialize(fileStream);
                 fileStream.Close();
             }
             else
@@ -327,12 +327,15 @@ namespace ThGameMgr.Ex.Settings
 
             if (mainWindowSettings == null)
             {
-                mainWindowSettings.MainWindowWidth = 680;
-                mainWindowSettings.MainWindowHeight = 445;
-                mainWindowSettings.SelectedGameId = string.Empty;
-                mainWindowSettings.DisplayUnchallengedCard = false;
-                mainWindowSettings.ExcludeUnchallengedCardData = false;
-                mainWindowSettings.AutoBackup = false;
+                mainWindowSettings = new()
+                {
+                    MainWindowWidth = 680,
+                    MainWindowHeight = 445,
+                    SelectedGameId = string.Empty,
+                    DisplayUnchallengedCard = false,
+                    ExcludeUnchallengedCardData = false,
+                    AutoBackup = false
+                };
             }
 
             return mainWindowSettings;
@@ -380,7 +383,7 @@ namespace ThGameMgr.Ex.Settings
                 XmlNode? defaultGameConfigNode
                     = rootNode?.SelectSingleNode("DefaultGame");
 
-                string defaultGameId = defaultGameConfigNode?.InnerText;
+                string? defaultGameId = defaultGameConfigNode?.InnerText;
                 return defaultGameId != null ? defaultGameId : string.Empty;
             }
             else
@@ -405,7 +408,7 @@ namespace ThGameMgr.Ex.Settings
             string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
             string? resizerFrameWindowSettingsFile = $"{settingsDirectory}\\ResizerFrameWindowSettings.xml";
 
-            ResizerFrameWindowSettings resizerFrameWindowSettings = new();
+            ResizerFrameWindowSettings? resizerFrameWindowSettings = new();
 
             if (!string.IsNullOrEmpty(resizerFrameWindowSettingsFile) &&
                 File.Exists(resizerFrameWindowSettingsFile))
@@ -414,7 +417,7 @@ namespace ThGameMgr.Ex.Settings
                 FileStream fileStream = new(resizerFrameWindowSettingsFile, FileMode.Open);
 
                 resizerFrameWindowSettings
-                    = (ResizerFrameWindowSettings)resizerFrameWindowSettingsSerializer.Deserialize(fileStream);
+                    = (ResizerFrameWindowSettings?)resizerFrameWindowSettingsSerializer.Deserialize(fileStream);
                 fileStream.Close();
             }
             else
@@ -425,8 +428,11 @@ namespace ThGameMgr.Ex.Settings
 
             if (resizerFrameWindowSettings == null)
             {
-                resizerFrameWindowSettings.FixAspectRate = true;
-                resizerFrameWindowSettings.AutoClose = false;
+                resizerFrameWindowSettings = new()
+                {
+                    FixAspectRate = true,
+                    AutoClose = false
+                };
             }
 
             return resizerFrameWindowSettings;

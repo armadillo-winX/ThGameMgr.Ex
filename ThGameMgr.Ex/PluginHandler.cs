@@ -5,29 +5,29 @@ namespace ThGameMgr.Ex
 {
     internal class PluginHandler
     {
-        public static List<dynamic>? StartGamePlugins { get; set; }
+        public static List<dynamic> StartGamePlugins { get; set; } = [];
 
-        public static List<dynamic>? GameFilesPlugins { get; set; }
+        public static List<dynamic> GameFilesPlugins { get; set; } = [];
 
-        public static List<dynamic>? SelectedGamePlugins { get; set; }
+        public static List<dynamic> SelectedGamePlugins { get; set; } = [];
 
-        public static List<dynamic>? ScoreRecordsPlugins { get; set; }
+        public static List<dynamic> ScoreRecordsPlugins { get; set; } = [];
 
-        public static List<dynamic>? SpellCardRecordsPlugins { get; set; }
+        public static List<dynamic> SpellCardRecordsPlugins { get; set; } = [];
 
-        public static List<dynamic>? AllScoreRecordsPlugins { get; set; }
+        public static List<dynamic> AllScoreRecordsPlugins { get; set; } = [];
 
-        public static List<dynamic>? ToolPlugins { get; set; }
+        public static List<dynamic> ToolPlugins { get; set; } = [];
 
         public static void GetPlugins()
         {
-            StartGamePlugins = [];
-            GameFilesPlugins = [];
-            SelectedGamePlugins = [];
-            ScoreRecordsPlugins = []; 
-            SpellCardRecordsPlugins = [];
-            AllScoreRecordsPlugins = [];
-            ToolPlugins = [];
+            StartGamePlugins.Clear();
+            GameFilesPlugins.Clear();
+            SelectedGamePlugins.Clear();
+            ScoreRecordsPlugins.Clear(); 
+            SpellCardRecordsPlugins.Clear();
+            AllScoreRecordsPlugins.Clear();
+            ToolPlugins.Clear();
 
             string[] pluginFiles = Directory.GetFiles(
                 PathInfo.PluginDirectory, "*.dll", SearchOption.AllDirectories);
@@ -56,35 +56,38 @@ namespace ThGameMgr.Ex
             foreach (Type type in dllAssembly.GetTypes())
             {
                 //対象のクラスのインスタンスを作成
-                dynamic plugin = Activator.CreateInstance(type);
+                dynamic? plugin = Activator.CreateInstance(type);
 
-                if (type.BaseType == typeof(StartGamePluginBase))
+                if (plugin != null)
                 {
-                    StartGamePlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(GameFilesPluginBase))
-                {
-                    GameFilesPlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(SelectedGamePluginBase))
-                {
-                    SelectedGamePlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(ScoreRecordsPluginBase))
-                {
-                    ScoreRecordsPlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(SpellCardRecordsPluginBase))
-                {
-                    SpellCardRecordsPlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(AllScoreRecordsPluginBase))
-                {
-                    AllScoreRecordsPlugins.Add(plugin);
-                }
-                else if (type.BaseType == typeof(ToolPluginBase))
-                {
-                    ToolPlugins.Add(plugin);
+                    if (type.BaseType == typeof(StartGamePluginBase))
+                    {
+                        StartGamePlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(GameFilesPluginBase))
+                    {
+                        GameFilesPlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(SelectedGamePluginBase))
+                    {
+                        SelectedGamePlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(ScoreRecordsPluginBase))
+                    {
+                        ScoreRecordsPlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(SpellCardRecordsPluginBase))
+                    {
+                        SpellCardRecordsPlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(AllScoreRecordsPluginBase))
+                    {
+                        AllScoreRecordsPlugins.Add(plugin);
+                    }
+                    else if (type.BaseType == typeof(ToolPluginBase))
+                    {
+                        ToolPlugins.Add(plugin);
+                    }
                 }
             }
         }

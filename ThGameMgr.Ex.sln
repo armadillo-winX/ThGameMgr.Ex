@@ -1,14 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35309.182
+# Visual Studio Version 18
+VisualStudioVersion = 18.6.11806.211 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThGameMgr.Ex", "ThGameMgr.Ex\ThGameMgr.Ex.csproj", "{20108917-BE65-4872-82A1-A70D956567A3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11614215-3A1A-4A2D-9742-BBF8285CA8D8}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThGameMgr.Ex.Plugin", "ThGameMgr.Ex.Plugin\ThGameMgr.Ex.Plugin.csproj", "{A021C4BE-774C-443B-8EF0-BECB0C02B44B}"
 EndProject

@@ -14,7 +14,7 @@ namespace ThGameMgr.Ex.Dialogs
         {
             InitializeComponent();
 
-            this.GameId = ScoreData.GameId;
+            this.GameId = ScoreData.GetScoreDataStateGameId();
             GameNameBlock.Text = GameIndex.GetGameName(this.GameId);
 
             LevelFilterComboBox.SelectedIndex = 0;
@@ -23,7 +23,16 @@ namespace ThGameMgr.Ex.Dialogs
 
             PlayerFilterComboBox.Items.Add(new ComboBoxItem() { Content = "All" });
             PlayerFilterComboBox.Items.Add(new Separator());
-            string[] players = GamePlayers.GetGamePlayers(this.GameId).Split(',');
+            string[] players;
+            if (!string.IsNullOrEmpty(this.GameId))
+            {
+                players = GamePlayers.GetGamePlayers(this.GameId).Split(',');
+            }
+            else
+            {
+                players = [];
+            }
+
             foreach (string player in players)
             {
                 PlayerFilterComboBox.Items.Add(new ComboBoxItem() { Content = player });
@@ -36,11 +45,11 @@ namespace ThGameMgr.Ex.Dialogs
         {
             if (!string.IsNullOrEmpty(this.GameId))
             {
-                if (PlayerFilterComboBox.SelectedIndex >= 0 && LevelFilterComboBox.SelectedIndex >= 0)
-                {
-                    ComboBoxItem selectedPlayerItem = PlayerFilterComboBox.SelectedItem as ComboBoxItem;
-                    ComboBoxItem selectedLevelItem = LevelFilterComboBox.SelectedItem as ComboBoxItem;
+                ComboBoxItem? selectedPlayerItem = PlayerFilterComboBox.SelectedItem as ComboBoxItem;
+                ComboBoxItem? selectedLevelItem = LevelFilterComboBox.SelectedItem as ComboBoxItem;
 
+                if (selectedPlayerItem != null && selectedLevelItem != null)
+                {
                     ScoreFilter scoreFilter = new()
                     {
                         Player = selectedPlayerItem.Content.ToString(),

@@ -55,7 +55,7 @@ namespace ThGameMgr.Ex.Game
         public static List<string> GetThpracFiles(string gameId)
         {
             string gameFile = GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gameFile);
+            string? gameDirectory = Path.GetDirectoryName(gameFile);
             if (!string.IsNullOrEmpty(gameDirectory))
             {
                 List<string> thpracFiles = [];
@@ -92,7 +92,7 @@ namespace ThGameMgr.Ex.Game
         public static void OpenGameDirectory(string gameId)
         {
             string? gamePath = GameFile.GetGameFilePath(gameId);
-            string gameDirectory = Path.GetDirectoryName(gamePath);
+            string? gameDirectory = Path.GetDirectoryName(gamePath);
             if (Directory.Exists(gameDirectory))
             {
                 Process.Start("explorer.exe", gameDirectory);
@@ -102,21 +102,10 @@ namespace ThGameMgr.Ex.Game
         public static void OpenScoreDirectory(string gameId)
         {
             string? scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
-            string scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
+            string? scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
             if (Directory.Exists(scoreFileDirectory))
             {
                 Process.Start("explorer.exe", scoreFileDirectory);
-            }
-        }
-
-        public static void OpenGameLog(string gameId)
-        {
-            string? scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
-            string scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
-            string logFile = $"{scoreFileDirectory}\\log.txt";
-            if (File.Exists(logFile))
-            {
-                Process.Start("notepad.exe", logFile);
             }
         }
 
@@ -125,8 +114,8 @@ namespace ThGameMgr.Ex.Game
             string? scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
             if (!string.IsNullOrEmpty(scoreFilePath))
             {
-                string scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
-                string logFile = $"{scoreFileDirectory}\\log.txt";
+                string? scoreFileDirectory = Path.GetDirectoryName(scoreFilePath);
+                string logFile = scoreFileDirectory != null ? $"{scoreFileDirectory}\\log.txt" : string.Empty;
 
                 return logFile;
             }
