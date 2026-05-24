@@ -1220,7 +1220,7 @@ namespace ThGameMgr.Ex
             }
 
             AutoBackupMenuItem.IsChecked = mainWindowSettings.AutoBackup;
-            DisableSpellCardDataColoringMenuItem.IsChecked = mainWindowSettings.DisableSpellCardDataColoring;
+            EnableSpellCardDataColoringMenuItem.IsChecked = mainWindowSettings.EnableSpellCardDataColoring;
 
             SetGameSelectionMenu();
             SetPlayersFilterMenu();
