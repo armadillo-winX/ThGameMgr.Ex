@@ -5,6 +5,8 @@
     /// </summary>
     public partial class AddUserDialog : Window
     {
+        public string? UserName { get; set; }
+
         public AddUserDialog()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@
                     try
                     {
                         UserConfigurator.Add(userName);
-                        UserConfigurator.Switch(userName);
+                        this.UserName = userName;
                         this.DialogResult = true;
                     }
                     catch (Exception ex)
