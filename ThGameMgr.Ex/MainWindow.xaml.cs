@@ -1041,7 +1041,7 @@ namespace ThGameMgr.Ex
         {
             ExternalToolsMenu.Items.Clear();
 
-            string exToolsConfig = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
+            string exToolsConfig = Path.Combine(_currentUserService.GetCurrentUserSettingsDirectory(), "ExternalTools.xml");
             if (File.Exists(exToolsConfig))
             {
                 try
