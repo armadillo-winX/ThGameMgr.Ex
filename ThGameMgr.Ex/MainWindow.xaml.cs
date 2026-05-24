@@ -1264,8 +1264,9 @@ namespace ThGameMgr.Ex
 
         private void SaveSettings()
         {
-            SettingsConfigurator.SaveGamePathSettings();
-            SettingsConfigurator.SaveGameSpecificConfig();
+            SettingsConfigurator settingsConfigurator = new(_currentUserService);
+            settingsConfigurator.SaveGamePathSettings();
+            settingsConfigurator.SaveGameSpecificConfig();
 
             MainWindowSettings mainWindowSettings = new()
             {
@@ -1277,7 +1278,7 @@ namespace ThGameMgr.Ex
                 AutoBackup = AutoBackupMenuItem.IsChecked
             };
 
-            SettingsConfigurator.SaveMainWindowSettings(mainWindowSettings);
+            settingsConfigurator.SaveMainWindowSettings(mainWindowSettings);
         }
 
         private void ConfigurePlugins()
