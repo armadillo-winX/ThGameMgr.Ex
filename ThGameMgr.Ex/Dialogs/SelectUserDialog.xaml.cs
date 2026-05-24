@@ -9,6 +9,8 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class SelectUserDialog : Window
     {
+        public string? SelectedUserName { get; set; }
+
         public SelectUserDialog()
         {
             InitializeComponent();
@@ -51,16 +53,10 @@ namespace ThGameMgr.Ex.Dialogs
                     if (selectedItem != null)
                     {
                         string? userName = selectedItem.Content.ToString();
-                        bool switchResult = UserConfigurator.Switch(userName);
-                        if (switchResult)
+                        if (!string.IsNullOrEmpty(userName))
                         {
+                            this.SelectedUserName = userName;
                             this.DialogResult = true;
-                        }
-                        else
-                        {
-                            MessageBox.Show(
-                                this, "ユーザーを切り替えられませんでした。", "ユーザーの切り替え",
-                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         }
                     }
                 }
