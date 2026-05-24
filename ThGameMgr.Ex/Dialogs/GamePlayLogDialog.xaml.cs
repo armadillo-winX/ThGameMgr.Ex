@@ -25,7 +25,7 @@ namespace ThGameMgr.Ex.Dialogs
 
         private void ViewGamePlayLogData()
         {
-            string gamePlayLogRecordFile = $"{User.CurrentUserDirectoryPath}\\GamePlayLog.xml";
+            string gamePlayLogRecordFile = $"{UserConfigurator.CurrentUserDirectoryPath}\\GamePlayLog.xml";
             if (File.Exists(gamePlayLogRecordFile))
             {
                 ObservableCollection<GamePlayLogData> gamePlayLogDataCollection = [];

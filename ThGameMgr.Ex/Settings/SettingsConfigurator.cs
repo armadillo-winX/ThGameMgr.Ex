@@ -8,9 +8,9 @@ namespace ThGameMgr.Ex.Settings
     {
         public static void SaveGamePathSettings()
         {
-            if (!string.IsNullOrEmpty(User.CurrentUserDirectoryPath))
+            if (!string.IsNullOrEmpty(UserConfigurator.CurrentUserDirectoryPath))
             {
-                string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+                string? settingsDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings";
                 string? gamePathSettingsFile = $"{settingsDirectory}\\GamePathSettings.xml";
 
                 if (!Directory.Exists(settingsDirectory))
@@ -43,7 +43,7 @@ namespace ThGameMgr.Ex.Settings
 
         public static void ConfigureGamePathSettings()
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+            string? settingsDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings";
             string? gamePathSettingsFile = $"{settingsDirectory}\\GamePathSettings.xml";
 
             List<string> allGamesList = GameIndex.GetAllGamesList();
@@ -79,9 +79,9 @@ namespace ThGameMgr.Ex.Settings
 
         public static void SaveGameSpecificConfig()
         {
-            if (!string.IsNullOrEmpty(User.CurrentUserDirectoryPath))
+            if (!string.IsNullOrEmpty(UserConfigurator.CurrentUserDirectoryPath))
             {
-                string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+                string? settingsDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings";
                 string? gameSpecificConfigFile = $"{settingsDirectory}\\GameSpecificConfig.xml";
 
                 if (!Directory.Exists(settingsDirectory))
@@ -169,7 +169,7 @@ namespace ThGameMgr.Ex.Settings
 
         public static void ConfigureGameSpecificConfig()
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+            string? settingsDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings";
             string? gameSpecificConfigFile = $"{settingsDirectory}\\GameSpecificConfig.xml";
 
             List<string> allGamesList = GameIndex.GetAllGamesList();
@@ -282,9 +282,9 @@ namespace ThGameMgr.Ex.Settings
 
         public static void SaveMainWindowSettings(MainWindowSettings mainWindowSettings)
         {            
-            if (!string.IsNullOrEmpty(User.CurrentUserDirectoryPath))
+            if (!string.IsNullOrEmpty(UserConfigurator.CurrentUserDirectoryPath))
             {
-                string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+                string? settingsDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings";
                 string? mainWindowSettingsFile = $"{settingsDirectory}\\MainWindowSettings.xml";
 
                 if (!Directory.Exists(settingsDirectory))
@@ -301,7 +301,7 @@ namespace ThGameMgr.Ex.Settings
 
         public static MainWindowSettings ConfigureMainWindowSettings()
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+            string? settingsDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings";
             string? mainWindowSettingsFile = $"{settingsDirectory}\\MainWindowSettings.xml";
 
             MainWindowSettings? mainWindowSettings = new();
@@ -343,9 +343,9 @@ namespace ThGameMgr.Ex.Settings
 
         public static void SaveDefaultGameSettings(string defaultGameId)
         {
-            if (!string.IsNullOrEmpty(User.CurrentUserDirectoryPath))
+            if (!string.IsNullOrEmpty(UserConfigurator.CurrentUserDirectoryPath))
             {
-                string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+                string? settingsDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings";
                 string? defaultGameSettingsFile = $"{settingsDirectory}\\DefaultGameSettings.xml";
 
                 if (!Directory.Exists(settingsDirectory))
@@ -371,7 +371,7 @@ namespace ThGameMgr.Ex.Settings
 
         public static string ConfigureDefaultGameSettings()
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+            string? settingsDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings";
             string? defaultGameSettingsFile = $"{settingsDirectory}\\DefaultGameSettings.xml";
             if (!string.IsNullOrEmpty(defaultGameSettingsFile) && File.Exists(defaultGameSettingsFile))
             {
@@ -394,7 +394,7 @@ namespace ThGameMgr.Ex.Settings
 
         public static void SaveResizerFrameWindowSettings(ResizerFrameWindowSettings resizerFrameWindowSettings)
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+            string? settingsDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings";
             string? resizerFrameWindowSettingsFile = $"{settingsDirectory}\\ResizerFrameWindowSettings.xml";
 
             XmlSerializer resizerFrameWindowSettingsSerializer = new(typeof(ResizerFrameWindowSettings));
@@ -405,7 +405,7 @@ namespace ThGameMgr.Ex.Settings
 
         public static ResizerFrameWindowSettings ConfigureResizerFrameWindowSettings()
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
+            string? settingsDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings";
             string? resizerFrameWindowSettingsFile = $"{settingsDirectory}\\ResizerFrameWindowSettings.xml";
 
             ResizerFrameWindowSettings? resizerFrameWindowSettings = new();

@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace ThGameMgr.Ex
 {
-    internal class User
+    internal class UserConfigurator
     {
         private readonly static string _usersDirectory = PathInfo.UsersDirectory;
 

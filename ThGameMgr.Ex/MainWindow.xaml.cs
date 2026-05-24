@@ -9,7 +9,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml;
-using UsersSelectionValidity = ThGameMgr.Ex.User.UsersSelectionValidity;
+using UsersSelectionValidity = ThGameMgr.Ex.UserConfigurator.UsersSelectionValidity;
 
 namespace ThGameMgr.Ex
 {
@@ -358,7 +358,7 @@ namespace ThGameMgr.Ex
                 }
             }
 
-            UsersSelectionValidity usersSelectionValidity = User.GetUsersSelectionValidity();
+            UsersSelectionValidity usersSelectionValidity = UserConfigurator.GetUsersSelectionValidity();
 
             if (usersSelectionValidity == UsersSelectionValidity.Valid)
             {
@@ -1037,7 +1037,7 @@ namespace ThGameMgr.Ex
         {
             ExternalToolsMenu.Items.Clear();
 
-            string exToolsConfig = $"{User.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
+            string exToolsConfig = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
             if (File.Exists(exToolsConfig))
             {
                 try
@@ -1128,7 +1128,7 @@ namespace ThGameMgr.Ex
 
                 SetExternalToolsMenu();
 
-                CurrentUserStatusBarItem.Content = User.CurrentUserName;
+                CurrentUserStatusBarItem.Content = UserConfigurator.CurrentUserName;
             }
             else
             {
@@ -1146,10 +1146,10 @@ namespace ThGameMgr.Ex
         {
             if (File.Exists(PathInfo.UserSelectionConfigFile))
             {
-                string userName = User.GetUserSelection();
-                if (User.Exists(userName))
+                string userName = UserConfigurator.GetUserSelection();
+                if (UserConfigurator.Exists(userName))
                 {
-                    User.Switch(userName);
+                    UserConfigurator.Switch(userName);
                 }
                 else
                 {
@@ -1230,7 +1230,7 @@ namespace ThGameMgr.Ex
             SetExternalToolsMenu();
 
             AutoStartWindowResizerCheckBox.IsChecked = GameSpecificSettings.GetAutoResizerConfig(this.GameId);
-            CurrentUserStatusBarItem.Content = User.CurrentUserName;
+            CurrentUserStatusBarItem.Content = UserConfigurator.CurrentUserName;
 
             GetScoreData();
             GetReplayFiles();
@@ -1974,7 +1974,7 @@ namespace ThGameMgr.Ex
         {
             try
             {
-                User.SaveUserSelectionConfig();
+                UserConfigurator.SaveUserSelectionConfig();
                 SaveSettings();
             }
             catch (Exception ex)

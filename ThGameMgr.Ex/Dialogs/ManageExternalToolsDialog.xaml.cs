@@ -12,7 +12,7 @@ namespace ThGameMgr.Ex.Dialogs
         {
             InitializeComponent();
 
-            if (!File.Exists($"{User.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml"))
+            if (!File.Exists($"{UserConfigurator.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml"))
             {
                 try
                 {
@@ -42,7 +42,7 @@ namespace ThGameMgr.Ex.Dialogs
         {
             ExternalToolsListBox.Items.Clear();
 
-            string exToolsConfig = $"{User.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
+            string exToolsConfig = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
             if (File.Exists(exToolsConfig))
             {
                 XmlDocument exToolsConfigXml = new();

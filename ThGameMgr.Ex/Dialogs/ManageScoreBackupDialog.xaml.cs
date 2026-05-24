@@ -14,11 +14,11 @@ namespace ThGameMgr.Ex.Dialogs
             BackupGameListBox.Items.Clear();
             BackupListBox.Items.Clear();
 
-            if (Directory.Exists($"{User.CurrentUserDirectoryPath}\\backup\\"))
+            if (Directory.Exists($"{UserConfigurator.CurrentUserDirectoryPath}\\backup\\"))
             {
                 string[] backupDirectories
                     = Directory.GetDirectories(
-                        $"{User.CurrentUserDirectoryPath}\\backup\\", "*", SearchOption.TopDirectoryOnly);
+                        $"{UserConfigurator.CurrentUserDirectoryPath}\\backup\\", "*", SearchOption.TopDirectoryOnly);
 
                 foreach (string backupDirectory in backupDirectories)
                 {

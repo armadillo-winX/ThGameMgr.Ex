@@ -19,7 +19,7 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 try
                 {
-                    List<string>? usersList = User.GetUsersList();
+                    List<string>? usersList = UserConfigurator.GetUsersList();
                     if (usersList != null && usersList.Count > 0)
                     {
                         foreach (string userName in usersList)
@@ -27,7 +27,7 @@ namespace ThGameMgr.Ex.Dialogs
                             ListBoxItem userItem = new()
                             {
                                 Content = userName,
-                                IsEnabled = userName != User.CurrentUserName
+                                IsEnabled = userName != UserConfigurator.CurrentUserName
                             };
                             _ = UsersListBox.Items.Add(userItem);
                         }
@@ -51,7 +51,7 @@ namespace ThGameMgr.Ex.Dialogs
                     if (selectedItem != null)
                     {
                         string? userName = selectedItem.Content.ToString();
-                        bool switchResult = User.Switch(userName);
+                        bool switchResult = UserConfigurator.Switch(userName);
                         if (switchResult)
                         {
                             this.DialogResult = true;
