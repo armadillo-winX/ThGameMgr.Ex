@@ -12,6 +12,18 @@
             this.CurrentUserDirectoryName = string.Empty;
         }
 
+        public void SwitchUser(string userName)
+        {
+            if (string.IsNullOrWhiteSpace(userName))
+                throw new ArgumentException("ユーザー名が不正です。");
+            if (!UserConfigurator.Exists(userName))
+                throw new UserNotFoundException(userName, $"ユーザー '{userName}' は存在しません。");
+
+            string userDirectoryName = UserConfigurator.GetUserDirectoryName(userName);
+            this.CurrentUserName = userName;
+            this.CurrentUserDirectoryName = userDirectoryName;
+        }
+
         public string GetCurrentUserSettingsDirectory()
         {
             return Path.Combine(PathInfo.AppLocation, this.CurrentUserDirectoryName, "Settings");
