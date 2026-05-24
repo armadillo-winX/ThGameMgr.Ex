@@ -1,20 +1,4 @@
-﻿global using System;
-global using System.Diagnostics;
-global using System.IO;
-global using System.Text;
-global using System.Windows;
-
-global using ThGameMgr.Ex.Dialogs;
-global using ThGameMgr.Ex.Data;
-global using ThGameMgr.Ex.Exceptions;
-global using ThGameMgr.Ex.Extensions;
-global using ThGameMgr.Ex.Game;
-global using ThGameMgr.Ex.Plugin;
-global using ThGameMgr.Ex.Replay;
-global using ThGameMgr.Ex.Score;
-global using ThGameMgr.Ex.Settings;
-
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -409,66 +393,80 @@ namespace ThGameMgr.Ex
         private async void StartGame()
         {
             string gameId = this.GameId;
-            if (!string.IsNullOrEmpty(gameId))
+            if (this._gameEndWaitingModeWorker == null || !this._gameEndWaitingModeWorker.IsBusy)
             {
-                EnableGameEndWaitingLimitationMode(true);
-                SetStartGameStatus("ゲームの起動を待機中...");
-                try
+                if (!string.IsNullOrEmpty(gameId))
                 {
-                    Process gameProcess
-                        = await Task.Run(()
-                                => GameProcessHandler.StartGameProcess(gameId)
-                                );
-                    StartGameEndWaitingMode(gameProcess);
-                }
-                catch (Exception)
-                {
-                    MessageBoxResult result = 
-                        MessageBox.Show(this, $"ゲームの起動に失敗しました。\n再試行しますか？", "エラー",
-                        MessageBoxButton.YesNo, MessageBoxImage.Error);
-                    if (result == MessageBoxResult.Yes)
+                    EnableGameEndWaitingLimitationMode(true);
+                    SetStartGameStatus("ゲームの起動を待機中...");
+                    try
                     {
-                        StartGame();
+                        Process gameProcess
+                            = await Task.Run(()
+                                    => GameProcessHandler.StartGameProcess(gameId)
+                                    );
+                        StartGameEndWaitingMode(gameProcess);
                     }
-                    else
+                    catch (Exception)
                     {
-                        EnableGameEndWaitingLimitationMode(false);
-                        SetStartGameStatus(string.Empty);
+                        MessageBoxResult result =
+                            MessageBox.Show(this, $"ゲームの起動に失敗しました。\n再試行しますか？", "エラー",
+                            MessageBoxButton.YesNo, MessageBoxImage.Error);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            StartGame();
+                        }
+                        else
+                        {
+                            EnableGameEndWaitingLimitationMode(false);
+                            SetStartGameStatus(string.Empty);
+                        }
                     }
                 }
+            }
+            else
+            {
+                Debug.WriteLine("A game process is runnning. Failed to start new game process.");
             }
         }
 
         private async void StartGameWithApplyingTool(string toolName)
         {
             string gameId = this.GameId;
-            if (!string.IsNullOrEmpty(gameId))
+            if (this._gameEndWaitingModeWorker == null || !this._gameEndWaitingModeWorker.IsBusy)
             {
-                EnableGameEndWaitingLimitationMode(true);
-                SetStartGameStatus("ゲームの起動を待機中(約5秒)...");
-                try
+                if (!string.IsNullOrEmpty(gameId))
                 {
-                    Process gameProcess
-                        = await Task.Run(()
-                                => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, toolName)
-                                );
-                    StartGameEndWaitingMode(gameProcess);
-                }
-                catch (Exception)
-                {
-                    MessageBoxResult result =
-                    MessageBox.Show(this, $"ゲームの起動に失敗しました。\n再試行しますか？", "エラー",
-                        MessageBoxButton.YesNo, MessageBoxImage.Error);
-                    if (result == MessageBoxResult.Yes)
+                    EnableGameEndWaitingLimitationMode(true);
+                    SetStartGameStatus("ゲームの起動を待機中(約5秒)...");
+                    try
                     {
-                        StartGameWithApplyingTool(toolName);
+                        Process gameProcess
+                            = await Task.Run(()
+                                    => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, toolName)
+                                    );
+                        StartGameEndWaitingMode(gameProcess);
                     }
-                    else
+                    catch (Exception)
                     {
-                        EnableGameEndWaitingLimitationMode(false);
-                        SetStartGameStatus(string.Empty);
+                        MessageBoxResult result =
+                        MessageBox.Show(this, $"ゲームの起動に失敗しました。\n再試行しますか？", "エラー",
+                            MessageBoxButton.YesNo, MessageBoxImage.Error);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            StartGameWithApplyingTool(toolName);
+                        }
+                        else
+                        {
+                            EnableGameEndWaitingLimitationMode(false);
+                            SetStartGameStatus(string.Empty);
+                        }
                     }
                 }
+            }
+            else
+            {
+                Debug.WriteLine("A game process is runnning. Failed to start new game process.");
             }
         }
 
@@ -1316,39 +1314,42 @@ namespace ThGameMgr.Ex
                 menuItem.Click += (sender, e) =>
                 {
                     string? gameId = this.GameId;
-                    if (!string.IsNullOrEmpty(gameId))
+                    if (this._gameEndWaitingModeWorker == null || !this._gameEndWaitingModeWorker.IsBusy)
                     {
-                        string gameFilePath = GameFile.GetGameFilePath(gameId);
-
-                        EnableGameEndWaitingLimitationMode(true);
-                        SetStartGameStatus("ゲームの起動を待機中...");
-                        try
+                        if (!string.IsNullOrEmpty(gameId))
                         {
-                            Process gameProcess = startGamePlugin.Main(gameId,  gameFilePath);
-                            if (gameProcess.ProcessName == Path.GetFileNameWithoutExtension(gameFilePath))
+                            string gameFilePath = GameFile.GetGameFilePath(gameId);
+
+                            EnableGameEndWaitingLimitationMode(true);
+                            SetStartGameStatus("ゲームの起動を待機中...");
+                            try
                             {
-                                gameProcess.WaitForInputIdle();
-                                StartGameEndWaitingMode(gameProcess);
+                                Process gameProcess = startGamePlugin.Main(gameId, gameFilePath);
+                                if (gameProcess.ProcessName == Path.GetFileNameWithoutExtension(gameFilePath))
+                                {
+                                    gameProcess.WaitForInputIdle();
+                                    StartGameEndWaitingMode(gameProcess);
+                                }
+                                else
+                                {
+                                    MessageBox.Show(this,
+                                        $"プラグインによって起動されたプロセスがゲームのものではありません。\n{startGamePlugin.Name}",
+                                        "プラグインによる実行",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Exclamation);
+                                    EnableGameEndWaitingLimitationMode(false);
+                                    SetStartGameStatus(string.Empty);
+                                }
                             }
-                            else
+                            catch (Exception ex)
                             {
                                 MessageBox.Show(this,
-                                    $"プラグインによって起動されたプロセスがゲームのものではありません。\n{startGamePlugin.Name}",
-                                    "プラグインによる実行",
-                                    MessageBoxButton.OK,
-                                    MessageBoxImage.Exclamation);
+                                    $"プラグインによるゲーム実行に失敗しました。\n{startGamePlugin.Name}\n{ex.Message}",
+                                    "エラー",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
                                 EnableGameEndWaitingLimitationMode(false);
                                 SetStartGameStatus(string.Empty);
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(this, 
-                                $"プラグインによるゲーム実行に失敗しました。\n{startGamePlugin.Name}\n{ex.Message}",
-                                "エラー",
-                                MessageBoxButton.OK, MessageBoxImage.Error);
-                            EnableGameEndWaitingLimitationMode(false);
-                            SetStartGameStatus(string.Empty);
                         }
                     }
                 };
@@ -1464,9 +1465,10 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        if (!string.IsNullOrEmpty(this.GameId) && ScoreData.ScoreRecordLists.Count > 0)
+                        ObservableCollection<ScoreRecordData> scoreRecords = ScoreData.GetScoreRecordsDataForPlugin();
+                        if (!string.IsNullOrEmpty(this.GameId) && scoreRecords.Count > 0)
                         {
-                            scoreRecordsPlugin.Main(this.GameId, ScoreData.ScoreRecordLists);
+                            scoreRecordsPlugin.Main(this.GameId, scoreRecords);
                         }
                         else
                         {
@@ -1504,9 +1506,10 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        if (!string.IsNullOrEmpty(this.GameId) && ScoreData.SpellCardRecordLists.Count > 0)
+                        ObservableCollection<SpellCardRecordData> spellCardRecords = ScoreData.GetSpellCardRecordsDataForPlugin();
+                        if (!string.IsNullOrEmpty(this.GameId) && spellCardRecords.Count > 0)
                         {
-                            spellCardRecordsPlugin.Main(this.GameId, ScoreData.SpellCardRecordLists);
+                            spellCardRecordsPlugin.Main(this.GameId, spellCardRecords);
                         }
                         else
                         {
@@ -1544,12 +1547,14 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
+                        ObservableCollection<ScoreRecordData> scoreRecords = ScoreData.GetScoreRecordsDataForPlugin();
+                        ObservableCollection<SpellCardRecordData> spellCardRecords = ScoreData.GetSpellCardRecordsDataForPlugin();
                         if (!string.IsNullOrEmpty(this.GameId) && 
-                            ScoreData.ScoreRecordLists.Count > 0 &&
-                            ScoreData.SpellCardRecordLists.Count > 0)
+                            scoreRecords.Count > 0 &&
+                            spellCardRecords.Count > 0)
                         {
                             allScoreRecordsPlugin.Main(
-                                this.GameId, ScoreData.ScoreRecordLists, ScoreData.SpellCardRecordLists);
+                                this.GameId, scoreRecords, spellCardRecords);
                         }
                         else
                         {

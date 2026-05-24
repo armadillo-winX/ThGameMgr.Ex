@@ -8,47 +8,39 @@ namespace ThGameMgr.Ex.Game
         {
             MMDeviceEnumerator enumerator = new();
             MMDevice defaultAudioDevice = enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Console);
-            if (defaultAudioDevice != null)
+
+            AudioSessionManager audioSessionManager = defaultAudioDevice.AudioSessionManager;
+            SessionCollection sessionsCollection = audioSessionManager.Sessions;
+
+            for (int i = 0; i < sessionsCollection.Count; i++)
             {
-                AudioSessionManager audioSessionManager = defaultAudioDevice.AudioSessionManager;
-                SessionCollection sessionsCollection = audioSessionManager.Sessions;
+                AudioSessionControl session = sessionsCollection[i];
+                uint sessionId = session.GetProcessID;
 
-                for (int i = 0; i < sessionsCollection.Count; i++)
-                {
-                    AudioSessionControl session = sessionsCollection[i];
-                    uint sessionId = session.GetProcessID;
-
-                    if (sessionId == gameProcess.Id)
-                        return session.SimpleAudioVolume.Volume;
-                }
-
-                return 0;
+                if (sessionId == gameProcess.Id)
+                    return session.SimpleAudioVolume.Volume;
             }
-            else
-            {
-                return 0;
-            }
+
+            return 0;
         }
 
         public static void SetGameProcessAudioVolume(Process gameProcess, float volume)
         {
             MMDeviceEnumerator enumerator = new();
             MMDevice defaultAudioDevice = enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Console);
-            if (defaultAudioDevice != null)
+
+            AudioSessionManager audioSessionManager = defaultAudioDevice.AudioSessionManager;
+            SessionCollection sessionsCollection = audioSessionManager.Sessions;
+
+            for (int i = 0; i < sessionsCollection.Count; i++)
             {
-                AudioSessionManager audioSessionManager = defaultAudioDevice.AudioSessionManager;
-                SessionCollection sessionsCollection = audioSessionManager.Sessions;
+                AudioSessionControl session = sessionsCollection[i];
+                uint sessionId = session.GetProcessID;
 
-                for (int i = 0; i < sessionsCollection.Count; i++)
+                if (sessionId == gameProcess.Id)
                 {
-                    AudioSessionControl session = sessionsCollection[i];
-                    uint sessionId = session.GetProcessID;
-
-                    if (sessionId == gameProcess.Id)
-                    {
-                        session.SimpleAudioVolume.Volume = volume;
-                        break;
-                    }
+                    session.SimpleAudioVolume.Volume = volume;
+                    break;
                 }
             }
         }

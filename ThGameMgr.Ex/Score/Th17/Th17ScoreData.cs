@@ -56,7 +56,7 @@ namespace ThGameMgr.Ex.Score.Th17
 
                                 if (scoreRecordList.Name != "--------")
                                 {
-                                    ScoreData.ScoreRecordLists.Add(scoreRecordList);
+                                    ScoreData.AddScoreData(scoreRecordList);
                                 }
 
                                 i += size;
@@ -70,13 +70,13 @@ namespace ThGameMgr.Ex.Score.Th17
                             Dictionary<string, ObservableCollection<SpellCardRecordData>>
                                 spellCardRecordLists =
                                 GetAllSpellCardRecord(p, bytes);
-                            ScoreData.SpellCardRecordLists.Add(spellCardRecordLists["all"][0]);
+                            ScoreData.AddSpellCardData(spellCardRecordLists["all"][0]);
 
                             foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th17).Split(','))
                             {
-                                ScoreData.SpellCardRecordsByPlayer[player].Add(spellCardRecordLists[player][0]);
+                                ScoreData.AddSpellParacticeData(spellCardRecordLists[player][0]);
                             }
-                            ScoreData.SpellPracticeRecordLists.Add(spellCardRecordLists["all"][1]);
+                            ScoreData.AddSpellParacticeData(spellCardRecordLists["all"][1]);
                         }
                     }
                 }
@@ -135,7 +135,7 @@ namespace ThGameMgr.Ex.Score.Th17
             byte[] PRACTICE_CHALLENGE_DATA = data[140..144];
             byte[] CARD_ID_DATA = data[144..148];
             byte[] LEVEL_DATA = data[148..152];
-            byte[] PRACTOCE_SCORE = data[152..156];
+            byte[] PRACTICE_SCORE = data[152..156];
 
             int cardId = BitConverter.ToInt32(CARD_ID_DATA, 0) + 1;
 

@@ -61,18 +61,26 @@ namespace ThGameMgr.Ex.Dialogs
 
         private void OKButtonClick(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem selectedItem = DefaultGameConfigComboBox.SelectedItem as ComboBoxItem;
-            string defaultGameId = (string)selectedItem.Uid;
-            try
+            ComboBoxItem? selectedItem = DefaultGameConfigComboBox.SelectedItem as ComboBoxItem;
+            if (selectedItem != null)
             {
-                SettingsConfigurator.SaveDefaultGameSettings(defaultGameId);
-                this.Close();
+                string defaultGameId = (string)selectedItem.Uid;
+                try
+                {
+                    SettingsConfigurator.SaveDefaultGameSettings(defaultGameId);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"設定の保存に失敗しました。\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    this.Close();
+                }
             }
-            catch (Exception ex) 
+            else
             {
-                MessageBox.Show(this, $"設定の保存に失敗しました。\n{ex.Message}", "エラー",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-                this.Close();
+                MessageBox.Show(this, "既定にするゲームを選択してください。", "既定のゲームを設定する",
+                    MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
     }

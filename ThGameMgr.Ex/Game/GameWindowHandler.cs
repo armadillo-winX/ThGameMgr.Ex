@@ -33,18 +33,6 @@ namespace ThGameMgr.Ex.Game
         [return: MarshalAs(UnmanagedType.Bool)]
         private static partial bool IsWindow(IntPtr hWnd);
 
-        public static IntPtr GetGameWindow(Process? gameProcess)
-        {
-            if (gameProcess != null)
-            {
-                return IntPtr.Zero;
-            }
-            else
-            {
-                return IntPtr.Zero;
-            }
-        }
-
         public static bool GameWindowExists(IntPtr gameWindow)
         {
             return IsWindow(gameWindow);

@@ -34,53 +34,59 @@ namespace ThGameMgr.Ex.Dialogs
         {
             BackupListBox.Items.Clear();
 
-            if (BackupGameListBox.Items.Count > 0 && BackupGameListBox.SelectedIndex > -1)
+            string? selectedGameName = BackupGameListBox.SelectedItem as string;
+            if (BackupGameListBox.Items.Count > 0 && selectedGameName != null)
             {
-                string selectedGameName = BackupGameListBox.SelectedItem as string;
-                string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
+                string? gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
 
-                try
+                if (!string.IsNullOrEmpty(gameId))
                 {
-                    string[] backupFiles = ScoreBackup.GetScoreBackupFiles(gameId);
-                    if (backupFiles.Length > 0)
+                    try
                     {
-                        for (int i = backupFiles.Length - 1; i >= 0; i--)
+                        string[] backupFiles = ScoreBackup.GetScoreBackupFiles(gameId);
+                        if (backupFiles.Length > 0)
                         {
-                            string backupFile = backupFiles[i];
-                            string backupFileName = Path.GetFileName(backupFile);
-                            BackupListBox.Items.Add(backupFileName);
+                            for (int i = backupFiles.Length - 1; i >= 0; i--)
+                            {
+                                string backupFile = backupFiles[i];
+                                string backupFileName = Path.GetFileName(backupFile);
+                                BackupListBox.Items.Add(backupFileName);
+                            }
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, ex.Message, "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, ex.Message, "エラー",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
         }
 
         private void RestoreButtonClick(object sender, RoutedEventArgs e)
         {
-            if (BackupListBox.SelectedIndex > -1)
+            string? selectedGameName = BackupGameListBox.SelectedItem as string;
+            string? backupFile = BackupListBox.SelectedItem as string;
+            if (selectedGameName != null && backupFile != null)
             {
                 try
                 {
-                    string selectedGameName = BackupGameListBox.SelectedItem as string;
-                    string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
-                    string backupFile = BackupListBox.SelectedItem as string;
+                    string? gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
 
-                    MessageBoxResult result = MessageBox.Show(
+                    if (!string.IsNullOrEmpty(gameId))
+                    {
+                        MessageBoxResult result = MessageBox.Show(
                         this,
                         $"'{GameIndex.GetGameName(gameId)}' のスコアファイルを、バックアップ '{backupFile}' から復元します。よろしいですか。",
                         "スコアファイルの復元",
                         MessageBoxButton.YesNo, MessageBoxImage.Information);
-                    if (result == MessageBoxResult.Yes)
-                    {
-                        ScoreBackup.Restore(gameId, backupFile);
+                        if (result == MessageBoxResult.Yes)
+                        {
+                            ScoreBackup.Restore(gameId, backupFile);
 
-                        MessageBox.Show(this, "復元しました。", "スコアファイルの復元",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
+                            MessageBox.Show(this, "復元しました。", "スコアファイルの復元",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -99,21 +105,24 @@ namespace ThGameMgr.Ex.Dialogs
 
         private void DeleteButtonClick(object sender, RoutedEventArgs e)
         {
-            if (BackupListBox.SelectedIndex > -1)
+            string? selectedGameName = BackupGameListBox.SelectedItem as string;
+            string? backupFile = BackupListBox.SelectedItem as string;
+            if (selectedGameName != null && backupFile != null)
             {
                 try
                 {
-                    string selectedGameName = BackupGameListBox.SelectedItem as string;
-                    string gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
-                    string backupFile = BackupListBox.SelectedItem as string;
+                    string? gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
 
                     MessageBoxResult result = MessageBox.Show(
                         this, $"'{backupFile}' を削除してもよろしいですか。", "スコアバックアップの削除",
                         MessageBoxButton.YesNo, MessageBoxImage.Information);
                     if (result == MessageBoxResult.Yes)
                     {
-                        ScoreBackup.Delete(gameId, backupFile);
-                        BackupListBox.Items.Remove(backupFile);
+                        if (gameId != null)
+                        {
+                            ScoreBackup.Delete(gameId, backupFile);
+                            BackupListBox.Items.Remove(backupFile);
+                        }
                     }
                 }
                 catch (Exception ex)

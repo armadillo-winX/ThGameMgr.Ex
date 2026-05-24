@@ -52,8 +52,9 @@ namespace ThGameMgr.Ex.Score.Th09
                                 byte[] highscoreData = bytes[i..r];
                                 ScoreRecordData scoreRecordList
                                     = GetHighScoreData(highscoreData);
-                                if (scoreRecordList.Date.TrimEnd('\0') != "--/--")
-                                    ScoreData.ScoreRecordLists.Add(scoreRecordList);
+                                if (scoreRecordList.Date != null &&
+                                    scoreRecordList.Date.TrimEnd('\0') != "--/--")
+                                    ScoreData.AddScoreData(scoreRecordList);
 
                                 i += size;
                             }
