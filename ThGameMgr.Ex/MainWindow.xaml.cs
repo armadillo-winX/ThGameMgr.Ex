@@ -1205,13 +1205,14 @@ namespace ThGameMgr.Ex
 
         private void ConfigureSettings()
         {
-            SettingsConfigurator.ConfigureGamePathSettings();
-            SettingsConfigurator.ConfigureGameSpecificConfig();
+            SettingsConfigurator settingsConfigurator = new(_currentUserService);
+            settingsConfigurator.ConfigureGamePathSettings();
+            settingsConfigurator.ConfigureGameSpecificConfig();
 
             string defaultGameId;
             try
             {
-                defaultGameId = SettingsConfigurator.ConfigureDefaultGameSettings();
+                defaultGameId = settingsConfigurator.ConfigureDefaultGameSettings();
             }
             catch (Exception)
             {
@@ -1220,7 +1221,7 @@ namespace ThGameMgr.Ex
 
             List<string> enabledGamesList = GameIndex.GetEnabledGamesList();
 
-            MainWindowSettings mainWindowSettings = SettingsConfigurator.ConfigureMainWindowSettings();
+            MainWindowSettings mainWindowSettings = settingsConfigurator.ConfigureMainWindowSettings();
 
             this.Width = mainWindowSettings.MainWindowWidth;
             this.Height = mainWindowSettings.MainWindowHeight;
