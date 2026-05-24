@@ -2827,7 +2827,7 @@ namespace ThGameMgr.Ex
         {
             if (DisableSpellCardDataColoringMenuItem.IsChecked == false)
             {
-                SpellCardRecordData spellCardRecordData = e.Row.Item as SpellCardRecordData;
+                SpellCardRecordData? spellCardRecordData = e.Row.Item as SpellCardRecordData;
                 if (spellCardRecordData != null)
                 {
                     bool result = float.TryParse(spellCardRecordData.Rate.Trim('%'), out float fRate);
