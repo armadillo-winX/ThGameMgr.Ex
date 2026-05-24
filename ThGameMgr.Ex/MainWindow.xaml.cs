@@ -2013,7 +2013,8 @@ namespace ThGameMgr.Ex
         {
             SelectUserDialog selectUserDialog = new()
             {
-                Owner = this
+                Owner = this,
+                SelectedUserName = _currentUserService.CurrentUserName,
             };
 
             try
@@ -2028,10 +2029,14 @@ namespace ThGameMgr.Ex
                     "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            if (selectUserDialog.ShowDialog() == true)
+            if (selectUserDialog.ShowDialog() == true
+                && !string.IsNullOrWhiteSpace(selectUserDialog.SelectedUserName))
             {
                 try
                 {
+                    UserService userService = new();
+                    userService.SwitchUser(selectUserDialog.SelectedUserName);
+                    _currentUserService = userService;
                     ConfigureSettings();
                 }
                 catch (Exception ex)
