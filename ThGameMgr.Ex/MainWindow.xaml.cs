@@ -1117,8 +1117,13 @@ namespace ThGameMgr.Ex
                 MessageBoxButton.OK, MessageBoxImage.Information);
 
             AddUserDialog addUserDialog = new();
-            if (addUserDialog.ShowDialog() == true)
+            if (addUserDialog.ShowDialog() == true
+                && !string.IsNullOrWhiteSpace(addUserDialog.UserName))
             {
+                UserService userService = new();
+                userService.SwitchUser(addUserDialog.UserName);
+                _currentUserService = userService;
+
                 MessageBox.Show(
                     "ゲームのパスを設定してください。", VersionInfo.AppName,
                     MessageBoxButton.OK, MessageBoxImage.Information);
@@ -1130,7 +1135,7 @@ namespace ThGameMgr.Ex
 
                 SetExternalToolsMenu();
 
-                CurrentUserStatusBarItem.Content = UserConfigurator.CurrentUserName;
+                CurrentUserStatusBarItem.Content = _currentUserService.CurrentUserName;
             }
             else
             {
