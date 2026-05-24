@@ -2861,5 +2861,10 @@ namespace ThGameMgr.Ex
                 }
             }
         }
+
+        private void DisableSpellCardDataColoringMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ApplyScoreViewFilter();
+        }
     }
 }
