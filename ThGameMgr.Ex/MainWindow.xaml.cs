@@ -2838,14 +2838,14 @@ namespace ThGameMgr.Ex
                         if (fRate >= 80.0)
                         {
                             e.Row.Background =
-                                (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#D9E9F7");
+                                (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#D9E9F7");
                             e.Row.Foreground =
-                                (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#262bc7");
+                                (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#262bc7");
                         }
                         else if (fRate < 50.0)
                         {
                             e.Row.Background =
-                                (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#F5E7E7");
+                                (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#F5E7E7");
                             e.Row.Foreground =
                                 System.Windows.Media.Brushes.Red;
                             //(System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#ee3900");
@@ -2853,9 +2853,9 @@ namespace ThGameMgr.Ex
                         else
                         {
                             e.Row.Background =
-                                (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#F3E7D1");
+                                (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#F3E7D1");
                             e.Row.Foreground =
-                                (System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#FE440A");
+                                (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#FE440A");
                         }
                     }
                     else
