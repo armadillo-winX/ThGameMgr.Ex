@@ -1241,7 +1241,7 @@ namespace ThGameMgr.Ex
             SetExternalToolsMenu();
 
             AutoStartWindowResizerCheckBox.IsChecked = GameSpecificSettings.GetAutoResizerConfig(this.GameId);
-            CurrentUserStatusBarItem.Content = UserConfigurator.CurrentUserName;
+            CurrentUserStatusBarItem.Content = _currentUserService.CurrentUserName;
 
             GetScoreData();
             GetReplayFiles();
