@@ -14,6 +14,6 @@
 
         public bool AutoBackup { get; set; }
 
-        public bool DisableSpellCardDataColoring { get; set; }
+        public bool EnableSpellCardDataColoring { get; set; }
     }
 }
