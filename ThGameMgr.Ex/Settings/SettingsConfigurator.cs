@@ -6,6 +6,12 @@ namespace ThGameMgr.Ex.Settings
 {
     class SettingsConfigurator
     {
+        private IUserService _currentUserService;
+        public SettingsConfigurator(IUserService userService)
+        {
+            _currentUserService = userService;
+        }
+
         public static void SaveGamePathSettings()
         {
             if (!string.IsNullOrEmpty(UserConfigurator.CurrentUserDirectoryPath))
