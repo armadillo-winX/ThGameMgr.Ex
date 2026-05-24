@@ -5,21 +5,7 @@
 
         public static string AppPath => typeof(App).Assembly.Location;
 
-        public static string AppLocation
-        {
-            get
-            {
-                string? applicationDirectory = Path.GetDirectoryName(AppPath);
-                if (applicationDirectory != null)
-                {
-                    return applicationDirectory;
-                }
-                else
-                {
-                    throw new InvalidOperationException("Failed to get application working directory.");
-                }
-            }
-        }
+        public static string AppLocation => AppDomain.CurrentDomain.BaseDirectory;
 
         public static string UsersDirectory => $"{AppLocation}\\Users";
 
