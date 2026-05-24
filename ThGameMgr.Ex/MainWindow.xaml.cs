@@ -2830,35 +2830,32 @@ namespace ThGameMgr.Ex
             if (DisableSpellCardDataColoringMenuItem.IsChecked == false)
             {
                 SpellCardRecordData? spellCardRecordData = e.Row.Item as SpellCardRecordData;
-                if (spellCardRecordData != null)
+                if (spellCardRecordData != null && spellCardRecordData.Rate != null)
                 {
-                    if (spellCardRecordData.Rate != null)
+                    bool result = float.TryParse(spellCardRecordData.Rate.Trim('%'), out float fRate);
+                    if (result)
                     {
-                        bool result = float.TryParse(spellCardRecordData.Rate.Trim('%'), out float fRate);
-                        if (result)
+                        if (fRate >= 80.0)
                         {
-                            if (fRate >= 80.0)
-                            {
-                                e.Row.Background =
-                                    (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#D9E9F7");
-                                e.Row.Foreground =
-                                    (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#262bc7");
-                            }
-                            else if (fRate < 50.0)
-                            {
-                                e.Row.Background =
-                                    (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#F5E7E7");
-                                e.Row.Foreground =
-                                    System.Windows.Media.Brushes.Red;
-                                //(System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#ee3900");
-                            }
-                            else
-                            {
-                                e.Row.Background =
-                                    (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#F3E7D1");
-                                e.Row.Foreground =
-                                    (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#FE440A");
-                            }
+                            e.Row.Background =
+                                (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#D9E9F7");
+                            e.Row.Foreground =
+                                (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#262bc7");
+                        }
+                        else if (fRate < 50.0)
+                        {
+                            e.Row.Background =
+                                (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#F5E7E7");
+                            e.Row.Foreground =
+                                System.Windows.Media.Brushes.Red;
+                            //(System.Windows.Media.Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#ee3900");
+                        }
+                        else
+                        {
+                            e.Row.Background =
+                                (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#F3E7D1");
+                            e.Row.Foreground =
+                                (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#FE440A");
                         }
                     }
                 }
