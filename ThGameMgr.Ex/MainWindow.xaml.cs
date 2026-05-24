@@ -324,6 +324,8 @@ namespace ThGameMgr.Ex
             EnableGameEndWaitingLimitationMode(false);
             SetStartGameStatus(string.Empty);
 
+            _currentUserService = new UserService();
+
             if (!Directory.Exists(PathInfo.UsersDirectory))
             {
                 try
