@@ -2827,7 +2827,7 @@ namespace ThGameMgr.Ex
 
         private void SpellCardDataGridLoadingRow(object sender, DataGridRowEventArgs e)
         {
-            if (DisableSpellCardDataColoringMenuItem.IsChecked == false)
+            if (EnableSpellCardDataColoringMenuItem.IsChecked)
             {
                 SpellCardRecordData? spellCardRecordData = e.Row.Item as SpellCardRecordData;
                 if (spellCardRecordData != null && spellCardRecordData.Rate != null)
