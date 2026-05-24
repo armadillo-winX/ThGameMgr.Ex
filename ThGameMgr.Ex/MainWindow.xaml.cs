@@ -1249,7 +1249,8 @@ namespace ThGameMgr.Ex
                 SelectedGameId = this.GameId,
                 DisplayUnchallengedCard = DisplayUnchallengedCardMenuItem.IsChecked,
                 ExcludeUnchallengedCardData = ExcludeUntriedCardDataMenuItem.IsChecked,
-                AutoBackup = AutoBackupMenuItem.IsChecked
+                AutoBackup = AutoBackupMenuItem.IsChecked,
+                DisableSpellCardDataColoring = DisableSpellCardDataColoringMenuItem.IsChecked
             };
 
             SettingsConfigurator.SaveMainWindowSettings(mainWindowSettings);
