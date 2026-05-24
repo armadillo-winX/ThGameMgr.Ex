@@ -124,10 +124,10 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public static void SaveUserSelectionConfig()
+        public static void SaveUserSelectionConfig(string userName)
         {
             string? userSelectionConfigFile = PathInfo.UserSelectionConfigFile;
-            if (!string.IsNullOrEmpty(CurrentUserName))
+            if (!string.IsNullOrEmpty(userName))
             {
                 XmlDocument userSelectionConfigXml = new();
                 XmlNode docNode = userSelectionConfigXml.CreateXmlDeclaration("1.0", "UTF-8", null);
@@ -137,7 +137,7 @@ namespace ThGameMgr.Ex
                 _ = userSelectionConfigXml.AppendChild(rootNode);
 
                 XmlElement selectionNode = userSelectionConfigXml.CreateElement("UserSelection");
-                _ = selectionNode.AppendChild(userSelectionConfigXml.CreateTextNode(CurrentUserName));
+                _ = selectionNode.AppendChild(userSelectionConfigXml.CreateTextNode(userName));
                 _ = rootNode.AppendChild(selectionNode);
                 userSelectionConfigXml.Save(userSelectionConfigFile);
             }
