@@ -65,6 +65,9 @@
                 <MenuItem x:Name="ExcludeUntriedCardDataMenuItem" Header="未挑戦の御札戦歴を除外する"
                           IsCheckable="True" Click="ExcludeUntriedCardDataMenuItemClick"/>
                 <Separator/>
+                <MenuItem x:Name="EnableSpellCardDataColoringMenuItem" Header="御札戦歴のカラーリングを有効化"
+                          IsCheckable="True" Click="EnableSpellCardDataColoringMenuItemClick"/>
+                <Separator/>
                 <MenuItem x:Name="ReloadScoreDataMenuItem" Header="スコアデータを再読み込みする(_R)" Click="ReloadScoreDataMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="ExportScoreDataMenuItem" Header="スコアデータをエクスポート(_E)" Click="ExportScoreDataMenuItemClick"/>

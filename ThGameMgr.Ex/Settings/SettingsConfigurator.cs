@@ -323,6 +323,7 @@ namespace ThGameMgr.Ex.Settings
                 mainWindowSettings.DisplayUnchallengedCard = false;
                 mainWindowSettings.ExcludeUnchallengedCardData = false;
                 mainWindowSettings.AutoBackup = false;
+                mainWindowSettings.EnableSpellCardDataColoring = false;
             }
 
             if (mainWindowSettings == null)
@@ -334,7 +335,8 @@ namespace ThGameMgr.Ex.Settings
                     SelectedGameId = string.Empty,
                     DisplayUnchallengedCard = false,
                     ExcludeUnchallengedCardData = false,
-                    AutoBackup = false
+                    AutoBackup = false,
+                    EnableSpellCardDataColoring = false
                 };
             }
 
