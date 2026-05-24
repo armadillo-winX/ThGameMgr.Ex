@@ -1985,7 +1985,7 @@ namespace ThGameMgr.Ex
         {
             try
             {
-                UserConfigurator.SaveUserSelectionConfig();
+                UserConfigurator.SaveUserSelectionConfig(_currentUserService.CurrentUserName);
                 SaveSettings();
             }
             catch (Exception ex)
