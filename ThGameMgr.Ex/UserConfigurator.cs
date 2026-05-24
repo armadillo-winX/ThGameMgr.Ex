@@ -84,7 +84,7 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public static string? GetUserDirectoryName(string userName)
+        public static string GetUserDirectoryName(string userName)
         {
             string? usersIndexFile = PathInfo.UsersIndexFile;
             if (Exists(userName))
@@ -102,7 +102,7 @@ namespace ThGameMgr.Ex
             }
             else
             {
-                return null;
+                throw new UserNotFoundException(userName, $"ユーザー '{userName}' は存在しません。");
             }
         }
 
