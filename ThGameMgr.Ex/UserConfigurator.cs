@@ -7,10 +7,6 @@ namespace ThGameMgr.Ex
     {
         private readonly static string _usersDirectory = PathInfo.UsersDirectory;
 
-        public static string? CurrentUserName { get; set; }
-
-        public static string? CurrentUserDirectoryPath { get; set; }
-
         public enum UsersSelectionValidity
         {
             Invalid,
