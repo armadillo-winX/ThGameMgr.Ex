@@ -1250,7 +1250,7 @@ namespace ThGameMgr.Ex
                 DisplayUnchallengedCard = DisplayUnchallengedCardMenuItem.IsChecked,
                 ExcludeUnchallengedCardData = ExcludeUntriedCardDataMenuItem.IsChecked,
                 AutoBackup = AutoBackupMenuItem.IsChecked,
-                DisableSpellCardDataColoring = DisableSpellCardDataColoringMenuItem.IsChecked
+                EnableSpellCardDataColoring = EnableSpellCardDataColoringMenuItem.IsChecked
             };
 
             SettingsConfigurator.SaveMainWindowSettings(mainWindowSettings);
