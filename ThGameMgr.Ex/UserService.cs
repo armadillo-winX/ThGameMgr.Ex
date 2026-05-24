@@ -26,17 +26,17 @@
 
         public string GetCurrentUserSettingsDirectory()
         {
-            return Path.Combine(PathInfo.AppLocation, this.CurrentUserDirectoryName, "Settings");
+            return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "Settings");
         }
 
         public string GetCurrentUserScoreBackupDirectoy()
         {
-            return Path.Combine(PathInfo.AppLocation, this.CurrentUserDirectoryName, "backup");
+            return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "backup");
         }
 
         public string GetCurrentUserGamePlayLogRecordFilePath()
         {
-            return Path.Combine(PathInfo.AppLocation, this.CurrentUserDirectoryName, "GamePlayLog.xml");
+            return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "GamePlayLog.xml");
         }
     }
 }
