@@ -2860,11 +2860,6 @@ namespace ThGameMgr.Ex
                                     (System.Windows.Media.Brush?)new System.Windows.Media.BrushConverter().ConvertFromString("#FE440A");
                             }
                         }
-                        else
-                        {
-                            e.Row.Background = System.Windows.Media.Brushes.White;
-                            e.Row.Foreground = System.Windows.Media.Brushes.Black;
-                        }
                     }
                 }
             }
