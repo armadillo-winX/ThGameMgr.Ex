@@ -1809,7 +1809,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    ScoreBackup.Create(this.GameId);
+                    ScoreBackup.Create(this.GameId, _currentUserService.GetCurrentUserScoreBackupDirectoy());
                 }
                 catch (Exception ex)
                 {
