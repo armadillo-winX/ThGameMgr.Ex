@@ -62,7 +62,7 @@ namespace ThGameMgr.Ex
 
             try
             {
-                SettingsConfigurator settingsConfigurator = new(currentUserService)
+                SettingsConfigurator settingsConfigurator = new(currentUserService);
                 ResizerFrameWindowSettings resizerFrameWindowSettings
                     = settingsConfigurator.ConfigureResizerFrameWindowSettings();
                 AutoCloseMenuItem.IsChecked = resizerFrameWindowSettings.AutoClose;
