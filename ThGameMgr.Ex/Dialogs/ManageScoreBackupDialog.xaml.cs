@@ -46,7 +46,7 @@ namespace ThGameMgr.Ex.Dialogs
                 {
                     try
                     {
-                        string[] backupFiles = ScoreBackup.GetScoreBackupFiles(gameId, _currentUserService.GetCurrentUserSettingsDirectory());
+                        string[] backupFiles = ScoreBackup.GetScoreBackupFiles(gameId, _currentUserService.GetCurrentUserScoreBackupDirectoy());
                         if (backupFiles.Length > 0)
                         {
                             for (int i = backupFiles.Length - 1; i >= 0; i--)
