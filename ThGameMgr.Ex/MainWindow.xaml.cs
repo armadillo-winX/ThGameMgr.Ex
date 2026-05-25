@@ -2406,7 +2406,7 @@ namespace ThGameMgr.Ex
 
         private void GamePlayLogMenuItemClick(object sender, RoutedEventArgs e)
         {
-            GamePlayLogDialog gamePlayLogDialog = new()
+            GamePlayLogDialog gamePlayLogDialog = new(_currentUserService)
             {
                 Owner = this
             };
