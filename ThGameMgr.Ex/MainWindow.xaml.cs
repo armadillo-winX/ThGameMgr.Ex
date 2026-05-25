@@ -2555,7 +2555,7 @@ namespace ThGameMgr.Ex
 
         private void DeleteUserMenuItemClick(object sender, RoutedEventArgs e)
         {
-            DeleteUserDialog deleteUserDialog = new()
+            DeleteUserDialog deleteUserDialog = new(_currentUserService)
             {
                 Owner = this
             };
