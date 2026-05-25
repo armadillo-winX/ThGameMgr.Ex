@@ -2006,10 +2006,9 @@ namespace ThGameMgr.Ex
 
         private void SelectUserMenuItemClick(object sender, RoutedEventArgs e)
         {
-            SelectUserDialog selectUserDialog = new()
+            SelectUserDialog selectUserDialog = new(_currentUserService.GetCurrentUserName())
             {
                 Owner = this,
-                SelectedUserName = _currentUserService.GetCurrentUserName(),
             };
 
             try
