@@ -1723,7 +1723,7 @@ namespace ThGameMgr.Ex
 
                         if (gameWindowSizes.Width > 500)
                         {
-                            _resizerFrameWindow = new()
+                            _resizerFrameWindow = new(_currentUserService)
                             {
                                 Owner = this,
                                 GameWindow = gameProcess.MainWindowHandle
@@ -2118,7 +2118,7 @@ namespace ThGameMgr.Ex
         {
             if (_resizerFrameWindow == null || !_resizerFrameWindow.IsLoaded)
             {
-                _resizerFrameWindow = new()
+                _resizerFrameWindow = new(_currentUserService)
                 {
                     Owner = this,
                     GameWindow = this.GameProcess.MainWindowHandle
