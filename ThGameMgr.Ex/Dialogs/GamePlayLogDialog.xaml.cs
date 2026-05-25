@@ -7,9 +7,12 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class GamePlayLogDialog : Window
     {
-        public GamePlayLogDialog()
+        private readonly IUserService _currentUserService;
+
+        public GamePlayLogDialog(IUserService userService)
         {
             InitializeComponent();
+            _currentUserService = userService;
 
             try
             {
