@@ -12,9 +12,9 @@ namespace ThGameMgr.Ex
 
         public bool AsAdmin { get; set; }
 
-        public static void Start(string toolName)
+        public static void Start(string toolName, string settingsDirectory)
         {
-            ExternalTool externalTool = GetToolInfo(toolName);
+            ExternalTool externalTool = GetToolInfo(toolName, settingsDirectory);
 
             ProcessStartInfo toolStartInfo = new()
             {
@@ -33,9 +33,9 @@ namespace ThGameMgr.Ex
             _ = Process.Start(toolStartInfo);
         }
 
-        public static void CreateExternalConfigFile()
+        public static void CreateExternalConfigFile(string settingsDirectory)
         {
-            string exToolsConfig = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
+            string exToolsConfig = Path.Combine(settingsDirectory, "ExternalTools.xml");
 
             XmlDocument exToolsConfigXml = new();
             XmlNode docNode = exToolsConfigXml.CreateXmlDeclaration("1.0", "UTF-8", null);
@@ -46,9 +46,9 @@ namespace ThGameMgr.Ex
             exToolsConfigXml.Save(exToolsConfig);
         }
 
-        public static bool Add(string toolName, string toolPath, string toolOption, bool asAdmin)
+        public static bool Add(string toolName, string toolPath, string toolOption, bool asAdmin, string settingsDirectory)
         {
-            string exToolsConfig = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
+            string exToolsConfig = Path.Combine(settingsDirectory, "ExternalTools.xml");
 
             XmlDocument exToolsConfigXml = new();
             exToolsConfigXml.Load(exToolsConfig);
@@ -96,9 +96,9 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public static void Delete(string toolName)
+        public static void Delete(string toolName, string settingsDirectory)
         {
-            string exToolsConfig = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
+            string exToolsConfig = Path.Combine(settingsDirectory, "ExternalTools.xml");
 
             XmlDocument exToolsConfigXml = new();
             exToolsConfigXml.Load(exToolsConfig);
@@ -117,9 +117,9 @@ namespace ThGameMgr.Ex
             exToolsConfigXml.Save(exToolsConfig);
         }
 
-        public static ExternalTool GetToolInfo(string toolName)
+        public static ExternalTool GetToolInfo(string toolName, string settingsDirectory)
         {
-            string exToolsConfig = $"{UserConfigurator.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
+            string exToolsConfig = Path.Combine(settingsDirectory, "ExternalTools.xml");
 
             XmlDocument exToolsConfigXml = new();
             exToolsConfigXml.Load(exToolsConfig);
