@@ -6,8 +6,6 @@
 
         string CurrentUserDirectoryName { get; set; }
 
-        public void SwitchUser(string userName);
-
         string GetCurrentUserSettingsDirectory();
 
         string GetCurrentUserScoreBackupDirectoy();
