@@ -123,7 +123,7 @@ namespace ThGameMgr.Ex.Dialogs
                     {
                         if (gameId != null)
                         {
-                            ScoreBackup.Delete(gameId, backupFile);
+                            ScoreBackup.Delete(gameId, backupFile, _currentUserService.GetCurrentUserScoreBackupDirectoy());
                             BackupListBox.Items.Remove(backupFile);
                         }
                     }
