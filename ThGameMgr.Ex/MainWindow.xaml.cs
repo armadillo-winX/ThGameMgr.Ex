@@ -1156,9 +1156,7 @@ namespace ThGameMgr.Ex
                 string userName = UserConfigurator.GetUserSelection();
                 if (UserConfigurator.Exists(userName))
                 {
-                    UserService userService = new();
-                    userService.SwitchUser(userName);
-                    this._currentUserService = userService;
+                    _currentUserService.SwitchUser(userName);
                 }
                 else
                 {
@@ -1166,9 +1164,7 @@ namespace ThGameMgr.Ex
                     if (selectUserDialog.ShowDialog() == true
                         && !string.IsNullOrWhiteSpace(selectUserDialog.SelectedUserName))
                     {
-                        UserService userService = new();
-                        userService.SwitchUser(selectUserDialog.SelectedUserName);
-                        _currentUserService = userService;
+                        _currentUserService.SwitchUser(selectUserDialog.SelectedUserName);
                     }
                     else
                     {
@@ -1186,9 +1182,7 @@ namespace ThGameMgr.Ex
                 if (selectUserDialog.ShowDialog() == true
                     && !string.IsNullOrWhiteSpace(selectUserDialog.SelectedUserName))
                 {
-                    UserService userService = new();
-                    userService.SwitchUser(selectUserDialog.SelectedUserName);
-                    _currentUserService = userService;
+                    _currentUserService.SwitchUser(selectUserDialog.SelectedUserName);
                 }
                 else
                 {
