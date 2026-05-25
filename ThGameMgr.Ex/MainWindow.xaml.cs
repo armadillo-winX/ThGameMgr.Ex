@@ -1791,7 +1791,8 @@ namespace ThGameMgr.Ex
 
             try
             {
-                GamePlayLogRecorder.SaveGamePlayLog(gamePlayLogData);
+                GamePlayLogRecorder gamePlayLogRecorder = new(_currentUserService);
+                gamePlayLogRecorder.SaveGamePlayLog(gamePlayLogData);
             }
             catch (Exception ex)
             {
