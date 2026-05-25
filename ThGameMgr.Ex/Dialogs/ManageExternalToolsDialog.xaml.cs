@@ -8,11 +8,15 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class ManageExternalToolsDialog : Window
     {
-        public ManageExternalToolsDialog()
+        public string SettingsDirectory { get; set; }
+
+        public ManageExternalToolsDialog(string settingsDirectory)
         {
             InitializeComponent();
 
-            if (!File.Exists($"{UserConfigurator.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml"))
+            this.SettingsDirectory = settingsDirectory;
+
+            if (!File.Exists(Path.Combine(settingsDirectory, "ExternalTools.xml")))
             {
                 try
                 {
