@@ -2501,7 +2501,7 @@ namespace ThGameMgr.Ex
 
         private void RestoreScoreFileMenuItemClick(object sender, RoutedEventArgs e)
         {
-            ManageScoreBackupDialog manageScoreBackupDialog = new()
+            ManageScoreBackupDialog manageScoreBackupDialog = new(_currentUserService)
             {
                 Owner = this
             };
