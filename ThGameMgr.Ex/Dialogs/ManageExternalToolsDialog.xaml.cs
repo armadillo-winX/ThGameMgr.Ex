@@ -102,7 +102,7 @@ namespace ThGameMgr.Ex.Dialogs
                     string? toolName = selectedItem.Content.ToString();
                     if (!string.IsNullOrEmpty(toolName))
                     {
-                        ExternalTool.Delete(toolName);
+                        ExternalTool.Delete(toolName, _currentUserService.GetCurrentUserSettingsDirectory());
                         GetExternalTools();
                     }
                 }
