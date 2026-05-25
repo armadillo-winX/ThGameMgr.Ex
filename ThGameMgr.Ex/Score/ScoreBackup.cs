@@ -23,7 +23,7 @@
             }
         }
 
-        public static void Restore(string gameId, string backupFileName, string backupFilePath)
+        public static void Restore(string gameId, string backupFilePath)
         {
             string scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
 
