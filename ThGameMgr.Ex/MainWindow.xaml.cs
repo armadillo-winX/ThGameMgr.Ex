@@ -2482,7 +2482,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    bool result = ScoreBackup.Create(gameId);
+                    bool result = ScoreBackup.Create(gameId, _currentUserService.GetCurrentUserScoreBackupDirectoy());
                     if (result)
                     {
                         MessageBox.Show(this, "スコアファイルのバックアップを作成しました。", "スコアファイルのバックアップ",
