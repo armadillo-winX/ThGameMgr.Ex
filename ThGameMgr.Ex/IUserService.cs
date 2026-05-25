@@ -1,6 +1,6 @@
 ﻿namespace ThGameMgr.Ex
 {
-    internal interface IUserService
+    public interface IUserService
     {
         string GetCurrentUserName();
 
