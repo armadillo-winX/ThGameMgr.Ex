@@ -48,7 +48,7 @@ namespace ThGameMgr.Ex.Score
         /// <returns></returns>
         public static bool RecallScoreDataFile(string gameId)
         {
-            string recallDirectory = $"{PathInfo.AppLocation}\\Recall\\";
+            string recallDirectory = $"{PathInfo.AssemblyBaseDirectoryPath}\\Recall\\";
             string recallSourceFile = $"{recallDirectory}\\recall.dat";
             string recallSourceInfoFile = $"{recallDirectory}\\recall_information.xml";
 
@@ -89,7 +89,7 @@ namespace ThGameMgr.Ex.Score
         {
             string scoreDataFile = GetScoreFilePath(gameId);
 
-            string recallDirectory = $"{PathInfo.AppLocation}\\Recall\\";
+            string recallDirectory = $"{PathInfo.AssemblyBaseDirectoryPath}\\Recall\\";
             if (!Directory.Exists(recallDirectory))
                 Directory.CreateDirectory(recallDirectory);
 

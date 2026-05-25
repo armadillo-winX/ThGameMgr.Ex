@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex
 {
     internal class VersionInfo
     {
-        private static readonly string _appPath = PathInfo.AppPath;
+        private static readonly string _appPath = PathInfo.AssemblyFilePath;
 
         public static string? AppName => FileVersionInfo.GetVersionInfo(_appPath).ProductName;
 

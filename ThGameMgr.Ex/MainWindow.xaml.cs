@@ -338,11 +338,11 @@ namespace ThGameMgr.Ex
                 }
             }
 
-            if (Directory.Exists($"{PathInfo.AppLocation}\\SpellCardData"))
+            if (Directory.Exists($"{PathInfo.AssemblyBaseDirectoryPath}\\SpellCardData"))
             {
                 try
                 {
-                    Directory.Delete($"{PathInfo.AppLocation}\\SpellCardData", true);
+                    Directory.Delete($"{PathInfo.AssemblyBaseDirectoryPath}\\SpellCardData", true);
                 }
                 catch (Exception)
                 {
@@ -2379,8 +2379,8 @@ namespace ThGameMgr.Ex
 
         private void AboutNAudioMenuItemClick(object sender, RoutedEventArgs e)
         {
-            string naudioCoreDllPath = $"{PathInfo.AppLocation}\\NAudio.Core.dll";
-            string naudioWasapiDllPath = $"{PathInfo.AppLocation}\\NAudio.Wasapi.dll";
+            string naudioCoreDllPath = $"{PathInfo.AssemblyBaseDirectoryPath}\\NAudio.Core.dll";
+            string naudioWasapiDllPath = $"{PathInfo.AssemblyBaseDirectoryPath}\\NAudio.Wasapi.dll";
 
             string naudioCoreDllName = FileVersionInfo.GetVersionInfo(naudioCoreDllPath).ProductName;
             string naudioCoreDllVersion = FileVersionInfo.GetVersionInfo(naudioCoreDllPath).FileVersion;
@@ -2540,7 +2540,7 @@ namespace ThGameMgr.Ex
 
         private void AboutPluginBaseLibraryMenuItemClick(object sender, RoutedEventArgs e)
         {
-            string baseLibraryDll = $"{PathInfo.AppLocation}\\ThGameMgr.Ex.Plugin.dll";
+            string baseLibraryDll = $"{PathInfo.AssemblyBaseDirectoryPath}\\ThGameMgr.Ex.Plugin.dll";
 
             string name = FileVersionInfo.GetVersionInfo(baseLibraryDll).ProductName;
             string version = FileVersionInfo.GetVersionInfo(baseLibraryDll).ProductVersion;
