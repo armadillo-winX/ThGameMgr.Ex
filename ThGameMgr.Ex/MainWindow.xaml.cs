@@ -2415,7 +2415,7 @@ namespace ThGameMgr.Ex
 
         private void ManageExternalToolsMenuItemClick(object sender, RoutedEventArgs e)
         {
-            ManageExternalToolsDialog manageExternalToolsDialog = new()
+            ManageExternalToolsDialog manageExternalToolsDialog = new(_currentUserService.GetCurrentUserSettingsDirectory())
             {
                 Owner = this
             };
