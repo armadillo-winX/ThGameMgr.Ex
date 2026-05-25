@@ -2820,7 +2820,7 @@ namespace ThGameMgr.Ex
 
         private void DefaultGameSettingsMenuItemClick(object sender, RoutedEventArgs e)
         {
-            DefaultGameSettingsDialog defaultGameSettingsDialog = new()
+            DefaultGameSettingsDialog defaultGameSettingsDialog = new(_currentUserService)
             {
                 Owner = this
             };
