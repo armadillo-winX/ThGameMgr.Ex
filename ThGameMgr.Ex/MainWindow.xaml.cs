@@ -313,7 +313,7 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public MainWindow()
+        public MainWindow(UserService userService)
         {
             InitializeComponent();
 
@@ -324,7 +324,7 @@ namespace ThGameMgr.Ex
             EnableGameEndWaitingLimitationMode(false);
             SetStartGameStatus(string.Empty);
 
-            _currentUserService = new UserService();
+            _currentUserService = userService;
 
             if (!Directory.Exists(PathInfo.UsersDirectory))
             {
