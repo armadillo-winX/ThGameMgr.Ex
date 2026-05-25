@@ -2,10 +2,9 @@
 {
     internal class ScoreBackup
     {
-        public static bool Create(string gameId)
+        public static bool Create(string gameId, string backupDirectory)
         {
             string scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
-            string backupDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\backup\\{gameId}";
 
             if (File.Exists(scoreFilePath))
             {
@@ -24,26 +23,23 @@
             }
         }
 
-        public static void Restore(string gameId, string backupFileName)
+        public static void Restore(string gameId, string backupFileName, string backupFilePath)
         {
             string scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
-            string backupFilePath =
-                $"{UserConfigurator.CurrentUserDirectoryPath}\\backup\\{gameId}\\{backupFileName}";
 
             File.Copy(backupFilePath, scoreFilePath, true);
         }
 
-        public static string[] GetScoreBackupFiles(string gameId)
+        public static string[] GetScoreBackupFiles(string gameId, string backupDirectory)
         {
-            string backupDirectory = $"{UserConfigurator.CurrentUserDirectoryPath}\\backup\\{gameId}";
             string[] scoreBackupFiles = Directory.GetFiles(backupDirectory, "*.bak", SearchOption.TopDirectoryOnly);
 
             return scoreBackupFiles;
         }
 
-        public static void Delete(string gameId, string backupFileName)
+        public static void Delete(string gameId, string backupFileName, string backupDirectory)
         {
-            string backupFilePath = $"{UserConfigurator.CurrentUserDirectoryPath}\\backup\\{gameId}\\{backupFileName}";
+            string backupFilePath = Path.Combine(backupDirectory, backupFileName);
             File.Delete(backupFilePath);
         }
     }
