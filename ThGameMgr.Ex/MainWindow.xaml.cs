@@ -33,7 +33,7 @@ namespace ThGameMgr.Ex
         private ScoreRecordDetailDialog? _scoreRecordDetailDialog = null;
         private SpellCardRecordDetailDialog? _spellCardRecordDetailDialog = null;
 
-        private readonly IUserService _currentUserService;
+        private readonly UserService _currentUserService;
 
         private enum DialogMode
         {
