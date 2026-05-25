@@ -2,9 +2,7 @@
 {
     internal interface IUserService
     {
-        string CurrentUserName { get; set; }
-
-        string CurrentUserDirectoryName { get; set; }
+        string GetCurrentUserName();
 
         string GetCurrentUserSettingsDirectory();
 
