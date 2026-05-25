@@ -1100,7 +1100,7 @@ namespace ThGameMgr.Ex
             string name = ((MenuItem)sender).Header.ToString();
             try
             {
-                ExternalTool.Start(name);
+                ExternalTool.Start(name, _currentUserService.GetCurrentUserSettingsDirectory());
             }
             catch (Exception ex)
             {
