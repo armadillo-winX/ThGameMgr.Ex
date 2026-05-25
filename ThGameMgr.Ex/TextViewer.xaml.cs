@@ -23,7 +23,15 @@
                     //Shift_JISに対応させる
                     Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
-                    StreamReader streamReader = new(this.FilePath, Encoding.GetEncoding(this.Encode));
+                    StreamReader streamReader;
+                    if (!string.IsNullOrEmpty(this.Encode))
+                    {
+                        streamReader = new(this.FilePath, Encoding.GetEncoding(this.Encode));
+                    }
+                    else
+                    {
+                        streamReader = new(this.FilePath, Encoding.UTF8);
+                    }
                     string text = streamReader.ReadToEnd();
                     streamReader.Close();
 
