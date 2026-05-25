@@ -7,18 +7,21 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class ManageScoreBackupDialog : Window
     {
-        public ManageScoreBackupDialog()
+        private readonly IUserService _currentUserService;
+
+        public ManageScoreBackupDialog(IUserService userService)
         {
             InitializeComponent();
+            _currentUserService = userService;
 
             BackupGameListBox.Items.Clear();
             BackupListBox.Items.Clear();
 
-            if (Directory.Exists($"{UserConfigurator.CurrentUserDirectoryPath}\\backup\\"))
+            if (Directory.Exists(userService.GetCurrentUserScoreBackupDirectoy()))
             {
                 string[] backupDirectories
                     = Directory.GetDirectories(
-                        $"{UserConfigurator.CurrentUserDirectoryPath}\\backup\\", "*", SearchOption.TopDirectoryOnly);
+                        userService.GetCurrentUserScoreBackupDirectoy(), "*", SearchOption.TopDirectoryOnly);
 
                 foreach (string backupDirectory in backupDirectories)
                 {
