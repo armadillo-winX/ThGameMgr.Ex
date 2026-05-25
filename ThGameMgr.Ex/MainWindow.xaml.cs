@@ -1135,7 +1135,7 @@ namespace ThGameMgr.Ex
 
                 SetExternalToolsMenu();
 
-                CurrentUserStatusBarItem.Content = _currentUserService.CurrentUserName;
+                CurrentUserStatusBarItem.Content = _currentUserService.GetCurrentUserName();
             }
             else
             {
@@ -1248,7 +1248,7 @@ namespace ThGameMgr.Ex
             SetExternalToolsMenu();
 
             AutoStartWindowResizerCheckBox.IsChecked = GameSpecificSettings.GetAutoResizerConfig(this.GameId);
-            CurrentUserStatusBarItem.Content = _currentUserService.CurrentUserName;
+            CurrentUserStatusBarItem.Content = _currentUserService.GetCurrentUserName();
 
             GetScoreData();
             GetReplayFiles();
@@ -1993,7 +1993,7 @@ namespace ThGameMgr.Ex
         {
             try
             {
-                UserConfigurator.SaveUserSelectionConfig(_currentUserService.CurrentUserName);
+                UserConfigurator.SaveUserSelectionConfig(_currentUserService.GetCurrentUserName());
                 SaveSettings();
             }
             catch (Exception ex)
@@ -2008,7 +2008,7 @@ namespace ThGameMgr.Ex
             SelectUserDialog selectUserDialog = new()
             {
                 Owner = this,
-                SelectedUserName = _currentUserService.CurrentUserName,
+                SelectedUserName = _currentUserService.GetCurrentUserName(),
             };
 
             try
