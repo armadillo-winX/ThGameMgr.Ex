@@ -24,7 +24,7 @@ namespace ThGameMgr.Ex
             ServiceProvider = services.BuildServiceProvider();
 
             // MainWindow のコンストラクタへ UserService を注入
-            MainWindow mainWindow = ServiceProvider.GetRequiredKeyedService<MainWindow>();
+            MainWindow mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
         }
     }
