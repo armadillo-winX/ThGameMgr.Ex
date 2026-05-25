@@ -7,9 +7,12 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class AddExternalToolDialog : Window
     {
-        public AddExternalToolDialog()
+        private readonly IUserService _currentUserService;
+        public AddExternalToolDialog(IUserService userService)
         {
             InitializeComponent();
+
+            _currentUserService = userService;
 
             _ = ToolPathBox.Focus();
         }
