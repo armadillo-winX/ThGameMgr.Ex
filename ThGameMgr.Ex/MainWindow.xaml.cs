@@ -1122,9 +1122,7 @@ namespace ThGameMgr.Ex
             if (addUserDialog.ShowDialog() == true
                 && !string.IsNullOrWhiteSpace(addUserDialog.UserName))
             {
-                UserService userService = new();
-                userService.SwitchUser(addUserDialog.UserName);
-                _currentUserService = userService;
+                _currentUserService.SwitchUser(addUserDialog.UserName);
 
                 MessageBox.Show(
                     "ゲームのパスを設定してください。", VersionInfo.AppName,
