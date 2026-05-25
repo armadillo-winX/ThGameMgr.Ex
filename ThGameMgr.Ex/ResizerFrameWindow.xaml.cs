@@ -154,7 +154,8 @@ namespace ThGameMgr.Ex
                     FixAspectRate = FixAspectRateCheckBox.IsChecked == true
                 };
 
-                SettingsConfigurator.SaveResizerFrameWindowSettings(resizerFrameWindowSettings);
+                SettingsConfigurator settingsConfigurator = new(_currentUserService);
+                settingsConfigurator.SaveResizerFrameWindowSettings(resizerFrameWindowSettings);
             }
             catch (Exception ex)
             {
