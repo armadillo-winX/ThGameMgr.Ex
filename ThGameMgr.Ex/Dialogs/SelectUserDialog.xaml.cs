@@ -11,7 +11,7 @@ namespace ThGameMgr.Ex.Dialogs
     {
         public string? SelectedUserName { get; set; }
 
-        public SelectUserDialog()
+        public SelectUserDialog(string? currentUserName = null)
         {
             InitializeComponent();
 
@@ -29,7 +29,7 @@ namespace ThGameMgr.Ex.Dialogs
                             ListBoxItem userItem = new()
                             {
                                 Content = userName,
-                                IsEnabled = userName != this.SelectedUserName
+                                IsEnabled = userName != currentUserName
                             };
                             _ = UsersListBox.Items.Add(userItem);
                         }
