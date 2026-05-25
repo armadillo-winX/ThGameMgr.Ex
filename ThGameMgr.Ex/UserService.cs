@@ -1,6 +1,6 @@
 ﻿namespace ThGameMgr.Ex
 {
-    internal class UserService : IUserService
+    public class UserService : IUserService
     {
         public string CurrentUserName { get; set; }
 
