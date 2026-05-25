@@ -10,6 +10,8 @@ namespace ThGameMgr.Ex
         private IntPtr _gameWindow;
         private DispatcherTimer? _timer;
 
+        private readonly IUserService _currentUserService;
+
         public IntPtr GameWindow
         {
             get
@@ -52,14 +54,17 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public ResizerFrameWindow()
+        public ResizerFrameWindow(IUserService currentUserService)
         {
             InitializeComponent();
 
+            _currentUserService = currentUserService;
+
             try
             {
+                SettingsConfigurator settingsConfigurator = new(currentUserService);
                 ResizerFrameWindowSettings resizerFrameWindowSettings
-                    = SettingsConfigurator.ConfigureResizerFrameWindowSettings();
+                    = settingsConfigurator.ConfigureResizerFrameWindowSettings();
                 AutoCloseMenuItem.IsChecked = resizerFrameWindowSettings.AutoClose;
                 if (resizerFrameWindowSettings.FixAspectRate)
                 {
@@ -149,7 +154,8 @@ namespace ThGameMgr.Ex
                     FixAspectRate = FixAspectRateCheckBox.IsChecked == true
                 };
 
-                SettingsConfigurator.SaveResizerFrameWindowSettings(resizerFrameWindowSettings);
+                SettingsConfigurator settingsConfigurator = new(_currentUserService);
+                settingsConfigurator.SaveResizerFrameWindowSettings(resizerFrameWindowSettings);
             }
             catch (Exception ex)
             {

@@ -2,10 +2,9 @@
 {
     internal class ScoreBackup
     {
-        public static bool Create(string gameId)
+        public static bool Create(string gameId, string backupDirectory)
         {
             string scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
-            string backupDirectory = $"{User.CurrentUserDirectoryPath}\\backup\\{gameId}";
 
             if (File.Exists(scoreFilePath))
             {
@@ -14,7 +13,7 @@
 
                 string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                File.Copy(scoreFilePath, $"{backupDirectory}\\{timestamp}.bak", true);
+                File.Copy(scoreFilePath, Path.Combine(backupDirectory, gameId, $"{timestamp}.bak"), true);
 
                 return true;
             }
@@ -24,26 +23,23 @@
             }
         }
 
-        public static void Restore(string gameId, string backupFileName)
+        public static void Restore(string gameId, string backupFilePath)
         {
             string scoreFilePath = ScoreFile.GetScoreFilePath(gameId);
-            string backupFilePath =
-                $"{User.CurrentUserDirectoryPath}\\backup\\{gameId}\\{backupFileName}";
 
             File.Copy(backupFilePath, scoreFilePath, true);
         }
 
-        public static string[] GetScoreBackupFiles(string gameId)
+        public static string[] GetScoreBackupFiles(string gameId, string backupDirectory)
         {
-            string backupDirectory = $"{User.CurrentUserDirectoryPath}\\backup\\{gameId}";
-            string[] scoreBackupFiles = Directory.GetFiles(backupDirectory, "*.bak", SearchOption.TopDirectoryOnly);
+            string[] scoreBackupFiles = Directory.GetFiles(Path.Combine(backupDirectory, gameId), "*.bak", SearchOption.TopDirectoryOnly);
 
             return scoreBackupFiles;
         }
 
-        public static void Delete(string gameId, string backupFileName)
+        public static void Delete(string gameId, string backupFileName, string backupDirectory)
         {
-            string backupFilePath = $"{User.CurrentUserDirectoryPath}\\backup\\{gameId}\\{backupFileName}";
+            string backupFilePath = Path.Combine(backupDirectory, gameId, backupFileName);
             File.Delete(backupFilePath);
         }
     }

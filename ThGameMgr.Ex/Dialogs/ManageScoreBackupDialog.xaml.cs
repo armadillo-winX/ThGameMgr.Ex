@@ -7,18 +7,21 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class ManageScoreBackupDialog : Window
     {
-        public ManageScoreBackupDialog()
+        private readonly IUserService _currentUserService;
+
+        public ManageScoreBackupDialog(IUserService userService)
         {
             InitializeComponent();
+            _currentUserService = userService;
 
             BackupGameListBox.Items.Clear();
             BackupListBox.Items.Clear();
 
-            if (Directory.Exists($"{User.CurrentUserDirectoryPath}\\backup\\"))
+            if (Directory.Exists(userService.GetCurrentUserScoreBackupDirectoy()))
             {
                 string[] backupDirectories
                     = Directory.GetDirectories(
-                        $"{User.CurrentUserDirectoryPath}\\backup\\", "*", SearchOption.TopDirectoryOnly);
+                        userService.GetCurrentUserScoreBackupDirectoy(), "*", SearchOption.TopDirectoryOnly);
 
                 foreach (string backupDirectory in backupDirectories)
                 {
@@ -43,7 +46,7 @@ namespace ThGameMgr.Ex.Dialogs
                 {
                     try
                     {
-                        string[] backupFiles = ScoreBackup.GetScoreBackupFiles(gameId);
+                        string[] backupFiles = ScoreBackup.GetScoreBackupFiles(gameId, _currentUserService.GetCurrentUserScoreBackupDirectoy());
                         if (backupFiles.Length > 0)
                         {
                             for (int i = backupFiles.Length - 1; i >= 0; i--)
@@ -82,6 +85,7 @@ namespace ThGameMgr.Ex.Dialogs
                         MessageBoxButton.YesNo, MessageBoxImage.Information);
                         if (result == MessageBoxResult.Yes)
                         {
+                            string backupFilePath = Path.Combine(_currentUserService.GetCurrentUserScoreBackupDirectoy(), gameId, backupFile);
                             ScoreBackup.Restore(gameId, backupFile);
 
                             MessageBox.Show(this, "復元しました。", "スコアファイルの復元",
@@ -120,7 +124,7 @@ namespace ThGameMgr.Ex.Dialogs
                     {
                         if (gameId != null)
                         {
-                            ScoreBackup.Delete(gameId, backupFile);
+                            ScoreBackup.Delete(gameId, backupFile, _currentUserService.GetCurrentUserScoreBackupDirectoy());
                             BackupListBox.Items.Remove(backupFile);
                         }
                     }

@@ -3,13 +3,9 @@ using System.Xml;
 
 namespace ThGameMgr.Ex
 {
-    internal class User
+    internal class UserConfigurator
     {
         private readonly static string _usersDirectory = PathInfo.UsersDirectory;
-
-        public static string? CurrentUserName { get; set; }
-
-        public static string? CurrentUserDirectoryPath { get; set; }
 
         public enum UsersSelectionValidity
         {
@@ -84,7 +80,7 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public static string? GetUserDirectoryName(string userName)
+        public static string GetUserDirectoryName(string userName)
         {
             string? usersIndexFile = PathInfo.UsersIndexFile;
             if (Exists(userName))
@@ -95,33 +91,14 @@ namespace ThGameMgr.Ex
                 XmlNode? userDirectoryNameNode
                     = usersIndexDocument.SelectSingleNode($"//User[@Index='{userName}']/DirectoryName");
 
-                string? userDirectoryName
-                    = userDirectoryNameNode != null ? userDirectoryNameNode.InnerText : null;
+                string userDirectoryName
+                    = userDirectoryNameNode != null ? userDirectoryNameNode.InnerText : string.Empty;
 
                 return userDirectoryName;
             }
             else
             {
-                return null;
-            }
-        }
-
-        public static bool Switch(string? userName)
-        {
-            if (!string.IsNullOrEmpty(userName))
-            {
-                string? userDirectoryName = GetUserDirectoryName(userName);
-                if (userDirectoryName == null)
-                    return false;
-
-                CurrentUserName = userName;
-                CurrentUserDirectoryPath = $"{_usersDirectory}\\{userDirectoryName}";
-
-                return true;
-            }
-            else
-            {
-                return false;
+                throw new UserNotFoundException(userName, $"ユーザー '{userName}' は存在しません。");
             }
         }
 
@@ -147,10 +124,10 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public static void SaveUserSelectionConfig()
+        public static void SaveUserSelectionConfig(string userName)
         {
             string? userSelectionConfigFile = PathInfo.UserSelectionConfigFile;
-            if (!string.IsNullOrEmpty(CurrentUserName))
+            if (!string.IsNullOrEmpty(userName))
             {
                 XmlDocument userSelectionConfigXml = new();
                 XmlNode docNode = userSelectionConfigXml.CreateXmlDeclaration("1.0", "UTF-8", null);
@@ -160,7 +137,7 @@ namespace ThGameMgr.Ex
                 _ = userSelectionConfigXml.AppendChild(rootNode);
 
                 XmlElement selectionNode = userSelectionConfigXml.CreateElement("UserSelection");
-                _ = selectionNode.AppendChild(userSelectionConfigXml.CreateTextNode(CurrentUserName));
+                _ = selectionNode.AppendChild(userSelectionConfigXml.CreateTextNode(userName));
                 _ = rootNode.AppendChild(selectionNode);
                 userSelectionConfigXml.Save(userSelectionConfigFile);
             }
