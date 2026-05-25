@@ -13,7 +13,7 @@
 
                 string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
 
-                File.Copy(scoreFilePath, $"{backupDirectory}\\{timestamp}.bak", true);
+                File.Copy(scoreFilePath, Path.Combine(backupDirectory, gameId, $"{timestamp}.bak"), true);
 
                 return true;
             }
