@@ -8,7 +8,7 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class DeleteUserDialog : Window
     {
-        public DeleteUserDialog()
+        public DeleteUserDialog(IUserService userService)
         {
             InitializeComponent();
 
@@ -18,7 +18,7 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 try
                 {
-                    List<string>? usersList = User.GetUsersList();
+                    List<string>? usersList = UserConfigurator.GetUsersList();
                     if (usersList != null && usersList.Count > 0)
                     {
                         foreach (string userName in usersList)
@@ -26,7 +26,7 @@ namespace ThGameMgr.Ex.Dialogs
                             ListBoxItem userItem = new()
                             {
                                 Content = userName,
-                                IsEnabled = userName != User.CurrentUserName
+                                IsEnabled = userName != userService.GetCurrentUserName()
                             };
                             _ = UsersListBox.Items.Add(userItem);
                         }
@@ -60,7 +60,7 @@ namespace ThGameMgr.Ex.Dialogs
                     if (result == MessageBoxResult.Yes &&
                         !string.IsNullOrEmpty(userName))
                     {
-                        User.Delete(userName);
+                        UserConfigurator.Delete(userName);
                         UsersListBox.Items.Remove(selectedItem);
                     }
                 }

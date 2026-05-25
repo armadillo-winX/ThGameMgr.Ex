@@ -5,6 +5,8 @@
     /// </summary>
     public partial class AddUserDialog : Window
     {
+        public string? UserName { get; set; }
+
         public AddUserDialog()
         {
             InitializeComponent();
@@ -17,7 +19,7 @@
             if (!string.IsNullOrWhiteSpace(UserNameBox.Text))
             {
                 string userName = UserNameBox.Text;
-                if (User.Exists(userName))
+                if (UserConfigurator.Exists(userName))
                 {
                     MessageBox.Show(this, $"ユーザー '{userName}' は既に存在します。\n別のユーザー名を指定してください。",
                         "ユーザーの追加",
@@ -27,8 +29,8 @@
                 {
                     try
                     {
-                        User.Add(userName);
-                        User.Switch(userName);
+                        UserConfigurator.Add(userName);
+                        this.UserName = userName;
                         this.DialogResult = true;
                     }
                     catch (Exception ex)

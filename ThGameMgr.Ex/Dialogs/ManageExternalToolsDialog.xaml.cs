@@ -8,15 +8,19 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class ManageExternalToolsDialog : Window
     {
-        public ManageExternalToolsDialog()
+        private IUserService _currentUserService;
+
+        public ManageExternalToolsDialog(IUserService userService)
         {
             InitializeComponent();
 
-            if (!File.Exists($"{User.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml"))
+            _currentUserService = userService;
+
+            if (!File.Exists(Path.Combine(userService.GetCurrentUserSettingsDirectory(), "ExternalTools.xml")))
             {
                 try
                 {
-                    ExternalTool.CreateExternalConfigFile();
+                    ExternalTool.CreateExternalConfigFile(userService.GetCurrentUserSettingsDirectory());
                 }
                 catch (Exception ex)
                 {
@@ -42,7 +46,7 @@ namespace ThGameMgr.Ex.Dialogs
         {
             ExternalToolsListBox.Items.Clear();
 
-            string exToolsConfig = $"{User.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
+            string exToolsConfig = Path.Combine(_currentUserService.GetCurrentUserSettingsDirectory(), "ExternalTools.xml");
             if (File.Exists(exToolsConfig))
             {
                 XmlDocument exToolsConfigXml = new();
@@ -72,7 +76,7 @@ namespace ThGameMgr.Ex.Dialogs
         {
             try
             {
-                AddExternalToolDialog addExternalToolDialog = new()
+                AddExternalToolDialog addExternalToolDialog = new(_currentUserService)
                 {
                     Owner = this
                 };
@@ -98,7 +102,7 @@ namespace ThGameMgr.Ex.Dialogs
                     string? toolName = selectedItem.Content.ToString();
                     if (!string.IsNullOrEmpty(toolName))
                     {
-                        ExternalTool.Delete(toolName);
+                        ExternalTool.Delete(toolName, _currentUserService.GetCurrentUserSettingsDirectory());
                         GetExternalTools();
                     }
                 }

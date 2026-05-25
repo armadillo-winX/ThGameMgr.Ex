@@ -6,49 +6,52 @@ namespace ThGameMgr.Ex.Settings
 {
     class SettingsConfigurator
     {
-        public static void SaveGamePathSettings()
+        private IUserService _currentUserService;
+        public SettingsConfigurator(IUserService userService)
         {
-            if (!string.IsNullOrEmpty(User.CurrentUserDirectoryPath))
-            {
-                string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
-                string? gamePathSettingsFile = $"{settingsDirectory}\\GamePathSettings.xml";
-
-                if (!Directory.Exists(settingsDirectory))
-                {
-                    Directory.CreateDirectory(settingsDirectory);
-                }
-
-                List<string> allGamesList = GameIndex.GetAllGamesList();
-
-                XmlDocument gamePathSettingsXml = new();
-
-                XmlNode docNode = gamePathSettingsXml.CreateXmlDeclaration("1.0", "UTF-8", null);
-                _ = gamePathSettingsXml.AppendChild(docNode);
-
-                XmlNode rootNode = gamePathSettingsXml.CreateElement("GamePathSettings");
-                _ = gamePathSettingsXml.AppendChild(rootNode);
-
-                foreach (string gameId in allGamesList)
-                {
-                    string gameFilePath = GameFile.GetGameFilePath(gameId);
-                    XmlElement gamePathConfigNode = gamePathSettingsXml.CreateElement(gameId);
-                    gamePathConfigNode.InnerText = gameFilePath;
-
-                    _ = rootNode.AppendChild(gamePathConfigNode);
-                }
-
-                gamePathSettingsXml.Save(gamePathSettingsFile);
-            }
+            _currentUserService = userService;
         }
 
-        public static void ConfigureGamePathSettings()
+        public void SaveGamePathSettings()
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
-            string? gamePathSettingsFile = $"{settingsDirectory}\\GamePathSettings.xml";
+            string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
+            string gamePathSettingsFile = Path.Combine(settingsDirectory, "GamePathSettings.xml");
+
+            if (!Directory.Exists(settingsDirectory))
+            {
+                Directory.CreateDirectory(settingsDirectory);
+            }
 
             List<string> allGamesList = GameIndex.GetAllGamesList();
 
-            if (!string.IsNullOrEmpty(gamePathSettingsFile) && File.Exists(gamePathSettingsFile))
+            XmlDocument gamePathSettingsXml = new();
+
+            XmlNode docNode = gamePathSettingsXml.CreateXmlDeclaration("1.0", "UTF-8", null);
+            _ = gamePathSettingsXml.AppendChild(docNode);
+
+            XmlNode rootNode = gamePathSettingsXml.CreateElement("GamePathSettings");
+            _ = gamePathSettingsXml.AppendChild(rootNode);
+
+            foreach (string gameId in allGamesList)
+            {
+                string gameFilePath = GameFile.GetGameFilePath(gameId);
+                XmlElement gamePathConfigNode = gamePathSettingsXml.CreateElement(gameId);
+                gamePathConfigNode.InnerText = gameFilePath;
+
+                _ = rootNode.AppendChild(gamePathConfigNode);
+            }
+
+            gamePathSettingsXml.Save(gamePathSettingsFile);
+        }
+
+        public void ConfigureGamePathSettings()
+        {
+            string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
+            string gamePathSettingsFile = Path.Combine(settingsDirectory, "GamePathSettings.xml");
+
+            List<string> allGamesList = GameIndex.GetAllGamesList();
+
+            if (File.Exists(gamePathSettingsFile))
             {
                 XmlDocument gamePathSettingsXml = new();
                 gamePathSettingsXml.Load(gamePathSettingsFile);
@@ -77,104 +80,101 @@ namespace ThGameMgr.Ex.Settings
             }
         }
 
-        public static void SaveGameSpecificConfig()
+        public void SaveGameSpecificConfig()
         {
-            if (!string.IsNullOrEmpty(User.CurrentUserDirectoryPath))
+            string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
+            string gameSpecificConfigFile = Path.Combine(settingsDirectory, "GameSpecificConfig.xml");
+
+            if (!Directory.Exists(settingsDirectory))
             {
-                string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
-                string? gameSpecificConfigFile = $"{settingsDirectory}\\GameSpecificConfig.xml";
-
-                if (!Directory.Exists(settingsDirectory))
-                {
-                    Directory.CreateDirectory(settingsDirectory);
-                }
-
-                List<string> allGamesList = GameIndex.GetAllGamesList();
-
-                XmlDocument gameSpecificConfigXml = new();
-
-                XmlNode docNode = gameSpecificConfigXml.CreateXmlDeclaration("1.0", "UTF-8", null);
-                _ = gameSpecificConfigXml.AppendChild(docNode);
-
-                XmlNode rootNode = gameSpecificConfigXml.CreateElement("GameSpecificConfig");
-                _ = gameSpecificConfigXml.AppendChild(rootNode);
-
-                XmlNode autoResizerConfigRootNode =
-                    gameSpecificConfigXml.CreateElement("AutoResizerConfig");
-                _ = rootNode.AppendChild(autoResizerConfigRootNode);
-
-                XmlNode scoreFilterPlayerConfigRootNode =
-                    gameSpecificConfigXml.CreateElement("ScoreFilterPlayerConfig");
-                _ = rootNode.AppendChild(scoreFilterPlayerConfigRootNode);
-
-                XmlNode spellCardPlayerConfigRootNode =
-                    gameSpecificConfigXml.CreateElement("ScoreFilterCardPlayerConfig");
-                _ = rootNode.AppendChild(spellCardPlayerConfigRootNode);
-
-                XmlNode scoreFilterEnemyConfigRootNode =
-                    gameSpecificConfigXml.CreateElement("ScoreFilterEnemyConfig");
-                _ = rootNode.AppendChild(scoreFilterEnemyConfigRootNode);
-
-                XmlNode scoreFilterPracticeEnemyConfigRootNode =
-                    gameSpecificConfigXml.CreateElement("ScoreFilterPracticeEnemyConfig");
-                _ = rootNode.AppendChild(scoreFilterPracticeEnemyConfigRootNode);
-
-                XmlNode scoreFilterLevelConfigRootNode =
-                    gameSpecificConfigXml.CreateElement("ScoreFilterLevelConfig");
-                _ = rootNode.AppendChild(scoreFilterLevelConfigRootNode);
-
-                foreach (string gameId in allGamesList)
-                {
-                    bool? config = GameSpecificSettings.GetAutoResizerConfig(gameId);
-                    XmlElement autoResizerConfigNode = gameSpecificConfigXml.CreateElement(gameId);
-                    autoResizerConfigNode.InnerText = (config == true).ToString(); //nullチェック
-
-                    _ = autoResizerConfigRootNode.AppendChild(autoResizerConfigNode);
-
-                    string filterPlayer = GameSpecificSettings.GetScoreFilterPlayer(gameId);
-                    XmlElement scoreFilterPlayerConfigNode = gameSpecificConfigXml.CreateElement(gameId);
-                    scoreFilterPlayerConfigNode.InnerText = filterPlayer;
-
-                    _ = scoreFilterPlayerConfigRootNode.AppendChild(scoreFilterPlayerConfigNode);
-
-
-                    string spellCardFilterPlayer = GameSpecificSettings.GetSpellCardFilterPlayer(gameId);
-                    XmlElement spellCardFilterPlayerConfigNode = gameSpecificConfigXml.CreateElement(gameId);
-                    spellCardFilterPlayerConfigNode.InnerText= spellCardFilterPlayer;
-
-                    _ = spellCardPlayerConfigRootNode.AppendChild(spellCardFilterPlayerConfigNode);
-
-                    string filterEnemy = GameSpecificSettings.GetScoreFilterEnemy(gameId);
-                    XmlElement scoreFilterEnemyConfigNode = gameSpecificConfigXml.CreateElement(gameId);
-                    scoreFilterEnemyConfigNode.InnerText = filterEnemy;
-
-                    _ = scoreFilterEnemyConfigRootNode.AppendChild(scoreFilterEnemyConfigNode);
-
-                    string filterPracticeEnemy = GameSpecificSettings.GetScoreFilterPracticeEnemy(gameId);
-                    XmlElement scoreFilterPracticeEnemyConfigNode = gameSpecificConfigXml.CreateElement(gameId);
-                    scoreFilterPracticeEnemyConfigNode.InnerText = filterPracticeEnemy;
-
-                    _ = scoreFilterPracticeEnemyConfigRootNode.AppendChild(scoreFilterPracticeEnemyConfigNode);
-
-                    string filterLevel = GameSpecificSettings.GetScoreFilterLevel(gameId);
-                    XmlElement scoreFilterLevelConfigNode = gameSpecificConfigXml.CreateElement(gameId);
-                    scoreFilterLevelConfigNode.InnerText = filterLevel;
-
-                    _ = scoreFilterLevelConfigRootNode.AppendChild(scoreFilterLevelConfigNode);
-                }
-
-                gameSpecificConfigXml.Save(gameSpecificConfigFile);
+                Directory.CreateDirectory(settingsDirectory);
             }
-        }
-
-        public static void ConfigureGameSpecificConfig()
-        {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
-            string? gameSpecificConfigFile = $"{settingsDirectory}\\GameSpecificConfig.xml";
 
             List<string> allGamesList = GameIndex.GetAllGamesList();
 
-            if (!string.IsNullOrEmpty(gameSpecificConfigFile) && File.Exists(gameSpecificConfigFile))
+            XmlDocument gameSpecificConfigXml = new();
+
+            XmlNode docNode = gameSpecificConfigXml.CreateXmlDeclaration("1.0", "UTF-8", null);
+            _ = gameSpecificConfigXml.AppendChild(docNode);
+
+            XmlNode rootNode = gameSpecificConfigXml.CreateElement("GameSpecificConfig");
+            _ = gameSpecificConfigXml.AppendChild(rootNode);
+
+            XmlNode autoResizerConfigRootNode =
+                gameSpecificConfigXml.CreateElement("AutoResizerConfig");
+            _ = rootNode.AppendChild(autoResizerConfigRootNode);
+
+            XmlNode scoreFilterPlayerConfigRootNode =
+                gameSpecificConfigXml.CreateElement("ScoreFilterPlayerConfig");
+            _ = rootNode.AppendChild(scoreFilterPlayerConfigRootNode);
+
+            XmlNode spellCardPlayerConfigRootNode =
+                gameSpecificConfigXml.CreateElement("ScoreFilterCardPlayerConfig");
+            _ = rootNode.AppendChild(spellCardPlayerConfigRootNode);
+
+            XmlNode scoreFilterEnemyConfigRootNode =
+                gameSpecificConfigXml.CreateElement("ScoreFilterEnemyConfig");
+            _ = rootNode.AppendChild(scoreFilterEnemyConfigRootNode);
+
+            XmlNode scoreFilterPracticeEnemyConfigRootNode =
+                gameSpecificConfigXml.CreateElement("ScoreFilterPracticeEnemyConfig");
+            _ = rootNode.AppendChild(scoreFilterPracticeEnemyConfigRootNode);
+
+            XmlNode scoreFilterLevelConfigRootNode =
+                gameSpecificConfigXml.CreateElement("ScoreFilterLevelConfig");
+            _ = rootNode.AppendChild(scoreFilterLevelConfigRootNode);
+
+            foreach (string gameId in allGamesList)
+            {
+                bool? config = GameSpecificSettings.GetAutoResizerConfig(gameId);
+                XmlElement autoResizerConfigNode = gameSpecificConfigXml.CreateElement(gameId);
+                autoResizerConfigNode.InnerText = (config == true).ToString(); //nullチェック
+
+                _ = autoResizerConfigRootNode.AppendChild(autoResizerConfigNode);
+
+                string filterPlayer = GameSpecificSettings.GetScoreFilterPlayer(gameId);
+                XmlElement scoreFilterPlayerConfigNode = gameSpecificConfigXml.CreateElement(gameId);
+                scoreFilterPlayerConfigNode.InnerText = filterPlayer;
+
+                _ = scoreFilterPlayerConfigRootNode.AppendChild(scoreFilterPlayerConfigNode);
+
+
+                string spellCardFilterPlayer = GameSpecificSettings.GetSpellCardFilterPlayer(gameId);
+                XmlElement spellCardFilterPlayerConfigNode = gameSpecificConfigXml.CreateElement(gameId);
+                spellCardFilterPlayerConfigNode.InnerText = spellCardFilterPlayer;
+
+                _ = spellCardPlayerConfigRootNode.AppendChild(spellCardFilterPlayerConfigNode);
+
+                string filterEnemy = GameSpecificSettings.GetScoreFilterEnemy(gameId);
+                XmlElement scoreFilterEnemyConfigNode = gameSpecificConfigXml.CreateElement(gameId);
+                scoreFilterEnemyConfigNode.InnerText = filterEnemy;
+
+                _ = scoreFilterEnemyConfigRootNode.AppendChild(scoreFilterEnemyConfigNode);
+
+                string filterPracticeEnemy = GameSpecificSettings.GetScoreFilterPracticeEnemy(gameId);
+                XmlElement scoreFilterPracticeEnemyConfigNode = gameSpecificConfigXml.CreateElement(gameId);
+                scoreFilterPracticeEnemyConfigNode.InnerText = filterPracticeEnemy;
+
+                _ = scoreFilterPracticeEnemyConfigRootNode.AppendChild(scoreFilterPracticeEnemyConfigNode);
+
+                string filterLevel = GameSpecificSettings.GetScoreFilterLevel(gameId);
+                XmlElement scoreFilterLevelConfigNode = gameSpecificConfigXml.CreateElement(gameId);
+                scoreFilterLevelConfigNode.InnerText = filterLevel;
+
+                _ = scoreFilterLevelConfigRootNode.AppendChild(scoreFilterLevelConfigNode);
+            }
+
+            gameSpecificConfigXml.Save(gameSpecificConfigFile);
+        }
+
+        public void ConfigureGameSpecificConfig()
+        {
+            string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
+            string gameSpecificConfigFile = Path.Combine(settingsDirectory, "GameSpecificConfig.xml");
+
+            List<string> allGamesList = GameIndex.GetAllGamesList();
+
+            if (File.Exists(gameSpecificConfigFile))
             {
                 XmlDocument gameSpecificConfigXml = new();
                 gameSpecificConfigXml.Load(gameSpecificConfigFile);
@@ -280,34 +280,30 @@ namespace ThGameMgr.Ex.Settings
             }
         }
 
-        public static void SaveMainWindowSettings(MainWindowSettings mainWindowSettings)
-        {            
-            if (!string.IsNullOrEmpty(User.CurrentUserDirectoryPath))
+        public void SaveMainWindowSettings(MainWindowSettings mainWindowSettings)
+        {
+            string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
+            string mainWindowSettingsFile = Path.Combine(settingsDirectory, "MainWindowSettings.xml");
+
+            if (!Directory.Exists(settingsDirectory))
             {
-                string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
-                string? mainWindowSettingsFile = $"{settingsDirectory}\\MainWindowSettings.xml";
-
-                if (!Directory.Exists(settingsDirectory))
-                {
-                    Directory.CreateDirectory(settingsDirectory);
-                }
-
-                XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
-                FileStream fileStream = new(mainWindowSettingsFile, FileMode.Create);
-                mainWindowSettingsSerializer.Serialize(fileStream, mainWindowSettings);
-                fileStream.Close();
+                Directory.CreateDirectory(settingsDirectory);
             }
+
+            XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
+            FileStream fileStream = new(mainWindowSettingsFile, FileMode.Create);
+            mainWindowSettingsSerializer.Serialize(fileStream, mainWindowSettings);
+            fileStream.Close();
         }
 
-        public static MainWindowSettings ConfigureMainWindowSettings()
+        public MainWindowSettings ConfigureMainWindowSettings()
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
-            string? mainWindowSettingsFile = $"{settingsDirectory}\\MainWindowSettings.xml";
+            string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
+            string mainWindowSettingsFile = Path.Combine(settingsDirectory, "MainWindowSettings.xml");
 
             MainWindowSettings? mainWindowSettings = new();
 
-            if (!string.IsNullOrEmpty(mainWindowSettingsFile) &&
-                File.Exists(mainWindowSettingsFile))
+            if (File.Exists(mainWindowSettingsFile))
             {
                 XmlSerializer mainWindowSettingsSerializer = new(typeof(MainWindowSettings));
                 FileStream fileStream = new(mainWindowSettingsFile, FileMode.Open);
@@ -343,39 +339,36 @@ namespace ThGameMgr.Ex.Settings
             return mainWindowSettings;
         }
 
-        public static void SaveDefaultGameSettings(string defaultGameId)
+        public void SaveDefaultGameSettings(string defaultGameId)
         {
-            if (!string.IsNullOrEmpty(User.CurrentUserDirectoryPath))
+            string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
+            string defaultGameSettingsFile = Path.Combine(settingsDirectory, "DefaultGameSettings.xml");
+
+            if (!Directory.Exists(settingsDirectory))
             {
-                string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
-                string? defaultGameSettingsFile = $"{settingsDirectory}\\DefaultGameSettings.xml";
-
-                if (!Directory.Exists(settingsDirectory))
-                {
-                    Directory.CreateDirectory(settingsDirectory);
-                }
-
-                XmlDocument defaultGameSettingsXml = new();
-
-                XmlNode docNode = defaultGameSettingsXml.CreateXmlDeclaration("1.0", "UTF-8", null);
-                _ = defaultGameSettingsXml.AppendChild(docNode);
-
-                XmlNode rootNode = defaultGameSettingsXml.CreateElement("DefaultGameSettings");
-                _ = defaultGameSettingsXml.AppendChild(rootNode);
-
-                XmlNode defaultGameConfigNode = defaultGameSettingsXml.CreateElement("DefaultGame");
-                defaultGameConfigNode.InnerText = defaultGameId;
-                _ = rootNode.AppendChild(defaultGameConfigNode);
-
-                defaultGameSettingsXml.Save(defaultGameSettingsFile);
+                Directory.CreateDirectory(settingsDirectory);
             }
+
+            XmlDocument defaultGameSettingsXml = new();
+
+            XmlNode docNode = defaultGameSettingsXml.CreateXmlDeclaration("1.0", "UTF-8", null);
+            _ = defaultGameSettingsXml.AppendChild(docNode);
+
+            XmlNode rootNode = defaultGameSettingsXml.CreateElement("DefaultGameSettings");
+            _ = defaultGameSettingsXml.AppendChild(rootNode);
+
+            XmlNode defaultGameConfigNode = defaultGameSettingsXml.CreateElement("DefaultGame");
+            defaultGameConfigNode.InnerText = defaultGameId;
+            _ = rootNode.AppendChild(defaultGameConfigNode);
+
+            defaultGameSettingsXml.Save(defaultGameSettingsFile);
         }
 
-        public static string ConfigureDefaultGameSettings()
+        public string ConfigureDefaultGameSettings()
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
-            string? defaultGameSettingsFile = $"{settingsDirectory}\\DefaultGameSettings.xml";
-            if (!string.IsNullOrEmpty(defaultGameSettingsFile) && File.Exists(defaultGameSettingsFile))
+            string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
+            string defaultGameSettingsFile = Path.Combine(settingsDirectory, "DefaultGameSettings.xml");
+            if (File.Exists(defaultGameSettingsFile))
             {
                 XmlDocument defaultGameSettingsXml = new();
                 defaultGameSettingsXml.Load(defaultGameSettingsFile);
@@ -394,10 +387,10 @@ namespace ThGameMgr.Ex.Settings
             }
         }
 
-        public static void SaveResizerFrameWindowSettings(ResizerFrameWindowSettings resizerFrameWindowSettings)
+        public void SaveResizerFrameWindowSettings(ResizerFrameWindowSettings resizerFrameWindowSettings)
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
-            string? resizerFrameWindowSettingsFile = $"{settingsDirectory}\\ResizerFrameWindowSettings.xml";
+            string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
+            string resizerFrameWindowSettingsFile = Path.Combine(settingsDirectory, "ResizerFrameWindowSettings.xml");
 
             XmlSerializer resizerFrameWindowSettingsSerializer = new(typeof(ResizerFrameWindowSettings));
             FileStream fileStream = new(resizerFrameWindowSettingsFile, FileMode.Create);
@@ -405,15 +398,14 @@ namespace ThGameMgr.Ex.Settings
             fileStream.Close();
         }
 
-        public static ResizerFrameWindowSettings ConfigureResizerFrameWindowSettings()
+        public ResizerFrameWindowSettings ConfigureResizerFrameWindowSettings()
         {
-            string? settingsDirectory = $"{User.CurrentUserDirectoryPath}\\Settings";
-            string? resizerFrameWindowSettingsFile = $"{settingsDirectory}\\ResizerFrameWindowSettings.xml";
+            string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
+            string resizerFrameWindowSettingsFile = Path.Combine(settingsDirectory, "ResizerFrameWindowSettings.xml");
 
             ResizerFrameWindowSettings? resizerFrameWindowSettings = new();
 
-            if (!string.IsNullOrEmpty(resizerFrameWindowSettingsFile) &&
-                File.Exists(resizerFrameWindowSettingsFile))
+            if (File.Exists(resizerFrameWindowSettingsFile))
             {
                 XmlSerializer resizerFrameWindowSettingsSerializer = new(typeof(ResizerFrameWindowSettings));
                 FileStream fileStream = new(resizerFrameWindowSettingsFile, FileMode.Open);

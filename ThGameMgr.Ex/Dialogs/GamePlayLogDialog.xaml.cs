@@ -7,9 +7,12 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class GamePlayLogDialog : Window
     {
-        public GamePlayLogDialog()
+        private readonly IUserService _currentUserService;
+
+        public GamePlayLogDialog(IUserService userService)
         {
             InitializeComponent();
+            _currentUserService = userService;
 
             try
             {
@@ -25,11 +28,12 @@ namespace ThGameMgr.Ex.Dialogs
 
         private void ViewGamePlayLogData()
         {
-            string gamePlayLogRecordFile = $"{User.CurrentUserDirectoryPath}\\GamePlayLog.xml";
+            string gamePlayLogRecordFile = _currentUserService.GetCurrentUserGamePlayLogRecordFilePath();
             if (File.Exists(gamePlayLogRecordFile))
             {
                 ObservableCollection<GamePlayLogData> gamePlayLogDataCollection = [];
-                gamePlayLogDataCollection = GamePlayLogRecorder.GetGamePlayLogDataCollection();
+                GamePlayLogRecorder gamePlayLogRecorder = new(_currentUserService);
+                gamePlayLogDataCollection = gamePlayLogRecorder.GetGamePlayLogDataCollection();
                 GameLogDataGrid.AutoGenerateColumns = false;
 
                 for (int i = gamePlayLogDataCollection.Count - 1; i >= 0; i--)

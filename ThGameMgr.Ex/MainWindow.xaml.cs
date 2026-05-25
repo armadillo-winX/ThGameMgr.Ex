@@ -9,7 +9,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using System.Xml;
-using UsersSelectionValidity = ThGameMgr.Ex.User.UsersSelectionValidity;
+using UsersSelectionValidity = ThGameMgr.Ex.UserConfigurator.UsersSelectionValidity;
 
 namespace ThGameMgr.Ex
 {
@@ -32,6 +32,8 @@ namespace ThGameMgr.Ex
         private ResizerFrameWindow? _resizerFrameWindow = null;
         private ScoreRecordDetailDialog? _scoreRecordDetailDialog = null;
         private SpellCardRecordDetailDialog? _spellCardRecordDetailDialog = null;
+
+        private readonly UserService _currentUserService;
 
         private enum DialogMode
         {
@@ -311,7 +313,7 @@ namespace ThGameMgr.Ex
             }
         }
 
-        public MainWindow()
+        public MainWindow(UserService userService)
         {
             InitializeComponent();
 
@@ -321,6 +323,8 @@ namespace ThGameMgr.Ex
 
             EnableGameEndWaitingLimitationMode(false);
             SetStartGameStatus(string.Empty);
+
+            _currentUserService = userService;
 
             if (!Directory.Exists(PathInfo.UsersDirectory))
             {
@@ -358,7 +362,7 @@ namespace ThGameMgr.Ex
                 }
             }
 
-            UsersSelectionValidity usersSelectionValidity = User.GetUsersSelectionValidity();
+            UsersSelectionValidity usersSelectionValidity = UserConfigurator.GetUsersSelectionValidity();
 
             if (usersSelectionValidity == UsersSelectionValidity.Valid)
             {
@@ -1041,7 +1045,7 @@ namespace ThGameMgr.Ex
         {
             ExternalToolsMenu.Items.Clear();
 
-            string exToolsConfig = $"{User.CurrentUserDirectoryPath}\\Settings\\ExternalTools.xml";
+            string exToolsConfig = Path.Combine(_currentUserService.GetCurrentUserSettingsDirectory(), "ExternalTools.xml");
             if (File.Exists(exToolsConfig))
             {
                 try
@@ -1100,7 +1104,7 @@ namespace ThGameMgr.Ex
             string name = ((MenuItem)sender).Header.ToString();
             try
             {
-                ExternalTool.Start(name);
+                ExternalTool.Start(name, _currentUserService.GetCurrentUserSettingsDirectory());
             }
             catch (Exception ex)
             {
@@ -1119,8 +1123,11 @@ namespace ThGameMgr.Ex
                 MessageBoxButton.OK, MessageBoxImage.Information);
 
             AddUserDialog addUserDialog = new();
-            if (addUserDialog.ShowDialog() == true)
+            if (addUserDialog.ShowDialog() == true
+                && !string.IsNullOrWhiteSpace(addUserDialog.UserName))
             {
+                _currentUserService.SwitchUser(addUserDialog.UserName);
+
                 MessageBox.Show(
                     "ゲームのパスを設定してください。", VersionInfo.AppName,
                     MessageBoxButton.OK, MessageBoxImage.Information);
@@ -1132,7 +1139,7 @@ namespace ThGameMgr.Ex
 
                 SetExternalToolsMenu();
 
-                CurrentUserStatusBarItem.Content = User.CurrentUserName;
+                CurrentUserStatusBarItem.Content = _currentUserService.GetCurrentUserName();
             }
             else
             {
@@ -1150,15 +1157,20 @@ namespace ThGameMgr.Ex
         {
             if (File.Exists(PathInfo.UserSelectionConfigFile))
             {
-                string userName = User.GetUserSelection();
-                if (User.Exists(userName))
+                string userName = UserConfigurator.GetUserSelection();
+                if (UserConfigurator.Exists(userName))
                 {
-                    User.Switch(userName);
+                    _currentUserService.SwitchUser(userName);
                 }
                 else
                 {
                     SelectUserDialog selectUserDialog = new();
-                    if (selectUserDialog.ShowDialog() != true)
+                    if (selectUserDialog.ShowDialog() == true
+                        && !string.IsNullOrWhiteSpace(selectUserDialog.SelectedUserName))
+                    {
+                        _currentUserService.SwitchUser(selectUserDialog.SelectedUserName);
+                    }
+                    else
                     {
                         MessageBox.Show("ユーザーが選択されませんでした。\nアプリケーションを終了します。",
                             VersionInfo.AppName,
@@ -1171,7 +1183,12 @@ namespace ThGameMgr.Ex
             else
             {
                 SelectUserDialog selectUserDialog = new();
-                if (selectUserDialog.ShowDialog() != true)
+                if (selectUserDialog.ShowDialog() == true
+                    && !string.IsNullOrWhiteSpace(selectUserDialog.SelectedUserName))
+                {
+                    _currentUserService.SwitchUser(selectUserDialog.SelectedUserName);
+                }
+                else
                 {
                     MessageBox.Show("ユーザーが選択されませんでした。\nアプリケーションを終了します。",
                         VersionInfo.AppName,
@@ -1184,13 +1201,14 @@ namespace ThGameMgr.Ex
 
         private void ConfigureSettings()
         {
-            SettingsConfigurator.ConfigureGamePathSettings();
-            SettingsConfigurator.ConfigureGameSpecificConfig();
+            SettingsConfigurator settingsConfigurator = new(_currentUserService);
+            settingsConfigurator.ConfigureGamePathSettings();
+            settingsConfigurator.ConfigureGameSpecificConfig();
 
             string defaultGameId;
             try
             {
-                defaultGameId = SettingsConfigurator.ConfigureDefaultGameSettings();
+                defaultGameId = settingsConfigurator.ConfigureDefaultGameSettings();
             }
             catch (Exception)
             {
@@ -1199,7 +1217,7 @@ namespace ThGameMgr.Ex
 
             List<string> enabledGamesList = GameIndex.GetEnabledGamesList();
 
-            MainWindowSettings mainWindowSettings = SettingsConfigurator.ConfigureMainWindowSettings();
+            MainWindowSettings mainWindowSettings = settingsConfigurator.ConfigureMainWindowSettings();
 
             this.Width = mainWindowSettings.MainWindowWidth;
             this.Height = mainWindowSettings.MainWindowHeight;
@@ -1235,7 +1253,7 @@ namespace ThGameMgr.Ex
             SetExternalToolsMenu();
 
             AutoStartWindowResizerCheckBox.IsChecked = GameSpecificSettings.GetAutoResizerConfig(this.GameId);
-            CurrentUserStatusBarItem.Content = User.CurrentUserName;
+            CurrentUserStatusBarItem.Content = _currentUserService.GetCurrentUserName();
 
             GetScoreData();
             GetReplayFiles();
@@ -1243,8 +1261,9 @@ namespace ThGameMgr.Ex
 
         private void SaveSettings()
         {
-            SettingsConfigurator.SaveGamePathSettings();
-            SettingsConfigurator.SaveGameSpecificConfig();
+            SettingsConfigurator settingsConfigurator = new(_currentUserService);
+            settingsConfigurator.SaveGamePathSettings();
+            settingsConfigurator.SaveGameSpecificConfig();
 
             MainWindowSettings mainWindowSettings = new()
             {
@@ -1257,7 +1276,7 @@ namespace ThGameMgr.Ex
                 EnableSpellCardDataColoring = EnableSpellCardDataColoringMenuItem.IsChecked
             };
 
-            SettingsConfigurator.SaveMainWindowSettings(mainWindowSettings);
+            settingsConfigurator.SaveMainWindowSettings(mainWindowSettings);
         }
 
         private void ConfigurePlugins()
@@ -1710,7 +1729,7 @@ namespace ThGameMgr.Ex
 
                         if (gameWindowSizes.Width > 500)
                         {
-                            _resizerFrameWindow = new()
+                            _resizerFrameWindow = new(_currentUserService)
                             {
                                 Owner = this,
                                 GameWindow = gameProcess.MainWindowHandle
@@ -1778,7 +1797,8 @@ namespace ThGameMgr.Ex
 
             try
             {
-                GamePlayLogRecorder.SaveGamePlayLog(gamePlayLogData);
+                GamePlayLogRecorder gamePlayLogRecorder = new(_currentUserService);
+                gamePlayLogRecorder.SaveGamePlayLog(gamePlayLogData);
             }
             catch (Exception ex)
             {
@@ -1796,7 +1816,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    ScoreBackup.Create(this.GameId);
+                    ScoreBackup.Create(this.GameId, _currentUserService.GetCurrentUserScoreBackupDirectoy());
                 }
                 catch (Exception ex)
                 {
@@ -1980,7 +2000,7 @@ namespace ThGameMgr.Ex
         {
             try
             {
-                User.SaveUserSelectionConfig();
+                UserConfigurator.SaveUserSelectionConfig(_currentUserService.GetCurrentUserName());
                 SaveSettings();
             }
             catch (Exception ex)
@@ -1992,9 +2012,9 @@ namespace ThGameMgr.Ex
 
         private void SelectUserMenuItemClick(object sender, RoutedEventArgs e)
         {
-            SelectUserDialog selectUserDialog = new()
+            SelectUserDialog selectUserDialog = new(_currentUserService.GetCurrentUserName())
             {
-                Owner = this
+                Owner = this,
             };
 
             try
@@ -2009,10 +2029,12 @@ namespace ThGameMgr.Ex
                     "エラー", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            if (selectUserDialog.ShowDialog() == true)
+            if (selectUserDialog.ShowDialog() == true
+                && !string.IsNullOrWhiteSpace(selectUserDialog.SelectedUserName))
             {
                 try
                 {
+                    _currentUserService.SwitchUser(selectUserDialog.SelectedUserName);
                     ConfigureSettings();
                 }
                 catch (Exception ex)
@@ -2102,7 +2124,7 @@ namespace ThGameMgr.Ex
         {
             if (_resizerFrameWindow == null || !_resizerFrameWindow.IsLoaded)
             {
-                _resizerFrameWindow = new()
+                _resizerFrameWindow = new(_currentUserService)
                 {
                     Owner = this,
                     GameWindow = this.GameProcess.MainWindowHandle
@@ -2389,7 +2411,7 @@ namespace ThGameMgr.Ex
 
         private void GamePlayLogMenuItemClick(object sender, RoutedEventArgs e)
         {
-            GamePlayLogDialog gamePlayLogDialog = new()
+            GamePlayLogDialog gamePlayLogDialog = new(_currentUserService)
             {
                 Owner = this
             };
@@ -2399,7 +2421,7 @@ namespace ThGameMgr.Ex
 
         private void ManageExternalToolsMenuItemClick(object sender, RoutedEventArgs e)
         {
-            ManageExternalToolsDialog manageExternalToolsDialog = new()
+            ManageExternalToolsDialog manageExternalToolsDialog = new(_currentUserService)
             {
                 Owner = this
             };
@@ -2466,7 +2488,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    bool result = ScoreBackup.Create(gameId);
+                    bool result = ScoreBackup.Create(gameId, _currentUserService.GetCurrentUserScoreBackupDirectoy());
                     if (result)
                     {
                         MessageBox.Show(this, "スコアファイルのバックアップを作成しました。", "スコアファイルのバックアップ",
@@ -2484,7 +2506,7 @@ namespace ThGameMgr.Ex
 
         private void RestoreScoreFileMenuItemClick(object sender, RoutedEventArgs e)
         {
-            ManageScoreBackupDialog manageScoreBackupDialog = new()
+            ManageScoreBackupDialog manageScoreBackupDialog = new(_currentUserService)
             {
                 Owner = this
             };
@@ -2538,7 +2560,7 @@ namespace ThGameMgr.Ex
 
         private void DeleteUserMenuItemClick(object sender, RoutedEventArgs e)
         {
-            DeleteUserDialog deleteUserDialog = new()
+            DeleteUserDialog deleteUserDialog = new(_currentUserService)
             {
                 Owner = this
             };
@@ -2803,7 +2825,7 @@ namespace ThGameMgr.Ex
 
         private void DefaultGameSettingsMenuItemClick(object sender, RoutedEventArgs e)
         {
-            DefaultGameSettingsDialog defaultGameSettingsDialog = new()
+            DefaultGameSettingsDialog defaultGameSettingsDialog = new(_currentUserService)
             {
                 Owner = this
             };

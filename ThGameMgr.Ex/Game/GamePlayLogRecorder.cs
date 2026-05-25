@@ -5,9 +5,16 @@ namespace ThGameMgr.Ex.Game
 {
     internal class GamePlayLogRecorder
     {
-        public static void SaveGamePlayLog(GamePlayLogData gamePlayLogData)
+        private IUserService _currentUserService;
+
+        public GamePlayLogRecorder(IUserService currentUserService)
         {
-            string gamePlayLogFile = $"{User.CurrentUserDirectoryPath}\\GamePlayLog.xml";
+            _currentUserService = currentUserService;
+        }
+
+        public void SaveGamePlayLog(GamePlayLogData gamePlayLogData)
+        {
+            string gamePlayLogFile = _currentUserService.GetCurrentUserGamePlayLogRecordFilePath();
 
             if (!File.Exists(gamePlayLogFile))
             {
@@ -46,9 +53,9 @@ namespace ThGameMgr.Ex.Game
             gamePlayLogXml.Save(gamePlayLogFile);
         }
 
-        public static ObservableCollection<GamePlayLogData> GetGamePlayLogDataCollection()
+        public ObservableCollection<GamePlayLogData> GetGamePlayLogDataCollection()
         {
-            string gamePlayLogFile = $"{User.CurrentUserDirectoryPath}\\GamePlayLog.xml";
+            string gamePlayLogFile = _currentUserService.GetCurrentUserGamePlayLogRecordFilePath();
 
             ObservableCollection<GamePlayLogData> gamePlayLogDataCollection = [];
 
@@ -82,9 +89,9 @@ namespace ThGameMgr.Ex.Game
             return gamePlayLogDataCollection;
         }
 
-        public static void CreateGamePlayLogFile()
+        public void CreateGamePlayLogFile()
         {
-            string gamePlayLogFile = $"{User.CurrentUserDirectoryPath}\\GamePlayLog.xml";
+            string gamePlayLogFile = _currentUserService.GetCurrentUserGamePlayLogRecordFilePath();
 
             XmlDocument gamePlayLogXml = new();
             XmlNode docNode = gamePlayLogXml.CreateXmlDeclaration("1.0", "UTF-8", null);

@@ -9,7 +9,9 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class SelectUserDialog : Window
     {
-        public SelectUserDialog()
+        public string? SelectedUserName { get; set; }
+
+        public SelectUserDialog(string? currentUserName = null)
         {
             InitializeComponent();
 
@@ -19,7 +21,7 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 try
                 {
-                    List<string>? usersList = User.GetUsersList();
+                    List<string>? usersList = UserConfigurator.GetUsersList();
                     if (usersList != null && usersList.Count > 0)
                     {
                         foreach (string userName in usersList)
@@ -27,7 +29,7 @@ namespace ThGameMgr.Ex.Dialogs
                             ListBoxItem userItem = new()
                             {
                                 Content = userName,
-                                IsEnabled = userName != User.CurrentUserName
+                                IsEnabled = userName != currentUserName
                             };
                             _ = UsersListBox.Items.Add(userItem);
                         }
@@ -51,16 +53,10 @@ namespace ThGameMgr.Ex.Dialogs
                     if (selectedItem != null)
                     {
                         string? userName = selectedItem.Content.ToString();
-                        bool switchResult = User.Switch(userName);
-                        if (switchResult)
+                        if (!string.IsNullOrEmpty(userName))
                         {
+                            this.SelectedUserName = userName;
                             this.DialogResult = true;
-                        }
-                        else
-                        {
-                            MessageBox.Show(
-                                this, "ユーザーを切り替えられませんでした。", "ユーザーの切り替え",
-                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
                         }
                     }
                 }

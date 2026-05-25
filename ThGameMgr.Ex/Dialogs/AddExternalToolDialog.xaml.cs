@@ -7,9 +7,12 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class AddExternalToolDialog : Window
     {
-        public AddExternalToolDialog()
+        private readonly IUserService _currentUserService;
+        public AddExternalToolDialog(IUserService userService)
         {
             InitializeComponent();
+
+            _currentUserService = userService;
 
             _ = ToolPathBox.Focus();
         }
@@ -43,7 +46,7 @@ namespace ThGameMgr.Ex.Dialogs
                 bool asAdmin = AsAdminCheckBox.IsChecked == true;
                 if (toolName.Length > 0 && toolPath.Length > 0)
                 {
-                    bool result = ExternalTool.Add(toolName, toolPath, option, asAdmin);
+                    bool result = ExternalTool.Add(toolName, toolPath, option, asAdmin, _currentUserService.GetCurrentUserSettingsDirectory());
                     if (result)
                     {
                         this.DialogResult = true;
