@@ -76,7 +76,7 @@ namespace ThGameMgr.Ex.Dialogs
         {
             try
             {
-                AddExternalToolDialog addExternalToolDialog = new()
+                AddExternalToolDialog addExternalToolDialog = new(_currentUserService)
                 {
                     Owner = this
                 };
