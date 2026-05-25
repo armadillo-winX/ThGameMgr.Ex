@@ -14,7 +14,7 @@ namespace ThGameMgr.Ex.Game
 
         public void SaveGamePlayLog(GamePlayLogData gamePlayLogData)
         {
-            string gamePlayLogFile = $"{UserConfigurator.CurrentUserDirectoryPath}\\GamePlayLog.xml";
+            string gamePlayLogFile = _currentUserService.GetCurrentUserGamePlayLogRecordFilePath();
 
             if (!File.Exists(gamePlayLogFile))
             {
@@ -55,7 +55,7 @@ namespace ThGameMgr.Ex.Game
 
         public ObservableCollection<GamePlayLogData> GetGamePlayLogDataCollection()
         {
-            string gamePlayLogFile = $"{UserConfigurator.CurrentUserDirectoryPath}\\GamePlayLog.xml";
+            string gamePlayLogFile = _currentUserService.GetCurrentUserGamePlayLogRecordFilePath();
 
             ObservableCollection<GamePlayLogData> gamePlayLogDataCollection = [];
 
@@ -91,7 +91,7 @@ namespace ThGameMgr.Ex.Game
 
         public void CreateGamePlayLogFile()
         {
-            string gamePlayLogFile = $"{UserConfigurator.CurrentUserDirectoryPath}\\GamePlayLog.xml";
+            string gamePlayLogFile = _currentUserService.GetCurrentUserGamePlayLogRecordFilePath();
 
             XmlDocument gamePlayLogXml = new();
             XmlNode docNode = gamePlayLogXml.CreateXmlDeclaration("1.0", "UTF-8", null);
