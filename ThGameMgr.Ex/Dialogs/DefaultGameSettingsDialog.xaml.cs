@@ -71,7 +71,8 @@ namespace ThGameMgr.Ex.Dialogs
                 string defaultGameId = (string)selectedItem.Uid;
                 try
                 {
-                    SettingsConfigurator.SaveDefaultGameSettings(defaultGameId);
+                    SettingsConfigurator settingsConfigurator = new(_currentUserService);
+                    settingsConfigurator.SaveDefaultGameSettings(defaultGameId);
                     this.Close();
                 }
                 catch (Exception ex)
