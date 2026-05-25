@@ -85,7 +85,7 @@ namespace ThGameMgr.Ex.Dialogs
                         MessageBoxButton.YesNo, MessageBoxImage.Information);
                         if (result == MessageBoxResult.Yes)
                         {
-                            string backupFilePath = Path.Combine(_currentUserService.GetCurrentUserScoreBackupDirectoy(), backupFile);
+                            string backupFilePath = Path.Combine(_currentUserService.GetCurrentUserScoreBackupDirectoy(), gameId, backupFile);
                             ScoreBackup.Restore(gameId, backupFile);
 
                             MessageBox.Show(this, "復元しました。", "スコアファイルの復元",
