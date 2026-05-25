@@ -20,7 +20,7 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 try
                 {
-                    ExternalTool.CreateExternalConfigFile();
+                    ExternalTool.CreateExternalConfigFile(userService.GetCurrentUserSettingsDirectory());
                 }
                 catch (Exception ex)
                 {
