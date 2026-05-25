@@ -32,7 +32,7 @@
 
         public static string[] GetScoreBackupFiles(string gameId, string backupDirectory)
         {
-            string[] scoreBackupFiles = Directory.GetFiles(backupDirectory, "*.bak", SearchOption.TopDirectoryOnly);
+            string[] scoreBackupFiles = Directory.GetFiles(Path.Combine(backupDirectory, gameId), "*.bak", SearchOption.TopDirectoryOnly);
 
             return scoreBackupFiles;
         }
