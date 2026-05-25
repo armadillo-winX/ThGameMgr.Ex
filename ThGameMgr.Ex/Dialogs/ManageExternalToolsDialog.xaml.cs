@@ -46,7 +46,7 @@ namespace ThGameMgr.Ex.Dialogs
         {
             ExternalToolsListBox.Items.Clear();
 
-            string exToolsConfig = Path.Combine(this.SettingsDirectory, "ExternalTools.xml");
+            string exToolsConfig = Path.Combine(_currentUserService.GetCurrentUserSettingsDirectory(), "ExternalTools.xml");
             if (File.Exists(exToolsConfig))
             {
                 XmlDocument exToolsConfigXml = new();
