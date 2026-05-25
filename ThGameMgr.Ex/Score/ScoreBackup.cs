@@ -39,7 +39,7 @@
 
         public static void Delete(string gameId, string backupFileName, string backupDirectory)
         {
-            string backupFilePath = Path.Combine(backupDirectory, backupFileName);
+            string backupFilePath = Path.Combine(backupDirectory, gameId, backupFileName);
             File.Delete(backupFilePath);
         }
     }
