@@ -17,7 +17,9 @@ namespace ThGameMgr.Ex
 
             ServiceCollection services = new ServiceCollection();
             // UserService をシングルトンとして追加
-            services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<UserService>();
+            // IUserService に UserService を関連付ける
+            services.AddSingleton<IUserService>(provider => provider.GetRequiredService<UserService>());
             // MainWindow を DI コンテナに追加
             services.AddTransient<MainWindow>();
 
