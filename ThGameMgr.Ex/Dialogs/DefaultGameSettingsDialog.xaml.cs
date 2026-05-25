@@ -8,9 +8,12 @@ namespace ThGameMgr.Ex.Dialogs
     /// </summary>
     public partial class DefaultGameSettingsDialog : Window
     {
-        public DefaultGameSettingsDialog()
+        private readonly IUserService _currentUserService;
+
+        public DefaultGameSettingsDialog(IUserService userService)
         {
             InitializeComponent();
+            _currentUserService = userService;
 
             List<string> enableGamesList = GameIndex.GetEnabledGamesList();
 
@@ -41,7 +44,8 @@ namespace ThGameMgr.Ex.Dialogs
             string defaultGameSettings;
             try
             {
-                defaultGameSettings = SettingsConfigurator.ConfigureDefaultGameSettings();
+                SettingsConfigurator settingsConfigurator = new(userService);
+                defaultGameSettings = settingsConfigurator.ConfigureDefaultGameSettings();
             }
             catch (Exception)
             {
