@@ -2,9 +2,9 @@
 {
     public class UserService : IUserService
     {
-        public string CurrentUserName { get; set; }
+        private string CurrentUserName { get; set; }
 
-        public string CurrentUserDirectoryName { get; set; }
+        private string CurrentUserDirectoryName { get; set; }
 
         public UserService()
         {
@@ -22,6 +22,11 @@
             string userDirectoryName = UserConfigurator.GetUserDirectoryName(userName);
             this.CurrentUserName = userName;
             this.CurrentUserDirectoryName = userDirectoryName;
+        }
+
+        public string GetCurrentUserName()
+        {
+            return this.CurrentUserName;
         }
 
         public string GetCurrentUserSettingsDirectory()
