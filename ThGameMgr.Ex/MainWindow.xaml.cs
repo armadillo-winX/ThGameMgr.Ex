@@ -2028,9 +2028,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    UserService userService = new();
-                    userService.SwitchUser(selectUserDialog.SelectedUserName);
-                    _currentUserService = userService;
+                    _currentUserService.SwitchUser(selectUserDialog.SelectedUserName);
                     ConfigureSettings();
                 }
                 catch (Exception ex)
