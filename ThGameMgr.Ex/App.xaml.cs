@@ -20,6 +20,8 @@ namespace ThGameMgr.Ex
             services.AddSingleton<UserService>();
             // IUserService に UserService を関連付ける
             services.AddSingleton<IUserService>(provider => provider.GetRequiredService<UserService>());
+            // IUserConfigurator に UserService を関連付ける
+            services.AddSingleton<IUserConfigurator>(provider => provider.GetRequiredService<UserService>());
             // MainWindow を DI コンテナに追加
             services.AddTransient<MainWindow>();
 
