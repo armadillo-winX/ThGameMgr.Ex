@@ -30,7 +30,8 @@
                 {
                     ReplayFileBackupInfo replayFileBackupInfo =
                         ReplayBackup.GetReplayBackupFileInfo(backupFile);
-                    BackupFilesDataGrid.Items.Add(replayFileBackupInfo);
+                    if (replayFileBackupInfo.GameId == this.GameId)
+                        BackupFilesDataGrid.Items.Add(replayFileBackupInfo);
                 }
             }
         }
