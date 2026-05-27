@@ -19,7 +19,7 @@
                 <DataGridTextColumn Header="作成日時" Width="150" IsReadOnly="True"
                                 Binding="{Binding Timestamp}"/>
                 <DataGridTextColumn Header="コメント" Width="200" IsReadOnly="True"
-                                Binding="{Binding Developer}"/>
+                                Binding="{Binding Comment}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button 
