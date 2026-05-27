@@ -2771,6 +2771,29 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void CreateReplayBackupnMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            if (ReplayFilesDataGrid.Items.Count > 0
+                && ReplayFilesDataGrid.SelectedIndex >= 0)
+            {
+                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                string replayFileName = selectedReplayFileInfo.FileName;
+                string replayDirectory = ReplayFile.GetReplayDirectory(this.GameId);
+
+                CreateReplayFileBackupDialog createReplayFileBackupDialog = new(
+                    _currentUserService, this.GameId, Path.Combine(replayDirectory, replayFileName)
+                    )
+                {
+                    Owner = this
+                };
+                if (createReplayFileBackupDialog.ShowDialog() == true)
+                {
+                    MessageBox.Show(this, "バックアップを作成しました。", "リプレイファイルのバックアップ",
+                        MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
+
         private void AddReplayFileButtonClick(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new()

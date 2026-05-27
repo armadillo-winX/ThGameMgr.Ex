@@ -503,7 +503,8 @@
                                 Click="RenameReplayFileButtonClick"/>
                         <Menu >
                             <MenuItem Header="バックアップ">
-                                <MenuItem x:Name="CreateReplayBackupnMenuItem" Header="バックアップの作成"/>
+                                <MenuItem x:Name="CreateReplayBackupnMenuItem" Header="バックアップの作成"
+                                          Click="CreateReplayBackupnMenuItemClick"/>
                                 <MenuItem x:Name="RestoreReplayBackupMenuItem" Header="バックアップから復元"/>
                             </MenuItem>
                         </Menu>
