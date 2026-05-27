@@ -2794,6 +2794,18 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void RestoreReplayBackupMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ManageReplayFileBackupDialog manageReplayFileBackupDialog = new(
+                _currentUserService, this.GameId
+                )
+            {
+                Owner = this,
+            };
+            manageReplayFileBackupDialog.ShowDialog();
+            GetReplayFiles();
+        }
+
         private void AddReplayFileButtonClick(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new()
