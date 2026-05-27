@@ -11,3 +11,27 @@ module ReplayFileBackup =
         let stream = new FileStream(replayBackupFilePath, FileMode.Create)
         serializer.Serialize(stream, replayBackupInfo)
         stream.Dispose()
+
+    let MakeReplayBackupFile (replayBackupFileName: string) (replayBackupInfo: ReplayFileBackupInfo) (outputDirectory: string) =
+        let tempDirectory = IOUtil.createTempDirectory()
+        let backupTempDirectory = Path.Combine(tempDirectory, replayBackupFileName)
+        Directory.CreateDirectory(backupTempDirectory) |> ignore
+
+        Path.Combine(backupTempDirectory, "rpy") 
+        |> Directory.CreateDirectory 
+        |> ignore
+
+        let replayFilepath = replayBackupInfo.SourceReplayFilePath
+        let destReplayFilePath =  Path.Combine(backupTempDirectory, "rpy", Path.GetFileName(replayFilepath))
+
+        File.Copy(replayFilepath, destReplayFilePath)
+        makeReplayFileBackupInfoFile replayBackupInfo backupTempDirectory
+        let outputFilepath = Path.Combine(outputDirectory, $"{replayBackupFileName}.trpb")
+        ZipFile.CreateFromDirectory(backupTempDirectory, outputFilepath)
+
+        try
+            Directory.Delete(tempDirectory, true)
+        with
+            |_-> printfn "Failed to delete temporary folder."
+
+        outputFilepath
