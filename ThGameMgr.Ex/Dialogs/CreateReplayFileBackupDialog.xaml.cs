@@ -47,7 +47,7 @@
 
                 try
                 {
-                    ReplayFileBackup.ReplayFileBackup.MakeReplayBackupFile(
+                    ReplayBackup.MakeReplayBackupFile(
                         now.ToString("yyyy-MM-dd_hh-mm-ss"),
                         replayFileBackupInfo,
                         backupDirectory
