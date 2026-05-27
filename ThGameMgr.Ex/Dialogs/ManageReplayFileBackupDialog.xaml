@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
         mc:Ignorable="d"
-        Title="リプレイファイルのバックアップ" Height="360" Width="506">
+        Title="リプレイファイルのバックアップ" Height="360" Width="506"
+        WindowStartupLocation="CenterOwner">
     <Grid>
         <TextBlock 
             x:Name="DescriptionBlock"
