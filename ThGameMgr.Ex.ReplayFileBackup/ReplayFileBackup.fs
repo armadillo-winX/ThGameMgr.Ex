@@ -38,3 +38,13 @@ module ReplayFileBackup =
             |_-> printfn "Failed to delete temporary folder."
 
         outputFilepath
+
+    let GetReplayBackupFileInfo (replayBackupFilePath: string) =
+        let archive = ZipFile.OpenRead(replayBackupFilePath)
+        let infoFileEntry = archive.GetEntry($"ReplayFileBackupInfo.xml")
+
+        let stream = infoFileEntry.Open()
+        let serializer = new XmlSerializer(typeof<ReplayFileBackupInfo>)
+
+        serializer.Deserialize(stream) 
+        :?> ReplayFileBackupInfo
