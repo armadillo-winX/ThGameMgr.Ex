@@ -4,7 +4,7 @@ open System.IO
 open System.IO.Compression
 open System.Xml.Serialization
 
-module Backup =
+module ReplayBackup =
 
     let private extensionName = "trpb"
 
