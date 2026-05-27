@@ -9,5 +9,7 @@
         string GetCurrentUserScoreBackupDirectoy();
 
         string GetCurrentUserGamePlayLogRecordFilePath();
+
+        string GetCurrentUserReplayBackupDirectory();
     }
 }
