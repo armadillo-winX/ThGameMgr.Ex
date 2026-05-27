@@ -9,8 +9,8 @@
 - スコアビューア<br>
 ゲームのハイスコアデータや御札戦歴データを参照できます。
 ## 開発環境
-Microsoft Windows 11 Insider Preview Canary<br>
-Visual Studio 2022<br>
+Microsoft Windows 11 Insider Preview Experimental<br>
+Visual Studio 2026<br>
 .NET 10.0<br>
 ## ThScoreFileConverter
 東方管制塔 EX には ThScoreFileConverter(https://github.com/y-iihoshi/ThScoreFileConverter) のソースコードが含まれています。<br>
@@ -41,7 +41,7 @@ ThScoreFileConverter の著作権は IIHOSHI Yoshinori 様にあり、そのラ�
 ## 使用しているライブラリ
 東方管制塔 EX が使用しているライブラリのライセンスについては[License.txt](ThGameMgr.Ex/License.txt)を参照してください。
 ### NAudio
-Copyright 2020 Mark Heath
+Copyright 2008-2026 Mark Heath
 
 
 ## License
