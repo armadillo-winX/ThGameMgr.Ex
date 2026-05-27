@@ -20,6 +20,8 @@ module ReplayBackup =
         let backupTempDirectory = Path.Combine(tempDirectory, replayBackupFileName)
         Directory.CreateDirectory(backupTempDirectory) |> ignore
 
+        if Directory.Exists(outputDirectory) = false then Directory.CreateDirectory(outputDirectory) |> ignore
+
         Path.Combine(backupTempDirectory, "rpy") 
         |> Directory.CreateDirectory 
         |> ignore
