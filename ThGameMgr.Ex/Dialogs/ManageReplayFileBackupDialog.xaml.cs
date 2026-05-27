@@ -22,13 +22,16 @@
             DescriptionBlock.Text = $"{GameIndex.GetGameName(gameId)} のリプレイファイルバックアップ";
 
             string replayBackupDirectory = Path.Combine(userService.GetCurrentUserReplayBackupDirectory(), gameId);
-            string[] backupFiles =
-                Directory.GetFiles(replayBackupDirectory, "*.trpb", SearchOption.TopDirectoryOnly);
-            foreach (string backupFile in backupFiles)
+            if (Directory.Exists(replayBackupDirectory))
             {
-                ReplayFileBackupInfo replayFileBackupInfo = 
-                    ReplayBackup.GetReplayBackupFileInfo(backupFile);
-                BackupFilesDataGrid.Items.Add(replayFileBackupInfo);
+                string[] backupFiles =
+                Directory.GetFiles(replayBackupDirectory, "*.trpb", SearchOption.TopDirectoryOnly);
+                foreach (string backupFile in backupFiles)
+                {
+                    ReplayFileBackupInfo replayFileBackupInfo =
+                        ReplayBackup.GetReplayBackupFileInfo(backupFile);
+                    BackupFilesDataGrid.Items.Add(replayFileBackupInfo);
+                }
             }
         }
     }
