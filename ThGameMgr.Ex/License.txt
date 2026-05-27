@@ -55,7 +55,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 本ソフトウェアは Mark Heath 様の NAudio.Core および NAuio.Wasapi を用いています。
 
 NAudio
-Copyright 2020 Mark Heath
+Copyright 2008-2026 Mark Heath
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
