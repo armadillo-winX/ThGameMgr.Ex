@@ -1,6 +1,6 @@
 ﻿namespace ThGameMgr.Ex
 {
-    public interface IUserConfigurator : IUserService
+    public interface IUserStateConfigurator : IUserService
     {
         public void SwitchUser(string userName);
     }
