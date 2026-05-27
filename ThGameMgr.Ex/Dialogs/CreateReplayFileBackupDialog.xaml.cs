@@ -5,7 +5,7 @@
     /// </summary>
     public partial class CreateReplayFileBackupDialog : Window
     {
-        private IUserService _currentUserService;
+        private readonly IUserService _currentUserService;
 
         public string GameId { get; set; }
 
