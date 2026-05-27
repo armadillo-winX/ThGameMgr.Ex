@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="IOUtil.fs" />
     <Compile Include="ReplayFileBackupInfo.fs" />
     <Compile Include="ReplayFileBackup.fs" />
   </ItemGroup>
