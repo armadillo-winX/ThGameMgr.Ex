@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
         mc:Ignorable="d"
-        Title="リプレイファイルのバックアップ" Height="360" Width="506"
+        Title="リプレイファイルのバックアップ" Height="373" Width="553"
         WindowStartupLocation="CenterOwner">
     <Grid>
         <TextBlock 
@@ -14,7 +14,7 @@
             Text="GameName のリプレイファイルバックアップ" VerticalAlignment="Top"/>
         <DataGrid x:Name="BackupFilesDataGrid" Margin="10,31,10,38">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="名前" Width="120" IsReadOnly="True"
+                <DataGridTextColumn Header="名前" Width="175" IsReadOnly="True"
                                 Binding="{Binding BackupName}"/>
                 <DataGridTextColumn Header="作成日時" Width="150" IsReadOnly="True"
                                 Binding="{Binding Timestamp}"/>
