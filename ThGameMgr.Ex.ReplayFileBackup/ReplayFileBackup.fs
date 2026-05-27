@@ -5,6 +5,9 @@ open System.IO.Compression
 open System.Xml.Serialization
 
 module ReplayFileBackup =
+
+    let private extensionName = "trpb"
+
     let internal makeReplayFileBackupInfoFile (replayBackupInfo: ReplayFileBackupInfo) (baseDirectory: string) =
         let serializer = XmlSerializer(typeof<ReplayFileBackupInfo>)
         let replayBackupFilePath = Path.Combine(baseDirectory, "ReplayFileBackupInfo.xml")
@@ -26,7 +29,7 @@ module ReplayFileBackup =
 
         File.Copy(replayFilepath, destReplayFilePath)
         makeReplayFileBackupInfoFile replayBackupInfo backupTempDirectory
-        let outputFilepath = Path.Combine(outputDirectory, $"{replayBackupFileName}.trpb")
+        let outputFilepath = Path.Combine(outputDirectory, $"{replayBackupFileName}.{extensionName}")
         ZipFile.CreateFromDirectory(backupTempDirectory, outputFilepath)
 
         try
