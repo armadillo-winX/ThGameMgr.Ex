@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="ReplayFileBackupInfo.fs" />
     <Compile Include="Library.fs" />
   </ItemGroup>
 
