@@ -1,5 +1,5 @@
 ﻿namespace ThGameMgr.Ex.ReplayFileBackup
 
-module Say =
+module ReplayFileBackup =
     let hello name =
         printfn "Hello %s" name
