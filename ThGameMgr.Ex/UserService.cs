@@ -65,5 +65,14 @@
         {
             return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "GamePlayLog.xml");
         }
+
+        /// <summary>
+        /// 現在のユーザーに割り当てられたreplayファイルバックアップディレクトリのパスを取得します．
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentUserReplayBackupDirectory()
+        {
+            return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "ReplayBackup");
+        }
     }
 }
