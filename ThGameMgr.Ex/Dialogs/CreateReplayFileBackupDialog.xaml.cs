@@ -31,7 +31,7 @@
             if (!string.IsNullOrWhiteSpace(NameBox.Text))
             {
                 string backupName = NameBox.Text;
-                string backupRootDirectory = _currentUserService.GetCurrentUserScoreBackupDirectoy();
+                string backupRootDirectory = _currentUserService.GetCurrentUserReplayBackupDirectory();
                 string backupDirectory = Path.Combine(backupRootDirectory, this.GameId);
                 DateTime now = DateTime.Now;
                 ReplayFileBackupInfo replayFileBackupInfo = new()

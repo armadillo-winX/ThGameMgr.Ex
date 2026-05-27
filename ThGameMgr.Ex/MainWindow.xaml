@@ -501,7 +501,7 @@
                         <Button x:Name="RenameReplayFileButton"
                                 Content="リネーム" HorizontalAlignment="Right" VerticalAlignment="Top"
                                 Click="RenameReplayFileButtonClick"/>
-                        <Menu >
+                        <Menu Background="Transparent">
                             <MenuItem Header="バックアップ">
                                 <MenuItem x:Name="CreateReplayBackupnMenuItem" Header="バックアップの作成"
                                           Click="CreateReplayBackupnMenuItemClick"/>
