@@ -925,7 +925,7 @@ namespace ThGameMgr.Ex
 
         private void SpellCardPlayerSwitchMenuClick(object sender, RoutedEventArgs e)
         {
-            string playerName = ((MenuItem)sender).Header.ToString();
+            string? playerName = ((MenuItem)sender).Header.ToString();
             this.FilterSpellCardPlayer = playerName;
             ApplyScoreViewFilter();
         }
