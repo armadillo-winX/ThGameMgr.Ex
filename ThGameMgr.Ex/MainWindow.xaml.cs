@@ -2581,10 +2581,10 @@ namespace ThGameMgr.Ex
         {
             string baseLibraryDll = $"{PathInfo.AssemblyBaseDirectoryPath}\\ThGameMgr.Ex.Plugin.dll";
 
-            string name = FileVersionInfo.GetVersionInfo(baseLibraryDll).ProductName;
-            string version = FileVersionInfo.GetVersionInfo(baseLibraryDll).ProductVersion;
-            string developer = FileVersionInfo.GetVersionInfo(baseLibraryDll).CompanyName;
-            string copyright = FileVersionInfo.GetVersionInfo(baseLibraryDll).LegalCopyright;
+            string? name = FileVersionInfo.GetVersionInfo(baseLibraryDll).ProductName;
+            string? version = FileVersionInfo.GetVersionInfo(baseLibraryDll).ProductVersion;
+            string? developer = FileVersionInfo.GetVersionInfo(baseLibraryDll).CompanyName;
+            string? copyright = FileVersionInfo.GetVersionInfo(baseLibraryDll).LegalCopyright;
 
             string message = $"{name}\nVersion.{version}\nby {developer}\n{copyright}";
             MessageBox.Show(this, message, "プラグイン基底ライブラリについて",
