@@ -2501,10 +2501,11 @@ namespace ThGameMgr.Ex
 
         private void OpenScoreDirectoryMenuItemClick(object sender, RoutedEventArgs e)
         {
-            string gameId = this.GameId;
+            string? gameId = this.GameId;
             try
             {
-                GameFile.OpenScoreDirectory(gameId);
+                if (!string.IsNullOrEmpty(gameId))
+                    GameFile.OpenScoreDirectory(gameId);
             }
             catch (Exception ex)
             {
