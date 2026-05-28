@@ -9,7 +9,7 @@ module IOUtil =
 
     let internal createTempDirectory () =
         let tempDirectory = Path.GetTempPath()
-        let timestamp = DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss")
+        let timestamp = DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss-fffffff")
         Path.Combine(tempDirectory, $"{assemblyName}_{timestamp}") 
         |> Directory.CreateDirectory 
         |> (fun d -> d.FullName)
