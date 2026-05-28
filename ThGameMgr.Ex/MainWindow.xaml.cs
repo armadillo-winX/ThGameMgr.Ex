@@ -884,7 +884,7 @@ namespace ThGameMgr.Ex
 
         private void PlayersFilterMenuClick(object sender, RoutedEventArgs e)
         {
-            string playerName = ((MenuItem)sender).Header.ToString();
+            string? playerName = ((MenuItem)sender).Header.ToString();
             this.FilterPlayer = playerName;
             ApplyScoreViewFilter();
         }
