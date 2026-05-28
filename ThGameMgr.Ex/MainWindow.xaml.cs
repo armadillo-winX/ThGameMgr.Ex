@@ -966,7 +966,7 @@ namespace ThGameMgr.Ex
 
         private void EnemiesFilterMenuClick(object sender, RoutedEventArgs e)
         {
-            string enemyName = ((MenuItem)sender).Header.ToString();
+            string? enemyName = ((MenuItem)sender).Header.ToString();
             this.FilterEnemy = enemyName;
             ApplyScoreViewFilter();
         }
