@@ -1115,10 +1115,18 @@ namespace ThGameMgr.Ex
         private void StartExternalToolMenuItem(object sender, RoutedEventArgs e)
         {
             //MenuItemのHeaderプロパティを取得
-            string name = ((MenuItem)sender).Header.ToString();
+            string? name = ((MenuItem)sender).Header.ToString();
             try
             {
-                ExternalTool.Start(name, _currentUserService.GetCurrentUserSettingsDirectory());
+                if (name != null)
+                {
+                    ExternalTool.Start(name, _currentUserService.GetCurrentUserSettingsDirectory());
+                }
+                else
+                {
+                    MessageBox.Show(this, "外部ツールの名前が不正です。", "外部ツールの実行",
+                        MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
             }
             catch (Exception ex)
             {
