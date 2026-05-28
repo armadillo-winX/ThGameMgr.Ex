@@ -903,7 +903,10 @@ namespace ThGameMgr.Ex
             Separator separator = new();
             SpellCardPlayersSwitchButtonContextMenu.Items.Add(separator);
 
-            string gameId = this.GameId;
+            string? gameId = this.GameId;
+            if (string.IsNullOrEmpty(gameId))
+                return;
+
             string gamePlayers = GamePlayers.GetGamePlayers(gameId);
             if (!string.IsNullOrEmpty(gamePlayers))
             {
