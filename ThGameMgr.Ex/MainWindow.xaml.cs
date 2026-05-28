@@ -396,7 +396,7 @@ namespace ThGameMgr.Ex
 
         private async void StartGame()
         {
-            string gameId = this.GameId;
+            string? gameId = this.GameId;
             if (this._gameEndWaitingModeWorker == null || !this._gameEndWaitingModeWorker.IsBusy)
             {
                 if (!string.IsNullOrEmpty(gameId))
@@ -436,7 +436,7 @@ namespace ThGameMgr.Ex
 
         private async void StartGameWithApplyingTool(string toolName)
         {
-            string gameId = this.GameId;
+            string? gameId = this.GameId;
             if (this._gameEndWaitingModeWorker == null || !this._gameEndWaitingModeWorker.IsBusy)
             {
                 if (!string.IsNullOrEmpty(gameId))
@@ -482,7 +482,7 @@ namespace ThGameMgr.Ex
             SpellCardDataGrid.Items.Clear();
             SpellPracticeDataGrid.Items.Clear();
             ScoreDataRetrieveTimeBlock.Text = "----/--/-- --:--:--";
-            string gameId = this.GameId;
+            string? gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
             {
                 EnableRetrievingScoreDataLimitationMode(true);
@@ -529,7 +529,7 @@ namespace ThGameMgr.Ex
             ReplayFileErrorImage.Visibility = Visibility.Hidden;
 
             ReplayFilesDataGrid.Items.Clear();
-            string gameId = this.GameId;
+            string? gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
             {
                 try
