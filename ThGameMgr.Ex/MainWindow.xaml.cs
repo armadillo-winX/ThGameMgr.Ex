@@ -944,7 +944,10 @@ namespace ThGameMgr.Ex
             Separator separator = new();
             EnemiesFilterButtonContextMenu.Items.Add(separator);
 
-            string gameId = this.GameId;
+            string? gameId = this.GameId;
+            if (string.IsNullOrEmpty(gameId))
+                return;
+
             string gameEnemies = GameEnemies.GetGameEnemies(gameId);
             if (!string.IsNullOrEmpty(gameEnemies))
             {
