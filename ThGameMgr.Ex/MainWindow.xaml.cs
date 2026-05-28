@@ -2461,10 +2461,11 @@ namespace ThGameMgr.Ex
 
         private void OpenGameDirectoryMenuItemClick(object sender, RoutedEventArgs e)
         {
-            string gameId = this.GameId;
+            string? gameId = this.GameId;
             try
             {
-                GameFile.OpenGameDirectory(gameId);
+                if (!string.IsNullOrEmpty(gameId))
+                    GameFile.OpenGameDirectory(gameId);
             }
             catch (Exception ex)
             {
