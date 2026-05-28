@@ -2610,7 +2610,7 @@ namespace ThGameMgr.Ex
                     ScoreRecordData scoreRecordList = (ScoreRecordData)ScoreDataGrid.SelectedItem;
 
                     string data =
-                        $"スコア: {scoreRecordList.Score}\r\n自機:{scoreRecordList.Player}\r\n難易度:{scoreRecordList.Level}\r\n名前:{scoreRecordList.Name.TrimEnd('\0')}";
+                        $"スコア: {scoreRecordList.Score}\r\n自機:{scoreRecordList.Player}\r\n難易度:{scoreRecordList.Level}\r\n名前:{(!string.IsNullOrEmpty(scoreRecordList.Name) ? scoreRecordList.Name.TrimEnd('\0') : string.Empty)}";
 
                     if (!string.IsNullOrEmpty(scoreRecordList.Progress))
                         data += $"\r\n到達面:{scoreRecordList.Progress}";
