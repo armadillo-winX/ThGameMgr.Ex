@@ -610,7 +610,8 @@ namespace ThGameMgr.Ex
                 {
                     foreach (SpellCardRecordData spellCardRecordData in filteredSpellCardRecordLists)
                     {
-                        if (int.Parse(spellCardRecordData.TryCount) > 0)
+                        if (spellCardRecordData.TryCount != null &&
+                            int.Parse(spellCardRecordData.TryCount) > 0)
                         {
                             SpellCardDataGrid.Items.Add(spellCardRecordData);
                         }
