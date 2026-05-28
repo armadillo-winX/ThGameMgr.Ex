@@ -12,6 +12,8 @@ namespace ThGameMgr.Ex.Dialogs
 
         private string GameId { get; set; }
 
+        private string[] ReplayBackupFiles { get; set; }
+
         public ManageReplayFileBackupDialog(
             IUserService userService,
             string gameId
@@ -21,6 +23,7 @@ namespace ThGameMgr.Ex.Dialogs
 
             _currentUserService = userService;
             this.GameId = gameId;
+            this.ReplayBackupFiles = [];
 
             DescriptionBlock.Text = $"{GameIndex.GetGameName(gameId)} のリプレイファイルバックアップ";
 
@@ -31,6 +34,7 @@ namespace ThGameMgr.Ex.Dialogs
                 {
                     string[] backupFiles =
                         Directory.GetFiles(replayBackupDirectory, "*.trpb", SearchOption.TopDirectoryOnly);
+                    this.ReplayBackupFiles = backupFiles;
                     foreach (string backupFile in backupFiles)
                     {
                         ReplayFileBackupInfo replayFileBackupInfo =
