@@ -26,6 +26,15 @@
             x:Name="RestoreButton"
             Width="120" Height="24"
             Content="復元(_R)" HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom"/>
-
+        <TextBlock
+            x:Name="MessageBlock"
+            FontSize="14"
+            Foreground="Black"
+            Visibility="Hidden"
+            HorizontalAlignment="Center" TextWrapping="Wrap" Text="ErrorMessage" VerticalAlignment="Center" Margin="0,0,0,0"/>
+        <Image x:Name="ErrorImage"
+            Visibility="Hidden"
+            HorizontalAlignment="Center" Height="32" Margin="0,-55,0,0" VerticalAlignment="Center"
+            Width="32" Source="/Images/ErrorIcon32x32.png" Stretch="None"/>
     </Grid>
 </Window>

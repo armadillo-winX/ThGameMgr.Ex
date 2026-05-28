@@ -1,4 +1,7 @@
-﻿namespace ThGameMgr.Ex.Dialogs
+﻿using System.Windows.Media.Effects;
+using System.Windows.Media.Imaging;
+
+namespace ThGameMgr.Ex.Dialogs
 {
     /// <summary>
     /// ManageReplayFileBackupDialog.xaml の相互作用ロジック
@@ -34,6 +37,26 @@
                         BackupFilesDataGrid.Items.Add(replayFileBackupInfo);
                 }
             }
+        }
+
+        private void ShowErrorMessage(string message)
+        {
+            System.Media.SystemSounds.Hand.Play();
+
+            ErrorImage.Source =
+                    new BitmapImage(
+                        new Uri("pack://application:,,,/ThGameMgr.Ex;component/Images/ErrorIcon32x32.png")
+                    );
+            MessageBlock.Text = message;
+            RestoreButton.IsEnabled = false;
+            BackupFilesDataGrid.IsEnabled = false;
+            BlurEffect blurEffect = new()
+            {
+                Radius = 7,
+                KernelType = KernelType.Gaussian
+            };
+
+            BackupFilesDataGrid.Effect = blurEffect;
         }
     }
 }
