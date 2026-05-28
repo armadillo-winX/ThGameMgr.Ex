@@ -2705,29 +2705,32 @@ namespace ThGameMgr.Ex
             if (ReplayFilesDataGrid.Items.Count > 0 &&
                 ReplayFilesDataGrid.SelectedIndex >= 0)
             {
-                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
-                string replayFileName = selectedReplayFileInfo.FileName;
-                string replayDirectory = ReplayFile.GetReplayDirectory(this.GameId);
-
-                SaveFileDialog saveFileDialog = new()
+                ReplayFileInfo? selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                if (selectedReplayFileInfo != null && selectedReplayFileInfo.FileName != null)
                 {
-                    Filter = "リプレイファイル|*.rpy",
-                    FileName = replayFileName
-                };
+                    string replayFileName = selectedReplayFileInfo.FileName;
+                    string replayDirectory = ReplayFile.GetReplayDirectory(this.GameId);
 
-                if (saveFileDialog.ShowDialog() == true)
-                {
-                    try
+                    SaveFileDialog saveFileDialog = new()
                     {
-                        File.Copy($"{replayDirectory}\\{replayFileName}", saveFileDialog.FileName, true);
-                        MessageBox.Show(this,
-                            $"複製しました。\n{saveFileDialog.FileName}", "リプレイファイルの複製",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                    catch (Exception ex)
+                        Filter = "リプレイファイル|*.rpy",
+                        FileName = replayFileName
+                    };
+
+                    if (saveFileDialog.ShowDialog() == true)
                     {
-                        MessageBox.Show(this, $"リプレイファイルの複製に失敗しました。\n{ex.Message}", "エラー",
-                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        try
+                        {
+                            File.Copy($"{replayDirectory}\\{replayFileName}", saveFileDialog.FileName, true);
+                            MessageBox.Show(this,
+                                $"複製しました。\n{saveFileDialog.FileName}", "リプレイファイルの複製",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(this, $"リプレイファイルの複製に失敗しました。\n{ex.Message}", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                 }
             }
@@ -2738,31 +2741,34 @@ namespace ThGameMgr.Ex
             if (ReplayFilesDataGrid.Items.Count > 0 &&
                 ReplayFilesDataGrid.SelectedIndex >= 0)
             {
-                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
-                string replayFileName = selectedReplayFileInfo.FileName;
-                string replayDirectory = ReplayFile.GetReplayDirectory(this.GameId);
-
-                SaveFileDialog saveFileDialog = new()
+                ReplayFileInfo? selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                if (selectedReplayFileInfo != null && selectedReplayFileInfo.FileName != null)
                 {
-                    Filter = "リプレイファイル|*.rpy",
-                    FileName = replayFileName
-                };
+                    string replayFileName = selectedReplayFileInfo.FileName;
+                    string replayDirectory = ReplayFile.GetReplayDirectory(this.GameId);
 
-                if (saveFileDialog.ShowDialog() == true)
-                {
-                    try
+                    SaveFileDialog saveFileDialog = new()
                     {
-                        File.Move($"{replayDirectory}\\{replayFileName}", saveFileDialog.FileName, true);
-                        MessageBox.Show(this,
-                            $"移動しました。\n{saveFileDialog.FileName}", "リプレイファイルの移動",
-                            MessageBoxButton.OK, MessageBoxImage.Information);
+                        Filter = "リプレイファイル|*.rpy",
+                        FileName = replayFileName
+                    };
 
-                        GetReplayFiles();
-                    }
-                    catch (Exception ex)
+                    if (saveFileDialog.ShowDialog() == true)
                     {
-                        MessageBox.Show(this, $"リプレイファイルの移動に失敗しました。\n{ex.Message}", "エラー",
-                            MessageBoxButton.OK, MessageBoxImage.Error);
+                        try
+                        {
+                            File.Move($"{replayDirectory}\\{replayFileName}", saveFileDialog.FileName, true);
+                            MessageBox.Show(this,
+                                $"移動しました。\n{saveFileDialog.FileName}", "リプレイファイルの移動",
+                                MessageBoxButton.OK, MessageBoxImage.Information);
+
+                            GetReplayFiles();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(this, $"リプレイファイルの移動に失敗しました。\n{ex.Message}", "エラー",
+                                MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
                 }
             }
@@ -2773,37 +2779,40 @@ namespace ThGameMgr.Ex
             if (ReplayFilesDataGrid.Items.Count > 0
                 && ReplayFilesDataGrid.SelectedIndex >= 0)
             {
-                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
-                string replayFileName = selectedReplayFileInfo.FileName;
-
-                RenameReplayFileDialog renameDialog = new()
+                ReplayFileInfo? selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                if (selectedReplayFileInfo != null && selectedReplayFileInfo.FileName != null)
                 {
-                    ReplayFileName = Path.GetFileNameWithoutExtension(replayFileName),
-                    Owner = this
-                };
+                    string replayFileName = selectedReplayFileInfo.FileName;
 
-                if (renameDialog.ShowDialog() == true)
-                {
-                    string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
-
-                    if (!ReplayFile.Exists(this.GameId, newReplayFileName))
+                    RenameReplayFileDialog renameDialog = new()
                     {
-                        try
-                        {
-                            ReplayFile.Rename(this.GameId, replayFileName, newReplayFileName);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(this, $"リプレイファイルのリネームに失敗しました。\n{ex.Message}", "エラー",
-                                MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
+                        ReplayFileName = Path.GetFileNameWithoutExtension(replayFileName),
+                        Owner = this
+                    };
 
-                        GetReplayFiles();
-                    }
-                    else
+                    if (renameDialog.ShowDialog() == true)
                     {
-                        MessageBox.Show(this, $"'{newReplayFileName}' は既に存在します。", "リプレイファイルのリネーム",
-                            MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
+
+                        if (!ReplayFile.Exists(this.GameId, newReplayFileName))
+                        {
+                            try
+                            {
+                                ReplayFile.Rename(this.GameId, replayFileName, newReplayFileName);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(this, $"リプレイファイルのリネームに失敗しました。\n{ex.Message}", "エラー",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+
+                            GetReplayFiles();
+                        }
+                        else
+                        {
+                            MessageBox.Show(this, $"'{newReplayFileName}' は既に存在します。", "リプレイファイルのリネーム",
+                                MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
                     }
                 }
             }
@@ -2814,20 +2823,23 @@ namespace ThGameMgr.Ex
             if (ReplayFilesDataGrid.Items.Count > 0
                 && ReplayFilesDataGrid.SelectedIndex >= 0)
             {
-                ReplayFileInfo selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
-                string replayFileName = selectedReplayFileInfo.FileName;
-                string replayDirectory = ReplayFile.GetReplayDirectory(this.GameId);
+                ReplayFileInfo? selectedReplayFileInfo = ReplayFilesDataGrid.SelectedItem as ReplayFileInfo;
+                if (selectedReplayFileInfo != null && selectedReplayFileInfo.FileName != null)
+                {
+                    string replayFileName = selectedReplayFileInfo.FileName;
+                    string replayDirectory = ReplayFile.GetReplayDirectory(this.GameId);
 
-                CreateReplayFileBackupDialog createReplayFileBackupDialog = new(
-                    _currentUserService, this.GameId, Path.Combine(replayDirectory, replayFileName)
-                    )
-                {
-                    Owner = this
-                };
-                if (createReplayFileBackupDialog.ShowDialog() == true)
-                {
-                    MessageBox.Show(this, "バックアップを作成しました。", "リプレイファイルのバックアップ",
-                        MessageBoxButton.OK, MessageBoxImage.Information);
+                    CreateReplayFileBackupDialog createReplayFileBackupDialog = new(
+                        _currentUserService, this.GameId, Path.Combine(replayDirectory, replayFileName)
+                        )
+                    {
+                        Owner = this
+                    };
+                    if (createReplayFileBackupDialog.ShowDialog() == true)
+                    {
+                        MessageBox.Show(this, "バックアップを作成しました。", "リプレイファイルのバックアップ",
+                            MessageBoxButton.OK, MessageBoxImage.Information);
+                    }
                 }
             }
         }
