@@ -2614,7 +2614,8 @@ namespace ThGameMgr.Ex
 
                     if (!string.IsNullOrEmpty(scoreRecordList.Progress))
                         data += $"\r\n到達面:{scoreRecordList.Progress}";
-                    if (!string.IsNullOrEmpty(scoreRecordList.Date.TrimEnd('\0'))
+                    if (!string.IsNullOrEmpty(scoreRecordList.Date) &&
+                        !string.IsNullOrEmpty(scoreRecordList.Date.TrimEnd('\0'))
                         && scoreRecordList.Date.TrimEnd('\0') != "--/--")
                         data += $"\r\n日時:{scoreRecordList.Date.TrimEnd('\0')}";
                     if (!string.IsNullOrEmpty(scoreRecordList.SlowRate)
