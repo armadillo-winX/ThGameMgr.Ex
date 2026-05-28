@@ -1050,7 +1050,7 @@ namespace ThGameMgr.Ex
 
         private void LevelFilterMenuClick(object sender, RoutedEventArgs e)
         {
-            string level = ((MenuItem)sender).Header.ToString();
+            string? level = ((MenuItem)sender).Header.ToString();
             this.FilterLevel = level;
             ApplyScoreViewFilter();
         }
