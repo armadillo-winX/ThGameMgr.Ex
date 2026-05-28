@@ -1274,7 +1274,8 @@ namespace ThGameMgr.Ex
             SetLevelFilterMenu();
             SetExternalToolsMenu();
 
-            AutoStartWindowResizerCheckBox.IsChecked = GameSpecificSettings.GetAutoResizerConfig(this.GameId);
+            AutoStartWindowResizerCheckBox.IsChecked =
+                this.GameId != null ? GameSpecificSettings.GetAutoResizerConfig(this.GameId) : false;
             CurrentUserStatusBarItem.Content = _currentUserService.GetCurrentUserName();
 
             GetScoreData();
