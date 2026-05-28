@@ -2477,7 +2477,7 @@ namespace ThGameMgr.Ex
         private void OpenLogMenuItemClick(object sender, RoutedEventArgs e)
         {
             string? gameId = this.GameId;
-            if (!string.IsNullOrEmpty(gameId))
+            if (string.IsNullOrEmpty(gameId))
                 return;
             string logFile = GameFile.GetGameLogFile(gameId);
             if (!string.IsNullOrEmpty(logFile) && File.Exists(logFile))
