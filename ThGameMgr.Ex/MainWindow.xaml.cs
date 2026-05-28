@@ -2846,64 +2846,70 @@ namespace ThGameMgr.Ex
 
         private void RestoreReplayBackupMenuItemClick(object sender, RoutedEventArgs e)
         {
-            ManageReplayFileBackupDialog manageReplayFileBackupDialog = new(
+            if (!string.IsNullOrEmpty(this.GameId))
+            {
+                ManageReplayFileBackupDialog manageReplayFileBackupDialog = new(
                 _currentUserService, this.GameId
                 )
-            {
-                Owner = this,
-            };
-            manageReplayFileBackupDialog.ShowDialog();
-            GetReplayFiles();
+                {
+                    Owner = this,
+                };
+                manageReplayFileBackupDialog.ShowDialog();
+                GetReplayFiles();
+            }
         }
 
         private void AddReplayFileButtonClick(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new()
+            if (!string.IsNullOrEmpty(this.GameId))
             {
-                Filter = "リプレイファイル|*.rpy|すべてのファイル|*.*"
-            };
-
-            if (openFileDialog.ShowDialog() == true)
-            {
-                string gameId = this.GameId;
-                
-                string replayDirectory = ReplayFile.GetReplayDirectory(gameId);
-                string replayFile = openFileDialog.FileName;
-                string newReplayFile = $"{replayDirectory}\\{Path.GetFileName(replayFile)}";
-                try
+                OpenFileDialog openFileDialog = new()
                 {
-                    while (File.Exists(newReplayFile))
+                    Filter = "リプレイファイル|*.rpy|すべてのファイル|*.*"
+                };
+
+                if (openFileDialog.ShowDialog() == true)
+                {
+                    string gameId = this.GameId;
+
+                    string replayDirectory = ReplayFile.GetReplayDirectory(gameId);
+                    string replayFile = openFileDialog.FileName;
+                    string newReplayFile = $"{replayDirectory}\\{Path.GetFileName(replayFile)}";
+                    try
                     {
-                        MessageBox.Show(this,
-                            "追加先の replay フォルダに、同名のリプレイファイルが存在します。\n名前を変更してください。",
-                            "リプレイファイルの追加",
-                            MessageBoxButton.OK,
-                            MessageBoxImage.Exclamation);
-                        RenameReplayFileDialog renameDialog = new()
+                        while (File.Exists(newReplayFile))
                         {
-                            Owner = this,
-                            ReplayFileName = Path.GetFileNameWithoutExtension(newReplayFile)
-                        };
+                            MessageBox.Show(this,
+                                "追加先の replay フォルダに、同名のリプレイファイルが存在します。\n名前を変更してください。",
+                                "リプレイファイルの追加",
+                                MessageBoxButton.OK,
+                                MessageBoxImage.Exclamation);
+                            RenameReplayFileDialog renameDialog = new()
+                            {
+                                Owner = this,
+                                ReplayFileName = Path.GetFileNameWithoutExtension(newReplayFile)
+                            };
 
-                        if (renameDialog.ShowDialog() == true)
-                        {
-                            string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
-                            newReplayFile = $"{replayDirectory}\\{newReplayFileName}";
+                            if (renameDialog.ShowDialog() == true)
+                            {
+                                string newReplayFileName = $"{renameDialog.ReplayFileName}.rpy";
+                                newReplayFile = $"{replayDirectory}\\{newReplayFileName}";
+                            }
+                            else
+                            {
+                                throw new InvalidOperationException(
+                                    "新しい名前が指定されませんでした。");
+                            }
                         }
-                        else
-                        {
-                            throw new InvalidOperationException(
-                                "新しい名前が指定されませんでした。");
-                        }
+
+                        File.Copy(replayFile, newReplayFile);
+                        GetReplayFiles();
                     }
-
-                    File.Copy(replayFile, newReplayFile);
-                    GetReplayFiles();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(this, $"リプレイファイルを追加できませんでした。\n{ex.Message}", "エラー",
-                        MessageBoxButton.OK, MessageBoxImage.Error);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(this, $"リプレイファイルを追加できませんでした。\n{ex.Message}", "エラー",
+                            MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
         }
