@@ -1918,7 +1918,7 @@ namespace ThGameMgr.Ex
 
         private void StartGameWithThpracMenuItemClick(object sender, RoutedEventArgs e)
         {
-            string gameId = this.GameId;
+            string? gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
             {
                 List<string> thpracFiles = GameFile.GetThpracFiles(gameId);
@@ -1958,7 +1958,7 @@ namespace ThGameMgr.Ex
 
         private void StartCustomMenuItemClick(object sender, RoutedEventArgs e)
         {
-            string gameId = this.GameId;
+            string? gameId = this.GameId;
             if (!string.IsNullOrEmpty(gameId))
             {
                 try
