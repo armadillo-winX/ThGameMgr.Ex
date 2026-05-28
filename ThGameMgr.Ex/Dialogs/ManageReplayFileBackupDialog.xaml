@@ -25,7 +25,7 @@
         <Button 
             x:Name="RestoreButton"
             Width="120" Height="24"
-            Content="復元(_R)" HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom"/>
+            Content="復元(_R)" HorizontalAlignment="Right" Margin="0,0,10,9" VerticalAlignment="Bottom" Click="RestoreButtonClick"/>
         <TextBlock
             x:Name="MessageBlock"
             FontSize="14"

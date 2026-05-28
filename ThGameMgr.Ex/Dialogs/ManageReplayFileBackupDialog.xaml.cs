@@ -69,5 +69,22 @@ namespace ThGameMgr.Ex.Dialogs
 
             BackupFilesDataGrid.Effect = blurEffect;
         }
+
+        private void RestoreButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (BackupFilesDataGrid.SelectedIndex > -1 &&
+                BackupFilesDataGrid.SelectedIndex < this.ReplayBackupFiles.Length)
+            {
+                int index = BackupFilesDataGrid.SelectedIndex;
+                string replayBackupFile = this.ReplayBackupFiles[index];
+                RestoreReplayFileDialog restoreReplayFileDialog = new(
+                    this.GameId, replayBackupFile
+                    )
+                {
+                    Owner = this
+                };
+                restoreReplayFileDialog.ShowDialog();
+            }
+        }
     }
 }
