@@ -1793,7 +1793,13 @@ namespace ThGameMgr.Ex
 
         private void WorkerDoWork(object? sender, DoWorkEventArgs e)
         {
-            Process gameProcess = (Process)e.Argument;
+            Process? gameProcess = (Process?)e.Argument;
+            if (gameProcess == null)
+            {
+                e.Cancel = true;
+                return;
+            }
+
             gameProcess.WaitForExit();
         }
 
