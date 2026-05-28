@@ -27,14 +27,21 @@ namespace ThGameMgr.Ex.Dialogs
             string replayBackupDirectory = Path.Combine(userService.GetCurrentUserReplayBackupDirectory(), gameId);
             if (Directory.Exists(replayBackupDirectory))
             {
-                string[] backupFiles =
-                Directory.GetFiles(replayBackupDirectory, "*.trpb", SearchOption.TopDirectoryOnly);
-                foreach (string backupFile in backupFiles)
+                try
                 {
-                    ReplayFileBackupInfo replayFileBackupInfo =
-                        ReplayBackup.GetReplayBackupFileInfo(backupFile);
-                    if (replayFileBackupInfo.GameId == this.GameId)
-                        BackupFilesDataGrid.Items.Add(replayFileBackupInfo);
+                    string[] backupFiles =
+                        Directory.GetFiles(replayBackupDirectory, "*.trpb", SearchOption.TopDirectoryOnly);
+                    foreach (string backupFile in backupFiles)
+                    {
+                        ReplayFileBackupInfo replayFileBackupInfo =
+                            ReplayBackup.GetReplayBackupFileInfo(backupFile);
+                        if (replayFileBackupInfo.GameId == this.GameId)
+                            BackupFilesDataGrid.Items.Add(replayFileBackupInfo);
+                    }
+                }
+                catch (Exception)
+                {
+                    ShowErrorMessage("リプレイバックアップファイル一覧の取得に失敗しました。");
                 }
             }
         }
