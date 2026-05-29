@@ -1,5 +1,5 @@
 ﻿namespace ThGameMgr.Ex.GameProcess
 
-module Say =
+module GameProcessManager =
     let hello name =
         printfn "Hello %s" name
