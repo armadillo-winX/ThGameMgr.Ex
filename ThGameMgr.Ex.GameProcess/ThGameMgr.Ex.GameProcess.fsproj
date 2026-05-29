@@ -16,4 +16,8 @@
     <Compile Include="Library.fs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ThGameMgr.Ex.Core\ThGameMgr.Ex.Core.fsproj" />
+  </ItemGroup>
+
 </Project>
