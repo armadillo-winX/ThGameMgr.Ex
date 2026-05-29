@@ -59,3 +59,7 @@ module GameIdIndex =
 
     [<Literal>]
     let Th19 = "Th19"
+
+    let internal isLegacy (gameId: string) =
+        let legacyGames = [Th01; Th02; Th03; Th04; Th05]
+        legacyGames |> List.contains gameId
