@@ -405,9 +405,10 @@ namespace ThGameMgr.Ex
                     SetStartGameStatus("ゲームの起動を待機中...");
                     try
                     {
+                        string gameFilePath = GameFile.GetGameFilePath(gameId);
                         Process gameProcess
                             = await Task.Run(()
-                                    => GameProcessHandler.StartGameProcess(gameId)
+                                    => GameProcessManager.StartGameProcess(gameId, gameFilePath)
                                     );
                         StartGameEndWaitingMode(gameProcess);
                     }
@@ -445,9 +446,10 @@ namespace ThGameMgr.Ex
                     SetStartGameStatus("ゲームの起動を待機中(約5秒)...");
                     try
                     {
+                        string gameFilePath = GameFile.GetGameFilePath(gameId);
                         Process gameProcess
                             = await Task.Run(()
-                                    => GameProcessHandler.StartGameProcessWithApplyingTool(gameId, toolName)
+                                    => GameProcessManager.StartGameProcessWithApplyingTool(gameId, gameFilePath, toolName)
                                     );
                         StartGameEndWaitingMode(gameProcess);
                     }
