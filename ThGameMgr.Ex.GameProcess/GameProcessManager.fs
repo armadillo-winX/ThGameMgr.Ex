@@ -53,7 +53,8 @@ module GameProcessManager =
                     let mutable i = 0
                     while Process.GetProcessesByName(processName).Length = 0 do
                         if i = 50 then 
-                            raise (ProcessNotFoundException($"Failed to find the process of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
+                            raise (ProcessNotFoundException(
+                            $"Failed to find the process of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
                         Thread.Sleep(100)
                         i <- i + 1
                     
