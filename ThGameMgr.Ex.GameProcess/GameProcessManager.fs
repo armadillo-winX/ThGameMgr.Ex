@@ -73,3 +73,14 @@ module GameProcessManager =
             | (Some id, Some path) -> startGameProcessExecute id path
             | (None, _) -> nullArg "gameId"
             | (_, None) -> nullArg "gameExecutableFilePath"
+
+    let StartGameProcessWithApplyingTool (gameId: string) (gameExecutableFilePath: string) (toolFileName: string) =
+        let gameIdOption = Option.ofObj gameId
+        let gameExecutableFilePathOption = Option.ofObj gameExecutableFilePath
+        let toolFileNameOption = Option.ofObj toolFileName
+
+        match (gameIdOption, gameExecutableFilePathOption, toolFileNameOption) with
+            | (Some id, Some path, Some toolname) -> startGameProcessWithApplyingTool id path toolname
+            | (None, _, _) -> nullArg "gameId"
+            | (_, None, _) -> nullArg "gameExecutableFilePathOption"
+            | (_, _, None) -> nullArg "toolFileName"
