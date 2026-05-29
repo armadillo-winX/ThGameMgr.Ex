@@ -1,5 +1,5 @@
 ﻿namespace ThGameMgr.Ex.Core
 
-module Say =
+module GameId =
     let hello name =
         printfn "Hello %s" name
