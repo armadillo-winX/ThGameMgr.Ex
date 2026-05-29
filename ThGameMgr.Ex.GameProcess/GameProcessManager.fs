@@ -26,13 +26,13 @@ module GameProcessManager =
                             p
                         | None -> 
                             raise (ProcessNotFoundException(
-                            $"Cannnot confirm that {gameId}: {GameNameIndex.GetGameNameFromId(gameId)} has started."))
+                            $"Failed to confirm that {gameId}: {GameNameIndex.GetGameNameFromId(gameId)} has started."))
                 |None -> 
                     raise (InvalidOperationException(
-                    $"Cannot find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
+                    $"Failed to find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}."))
         else
             raise (FileNotFoundException(
-            $"The executable file of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)} does not found."))
+            $"Failed to find the executable file of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}."))
 
     let private startGameProcessWithApplyingTool (gameId: string) (gameExecutableFilePath: string) (toolFileName: string) =
         if File.Exists(gameExecutableFilePath) = true then
@@ -53,17 +53,17 @@ module GameProcessManager =
                     let mutable i = 0
                     while Process.GetProcessesByName(processName).Length = 0 do
                         if i = 50 then 
-                            raise (ProcessNotFoundException($"Cannot find the process of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
+                            raise (ProcessNotFoundException($"Failed to find the process of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
                         Thread.Sleep(100)
                         i <- i + 1
                     
                     Process.GetProcessesByName(processName)[0]
                 |None -> 
                     raise (InvalidOperationException(
-                    $"Cannot find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
+                    $"Failed to find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}."))
         else
             raise (FileNotFoundException(
-            $"The executable file of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)} does not found."))
+            $"Failed to find the executable file of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}."))
 
     let StartGameProcess (gameId: string) (gameExecutableFilePath: string) =
         let gameIdOption = Option.ofObj gameId
