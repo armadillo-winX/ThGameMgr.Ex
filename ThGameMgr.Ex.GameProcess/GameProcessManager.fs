@@ -4,6 +4,7 @@ open System
 open System.Diagnostics
 open System.IO
 open ThGameMgr.Ex.Core
+open ThGameMgr.Ex.GameProcess.Exceptions
 
 module GameProcessManager =
 
@@ -16,7 +17,12 @@ module GameProcessManager =
                     processStartInfo.FileName <- gameExecutableFilePath
                     processStartInfo.WorkingDirectory <- dir
                     processStartInfo.UseShellExecute <- true
-                    Process.Start(processStartInfo)
+                    let gameProcessOption = Process.Start(processStartInfo) |> Option.ofObj
+                    match gameProcessOption with
+                        | Some p -> 
+                            p.WaitForInputIdle() |> ignore
+                            p
+                        | None -> raise (ProcessNotFoundException($"Cannnot confirm that {GameNameIndex.GetGameNameFromId(gameId)} has started."))
                 |None -> 
                     raise (InvalidOperationException($"Cannot find the installation directory of {GameNameIndex.GetGameNameFromId(gameId)}"))
         else
