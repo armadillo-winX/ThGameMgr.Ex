@@ -31,7 +31,7 @@ module GameProcessManager =
                     $"Cannot find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
         else
             raise (FileNotFoundException(
-            $"The executable file of {GameNameIndex.GetGameNameFromId(gameId)} does not found."))
+            $"The executable file of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)} does not found."))
 
     let StartGameProcess (gameId: string) (gameExecutableFilePath: string) =
         let gameIdOption = Option.ofObj gameId
