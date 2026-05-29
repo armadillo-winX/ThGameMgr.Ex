@@ -22,7 +22,8 @@ module GameProcessManager =
                         | Some p -> 
                             p.WaitForInputIdle() |> ignore
                             p
-                        | None -> raise (ProcessNotFoundException($"Cannnot confirm that {GameNameIndex.GetGameNameFromId(gameId)} has started."))
+                        | None -> 
+                            raise (ProcessNotFoundException($"Cannnot confirm that {GameNameIndex.GetGameNameFromId(gameId)} has started."))
                 |None -> 
                     raise (InvalidOperationException($"Cannot find the installation directory of {GameNameIndex.GetGameNameFromId(gameId)}"))
         else
