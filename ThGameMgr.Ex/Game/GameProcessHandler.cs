@@ -12,7 +12,7 @@ namespace ThGameMgr.Ex.Game
                 string? gameDirectory = Path.GetDirectoryName(gamePath);
 
                 if (string.IsNullOrEmpty(gameDirectory))
-                    throw new InvalidOperationException($"{GameIndex.GetGameName(gameId)}のインストールフォルダが検出できませんでした．");
+                    throw new InvalidOperationException($"{GameNameIndex.GetGameNameFromId(gameId)}のインストールフォルダが検出できませんでした．");
 
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
@@ -31,12 +31,12 @@ namespace ThGameMgr.Ex.Game
                 }
                 else
                 {
-                    throw new ProcessNotFoundException($"{GameIndex.GetGameName(gameId)}の起動が確認できませんでした。");
+                    throw new ProcessNotFoundException($"{GameNameIndex.GetGameNameFromId(gameId)}の起動が確認できませんでした。");
                 }
             }
             else
             {
-                throw new FileNotFoundException($"{GameIndex.GetGameName(gameId)}の実行ファイルが見つかりませんでした。");
+                throw new FileNotFoundException($"{GameNameIndex.GetGameNameFromId(gameId)}の実行ファイルが見つかりませんでした。");
             }
         }
 
@@ -48,7 +48,7 @@ namespace ThGameMgr.Ex.Game
             if (File.Exists(gamePath) && File.Exists(patchPath))
             {
                 if (string.IsNullOrEmpty(gameDirectory))
-                    throw new InvalidOperationException($"{GameIndex.GetGameName(gameId)}のインストールフォルダが検出できませんでした．");
+                    throw new InvalidOperationException($"{GameNameIndex.GetGameNameFromId(gameId)}のインストールフォルダが検出できませんでした．");
 
                 ProcessStartInfo gameProcessStartInfo = new()
                 {
@@ -66,7 +66,7 @@ namespace ThGameMgr.Ex.Game
                     Thread.Sleep(100);
                     if (i == 50)
                     {
-                        throw new ProcessNotFoundException($"{GameIndex.GetGameName(gameId)}のプロセスの検出に失敗しました。");
+                        throw new ProcessNotFoundException($"{GameNameIndex.GetGameNameFromId(gameId)}のプロセスの検出に失敗しました。");
                     }
                     i++;
                 }
@@ -83,7 +83,7 @@ namespace ThGameMgr.Ex.Game
             }
             else
             {
-                throw new FileNotFoundException($"{GameIndex.GetGameName(gameId)}の実行ファイルが見つかりませんでした。");
+                throw new FileNotFoundException($"{GameNameIndex.GetGameNameFromId(gameId)}の実行ファイルが見つかりませんでした。");
             }
         }
 
@@ -108,7 +108,7 @@ namespace ThGameMgr.Ex.Game
             }
             else
             {
-                throw new FileNotFoundException($"{GameIndex.GetGameName(gameId)}の実行ファイルが見つかりませんでした。");
+                throw new FileNotFoundException($"{GameNameIndex.GetGameNameFromId(gameId)}の実行ファイルが見つかりませんでした。");
             }
         }
     }
