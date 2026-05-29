@@ -1965,7 +1965,8 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    GameProcessHandler.StartCustomProgramProcess(gameId);
+                    string gameFilePath = GameFile.GetGameFilePath(gameId);
+                    GameProcessManager.StartCustomProgram(gameId, gameFilePath);
                 }
                 catch (Exception ex)
                 {
