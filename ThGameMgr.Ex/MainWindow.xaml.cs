@@ -1426,7 +1426,7 @@ namespace ThGameMgr.Ex
 
                 menuItem.Click += (sender, e) =>
                 {
-                    List<string> availableGamesList = GameIndex.GetEnabledGamesList();
+                    List<string> availableGamesList = GameFile.GetEnabledGamesList();
                     Dictionary<string, string> availableGameFilesDictionary = [];
                     if (availableGamesList.Count > 0)
                     {
