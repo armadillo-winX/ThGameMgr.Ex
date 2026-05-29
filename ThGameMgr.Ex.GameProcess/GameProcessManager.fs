@@ -40,7 +40,7 @@ module GameProcessManager =
             match gameDirectoryOption with
                 | Some dir ->
                     let toolPath = Path.Combine(dir, toolFileName)
-                    if File.Exists (toolPath) = false then raise (FileNotFoundException($"'{toolFileName}' does not found."))
+                    if File.Exists (toolPath) = false then raise (FileNotFoundException($"Failed to find '{toolFileName}'."))
 
                     let processStartInfo = ProcessStartInfo()
                     processStartInfo.FileName <- toolPath
@@ -72,7 +72,7 @@ module GameProcessManager =
             match gameDirectoryOption with
                 | Some dir ->
                     let customProgramFilepath = Path.Combine(dir, "custom.exe")
-                    if File.Exists(customProgramFilepath) = false then raise (FileNotFoundException("'custom.exe' does not found"))
+                    if File.Exists(customProgramFilepath) = false then raise (FileNotFoundException("Failed to find 'custom.exe'."))
 
                     let processStartInfo = ProcessStartInfo()
                     processStartInfo.FileName <- customProgramFilepath
