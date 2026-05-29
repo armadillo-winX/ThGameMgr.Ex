@@ -1,5 +1,7 @@
 namespace ThGameMgr.Ex.Core
 
+open System.Collections.Generic
+
 module GameNameIndex =
 
     let private legacyGameNamesIndex = 
@@ -48,4 +50,10 @@ module GameNameIndex =
                 else
                     getLegacyGameNameFromId id
             | None -> ""
+
+    let GetAllLegacyGamesList () =
+        List<string>(legacyGameNamesIndex.Keys)
+
+    let GetAllWinGamesList () =
+        List<string>(winGameNamesIndex.Keys)
     
