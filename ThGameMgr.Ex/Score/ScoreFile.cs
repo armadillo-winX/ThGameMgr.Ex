@@ -20,17 +20,17 @@ namespace ThGameMgr.Ex.Score
                     return string.Empty;
 
                 if (
-                    gameId == GameIndex.Th06 ||
-                    gameId == GameIndex.Th07 ||
-                    gameId == GameIndex.Th08 ||
-                    gameId == GameIndex.Th09)
+                    gameId == GameIdIndex.Th06 ||
+                    gameId == GameIdIndex.Th07 ||
+                    gameId == GameIdIndex.Th08 ||
+                    gameId == GameIdIndex.Th09)
                 {
                     return $"{gameDirectory}\\score.dat";
                 }
                 else if (
-                    gameId == GameIndex.Th10 ||
-                    gameId == GameIndex.Th11 ||
-                    gameId == GameIndex.Th12)
+                    gameId == GameIdIndex.Th10 ||
+                    gameId == GameIdIndex.Th11 ||
+                    gameId == GameIdIndex.Th12)
                 {
                     return $"{gameDirectory}\\score{gameId.ToLower()}.dat";
                 }
