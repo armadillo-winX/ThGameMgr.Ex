@@ -37,7 +37,7 @@
                 ReplayFileBackupInfo replayFileBackupInfo = new()
                 {
                     GameId = this.GameId,
-                    GameName = GameIndex.GetGameName(this.GameId),
+                    GameName = GameNameIndex.GetGameNameFromId(this.GameId),
                     SourceReplayFilePath = this.ReplayFilePath,
                     BackupName = backupName,
                     Timestamp = now.ToString("yyyy/MM/dd hh:mm:s"),
