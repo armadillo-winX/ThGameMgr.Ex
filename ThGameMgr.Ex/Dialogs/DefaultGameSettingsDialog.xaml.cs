@@ -15,7 +15,7 @@ namespace ThGameMgr.Ex.Dialogs
             InitializeComponent();
             _currentUserService = userService;
 
-            List<string> enableGamesList = GameIndex.GetEnabledGamesList();
+            List<string> enableGamesList = GameFile.GetEnabledGamesList();
 
             ComboBoxItem defaultItem = new()
             {
@@ -34,7 +34,7 @@ namespace ThGameMgr.Ex.Dialogs
                 {
                     ComboBoxItem item = new()
                     {
-                        Content = $"{gameId}: {GameIndex.GetGameName(gameId)}",
+                        Content = $"{gameId}: {GameNameIndex.GetGameNameFromId(gameId)}",
                         Uid = gameId
                     };
                     DefaultGameConfigComboBox.Items.Add(item);
