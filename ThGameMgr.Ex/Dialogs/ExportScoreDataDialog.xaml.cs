@@ -15,10 +15,10 @@ namespace ThGameMgr.Ex.Dialogs
             InitializeComponent();
 
             this.GameId = ScoreData.GetScoreDataStateGameId();
-            GameNameBlock.Text = GameIndex.GetGameName(this.GameId);
+            GameNameBlock.Text = GameNameIndex.GetGameNameFromId(this.GameId);
 
             LevelFilterComboBox.SelectedIndex = 0;
-            if (this.GameId == GameIndex.Th07)
+            if (this.GameId == GameIdIndex.Th07)
                 LevelFilterComboBox.Items.Add(new ComboBoxItem() { Content = "Phantasm"});
 
             PlayerFilterComboBox.Items.Add(new ComboBoxItem() { Content = "All" });
@@ -58,7 +58,7 @@ namespace ThGameMgr.Ex.Dialogs
 
                     SaveFileDialog saveFileDialog = new()
                     {
-                        FileName = $"{GameIndex.GetGameName(this.GameId)}スコアデータ.txt",
+                        FileName = $"{GameNameIndex.GetGameNameFromId(this.GameId)}スコアデータ.txt",
                         Filter = "テキストファイル|*.txt|すべてのファイル|*.*"
                     };
 
