@@ -1037,7 +1037,7 @@ namespace ThGameMgr.Ex
                 LevelFilterButtonContextMenu.Items.Add(item);
             }
 
-            if (this.GameId == GameIndex.Th07)
+            if (this.GameId == GameIdIndex.Th07)
             {
                 MenuItem item = new()
                 {
