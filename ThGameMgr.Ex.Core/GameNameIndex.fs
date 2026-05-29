@@ -31,12 +31,12 @@ module GameNameIndex =
         (GameIdIndex.Th19, "東方獣王園")
         ]
 
-    let getLegacyGameNameFromId (gameId: string) =
+    let private getLegacyGameNameFromId (gameId: string) =
         match legacyGameNamesIndex |> Map.tryFind gameId with
             | Some name -> name
             | None -> ""
 
-    let getWinGameNameFromId (gameId: string) =
+    let private getWinGameNameFromId (gameId: string) =
         match winGameNamesIndex |> Map.tryFind gameId with
             | Some name -> name
             | None -> ""
