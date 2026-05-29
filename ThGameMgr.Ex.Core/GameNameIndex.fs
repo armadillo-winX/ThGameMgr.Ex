@@ -1,7 +1,5 @@
 namespace ThGameMgr.Ex.Core
 
-open System.Collections.Generic
-
 module GameNameIndex =
 
     let private legacyGameNamesIndex = 
