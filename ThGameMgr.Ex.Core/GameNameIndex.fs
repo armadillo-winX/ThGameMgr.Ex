@@ -30,3 +30,24 @@ module GameNameIndex =
         (GameIdIndex.Th18, "東方虹龍洞")
         (GameIdIndex.Th19, "東方獣王園")
         ]
+
+    let getLegacyGameNameFromId (gameId: string) =
+        match legacyGameNamesIndex |> Map.tryFind gameId with
+            | Some name -> name
+            | None -> ""
+
+    let getWinGameNameFromId (gameId: string) =
+        match winGameNamesIndex |> Map.tryFind gameId with
+            | Some name -> name
+            | None -> ""
+
+    let GetGameNameFromId (gameId: string) =
+        let gameidOption = Option.ofObj gameId
+        match gameidOption with
+            | Some id -> 
+                if id |> GameIdIndex.isLegacy = false then
+                    getWinGameNameFromId id
+                else
+                    getLegacyGameNameFromId id
+            | None -> ""
+    
