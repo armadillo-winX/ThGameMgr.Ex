@@ -2531,7 +2531,7 @@ namespace ThGameMgr.Ex
                 catch (Exception ex)
                 {
                     MessageBox.Show(this,
-                        $"バックアップの作成に失敗しました。\n{gameId}: {GameIndex.GetGameName(gameId)}\n{ex.Message}", "エラー",
+                        $"バックアップの作成に失敗しました。\n{gameId}: {GameNameIndex.GetGameNameFromId(gameId)}\n{ex.Message}", "エラー",
                         MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
