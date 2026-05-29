@@ -1,7 +1,7 @@
 ﻿namespace ThGameMgr.Ex.Core
 
 [<RequireQualifiedAccess>]
-module GameId =
+module GameIdIndex =
     
     [<Literal>]
     let Th01 = "Th01"

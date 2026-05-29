@@ -13,8 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="GameId.fs" />
-    <Compile Include="GameName.fs" />
+    <Compile Include="GameIdIndex.fs" />
+    <Compile Include="GameNameIndex.fs" />
   </ItemGroup>
 
 </Project>
