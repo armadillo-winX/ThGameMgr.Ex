@@ -10,8 +10,8 @@ module GameProcessManager =
 
     let internal startGameProcessExecute (gameId: string) (gameExecutableFilePath: string) =
         if File.Exists(gameExecutableFilePath) = true then
-            let gameDirectory : string option = Path.GetDirectoryName(gameExecutableFilePath) |> Option.ofObj
-            match gameDirectory with
+            let gameDirectoryOption : string option = Path.GetDirectoryName(gameExecutableFilePath) |> Option.ofObj
+            match gameDirectoryOption with
                 | Some dir ->
                     let processStartInfo = ProcessStartInfo()
                     processStartInfo.FileName <- gameExecutableFilePath
