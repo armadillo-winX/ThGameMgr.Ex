@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score.Th07
 {
     internal class Th07ScoreData
     {
-        private static readonly string[] _th07PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th07).Split(',');
+        private static readonly string[] _th07PlayersList = GamePlayers.GetGamePlayers(GameIdIndex.Th07).Split(',');
 
         private static readonly Dictionary<string, string> _levelDictionary =
             new()
@@ -33,13 +33,13 @@ namespace ThGameMgr.Ex.Score.Th07
 
         public static void Get()
         {
-            string? gamePath = GameFile.GetGameFilePath(GameIndex.Th07);
-            string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th07);
+            string? gamePath = GameFile.GetGameFilePath(GameIdIndex.Th07);
+            string? scorePath = ScoreFile.GetScoreFilePath(GameIdIndex.Th07);
 
             if (File.Exists(gamePath) && File.Exists(scorePath))
             {
                 MemoryStream decodedData = new();
-                bool decodeResult = ScoreDecoder.Decode(GameIndex.Th07, scorePath, decodedData);
+                bool decodeResult = ScoreDecoder.Decode(GameIdIndex.Th07, scorePath, decodedData);
                 if (decodeResult)
                 {
                     decodedData.Seek(0, SeekOrigin.Begin);
@@ -82,7 +82,7 @@ namespace ThGameMgr.Ex.Score.Th07
                                     spellCardRecordList
                                     = GetSpellCardRecord(cardAttackData);
                                 ScoreData.AddSpellCardData(spellCardRecordList["all"]);
-                                foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th07).Split(','))
+                                foreach (string player in GamePlayers.GetGamePlayers(GameIdIndex.Th07).Split(','))
                                 {
                                     ScoreData.AddSpellCardDataByPlayers(player, spellCardRecordList[player]);
                                 }

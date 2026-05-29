@@ -6,7 +6,7 @@ namespace ThGameMgr.Ex.Score.Th16
 {
     internal class Th16ScoreData
     {
-        private static readonly string[] _th16PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th16).Split(',');
+        private static readonly string[] _th16PlayersList = GamePlayers.GetGamePlayers(GameIdIndex.Th16).Split(',');
 
         private static readonly Dictionary<string, string> _progressDictionary =
             new()
@@ -34,13 +34,13 @@ namespace ThGameMgr.Ex.Score.Th16
 
         public static void Get()
         {
-            string? gamePath = GameFile.GetGameFilePath(GameIndex.Th16);
-            string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th16);
+            string? gamePath = GameFile.GetGameFilePath(GameIdIndex.Th16);
+            string? scorePath = ScoreFile.GetScoreFilePath(GameIdIndex.Th16);
 
             if (File.Exists(gamePath) && File.Exists(scorePath))
             {
                 MemoryStream decodedData = new();
-                bool decodeResult = ScoreDecoder.Decode(GameIndex.Th16, scorePath, decodedData);
+                bool decodeResult = ScoreDecoder.Decode(GameIdIndex.Th16, scorePath, decodedData);
                 if (decodeResult)
                 {
                     decodedData.Seek(0, SeekOrigin.Begin);
@@ -82,7 +82,7 @@ namespace ThGameMgr.Ex.Score.Th16
                                 GetAllSpellCardRecord(p, bytes);
                             ScoreData.AddSpellCardData(spellCardRecordLists["all"][0]);
 
-                            foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th16).Split(','))
+                            foreach (string player in GamePlayers.GetGamePlayers(GameIdIndex.Th16).Split(','))
                             {
                                 ScoreData.AddSpellCardDataByPlayers(player, spellCardRecordLists[player][0]);
                             }
@@ -191,7 +191,7 @@ namespace ThGameMgr.Ex.Score.Th16
             //Marisa Spell Card Record start at: 66096 bytes
 
             Dictionary<string, ObservableCollection<SpellCardRecordData>> spellCardRecordsDictionary = [];
-            string[] players = GamePlayers.GetGamePlayers(GameIndex.Th16).Split(',');
+            string[] players = GamePlayers.GetGamePlayers(GameIdIndex.Th16).Split(',');
             SpellCard spellCard = Th16SpellCard.GetSpellCardData(cardId);
 
             for (int playerIndex = 0; playerIndex < 4; playerIndex++)

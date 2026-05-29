@@ -4,7 +4,7 @@ namespace ThGameMgr.Ex.Score.Th06
 {
     internal class Th06ScoreData
     {
-        private static readonly string[] _th06PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th06).Split(',');
+        private static readonly string[] _th06PlayersList = GamePlayers.GetGamePlayers(GameIdIndex.Th06).Split(',');
 
         private static readonly Dictionary<string, string> _levelDictionary =
             new()
@@ -31,13 +31,13 @@ namespace ThGameMgr.Ex.Score.Th06
 
         public static void Get()
         {
-            string? gamePath = GameFile.GetGameFilePath(GameIndex.Th06);
-            string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th06);
+            string? gamePath = GameFile.GetGameFilePath(GameIdIndex.Th06);
+            string? scorePath = ScoreFile.GetScoreFilePath(GameIdIndex.Th06);
 
             if (File.Exists(gamePath) && File.Exists(scorePath))
             {
                 MemoryStream decodedData = new();
-                bool decodedResult = ScoreDecoder.Decode(GameIndex.Th06, scorePath, decodedData);
+                bool decodedResult = ScoreDecoder.Decode(GameIdIndex.Th06, scorePath, decodedData);
                 if (decodedResult)
                 {
                     decodedData.Seek(0, SeekOrigin.Begin);

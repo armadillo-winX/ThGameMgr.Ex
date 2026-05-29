@@ -6,7 +6,7 @@ namespace ThGameMgr.Ex.Score.Th13
 {
     internal class Th13ScoreData
     {
-        private static readonly string[] _th13PlayersList = GamePlayers.GetGamePlayers(GameIndex.Th13).Split(',');
+        private static readonly string[] _th13PlayersList = GamePlayers.GetGamePlayers(GameIdIndex.Th13).Split(',');
 
         private static readonly Dictionary<string, string> _progressDictionary =
             new()
@@ -24,13 +24,13 @@ namespace ThGameMgr.Ex.Score.Th13
 
         public static void Get()
         {
-            string? gamePath = GameFile.GetGameFilePath(GameIndex.Th13);
-            string? scorePath = ScoreFile.GetScoreFilePath(GameIndex.Th13);
+            string? gamePath = GameFile.GetGameFilePath(GameIdIndex.Th13);
+            string? scorePath = ScoreFile.GetScoreFilePath(GameIdIndex.Th13);
 
             if (File.Exists(gamePath) && File.Exists(scorePath))
             {
                 MemoryStream decodedData = new();
-                bool decodeResult = ScoreDecoder.Decode(GameIndex.Th13, scorePath, decodedData);
+                bool decodeResult = ScoreDecoder.Decode(GameIdIndex.Th13, scorePath, decodedData);
                 if (decodeResult)
                 {
                     decodedData.Seek(0, SeekOrigin.Begin);
@@ -75,7 +75,7 @@ namespace ThGameMgr.Ex.Score.Th13
                                 ScoreData.AddSpellCardData(spellCardRecordLists["all"][0]);
                             }
 
-                            foreach (string player in GamePlayers.GetGamePlayers(GameIndex.Th13).Split(','))
+                            foreach (string player in GamePlayers.GetGamePlayers(GameIdIndex.Th13).Split(','))
                             {
                                 if (spellCardRecordLists[player][0].Place != "Over Drive")
                                 {
@@ -183,7 +183,7 @@ namespace ThGameMgr.Ex.Score.Th13
             //Youmu  Spell Card Record start at:  69156 bytes
 
             Dictionary<string, ObservableCollection<SpellCardRecordData>> spellCardRecordsDictionary = [];
-            string[] players = GamePlayers.GetGamePlayers(GameIndex.Th13).Split(',');
+            string[] players = GamePlayers.GetGamePlayers(GameIdIndex.Th13).Split(',');
             SpellCard spellCard = Th13SpellCard.GetSpellCardData(cardId);
 
             for (int playerIndex = 0; playerIndex < 4; playerIndex++)
