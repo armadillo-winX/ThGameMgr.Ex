@@ -51,6 +51,34 @@ module GameNameIndex =
                     getLegacyGameNameFromId id
             | None -> ""
 
+    let private getLegacyGameIdFromName (gameName: string) =
+        let gameIdOption =
+            legacyGameNamesIndex
+            |> Map.tryFindKey (fun key value -> value = gameName)
+        match gameIdOption with
+            | Some id -> id
+            | None -> ""
+
+    let private getWinGameIdFromName (gameName: string) =
+        let gameIdOption =
+            winGameNamesIndex
+            |> Map.tryFindKey (fun key value -> value = gameName)
+        match gameIdOption with
+            | Some id -> id
+            | None -> ""
+
+    let GetLegacyGameIdFromName (gameName: string) =
+        let gameNameOption = Option.ofObj gameName
+        match gameNameOption with
+            | Some name -> getLegacyGameIdFromName name
+            | None -> ""
+
+    let GetWinGameIdFromName (gameName: string) =
+        let gameNameOption = Option.ofObj gameName
+        match gameNameOption with
+            | Some name -> getWinGameIdFromName name
+            | None -> ""
+
     let GetAllLegacyGamesList () =
         List<string>(legacyGameNamesIndex.Keys)
 
