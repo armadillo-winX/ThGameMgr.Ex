@@ -22,7 +22,7 @@ namespace ThGameMgr.Ex.Settings
                 Directory.CreateDirectory(settingsDirectory);
             }
 
-            List<string> allGamesList = GameIndex.GetAllGamesList();
+            List<string> allGamesList = GameNameIndex.GetAllWinGamesList();
 
             XmlDocument gamePathSettingsXml = new();
 
@@ -49,7 +49,7 @@ namespace ThGameMgr.Ex.Settings
             string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
             string gamePathSettingsFile = Path.Combine(settingsDirectory, "GamePathSettings.xml");
 
-            List<string> allGamesList = GameIndex.GetAllGamesList();
+            List<string> allGamesList = GameNameIndex.GetAllWinGamesList();
 
             if (File.Exists(gamePathSettingsFile))
             {
@@ -90,7 +90,7 @@ namespace ThGameMgr.Ex.Settings
                 Directory.CreateDirectory(settingsDirectory);
             }
 
-            List<string> allGamesList = GameIndex.GetAllGamesList();
+            List<string> allGamesList = GameNameIndex.GetAllWinGamesList();
 
             XmlDocument gameSpecificConfigXml = new();
 
@@ -172,7 +172,7 @@ namespace ThGameMgr.Ex.Settings
             string settingsDirectory = _currentUserService.GetCurrentUserSettingsDirectory();
             string gameSpecificConfigFile = Path.Combine(settingsDirectory, "GameSpecificConfig.xml");
 
-            List<string> allGamesList = GameIndex.GetAllGamesList();
+            List<string> allGamesList = GameNameIndex.GetAllWinGamesList();
 
             if (File.Exists(gameSpecificConfigFile))
             {
