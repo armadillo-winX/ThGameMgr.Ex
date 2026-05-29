@@ -34,7 +34,7 @@ module GameProcessManager =
             raise (FileNotFoundException(
             $"The executable file of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)} does not found."))
 
-    let startGameProcessWithApplyingTool (gameId: string) (gameExecutableFilePath: string) (toolFileName: string) =
+    let private startGameProcessWithApplyingTool (gameId: string) (gameExecutableFilePath: string) (toolFileName: string) =
         if File.Exists(gameExecutableFilePath) = true then
             let gameDirectoryOption : string option = Path.GetDirectoryName(gameExecutableFilePath) |> Option.ofObj
             match gameDirectoryOption with
