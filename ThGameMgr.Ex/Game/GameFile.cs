@@ -46,6 +46,23 @@ namespace ThGameMgr.Ex.Game
             }
         }
 
+        public static List<string> GetEnabledGamesList()
+        {
+            List<string> allGamesList = GameIndex.GetAllGamesList();
+            List<string> enabledGamesList = [];
+
+            //_gameNameDictionary から Key と Value のペアをひとつずつ取得
+            foreach (string gameId in allGamesList)
+            {
+                if (!string.IsNullOrEmpty(GetGameFilePath(gameId)))
+                {
+                    enabledGamesList.Add(gameId);
+                }
+            }
+
+            return enabledGamesList;
+        }
+
         /// <summary>
         /// ゲームインストールフォルダの全 thprac 実行ファイルのファイル名を返す(List型)
         /// </summary>
