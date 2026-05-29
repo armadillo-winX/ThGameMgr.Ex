@@ -13,10 +13,10 @@ namespace ThGameMgr.Ex.Dialogs
         {
             InitializeComponent();
 
-            List<string> allGamesList = GameIndex.GetAllGamesList();
+            List<string> allGamesList = GameNameIndex.GetAllWinGamesList();
             foreach (string gameId in allGamesList)
             {
-                string gameName = GameIndex.GetGameName(gameId);
+                string gameName = GameNameIndex.GetGameNameFromId(gameId);
                 ListBoxItem item = new()
                 {
                     Content = $"{gameId}: {gameName}",
@@ -55,7 +55,7 @@ namespace ThGameMgr.Ex.Dialogs
 
                 OpenFileDialog openFileDialog = new()
                 {
-                    Filter = $"{GameIndex.GetGameName(gameId)}実行ファイル|{fileFilter}"
+                    Filter = $"{GameNameIndex.GetGameNameFromId(gameId)}実行ファイル|{fileFilter}"
                 };
 
                 if (openFileDialog.ShowDialog() == true)
