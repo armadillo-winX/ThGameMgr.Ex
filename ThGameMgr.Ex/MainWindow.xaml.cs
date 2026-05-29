@@ -766,13 +766,13 @@ namespace ThGameMgr.Ex
         {
             GameSelectionButtonContextMenu.Items.Clear();
 
-            List<string> enabledGamesList = GameIndex.GetEnabledGamesList();
+            List<string> enabledGamesList = GameFile.GetEnabledGamesList();
 
             if (enabledGamesList.Count > 0)
             {
                 foreach (string gameId in enabledGamesList)
                 {
-                    string gameName = GameIndex.GetGameName(gameId);
+                    string gameName = GameNameIndex.GetGameNameFromId(gameId);
 
                     MenuItem gameMenuItem = new()
                     {
