@@ -62,7 +62,7 @@ namespace ThGameMgr.Ex
                     LevelFilterButton.IsEnabled = true;
 
                     AutoStartWindowResizerCheckBox.IsChecked = GameSpecificSettings.GetAutoResizerConfig(value);
-                    if (value != GameIndex.Th06 && value != GameIndex.Th07)
+                    if (value != GameIdIndex.Th06 && value != GameIdIndex.Th07)
                     {
                         SpellCardLevelColumn.Visibility = Visibility.Visible;
                         SpellPracticeLevelColumn.Visibility = Visibility.Visible;
@@ -73,7 +73,7 @@ namespace ThGameMgr.Ex
                         SpellPracticeLevelColumn.Visibility = Visibility.Collapsed;
                     }
 
-                    if (value != GameIndex.Th06)
+                    if (value != GameIdIndex.Th06)
                     {
                         SpellCardPlayersSwitchButton.IsEnabled = true;
                     }
@@ -97,12 +97,12 @@ namespace ThGameMgr.Ex
 
                     this.FilterPlayer = GameSpecificSettings.GetScoreFilterPlayer(value);
                     this.FilterSpellCardPlayer
-                        = value != GameIndex.Th06 ? GameSpecificSettings.GetSpellCardFilterPlayer(value) : "ALL";
+                        = value != GameIdIndex.Th06 ? GameSpecificSettings.GetSpellCardFilterPlayer(value) : "ALL";
                     this.FilterEnemy = GameSpecificSettings.GetScoreFilterEnemy(value);
                     this.FilterPracticeEnemy = GameSpecificSettings.GetScoreFilterPracticeEnemy(value);
                     this.FilterLevel = GameSpecificSettings.GetScoreFilterLevel(value);
 
-                    string gameName = GameIndex.GetGameName(value);
+                    string gameName = GameNameIndex.GetGameNameFromId(value);
                     this.GameName = gameName;
 
                     System.Drawing.Icon? gameIcon = GameFile.GetGameIcon(value);
