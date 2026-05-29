@@ -31,15 +31,17 @@ module GameNameIndex =
         (GameIdIndex.Th19, "東方獣王園")
         ]
 
+    let private unknown = "unknown"
+
     let private getLegacyGameNameFromIdExecute (gameId: string) =
         match legacyGameNamesIndex |> Map.tryFind gameId with
             | Some name -> name
-            | None -> ""
+            | None -> unknown
 
     let private getWinGameNameFromIdExecute (gameId: string) =
         match winGameNamesIndex |> Map.tryFind gameId with
             | Some name -> name
-            | None -> ""
+            | None -> unknown
 
     let GetGameNameFromId (gameId: string) =
         let gameidOption = Option.ofObj gameId
