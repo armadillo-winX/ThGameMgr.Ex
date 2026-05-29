@@ -48,7 +48,7 @@ namespace ThGameMgr.Ex.Game
 
         public static List<string> GetEnabledGamesList()
         {
-            List<string> allGamesList = GameIndex.GetAllGamesList();
+            List<string> allGamesList = GameNameIndex.GetAllWinGamesList();
             List<string> enabledGamesList = [];
 
             //_gameNameDictionary から Key と Value のペアをひとつずつ取得
