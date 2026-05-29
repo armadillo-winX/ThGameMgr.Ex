@@ -25,7 +25,7 @@ namespace ThGameMgr.Ex.Dialogs
             this.GameId = gameId;
             this.ReplayBackupFiles = [];
 
-            DescriptionBlock.Text = $"{GameIndex.GetGameName(gameId)} のリプレイファイルバックアップ";
+            DescriptionBlock.Text = $"{GameNameIndex.GetGameNameFromId(gameId)} のリプレイファイルバックアップ";
 
             string replayBackupDirectory = Path.Combine(userService.GetCurrentUserReplayBackupDirectory(), gameId);
             if (Directory.Exists(replayBackupDirectory))
