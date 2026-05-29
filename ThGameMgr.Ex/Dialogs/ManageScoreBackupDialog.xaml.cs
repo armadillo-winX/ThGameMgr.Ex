@@ -26,7 +26,7 @@ namespace ThGameMgr.Ex.Dialogs
                 foreach (string backupDirectory in backupDirectories)
                 {
                     string directoryName = Path.GetFileName(backupDirectory);
-                    string gameName = GameIndex.GetGameName(directoryName);
+                    string gameName = GameNameIndex.GetGameNameFromId(directoryName);
                     if (gameName != string.Empty)
                         BackupGameListBox.Items.Add(gameName);
                 }
@@ -40,7 +40,7 @@ namespace ThGameMgr.Ex.Dialogs
             string? selectedGameName = BackupGameListBox.SelectedItem as string;
             if (BackupGameListBox.Items.Count > 0 && selectedGameName != null)
             {
-                string? gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
+                string? gameId = GameNameIndex.GetWinGameIdFromName(selectedGameName);
 
                 if (!string.IsNullOrEmpty(gameId))
                 {
@@ -74,13 +74,13 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 try
                 {
-                    string? gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
+                    string? gameId = GameNameIndex.GetWinGameIdFromName(selectedGameName);
 
                     if (!string.IsNullOrEmpty(gameId))
                     {
                         MessageBoxResult result = MessageBox.Show(
                         this,
-                        $"'{GameIndex.GetGameName(gameId)}' のスコアファイルを、バックアップ '{backupFile}' から復元します。よろしいですか。",
+                        $"'{GameNameIndex.GetGameNameFromId(gameId)}' のスコアファイルを、バックアップ '{backupFile}' から復元します。よろしいですか。",
                         "スコアファイルの復元",
                         MessageBoxButton.YesNo, MessageBoxImage.Information);
                         if (result == MessageBoxResult.Yes)
@@ -115,7 +115,7 @@ namespace ThGameMgr.Ex.Dialogs
             {
                 try
                 {
-                    string? gameId = GameIndex.GetGameIdFromGameName(selectedGameName);
+                    string? gameId = GameNameIndex.GetWinGameIdFromName(selectedGameName);
 
                     MessageBoxResult result = MessageBox.Show(
                         this, $"'{backupFile}' を削除してもよろしいですか。", "スコアバックアップの削除",
