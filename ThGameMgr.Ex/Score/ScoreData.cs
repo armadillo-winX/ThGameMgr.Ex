@@ -46,79 +46,79 @@ namespace ThGameMgr.Ex.Score
                     }
                 }
 
-                if (gameId == GameIndex.Th06)
+                if (gameId == GameIdIndex.Th06)
                 {
                     Th06.Th06ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th07)
+                else if (gameId == GameIdIndex.Th07)
                 {
                     Th07.Th07ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th08)
+                else if (gameId == GameIdIndex.Th08)
                 {
                     Th08.Th08ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th09)
+                else if (gameId == GameIdIndex.Th09)
                 {
                     Th09.Th09ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th10)
+                else if (gameId == GameIdIndex.Th10)
                 {
                     Th10.Th10ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th11)
+                else if (gameId == GameIdIndex.Th11)
                 {
                     Th11.Th11ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th12)
+                else if (gameId == GameIdIndex.Th12)
                 {
                     Th12.Th12ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th13)
+                else if (gameId == GameIdIndex.Th13)
                 {
                     Th13.Th13ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th14)
+                else if (gameId == GameIdIndex.Th14)
                 {
                     Th14.Th14ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th15)
+                else if (gameId == GameIdIndex.Th15)
                 {
                     Th15.Th15ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th16)
+                else if (gameId == GameIdIndex.Th16)
                 {
                     Th16.Th16ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th17)
+                else if (gameId == GameIdIndex.Th17)
                 {
                     Th17.Th17ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
                     return true;
                 }
-                else if (gameId == GameIndex.Th18)
+                else if (gameId == GameIdIndex.Th18)
                 {
                     Th18.Th18ScoreData.Get();
                     ScoreDataRetrieveTime = DateTime.Now;
@@ -338,7 +338,7 @@ namespace ThGameMgr.Ex.Score
             string outputPath, bool outputUntriedCardData, ScoreFilter scoreFilter,  string? comment)
         {
             string data 
-                = $"{GameIndex.GetGameName(GameId)}スコアデータ\r\nExported by {VersionInfo.AppName} Version.{VersionInfo.AppVersion}\r\n\r\n";
+                = $"{GameNameIndex.GetGameNameFromId(GameId)}スコアデータ\r\nExported by {VersionInfo.AppName} Version.{VersionInfo.AppVersion}\r\n\r\n";
 
             IEnumerable<ScoreRecordData> filteredScoreRecordLists = ScoreRecordLists;
 
