@@ -106,3 +106,12 @@ module GameProcessManager =
             | (None, _, _) -> nullArg "gameId"
             | (_, None, _) -> nullArg "gameExecutableFilePathOption"
             | (_, _, None) -> nullArg "toolFileName"
+
+    let StartCustomProgram (gameId: string) (gameExecutableFilePath) =
+        let gameIdOption = Option.ofObj gameId
+        let gameExecutableFilePathOption = Option.ofObj gameExecutableFilePath
+
+        match (gameIdOption, gameExecutableFilePathOption) with
+            | (Some id, Some path) -> startCustomProgramExecute id path
+            | (None, _) -> nullArg "gameId"
+            | (_, None) -> nullArg "gameExecutableFilePath"
