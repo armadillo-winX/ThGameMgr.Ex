@@ -13,11 +13,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="exceptions\ProcessNotFoundException.fs" />
     <Compile Include="GameProcessManager.fs" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ThGameMgr.Ex.Core\ThGameMgr.Ex.Core.fsproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 
 </Project>
