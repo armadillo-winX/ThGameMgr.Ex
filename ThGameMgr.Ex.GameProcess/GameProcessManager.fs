@@ -3,6 +3,7 @@
 open System
 open System.Diagnostics
 open System.IO
+open System.Threading
 open ThGameMgr.Ex.Core
 open ThGameMgr.Ex.GameProcess.Exceptions
 
@@ -26,6 +27,37 @@ module GameProcessManager =
                         | None -> 
                             raise (ProcessNotFoundException(
                             $"Cannnot confirm that {gameId}: {GameNameIndex.GetGameNameFromId(gameId)} has started."))
+                |None -> 
+                    raise (InvalidOperationException(
+                    $"Cannot find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
+        else
+            raise (FileNotFoundException(
+            $"The executable file of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)} does not found."))
+
+    let startGameProcessWithApplyingTool (gameId: string) (gameExecutableFilePath: string) (toolFileName: string) =
+        if File.Exists(gameExecutableFilePath) = true then
+            let gameDirectoryOption : string option = Path.GetDirectoryName(gameExecutableFilePath) |> Option.ofObj
+            match gameDirectoryOption with
+                | Some dir ->
+                    let toolPath = Path.Combine(dir, toolFileName)
+                    if File.Exists (toolPath) = false then raise (FileNotFoundException($"'{toolFileName}' does not found."))
+
+                    let processStartInfo = ProcessStartInfo()
+                    processStartInfo.FileName <- toolPath
+                    processStartInfo.WorkingDirectory <- dir
+                    processStartInfo.UseShellExecute <- true
+
+                    Process.Start(processStartInfo) |> ignore
+                    let processName = Path.GetFileNameWithoutExtension(gameExecutableFilePath)
+
+                    let mutable i = 0
+                    while Process.GetProcessesByName(processName).Length = 0 do
+                        if i = 50 then 
+                            raise (ProcessNotFoundException($"Cannot find the process of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
+                        Thread.Sleep(100)
+                        i <- i + 1
+                    
+                    Process.GetProcessesByName(processName)[0]
                 |None -> 
                     raise (InvalidOperationException(
                     $"Cannot find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
