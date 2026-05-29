@@ -511,7 +511,7 @@ namespace ThGameMgr.Ex
                 }
 
                 EnableRetrievingScoreDataLimitationMode(false);
-                EnemiesFilterButton.IsEnabled = this.GameId != GameIndex.Th09;
+                EnemiesFilterButton.IsEnabled = this.GameId != GameIdIndex.Th09;
             }
         }
 
