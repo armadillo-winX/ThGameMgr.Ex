@@ -27,7 +27,7 @@ module GameProcessManager =
                         | None -> 
                             raise (ProcessNotFoundException(
                             $"Failed to confirm that {gameId}: {GameNameIndex.GetGameNameFromId(gameId)} has started."))
-                |None -> 
+                | None -> 
                     raise (InvalidOperationException(
                     $"Failed to find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}."))
         else
@@ -58,7 +58,7 @@ module GameProcessManager =
                         i <- i + 1
                     
                     Process.GetProcessesByName(processName)[0]
-                |None -> 
+                | None -> 
                     raise (InvalidOperationException(
                     $"Failed to find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}."))
         else
