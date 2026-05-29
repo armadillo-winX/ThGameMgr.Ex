@@ -66,6 +66,27 @@ module GameProcessManager =
             raise (FileNotFoundException(
             $"Failed to find the executable file of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}."))
 
+    let startCustomProgramExecute (gameId: string) (gameExecutableFilePath: string) =
+        if File.Exists(gameExecutableFilePath) = true then
+            let gameDirectoryOption : string option = Path.GetDirectoryName(gameExecutableFilePath) |> Option.ofObj
+            match gameDirectoryOption with
+                | Some dir ->
+                    let customProgramFilepath = Path.Combine(dir, "custom.exe")
+                    if File.Exists(customProgramFilepath) = false then raise (FileNotFoundException("'custom.exe' does not found"))
+
+                    let processStartInfo = ProcessStartInfo()
+                    processStartInfo.FileName <- customProgramFilepath
+                    processStartInfo.WorkingDirectory <- dir
+                    processStartInfo.UseShellExecute <- true
+
+                    Process.Start(processStartInfo) |> ignore
+                | None -> 
+                    raise (InvalidOperationException(
+                    $"Failed to find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}."))
+        else
+            raise (FileNotFoundException(
+            $"Failed to find the executable file of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}."))
+
     let StartGameProcess (gameId: string) (gameExecutableFilePath: string) =
         let gameIdOption = Option.ofObj gameId
         let gameExecutableFilePathOption = Option.ofObj gameExecutableFilePath
