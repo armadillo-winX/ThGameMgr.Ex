@@ -1237,7 +1237,7 @@ namespace ThGameMgr.Ex
                 defaultGameId = string.Empty;
             }
 
-            List<string> enabledGamesList = GameIndex.GetEnabledGamesList();
+            List<string> enabledGamesList = GameFile.GetEnabledGamesList();
 
             MainWindowSettings mainWindowSettings = settingsConfigurator.ConfigureMainWindowSettings();
 
