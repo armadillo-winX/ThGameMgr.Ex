@@ -13,7 +13,7 @@ module GameNameIndex =
         (GameIdIndex.Th05, "東方怪綺談")
         ]
     
-    let private gameforWinNamesIndex = 
+    let private winGameNamesIndex = 
         Map [
         (GameIdIndex.Th06, "東方紅魔郷")
         (GameIdIndex.Th07, "東方妖々夢")
