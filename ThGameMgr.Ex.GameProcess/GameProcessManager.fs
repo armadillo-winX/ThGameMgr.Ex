@@ -8,7 +8,7 @@ open ThGameMgr.Ex.GameProcess.Exceptions
 
 module GameProcessManager =
 
-    let internal startGameProcessExecute (gameId: string) (gameExecutableFilePath: string) =
+    let private startGameProcessExecute (gameId: string) (gameExecutableFilePath: string) =
         if File.Exists(gameExecutableFilePath) = true then
             let gameDirectoryOption : string option = Path.GetDirectoryName(gameExecutableFilePath) |> Option.ofObj
             match gameDirectoryOption with
