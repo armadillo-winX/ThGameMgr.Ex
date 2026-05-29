@@ -31,12 +31,12 @@ module GameNameIndex =
         (GameIdIndex.Th19, "東方獣王園")
         ]
 
-    let private getLegacyGameNameFromId (gameId: string) =
+    let private getLegacyGameNameFromIdExecute (gameId: string) =
         match legacyGameNamesIndex |> Map.tryFind gameId with
             | Some name -> name
             | None -> ""
 
-    let private getWinGameNameFromId (gameId: string) =
+    let private getWinGameNameFromIdExecute (gameId: string) =
         match winGameNamesIndex |> Map.tryFind gameId with
             | Some name -> name
             | None -> ""
@@ -46,12 +46,12 @@ module GameNameIndex =
         match gameidOption with
             | Some id -> 
                 if id |> GameIdIndex.isLegacy = false then
-                    getWinGameNameFromId id
+                    getWinGameNameFromIdExecute id
                 else
-                    getLegacyGameNameFromId id
+                    getLegacyGameNameFromIdExecute id
             | None -> ""
 
-    let private getLegacyGameIdFromName (gameName: string) =
+    let private getLegacyGameIdFromNameExecute (gameName: string) =
         let gameIdOption =
             legacyGameNamesIndex
             |> Map.tryFindKey (fun key value -> value = gameName)
@@ -59,7 +59,7 @@ module GameNameIndex =
             | Some id -> id
             | None -> ""
 
-    let private getWinGameIdFromName (gameName: string) =
+    let private getWinGameIdFromNameExecute (gameName: string) =
         let gameIdOption =
             winGameNamesIndex
             |> Map.tryFindKey (fun key value -> value = gameName)
@@ -70,13 +70,13 @@ module GameNameIndex =
     let GetLegacyGameIdFromName (gameName: string) =
         let gameNameOption = Option.ofObj gameName
         match gameNameOption with
-            | Some name -> getLegacyGameIdFromName name
+            | Some name -> getLegacyGameIdFromNameExecute name
             | None -> ""
 
     let GetWinGameIdFromName (gameName: string) =
         let gameNameOption = Option.ofObj gameName
         match gameNameOption with
-            | Some name -> getWinGameIdFromName name
+            | Some name -> getWinGameIdFromNameExecute name
             | None -> ""
 
     let GetAllLegacyGamesList () =
