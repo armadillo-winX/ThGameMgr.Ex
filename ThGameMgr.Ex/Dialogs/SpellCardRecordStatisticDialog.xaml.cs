@@ -11,7 +11,7 @@
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    GameNameBlock.Text = GameIndex.GetGameName(value);
+                    GameNameBlock.Text = GameNameIndex.GetGameNameFromId(value);
                 }
                 else
                 {
