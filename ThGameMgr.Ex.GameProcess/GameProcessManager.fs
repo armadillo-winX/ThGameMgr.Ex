@@ -25,10 +25,10 @@ module GameProcessManager =
                             p
                         | None -> 
                             raise (ProcessNotFoundException(
-                            $"Cannnot confirm that {GameNameIndex.GetGameNameFromId(gameId)} has started."))
+                            $"Cannnot confirm that {gameId}: {GameNameIndex.GetGameNameFromId(gameId)} has started."))
                 |None -> 
                     raise (InvalidOperationException(
-                    $"Cannot find the installation directory of {GameNameIndex.GetGameNameFromId(gameId)}"))
+                    $"Cannot find the installation directory of {gameId}: {GameNameIndex.GetGameNameFromId(gameId)}"))
         else
             raise (FileNotFoundException(
             $"The executable file of {GameNameIndex.GetGameNameFromId(gameId)} does not found."))
