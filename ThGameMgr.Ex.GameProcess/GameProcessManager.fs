@@ -17,15 +17,18 @@ module GameProcessManager =
                     processStartInfo.FileName <- gameExecutableFilePath
                     processStartInfo.WorkingDirectory <- dir
                     processStartInfo.UseShellExecute <- true
+
                     let gameProcessOption = Process.Start(processStartInfo) |> Option.ofObj
                     match gameProcessOption with
                         | Some p -> 
                             p.WaitForInputIdle() |> ignore
                             p
                         | None -> 
-                            raise (ProcessNotFoundException($"Cannnot confirm that {GameNameIndex.GetGameNameFromId(gameId)} has started."))
+                            raise (ProcessNotFoundException(
+                            $"Cannnot confirm that {GameNameIndex.GetGameNameFromId(gameId)} has started."))
                 |None -> 
-                    raise (InvalidOperationException($"Cannot find the installation directory of {GameNameIndex.GetGameNameFromId(gameId)}"))
+                    raise (InvalidOperationException(
+                    $"Cannot find the installation directory of {GameNameIndex.GetGameNameFromId(gameId)}"))
         else
             raise (FileNotFoundException(
             $"The executable file of {GameNameIndex.GetGameNameFromId(gameId)} does not found."))
