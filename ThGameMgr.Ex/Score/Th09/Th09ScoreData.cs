@@ -58,6 +58,10 @@ namespace ThGameMgr.Ex.Score.Th09
 
                                 i += size;
                             }
+                            else if (type == "PLST")
+                            {
+                                i += size;
+                            }
                             else
                             {
                                 break;
