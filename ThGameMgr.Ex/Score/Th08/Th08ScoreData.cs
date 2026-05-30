@@ -24,8 +24,8 @@ namespace ThGameMgr.Ex.Score.Th08
                 { "02", "Stage3" },
                 { "03", "Stage4" },
                 { "04", "Stage5" },
-                { "05", "Stage6(Eirin)" },
-                { "06", "Stage6(Kaguya)" },
+                { "05", "Stage6" },
+                { "06", "Stage6" },
                 { "07", "Extra" },
                 { "63", "All Clear" }
             };
