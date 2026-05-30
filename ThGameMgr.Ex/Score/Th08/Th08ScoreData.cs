@@ -24,8 +24,8 @@ namespace ThGameMgr.Ex.Score.Th08
                 { "02", "Stage3" },
                 { "03", "Stage4" },
                 { "04", "Stage5" },
-                { "05", "Stage6(Eirin)" },
-                { "06", "Stage6(Kaguya)" },
+                { "05", "Stage6" },
+                { "06", "Stage6" },
                 { "07", "Extra" },
                 { "63", "All Clear" }
             };
@@ -112,9 +112,12 @@ namespace ThGameMgr.Ex.Score.Th08
             byte[] LEVEL_DATA = data[21..22];
             byte[] PROGRESS_DATA = data[22..23];
             byte[] NAME_DATA = data[23..32];
-            byte[] DATE_DATA = data[32..37];
+            byte[] DATE_DATA = data[32..38];
+            byte[] CONTINUE_DATA = data[38..40];
 
-            string score = String.Format("{0:#,0}", BitConverter.ToInt32(SCORE_DATA, 0));
+            int continueCount = BitConverter.ToUInt16(CONTINUE_DATA, 0);
+            int scoreInt = BitConverter.ToInt32(SCORE_DATA, 0);
+            string score = String.Format("{0:#,0}", scoreInt*10 + continueCount);
             string slow = BitConverter.ToSingle(SLOW_DATA, 0).ToString("F3") + "%";
             string playerIndex = BitConverter.ToString(PLAYER_DATA, 0);
             string levelIndex = BitConverter.ToString(LEVEL_DATA, 0);
@@ -127,7 +130,7 @@ namespace ThGameMgr.Ex.Score.Th08
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             string name = Encoding.GetEncoding("Shift_JIS").GetString(NAME_DATA);
-            string date = Encoding.GetEncoding("Shift_JIS").GetString(DATE_DATA);
+            string date = Encoding.GetEncoding("Shift_JIS").GetString(DATE_DATA).TrimEnd('\0');
 
             ScoreRecordData scoreRecordList = new()
             {
