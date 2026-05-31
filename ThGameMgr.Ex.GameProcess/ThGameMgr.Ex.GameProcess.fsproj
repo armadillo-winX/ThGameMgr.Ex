@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ThGameMgr.Ex.Core\ThGameMgr.Ex.Core.fsproj" />
+    <ProjectReference Include="..\ThGameMgr.Ex.Win32API\ThGameMgr.Ex.Win32API.csproj" />
   </ItemGroup>
 
   <ItemGroup>
