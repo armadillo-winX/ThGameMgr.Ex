@@ -1,6 +1,6 @@
 ﻿namespace ThGameMgr.Ex.Win32API
 {
-    public class Class1
+    public class User32
     {
 
     }
