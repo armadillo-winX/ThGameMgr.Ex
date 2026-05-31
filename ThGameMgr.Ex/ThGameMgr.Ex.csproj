@@ -73,6 +73,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ThGameMgr.Ex.Core\ThGameMgr.Ex.Core.fsproj" />
     <ProjectReference Include="..\ThGameMgr.Ex.Data\ThGameMgr.Ex.Data.csproj" />
+    <ProjectReference Include="..\ThGameMgr.Ex.GameProcess\ThGameMgr.Ex.GameProcess.fsproj" />
     <ProjectReference Include="..\ThGameMgr.Ex.Plugin\ThGameMgr.Ex.Plugin.csproj" />
     <ProjectReference Include="..\ThGameMgr.Ex.ReplayFileBackup\ThGameMgr.Ex.ReplayFileBackup.fsproj" />
   </ItemGroup>
