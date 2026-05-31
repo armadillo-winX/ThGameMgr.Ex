@@ -29,3 +29,6 @@ module GameWindowManager =
         let position = GetGameWindowPosition gameWindow
         User32.MoveWindow(gameWindow, position.X, position.Y, width, height, 1) |> ignore
         User32.SetForegroundWindow(gameWindow) |> ignore
+
+    let GameWindowExists (gameWindow: IntPtr) =
+        User32.IsWindow(gameWindow)
