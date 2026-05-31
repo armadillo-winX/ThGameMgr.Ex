@@ -26,6 +26,7 @@
     <Compile Include="GameWindowPosition.fs" />
     <Compile Include="GameWindowSizes.fs" />
     <Compile Include="GameWindowManager.fs" />
+    <Compile Include="GameAudioManager.fs" />
     <Folder Include="Exceptions\" />
   </ItemGroup>
 
