@@ -114,7 +114,7 @@ namespace ThGameMgr.Ex.Score.Th07
             byte[] PROGRESS_DATA = data[22..23];
             byte[] NAME_DATA = data[23..32];
             byte[] DATE_DATA = data[32..38];
-            byte[] CONTINUE_DATA = data[38..42];
+            byte[] CONTINUE_DATA = data[38..40];
 
             int continueCount = BitConverter.ToUInt16(CONTINUE_DATA, 0);
             int scoreInt = BitConverter.ToInt32(SCORE_DATA, 0);
