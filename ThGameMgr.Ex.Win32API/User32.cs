@@ -3,7 +3,7 @@
     public partial class User32
     {
         [StructLayout(LayoutKind.Sequential)]
-        private struct RECT
+        public struct RECT
         {
             public int left;
             public int top;
@@ -13,22 +13,22 @@
 
         [LibraryImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        private static partial bool GetWindowRect(IntPtr hWnd, out RECT rect);
+        public static partial bool GetWindowRect(IntPtr hWnd, out RECT rect);
 
         [LibraryImport("user32.dll", SetLastError = true)]
-        private static partial int MoveWindow(IntPtr hwnd, int x, int y,
+        public static partial int MoveWindow(IntPtr hwnd, int x, int y,
             int nWidth, int nHeight, int bRepaint);
 
         [LibraryImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        private static partial bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cx, int cy, int uFlags);
+        public static partial bool SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int y, int cx, int cy, int uFlags);
 
         [LibraryImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        private static partial bool SetForegroundWindow(IntPtr hWnd);
+        public static partial bool SetForegroundWindow(IntPtr hWnd);
 
         [LibraryImport("user32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        private static partial bool IsWindow(IntPtr hWnd);
+        public static partial bool IsWindow(IntPtr hWnd);
     }
 }
