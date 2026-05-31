@@ -113,7 +113,7 @@ namespace ThGameMgr.Ex.Score.Th07
             byte[] LEVEL_DATA = data[21..22];
             byte[] PROGRESS_DATA = data[22..23];
             byte[] NAME_DATA = data[23..32];
-            byte[] DATE_DATA = data[32..37];
+            byte[] DATE_DATA = data[32..38];
 
             string score = String.Format("{0:#,0}", BitConverter.ToInt32(SCORE_DATA, 0));
             string slow = BitConverter.ToSingle(SLOW_DATA, 0).ToString("F3") + "%";
@@ -128,7 +128,7 @@ namespace ThGameMgr.Ex.Score.Th07
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             string name = Encoding.GetEncoding("Shift_JIS").GetString(NAME_DATA);
-            string date = Encoding.GetEncoding("Shift_JIS").GetString(DATE_DATA);
+            string date = Encoding.GetEncoding("Shift_JIS").GetString(DATE_DATA).TrimEnd('\0');
 
             ScoreRecordData scoreRecordList = new()
             {
