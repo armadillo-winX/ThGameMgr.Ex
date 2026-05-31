@@ -33,9 +33,9 @@ namespace ThGameMgr.Ex
                 {
                     try
                     {
-                        if (GameWindowHandler.GameWindowExists(value))
+                        if (GameWindowManager.GameWindowExists(value))
                         {
-                            Game.GameWindowPosition gameWindowPosition = GameWindowHandler.GetWindowPosition(value);
+                            GameWindowPosition gameWindowPosition = GameWindowManager.GetGameWindowPosition(value);
 
                             this.Left = gameWindowPosition.X - 18;
                             this.Top = gameWindowPosition.Y - 18;
@@ -87,8 +87,8 @@ namespace ThGameMgr.Ex
         {
             try
             {
-                Game.GameWindowPosition gameWindowPosition = GameWindowHandler.GetWindowPosition(gameWindow);
-                Game.GameWindowSizes gameWindowSizes = GameWindowHandler.GetWindowSizes(gameWindow);
+                GameWindowPosition gameWindowPosition = GameWindowManager.GetGameWindowPosition(gameWindow);
+                GameWindowSizes gameWindowSizes = GameWindowManager.GetGameWindowSizes(gameWindow);
 
                 this.Left = gameWindowPosition.X - 18;
                 this.Top = gameWindowPosition.Y - 18;
@@ -109,7 +109,7 @@ namespace ThGameMgr.Ex
                 int width = (int)(this.Width - 36);
                 int height = (int)(this.Height - 36);
 
-                GameWindowHandler.ResizeWindow(this.GameWindow, width, height);
+                GameWindowManager.ResizeGameWindow(this.GameWindow, width, height);
 
                 if (AutoCloseMenuItem.IsChecked)
                 {
