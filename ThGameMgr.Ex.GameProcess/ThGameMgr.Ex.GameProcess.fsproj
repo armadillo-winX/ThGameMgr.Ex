@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Compile Include="GameWindowPosition.fs" />
+    <Compile Include="GameWindowSizes.fs" />
     <Compile Include="GameWindowManager.fs" />
     <Folder Include="Exceptions\" />
   </ItemGroup>
