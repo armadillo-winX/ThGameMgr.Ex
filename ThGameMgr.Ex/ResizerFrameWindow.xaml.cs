@@ -35,7 +35,7 @@ namespace ThGameMgr.Ex
                     {
                         if (GameWindowHandler.GameWindowExists(value))
                         {
-                            GameWindowPosition gameWindowPosition = GameWindowHandler.GetWindowPosition(value);
+                            Game.GameWindowPosition gameWindowPosition = GameWindowHandler.GetWindowPosition(value);
 
                             this.Left = gameWindowPosition.X - 18;
                             this.Top = gameWindowPosition.Y - 18;
@@ -87,8 +87,8 @@ namespace ThGameMgr.Ex
         {
             try
             {
-                GameWindowPosition gameWindowPosition = GameWindowHandler.GetWindowPosition(gameWindow);
-                GameWindowSizes gameWindowSizes = GameWindowHandler.GetWindowSizes(gameWindow);
+                Game.GameWindowPosition gameWindowPosition = GameWindowHandler.GetWindowPosition(gameWindow);
+                Game.GameWindowSizes gameWindowSizes = GameWindowHandler.GetWindowSizes(gameWindow);
 
                 this.Left = gameWindowPosition.X - 18;
                 this.Top = gameWindowPosition.Y - 18;

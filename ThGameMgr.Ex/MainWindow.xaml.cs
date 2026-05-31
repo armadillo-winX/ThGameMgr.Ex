@@ -1750,7 +1750,7 @@ namespace ThGameMgr.Ex
                         //タイマー処理の度にプロセスIDからプロセスを取得する
                         gameProcess = Process.GetProcessById(gameProcessId);
 
-                        GameWindowSizes gameWindowSizes = GameWindowHandler.GetWindowSizes(gameProcess.MainWindowHandle);
+                        Game.GameWindowSizes gameWindowSizes = GameWindowHandler.GetWindowSizes(gameProcess.MainWindowHandle);
 
                         if (gameWindowSizes.Width > 500)
                         {
