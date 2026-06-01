@@ -111,73 +111,77 @@
         <TabControl x:Name="MainTabControl" Margin="10,57,10,27">
             <TabItem Header="管制パネル" x:Name="ControlTabItem">
                 <Grid >
-                    <TextBlock
-                    x:Name="GameIdBlock"
-                    HorizontalAlignment="Left" Margin="57,15,0,0" TextWrapping="Wrap" Text="Th00" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
-                    <TextBlock
-                        x:Name="ControlPanelGameNameBlock"
-                        HorizontalAlignment="Left" Margin="117,11,0,0" TextWrapping="Wrap" Text="GameName" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
-                    <TextBlock
-                        x:Name="GameRunningTimeBlock"
-                        HorizontalAlignment="Left" Margin="102,103,0,0" TextWrapping="Wrap" Text="00min00sec" VerticalAlignment="Top" FontSize="18"/>
-                    <Label Content="ゲーム実行時間:" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top"/>
-                    <Button x:Name="StartGameButton"
-                            Width="120" Height="24" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"
-                            Click="StartGameMenuItemClick">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="16" Height="16"
-                            Source="/Images/Start.png" HorizontalAlignment="Left"/>
-                            <TextBlock 
-                            Text="ゲーム起動" 
-                            VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="StartGameWithVpatchButton"
-                            Width="24" Height="24"
-                            HorizontalAlignment="Left" Margin="135,63,0,0" VerticalAlignment="Top"
-                            ToolTip="vpatch.exe を適用してゲームを起動"
-                            Click="StartGameWithVpatchMenuItemClick">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="16" Height="16" Source="/Images/StartVpatch.png"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="StartGameWithThpracButton"
-                            Width="24" Height="24"
-                            HorizontalAlignment="Left" Margin="164,63,0,0" VerticalAlignment="Top"
-                            ToolTip="thprac.exe を適用してゲームを起動"
-                            Click="StartGameWithThpracMenuItemClick">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="16" Height="16" Source="/Images/StartThprac.png"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="StartCustomProgramButton"
-                            Width="24" Height="24"
-                            HorizontalAlignment="Left" Margin="193,63,0,0" VerticalAlignment="Top"
-                            ToolTip="custom.exe (環境設定)を起動"
-                            Click="StartCustomMenuItemClick">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="16" Height="16" Source="/Images/StartCustom.png"/>
-                        </StackPanel>
-                    </Button>
-                    <CheckBox x:Name="AutoStartWindowResizerCheckBox"
-                              Content="ゲーム起動時にウィンドウリサイザを自動起動する" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Click="AutoStartWindowResizerCheckBoxClick"/>
-                    <Label Content="ゲームの音量を調整する:" HorizontalAlignment="Left" Margin="327,62,0,0" VerticalAlignment="Top"/>
-                    <Slider x:Name="GameAudioControlSlider"
-                        HorizontalAlignment="Left" Margin="327,93,0,0" VerticalAlignment="Top" Width="222" SmallChange="5" Maximum="100" LargeChange="10" TickPlacement="BottomRight" TickFrequency="10" ValueChanged="GameAudioControlSliderValueChanged"/>
-                    <TextBlock x:Name="GameAudioVolumeBlock"
-                        HorizontalAlignment="Left" Margin="543,67,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="327,122,0,0" TextWrapping="Wrap" 
-                               VerticalAlignment="Top" Width="234">
-                        <Run Text="ゲームの音量のみを調整します。"/><LineBreak/>
-                        <Run Text="コンピュータそのものの音量は変更されません。"/>
-                    </TextBlock>
-                    <CheckBox x:Name="EnableScoreDataFileRecallCheckBox"
-                        Content="スコアデータファイルの回帰を有効にする" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="10,199,0,0" TextWrapping="Wrap" 
-                               Text="「スコアデータファイルの回帰」機能は、ゲームプレイ後にスコアデータファイルをプレイ前のものへ差し替える機能です。" VerticalAlignment="Top" Width="276"/>
-                    <Image
-                        x:Name="GameIconImage"
-                        HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" VerticalAlignment="Top" Width="38"/>
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                        <Grid>
+                            <TextBlock
+                                x:Name="GameIdBlock"
+                                HorizontalAlignment="Left" Margin="57,15,0,0" TextWrapping="Wrap" Text="Th00" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                            <TextBlock
+                                x:Name="ControlPanelGameNameBlock"
+                                HorizontalAlignment="Left" Margin="117,11,0,0" TextWrapping="Wrap" Text="GameName" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+                            <TextBlock
+                                x:Name="GameRunningTimeBlock"
+                                HorizontalAlignment="Left" Margin="102,103,0,0" TextWrapping="Wrap" Text="00min00sec" VerticalAlignment="Top" FontSize="18"/>
+                            <Label Content="ゲーム実行時間:" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top"/>
+                            <Button x:Name="StartGameButton"
+                                Width="120" Height="24" HorizontalAlignment="Left" Margin="10,63,0,0" VerticalAlignment="Top"
+                                Click="StartGameMenuItemClick">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="16" Height="16"
+                                        Source="/Images/Start.png" HorizontalAlignment="Left"/>
+                                    <TextBlock 
+                                        Text="ゲーム起動" 
+                                        VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="StartGameWithVpatchButton"
+                                Width="24" Height="24"
+                                HorizontalAlignment="Left" Margin="135,63,0,0" VerticalAlignment="Top"
+                                ToolTip="vpatch.exe を適用してゲームを起動"
+                                Click="StartGameWithVpatchMenuItemClick">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="16" Height="16" Source="/Images/StartVpatch.png"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="StartGameWithThpracButton"
+                                Width="24" Height="24"
+                                HorizontalAlignment="Left" Margin="164,63,0,0" VerticalAlignment="Top"
+                                ToolTip="thprac.exe を適用してゲームを起動"
+                                Click="StartGameWithThpracMenuItemClick">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="16" Height="16" Source="/Images/StartThprac.png"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="StartCustomProgramButton"
+                                Width="24" Height="24"
+                                HorizontalAlignment="Left" Margin="193,63,0,0" VerticalAlignment="Top"
+                                ToolTip="custom.exe (環境設定)を起動"
+                                Click="StartCustomMenuItemClick">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Width="16" Height="16" Source="/Images/StartCustom.png"/>
+                                </StackPanel>
+                            </Button>
+                            <CheckBox x:Name="AutoStartWindowResizerCheckBox"
+                                Content="ゲーム起動時にウィンドウリサイザを自動起動する" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Click="AutoStartWindowResizerCheckBoxClick"/>
+                            <Label Content="ゲームの音量を調整する:" HorizontalAlignment="Left" Margin="327,62,0,0" VerticalAlignment="Top"/>
+                            <Slider x:Name="GameAudioControlSlider"
+                                    HorizontalAlignment="Left" Margin="327,93,0,0" VerticalAlignment="Top" Width="222" SmallChange="5" Maximum="100" LargeChange="10" TickPlacement="BottomRight" TickFrequency="10" ValueChanged="GameAudioControlSliderValueChanged"/>
+                            <TextBlock x:Name="GameAudioVolumeBlock"
+                                    HorizontalAlignment="Left" Margin="543,67,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="327,122,0,0" TextWrapping="Wrap" 
+                                    VerticalAlignment="Top" Width="234">
+                                    <Run Text="ゲームの音量のみを調整します。"/><LineBreak/>
+                                    <Run Text="コンピュータそのものの音量は変更されません。"/>
+                            </TextBlock>
+                            <CheckBox x:Name="EnableScoreDataFileRecallCheckBox"
+                                Content="スコアデータファイルの回帰を有効にする" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="10,199,0,0" TextWrapping="Wrap" 
+                                Text="「スコアデータファイルの回帰」機能は、ゲームプレイ後にスコアデータファイルをプレイ前のものへ差し替える機能です。" VerticalAlignment="Top" Width="276"/>
+                            <Image
+                                x:Name="GameIconImage"
+                                HorizontalAlignment="Left" Height="38" Margin="10,10,0,0" VerticalAlignment="Top" Width="38"/>
+                        </Grid>
+                    </ScrollViewer>
                 </Grid>
             </TabItem>
             <TabItem Header="ハイスコア" x:Name="HighScoreTabItem">
