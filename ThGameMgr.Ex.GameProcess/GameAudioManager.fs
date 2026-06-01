@@ -10,10 +10,10 @@ module GameAudioManager =
             let session = sessionCollection[index]
             match session with
             | s when int s.GetProcessID = gameProcess.Id ->
-                float s.SimpleAudioVolume.Volume
+                s.SimpleAudioVolume.Volume
             |_-> getGameAudioVolumeFromCollection gameProcess (index+1) sessionCollection
         else
-            0.0
+            float32 0
 
     let private getGameAudioVolumeExecute (gameProcess: Process) =
         let enumerator = new MMDeviceEnumerator()
@@ -28,25 +28,25 @@ module GameAudioManager =
             | Some p -> getGameAudioVolumeExecute p
             | None -> nullArg "gameProcess"
 
-    let rec private setGameAudioVolumeFromCollection (gameProcess: Process) (volume: float) (index: int) (sessionCollection: SessionCollection) =
+    let rec private setGameAudioVolumeFromCollection (gameProcess: Process) (volume: float32) (index: int) (sessionCollection: SessionCollection) =
         if index < sessionCollection.Count then
             let session = sessionCollection[index]
             match session with
             | s when int s.GetProcessID = gameProcess.Id ->
-                s.SimpleAudioVolume.Volume <- float32 volume
+                s.SimpleAudioVolume.Volume <- volume
                 true
             |_-> setGameAudioVolumeFromCollection gameProcess volume (index+1) sessionCollection
         else
             false
 
-    let private setGameAudioVolumeExecute (gameProcess: Process) (volume: float) =
+    let private setGameAudioVolumeExecute (gameProcess: Process) (volume: float32) =
         let enumerator = new MMDeviceEnumerator()
         let defaultAudioDevice = enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Console)
         let audioSessionManager = defaultAudioDevice.AudioSessionManager
         let sessionCollection = audioSessionManager.Sessions
         setGameAudioVolumeFromCollection gameProcess volume 0 sessionCollection
 
-    let SetGameAudioVolume (gameProcess: Process) (volume: float) =
+    let SetGameAudioVolume (gameProcess: Process) (volume: float32) =
         let gameProcessOption = gameProcess |> Option.ofObj
         match gameProcessOption with
             | Some p -> setGameAudioVolumeExecute p volume
