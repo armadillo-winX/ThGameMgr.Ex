@@ -21,3 +21,9 @@ module GameAudioManager =
         let audioSessionManager = defaultAudioDevice.AudioSessionManager
         let sessionCollection = audioSessionManager.Sessions
         getGameAudioVolumeFromCollection gameProcess 0 sessionCollection
+
+    let GetGameAudioVolume (gameProcess: Process) =
+        let gameProcessOption = gameProcess |> Option.ofObj
+        match gameProcessOption with
+            | Some p -> getGameAudioVolumeExecute p
+            | None -> nullArg "gameProcess"
