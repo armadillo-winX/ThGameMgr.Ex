@@ -88,7 +88,8 @@
             </MenuItem>
             <MenuItem x:Name="ExternalToolsMenu" Header="外部ツール(_X)"/>
             <MenuItem x:Name="WindowMenu" Header="ウィンドウ(_W)" >
-                
+                <MenuItem x:Name="AlwaysOnTopMenuItem" 
+                        Header="常に最前面に固定" Click="AlwaysOnTopMenuItemClick" IsCheckable="True"/>
             </MenuItem>
             <MenuItem x:Name="HelpMenu" Header="ヘルプ(_H)">
                 <MenuItem x:Name="VersionInfoMenuItem" Header="バージョン情報" Click="VersionInfoMenuItemClick"/>

@@ -2991,5 +2991,10 @@ namespace ThGameMgr.Ex
         {
             ApplyScoreViewFilter();
         }
+
+        private void AlwaysOnTopMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = AlwaysOnTopMenuItem.IsChecked;
+        }
     }
 }
