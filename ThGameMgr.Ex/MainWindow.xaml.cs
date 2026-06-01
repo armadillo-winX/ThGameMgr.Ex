@@ -1776,7 +1776,7 @@ namespace ThGameMgr.Ex
 
             _gameAudioControlTimer.Tick += (e, s) =>
             {
-                double gameAudioVolume = 0;
+                float gameAudioVolume = 0;
                 try
                 {
                     gameAudioVolume = GameAudioManager.GetGameAudioVolume(this.GameProcess);
@@ -2213,7 +2213,7 @@ namespace ThGameMgr.Ex
             {
                 try
                 {
-                    double gameAudioVolume = GameAudioManager.GetGameAudioVolume(this.GameProcess);
+                    float gameAudioVolume = GameAudioManager.GetGameAudioVolume(this.GameProcess);
                     if (gameAudioVolume * 100 != GameAudioControlSlider.Value)
                     {
                         GameAudioManager.SetGameAudioVolume(
