@@ -28,7 +28,7 @@ module GameAudioManager =
             | Some p -> getGameAudioVolumeExecute p
             | None -> nullArg "gameProcess"
 
-    let setGameAudioVolumeExecute (gameProcess: Process) (volume: float) =
+    let private setGameAudioVolumeExecute (gameProcess: Process) (volume: float) =
         let enumerator = new MMDeviceEnumerator()
         let defaultAudioDevice = enumerator.GetDefaultAudioEndpoint(DataFlow.Render, Role.Console)
         let audioSessionManager = defaultAudioDevice.AudioSessionManager
