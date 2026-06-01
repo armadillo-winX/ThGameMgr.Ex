@@ -38,7 +38,9 @@ module GameAudioManager =
         while i < sessionCollection.Count do
             let session = sessionCollection[i]
             if int session.GetProcessID = gameProcess.Id then
-                session.SimpleAudioVolume.Volume = float32 volume |> ignore
+                session.SimpleAudioVolume.Volume <- float32 volume
+
+            i <- i + 1
 
     let SetGameAudioVolume (gameProcess: Process) (volume: float) =
         let gameProcessOption = gameProcess |> Option.ofObj
