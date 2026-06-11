@@ -12,8 +12,8 @@
             AppNameBlock.Text = $"{VersionInfo.AppName} {VersionInfo.CodeName}";
             AppVersionBlock.Text = $"ver.{VersionInfo.AppVersion}";
             DeveloperBlock.Text = $"by {VersionInfo.Developer}";
-            SystemBlock.Text = VersionInfo.OSVersion;
-            RuntimeBlock.Text = VersionInfo.DotNetVersion;
+            SystemBlock.Text = $"OS: {VersionInfo.OSVersion}";
+            RuntimeBlock.Text = $"Runtime: {VersionInfo.DotNetVersion}";
         }
 
         private void OKButtonClick(object sender, RoutedEventArgs e)
