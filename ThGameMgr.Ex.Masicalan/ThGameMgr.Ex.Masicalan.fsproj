@@ -16,4 +16,8 @@
     <Compile Include="Library.fs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Masicalan.Core" Version="0.1.0-preview.0" />
+  </ItemGroup>
+
 </Project>
