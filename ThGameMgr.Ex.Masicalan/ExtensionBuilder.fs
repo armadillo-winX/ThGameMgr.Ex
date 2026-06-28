@@ -3,7 +3,7 @@
 open Masicalan.Core
 open System
 
-module ExtensionBulder =
+module ExtensionBuilder =
     let rec private toMasicalanVal (o: obj) : Value =
         match o with
         | :? int as i -> Value.IntVal i
