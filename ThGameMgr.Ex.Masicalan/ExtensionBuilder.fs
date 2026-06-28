@@ -32,6 +32,24 @@ module ExtensionBuilder =
             // デリゲートを動的に呼び出し
             deleg.DynamicInvoke(csArgs) |> toMasicalanVal
 
+    type VariablesEnvironmentBuilder() =
+        let env = Map.empty<string, Value>
+
+        /// <summary>
+        /// Extension 変数環境に対して変数を登録します．
+        /// name: 変数の名前
+        /// content: 変数の中身
+        /// </summary>
+        member this.Register (name: string) (content: obj) =
+            let masiVal = toMasicalanVal content
+            env.Add(name, masiVal)
+
+        /// <summary>
+        /// 構築された変数環境を取得します．
+        /// </summary>
+        member this.Build() =
+            env
+
     type FunctionEnvironmentBuilder() =
         let env = Map.empty<string, string list * Statement>
 
