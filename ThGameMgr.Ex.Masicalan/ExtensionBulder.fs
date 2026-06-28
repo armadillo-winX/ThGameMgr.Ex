@@ -22,3 +22,12 @@ module ExtensionBulder =
         | Value.BoolVal b -> b
         | Value.VoidVal -> null
         | Value.ArrayVal a -> List.map toCsObject a
+
+    // C# のデリゲートを (Value list -> Value) へ変換
+    let private transferCsDelegate (deleg: Delegate): (Value list -> Value) =
+        fun (args: Value list) ->
+            let csArgs =
+                args |> List.map toCsObject |> List.toArray
+
+            // デリゲートを動的に呼び出し
+            deleg.DynamicInvoke(csArgs) |> toMasicalanVal
