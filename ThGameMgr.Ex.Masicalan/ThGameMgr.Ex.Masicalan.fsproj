@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="HostInterpreter.fs" />
     <Compile Include="ExtensionBuilder.fs" />
   </ItemGroup>
 
