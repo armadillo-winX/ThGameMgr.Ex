@@ -15,7 +15,7 @@
         <TextBlock Margin="18,0,0,0" TextWrapping="Wrap" Text="" Background="#FF7100FF" VerticalAlignment="Bottom" Height="18"/>
         <TextBlock HorizontalAlignment="Right" Margin="0,18,0,18" TextWrapping="Wrap" Text="" Background="#FF7100FF" Width="18"/>
         <Button x:Name="ResizeButton"
-                Content="リサイズ(_R)" HorizontalAlignment="Right" Margin="0,0,54,0" VerticalAlignment="Bottom"
+                Content="リサイズ(_R)" HorizontalAlignment="Right" Margin="0,0,24,0" VerticalAlignment="Bottom"
                 Height="18" Click="ResizeButtonClick"/>
         <CheckBox x:Name="FixAspectRateCheckBox" 
             Content="縦横比を既定値で固定" HorizontalAlignment="Left" Margin="10,0,0,0" Foreground="White" Height="15" VerticalAlignment="Bottom" Click="FixAspectRateCheckBoxClick"/>
@@ -27,6 +27,13 @@
             </MenuItem>
             <MenuItem x:Name="CloseMenu" Header="閉じる(_C)" Click="CloseMenuClick" Foreground="White"/>
         </Menu>
+        <TextBox x:Name="WidthBox"
+            MaxLines="1"
+            HorizontalAlignment="Right" Margin="0,0,163,0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="50"/>
+        <TextBox x:Name="HeightBox"
+            MaxLines="1"
+            HorizontalAlignment="Right" Margin="0,0,96,0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="50"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,0,151,1" TextWrapping="Wrap" Text="X" VerticalAlignment="Bottom" Foreground="White" FontWeight="Bold" FontSize="12"/>
 
     </Grid>
 </Window>

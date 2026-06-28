@@ -137,6 +137,9 @@ namespace ThGameMgr.Ex
             {
                 this.Height = (this.Width - 36) * 0.75 + 24 + 36;
             }
+
+            WidthBox.Text = (this.Width - 36).ToString();
+            HeightBox.Text = (this.Height - 36).ToString();
         }
 
         private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
