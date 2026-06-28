@@ -1,5 +1,5 @@
 ﻿namespace ThGameMgr.Ex.Masicalan
 
-module Say =
+module ExtensionBulder =
     let hello name =
         printfn "Hello %s" name
