@@ -11,6 +11,7 @@ global using ThGameMgr.Ex.Exceptions;
 global using ThGameMgr.Ex.Extensions;
 global using ThGameMgr.Ex.Game;
 global using ThGameMgr.Ex.GameProcess;
+global using ThGameMgr.Ex.Masicalan;
 global using ThGameMgr.Ex.Plugin;
 global using ThGameMgr.Ex.Replay;
 global using ThGameMgr.Ex.ReplayFileBackup;
