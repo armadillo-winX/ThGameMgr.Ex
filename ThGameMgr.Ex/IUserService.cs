@@ -11,5 +11,9 @@
         string GetCurrentUserGamePlayLogRecordFilePath();
 
         string GetCurrentUserReplayBackupDirectory();
+
+        string GetCurrentUserMacroVaultArchiveFilePath();
+
+        string GetCurrentUserMacroArchiveEntropyConfigPath();
     }
 }
