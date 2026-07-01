@@ -9,13 +9,5 @@
         {
             InitializeComponent();
         }
-
-        private string GenerateVfsEntropyName(string userDirName)
-        {
-            string guid = Guid.NewGuid().ToString("N");
-            string entropyName = $"ThGameMgr.Ex.{userDirName}.{guid}";
-
-            return entropyName;
-        }
     }
 }
