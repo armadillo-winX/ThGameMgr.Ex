@@ -61,7 +61,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Masicalan.VaultVfs" Version="0.1.0-preview.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.8" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="10.0.9" />
   </ItemGroup>
 
   <ItemGroup>
