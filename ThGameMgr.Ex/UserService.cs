@@ -74,5 +74,23 @@
         {
             return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "ReplayBackup");
         }
+
+        /// <summary>
+        /// 現在のユーザーがマクロスクリプトファイルを格納するための仮想ファイルシステムアーカイブのファイルパスを取得します．
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentUserMacroVaultArchiveFilePath()
+        {
+            return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "MacroScripts.masiv");
+        }
+
+        /// <summary>
+        /// 現在のユーザーのマクロスクリプト格納 VFS の暗号化エントロピーを保存するファイルのパスを取得します．
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentUserMacroArchiveEntropyConfigPath()
+        {
+            return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "MacroVfsEntropyConfig");
+        }
     }
 }
