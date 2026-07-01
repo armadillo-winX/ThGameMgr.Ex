@@ -81,7 +81,7 @@
         /// <returns></returns>
         public string GetCurrentUserMacroVaultArchiveFilePath()
         {
-            return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "MacroScripts.masiv");
+            return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, $"MacroScripts.{this.CurrentUserDirectoryName}.masiv");
         }
 
         /// <summary>
