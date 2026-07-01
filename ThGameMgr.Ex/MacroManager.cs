@@ -5,7 +5,7 @@ namespace ThGameMgr.Ex
 {
     internal class MacroManager
     {
-        private IUserService _userService;
+        private readonly IUserService _userService;
         public MacroManager(IUserService userService)
         {
             _userService = userService;
