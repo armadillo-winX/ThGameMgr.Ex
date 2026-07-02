@@ -92,5 +92,14 @@
         {
             return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "MacroVfsEntropyConfig");
         }
+
+        /// <summary>
+        /// 現在のユーザーがマクロにアクセスを許可したディレクトリ設定を保存するファイルのパスを取得します．
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentUserMacroIoAccessConfigPath()
+        {
+            return Path.Combine(PathInfo.UsersDirectory, this.CurrentUserDirectoryName, "MacroIOAccessConfig");
+        }
     }
 }
