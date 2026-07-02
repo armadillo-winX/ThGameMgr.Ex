@@ -15,5 +15,7 @@
         string GetCurrentUserMacroVaultArchiveFilePath();
 
         string GetCurrentUserMacroArchiveEntropyConfigPath();
+
+        string GetCurrentUserMacroIoAccessConfigPath();
     }
 }
