@@ -50,5 +50,35 @@ namespace ThGameMgr.Ex
             string entropyName = GetVfsEntropyName();
             return VfsManager.Create(vfsArchiveFilePath, entropyName);
         }
+
+        internal void AddScript(string script, string directory, string fileName)
+        {
+            string vfsFilePath = _userService.GetCurrentUserMacroVaultArchiveFilePath();
+            if (!File.Exists(vfsFilePath)) { _= CreateVfs(); }
+
+            string entropyName = GetVfsEntropyName();
+            _ = VfsIO.Add(vfsFilePath, entropyName, directory, fileName, script, VfsAttribute.Executable);
+        }
+
+        internal string ReadScript(string path)
+        {
+            string vfsFilePath = _userService.GetCurrentUserMacroVaultArchiveFilePath();
+            string entropyName = GetVfsEntropyName();
+            return VfsIO.Read(vfsFilePath, entropyName, path);
+        }
+
+        internal void EditScript(string script, string path)
+        {
+            string vfsFilePath = _userService.GetCurrentUserMacroVaultArchiveFilePath();
+            string entropyName = GetVfsEntropyName();
+            _ = VfsIO.Edit(vfsFilePath, entropyName, path, script);
+        }
+
+        internal void DeleteScript(string path)
+        {
+            string vfsFilePath = _userService.GetCurrentUserMacroVaultArchiveFilePath();
+            string entropyName = GetVfsEntropyName();
+            _ = VfsIO.Delete(vfsFilePath, entropyName, path);
+        }
     }
 }
