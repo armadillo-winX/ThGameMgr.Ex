@@ -1,5 +1,7 @@
 ﻿using Masicalan.VaultVfs;
 using System.Security.Cryptography;
+using System.Collections.Generic;
+using System.Text.Json;
 
 namespace ThGameMgr.Ex
 {
@@ -41,6 +43,35 @@ namespace ThGameMgr.Ex
                 string entropyName = GenerateVfsEntropyName();
                 SaveVfsEntropy(entropyName);
                 return entropyName;
+            }
+        }
+
+        internal void SaveMacroIOAccessConfig(List<string> accessableDirectories)
+        {
+            string configFile = _userService.GetCurrentUserMacroIoAccessConfigPath();
+
+            string json = JsonSerializer.Serialize(accessableDirectories);
+            byte[] data = Encoding.UTF8.GetBytes(json);
+            byte[] encrypted = ProtectedData.Protect(data, null, DataProtectionScope.CurrentUser);
+            File.WriteAllBytes(configFile, encrypted);
+        }
+
+        internal List<string> GetMacroIOAccessConfig()
+        {
+            string configFile = _userService.GetCurrentUserMacroIoAccessConfigPath();
+
+            byte[] encrypted = File.ReadAllBytes(configFile);
+            byte[] data = ProtectedData.Unprotect(encrypted, null, DataProtectionScope.CurrentUser);
+            string json = Encoding.UTF8.GetString(data);
+
+            List<string>? dirs = JsonSerializer.Deserialize<List<string>>(json);
+            if (dirs != null)
+            {
+                return dirs;
+            }
+            else
+            {
+                return [];
             }
         }
 
