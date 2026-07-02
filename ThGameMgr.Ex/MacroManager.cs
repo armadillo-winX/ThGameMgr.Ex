@@ -64,7 +64,8 @@ namespace ThGameMgr.Ex
         {
             string vfsFilePath = _userService.GetCurrentUserMacroVaultArchiveFilePath();
             string entropyName = GetVfsEntropyName();
-            return VfsIO.Read(vfsFilePath, entropyName, path);
+            VfsFileData vfd = VfsIO.Read(vfsFilePath, entropyName, path);
+            return vfd.Script;
         }
 
         internal void EditScript(string script, string path)
