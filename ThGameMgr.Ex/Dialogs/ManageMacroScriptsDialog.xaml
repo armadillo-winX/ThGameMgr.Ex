@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
         mc:Ignorable="d"
-        Title="マクロスクリプトの管理" Height="358" Width="533">
+        Title="マクロスクリプトの管理" Height="358" Width="533" WindowStartupLocation="CenterOwner">
     <Grid>
         <Label Content="マクロスクリプトファイルの一覧:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="MacroScriptsFileListBox" Margin="10,41,105,10" />
