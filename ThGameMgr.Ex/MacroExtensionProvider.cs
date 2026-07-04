@@ -178,6 +178,18 @@ namespace ThGameMgr.Ex
                 message, title, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
+        // exportAllScoreData(path, outputUntriedCardData, comment)
+        private void ExportAllScoreDataExec(string path, bool outputUntriedCardData, string comment)
+        {
+            ScoreFilter scoreFilter = new()
+            {
+                Level = "All",
+                Player = "All"
+            };
+
+            ScoreData.ExportToTextFile(path, outputUntriedCardData, scoreFilter, comment);
+        }
+
         public FSharpMap<string, Tuple<FSharpList<string>, Statement>> CreateFunctionExtension(
             TextBox? outputTextBox)
         {
@@ -197,6 +209,8 @@ namespace ThGameMgr.Ex
             Func<string, string> showInputBoxFunc = (title) => ShowInputBoxExec(title);
             Action<string, string> showMessageBoxFunc = (message, title) => ShowMessageBoxExec(message, title);
             Action<string, string> showErrorBoxFunc = (message, title) => ShowErrorBoxExec(message, title);
+            Action<string, bool, string> exportAllScoreDataFunc
+                = (path, outputUntriedCardData, comment) => ExportAllScoreDataExec(path, outputUntriedCardData, comment);
 
             builder.Register("writeLine", ["s"], writeLineFunc);
             builder.Register("copyFile", ["sourceFile", "destFile"], copyFileFunc);
@@ -209,6 +223,7 @@ namespace ThGameMgr.Ex
             builder.Register("showInputBox", ["title"], showInputBoxFunc);
             builder.Register("showMessageBox", ["message", "title"], showMessageBoxFunc);
             builder.Register("showErrorBox", ["message", "title"], showErrorBoxFunc);
+            builder.Register("exportAllScoreData", ["path", "outputUntriedCardData", "comment"], exportAllScoreDataFunc);
 
             return builder.Build();
         }
