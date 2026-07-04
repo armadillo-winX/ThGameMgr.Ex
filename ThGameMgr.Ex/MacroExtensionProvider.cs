@@ -150,6 +150,20 @@ namespace ThGameMgr.Ex
             return DateTime.UtcNow.ToString(format);
         }
 
+        // showInputBox(title)
+        private string ShowInputBoxExec(string title)
+        {
+            InputDialog inputDialog = new(title);
+            if (inputDialog.ShowDialog() == true)
+            {
+                return inputDialog.InputText;
+            }
+            else
+            {
+                return string.Empty;
+            }
+        }
+
         public FSharpMap<string, Tuple<FSharpList<string>, Statement>> CreateFunctionExtension(
             TextBox? outputTextBox)
         {
@@ -166,6 +180,7 @@ namespace ThGameMgr.Ex
             Func<string, bool> fileExistsFunc = (path) => FileExistsExec(path);
             Func<string, string> getDateTimeNowFunc = (format) => GetDateTimeNowExec(format);
             Func<string, string> getUtcDateTimeNowFunc = (format) => GetUtcDateTimeNowExec(format);
+            Func<string, string> showInputBoxFunc = (title) => ShowInputBoxExec(title);
 
             builder.Register("writeLine", ["s"], writeLineFunc);
             builder.Register("copyFile", ["sourceFile", "destFile"], copyFileFunc);
@@ -175,6 +190,7 @@ namespace ThGameMgr.Ex
             builder.Register("fileExists", ["filePath"], fileExistsFunc);
             builder.Register("getDateTimeNow", ["format"], getDateTimeNowFunc);
             builder.Register("getUtcDateTimeNow", ["format"], getUtcDateTimeNowFunc);
+            builder.Register("showInputBox", ["title"], showInputBoxFunc);
 
             return builder.Build();
         }
