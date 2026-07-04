@@ -37,6 +37,7 @@
 
         private void LoadScriptList()
         {
+            MacroScriptsFileListBox.Items.Clear();
             try
             {
                 string[] scriptList = _macroManager.GetScriptList();
@@ -48,7 +49,6 @@
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                MacroScriptsFileListBox.Items.Clear();
             }
         }
 
