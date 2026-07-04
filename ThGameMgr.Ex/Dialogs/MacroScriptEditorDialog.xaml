@@ -26,7 +26,7 @@
         <TextBox
             x:Name="EditorBox"
             Margin="0,46,0,162"
-            AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" FontFamily="MS Gothic"/>
+            AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" FontFamily="MS Gothic" FontSize="14"/>
         <ToolBar Height="28" Margin="0,18,0,0" VerticalAlignment="Top">
             <Button ToolTip="スクリプトを実行" Click="RunMenuItemClick">
                 <Image Source="/Images/Start.png"/>
