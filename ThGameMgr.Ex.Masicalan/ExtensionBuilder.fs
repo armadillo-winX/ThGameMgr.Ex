@@ -10,7 +10,7 @@ module ExtensionBuilder =
         | :? float as f -> Value.FloatVal f
         | :? string as s -> Value.StringVal s
         | :? bool as b -> Value.BoolVal b
-        | ob when ob.GetType() = typeof<Void> -> Value.VoidVal
+        | null -> Value.VoidVal
         | :? list<obj> as l -> Value.ArrayVal (List.map toMasicalanVal l)
         |_ -> failwithf $"Unsupported type: {o.GetType().Name}"
 
