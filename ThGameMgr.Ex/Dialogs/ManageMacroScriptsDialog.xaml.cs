@@ -43,8 +43,7 @@
                 string scriptName = macroScriptNameDialog.ScriptName;
                 try
                 {
-                    MacroManager macroManager = new(_userService);
-                    macroManager.AddScript("", "", scriptName);
+                    _macroManager.AddScript("", "", scriptName);
 
                     MacroScriptEditorDialog macroScriptEditorDialog = new(
                         _userService, scriptName
