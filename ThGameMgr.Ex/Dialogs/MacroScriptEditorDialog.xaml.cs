@@ -123,7 +123,7 @@ namespace ThGameMgr.Ex.Dialogs
             catch (Exception ex)
             {
                 ErrorBox.Text = $"{ex.Message}";
-                System.Media.SystemSounds.Hand.Play();
+                OutputTabControl.SelectedIndex = 1;
             }
         }
     }

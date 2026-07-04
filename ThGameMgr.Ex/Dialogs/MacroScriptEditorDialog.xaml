@@ -32,7 +32,9 @@
                 <Image Source="/Images/Start.png"/>
             </Button>
         </ToolBar>
-        <TabControl Height="162" VerticalAlignment="Bottom">
+        <TabControl 
+            x:Name="OutputTabControl"
+            Height="162" VerticalAlignment="Bottom">
             <TabItem Header="出力">
                 <Grid >
                     <TextBox 
