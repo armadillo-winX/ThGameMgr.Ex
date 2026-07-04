@@ -112,5 +112,12 @@ namespace ThGameMgr.Ex
             string entropyName = GetVfsEntropyName();
             _ = VfsIO.Delete(vfsFilePath, entropyName, path);
         }
+
+        internal string[] GetScriptList()
+        {
+            string vfsFilePath = _userService.GetCurrentUserMacroVaultArchiveFilePath();
+            string entropyName = GetVfsEntropyName();
+            return VfsIO.GetScriptFiles(vfsFilePath, entropyName);
+        }
     }
 }
