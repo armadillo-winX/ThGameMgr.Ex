@@ -33,7 +33,7 @@ module ExtensionBuilder =
             deleg.DynamicInvoke(csArgs) |> toMasicalanVal
 
     type VariablesEnvironmentBuilder() =
-        let env = Map.empty<string, Value>
+        let mutable env = Map.empty<string, Value>
 
         /// <summary>
         /// Extension 変数環境に対して変数を登録します．
@@ -42,7 +42,7 @@ module ExtensionBuilder =
         /// </summary>
         member this.Register (name: string) (content: obj) =
             let masiVal = toMasicalanVal content
-            env.Add(name, masiVal)
+            env <- Map.add name masiVal env
 
         /// <summary>
         /// 構築された変数環境を取得します．
@@ -51,7 +51,7 @@ module ExtensionBuilder =
             env
 
     type FunctionEnvironmentBuilder() =
-        let env = Map.empty<string, string list * Statement>
+        let mutable env = Map.empty<string, string list * Statement>
 
         /// <summary>
         /// Extension 関数環境に対して関数を登録します．
@@ -64,7 +64,7 @@ module ExtensionBuilder =
             let dummyArgs = paramNames |> List.map Expression.Var
             let statement = Statement.CallNativeF (nativeFunction, dummyArgs)
 
-            env.Add(name, (paramNames, statement))
+            env <- Map.add name (paramNames, statement) env
 
         /// <summary>
         /// 構築された関数環境を取得します．
