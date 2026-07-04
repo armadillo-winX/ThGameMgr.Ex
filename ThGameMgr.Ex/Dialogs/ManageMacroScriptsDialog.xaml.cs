@@ -29,6 +29,27 @@
                     Debug.WriteLine($"Failed to create vfs archive: {ex.Message}");
                 }
             }
+            else
+            {
+                LoadScriptList();
+            }
+        }
+
+        private void LoadScriptList()
+        {
+            try
+            {
+                string[] scriptList = _macroManager.GetScriptList();
+                foreach (string script in scriptList)
+                {
+                    MacroScriptsFileListBox.Items.Add(script);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MacroScriptsFileListBox.Items.Clear();
+            }
         }
 
         private void CreateButtonClick(object sender, RoutedEventArgs e)
@@ -52,6 +73,7 @@
                         Owner = this
                     };
 
+                    LoadScriptList();
                     macroScriptEditorDialog.Show();
                 }
                 catch (Exception ex)
@@ -91,6 +113,7 @@
                 try
                 {
                     _macroManager.DeleteScript(path);
+                    LoadScriptList();
                 }
                 catch (Exception ex)
                 {
