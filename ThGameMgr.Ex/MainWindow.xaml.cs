@@ -2991,5 +2991,14 @@ namespace ThGameMgr.Ex
         {
             ApplyScoreViewFilter();
         }
+
+        private void ManageMacroMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            ManageMacroScriptsDialog manageMacroScriptsDialog = new(_currentUserService)
+            {
+                Owner = this
+            };
+            _ = manageMacroScriptsDialog.ShowDialog();
+        }
     }
 }

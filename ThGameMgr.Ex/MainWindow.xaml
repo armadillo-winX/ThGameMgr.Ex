@@ -85,6 +85,8 @@
                 <MenuItem x:Name="ManageExternalToolsMenuItem" Header="外部ツールの管理(_M)" Click="ManageExternalToolsMenuItemClick"/>
                 <Separator/>
                 <MenuItem x:Name="ManagePluginsMenuItem" Header="プラグインの管理" Click="ManagePluginsMenuItemClick"/>
+                <Separator/>
+                <MenuItem x:Name="ManageMacroMenuItem" Header="マクロスクリプトの管理" Click="ManageMacroMenuItemClick"/>
             </MenuItem>
             <MenuItem x:Name="ExternalToolsMenu" Header="外部ツール(_X)"/>
             <MenuItem x:Name="HelpMenu" Header="ヘルプ(_H)">
