@@ -15,7 +15,7 @@
         <Button x:Name="CreateButton"
             Content="追加(_A)" HorizontalAlignment="Right" Margin="0,41,10,0" VerticalAlignment="Top" Width="90" Height="24" Click="CreateButtonClick"/>
         <Button x:Name="DeleteButton"
-            Content="削除(_D)" HorizontalAlignment="Right" Margin="0,99,10,0" VerticalAlignment="Top" Height="24" Width="90"/>
+            Content="削除(_D)" HorizontalAlignment="Right" Margin="0,99,10,0" VerticalAlignment="Top" Height="24" Width="90" Click="DeleteButtonClick"/>
 
     </Grid>
 </Window>

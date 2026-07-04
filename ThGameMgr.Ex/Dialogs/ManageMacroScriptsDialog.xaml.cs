@@ -82,5 +82,27 @@
                     "スクリプトを選択してください．", "スクリプトの編集", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             }
         }
+
+        private void DeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            string? path = MacroScriptsFileListBox.SelectedItem as string;
+            if (!string.IsNullOrEmpty(path))
+            {
+                try
+                {
+                    _macroManager.DeleteScript(path);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(this, $"スクリプトの削除に失敗しました．\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show(this,
+                    "スクリプトを選択してください．", "スクリプトの削除", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
     }
 }
