@@ -60,14 +60,21 @@ namespace ThGameMgr.Ex
         {
             string configFile = _userService.GetCurrentUserMacroIoAccessConfigPath();
 
-            byte[] encrypted = File.ReadAllBytes(configFile);
-            byte[] data = ProtectedData.Unprotect(encrypted, null, DataProtectionScope.CurrentUser);
-            string json = Encoding.UTF8.GetString(data);
-
-            List<string>? dirs = JsonSerializer.Deserialize<List<string>>(json);
-            if (dirs != null)
+            if (File.Exists(configFile))
             {
-                return dirs;
+                byte[] encrypted = File.ReadAllBytes(configFile);
+                byte[] data = ProtectedData.Unprotect(encrypted, null, DataProtectionScope.CurrentUser);
+                string json = Encoding.UTF8.GetString(data);
+
+                List<string>? dirs = JsonSerializer.Deserialize<List<string>>(json);
+                if (dirs != null)
+                {
+                    return dirs;
+                }
+                else
+                {
+                    return [];
+                }
             }
             else
             {
