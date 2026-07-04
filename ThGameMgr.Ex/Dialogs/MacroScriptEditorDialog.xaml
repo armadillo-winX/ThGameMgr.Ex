@@ -28,7 +28,7 @@
             Margin="0,46,0,162"
             AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" FontFamily="MS Gothic"/>
         <ToolBar Height="28" Margin="0,18,0,0" VerticalAlignment="Top">
-            <Button ToolTip="スクリプトを実行">
+            <Button ToolTip="スクリプトを実行" Click="RunMenuItemClick">
                 <Image Source="/Images/Start.png"/>
             </Button>
         </ToolBar>
