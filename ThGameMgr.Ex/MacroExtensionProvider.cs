@@ -164,6 +164,20 @@ namespace ThGameMgr.Ex
             }
         }
 
+        // showMessageBox(message, title)
+        private void ShowMessageBoxExec(string message, string title)
+        {
+            MessageBox.Show(
+                message, title, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        // showErrorBox(message title)
+        private void ShowErrorBoxExec(string message, string title)
+        {
+            MessageBox.Show(
+                message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
         public FSharpMap<string, Tuple<FSharpList<string>, Statement>> CreateFunctionExtension(
             TextBox? outputTextBox)
         {
@@ -181,6 +195,8 @@ namespace ThGameMgr.Ex
             Func<string, string> getDateTimeNowFunc = (format) => GetDateTimeNowExec(format);
             Func<string, string> getUtcDateTimeNowFunc = (format) => GetUtcDateTimeNowExec(format);
             Func<string, string> showInputBoxFunc = (title) => ShowInputBoxExec(title);
+            Action<string, string> showMessageBoxFunc = (message, title) => ShowMessageBoxExec(message, title);
+            Action<string, string> showErrorBoxFunc = (message, title) => ShowErrorBoxExec(message, title);
 
             builder.Register("writeLine", ["s"], writeLineFunc);
             builder.Register("copyFile", ["sourceFile", "destFile"], copyFileFunc);
@@ -191,6 +207,8 @@ namespace ThGameMgr.Ex
             builder.Register("getDateTimeNow", ["format"], getDateTimeNowFunc);
             builder.Register("getUtcDateTimeNow", ["format"], getUtcDateTimeNowFunc);
             builder.Register("showInputBox", ["title"], showInputBoxFunc);
+            builder.Register("showMessageBox", ["message", "title"], showMessageBoxFunc);
+            builder.Register("showErrorBox", ["message", "title"], showErrorBoxFunc);
 
             return builder.Build();
         }
