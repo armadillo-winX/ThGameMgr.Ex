@@ -132,6 +132,12 @@ namespace ThGameMgr.Ex
             }
         }
 
+        // fileExists(filePath)
+        private bool FileExistsExec(string filePath)
+        {
+            return File.Exists(filePath);
+        }
+
         // getDateTimeNow(format)
         private string GetDateTimeNowExec(string format)
         {
@@ -157,6 +163,7 @@ namespace ThGameMgr.Ex
             Action<string, string> moveFileFunc = (source, dest) => MoveFileExec(accessableDirectories, source, dest);
             Action<string, string> writeToFunc = (path, content) => WriteToExec(accessableDirectories, path, content);
             Func<string, string> readFromFunc = (path) => ReadFromExec(accessableDirectories, path);
+            Func<string, bool> fileExistsFunc = (path) => FileExistsExec(path);
             Func<string, string> getDateTimeNowFunc = (format) => GetDateTimeNowExec(format);
             Func<string, string> getUtcDateTimeNowFunc = (format) => GetUtcDateTimeNowExec(format);
 
@@ -165,6 +172,7 @@ namespace ThGameMgr.Ex
             builder.Register("moveFile", ["sourceFile", "destFile"], moveFileFunc);
             builder.Register("writeTo", ["filePath", "content"], writeToFunc);
             builder.Register("readFrom", ["filePath"], readFromFunc);
+            builder.Register("fileExists", ["filePath"], fileExistsFunc);
             builder.Register("getDateTimeNow", ["format"], getDateTimeNowFunc);
             builder.Register("getUtcDateTimeNow", ["format"], getUtcDateTimeNowFunc);
 
