@@ -64,7 +64,7 @@
                 string scriptName = macroScriptNameDialog.ScriptName;
                 try
                 {
-                    _macroManager.AddScript("printn(\"Hello World!\");", "", scriptName);
+                    _macroManager.AddScript("writeLine(\"Hello World!\");", "", scriptName);
 
                     MacroScriptEditorDialog macroScriptEditorDialog = new(
                         _userService, scriptName
