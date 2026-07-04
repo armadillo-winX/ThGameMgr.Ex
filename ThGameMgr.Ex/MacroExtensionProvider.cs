@@ -132,6 +132,18 @@ namespace ThGameMgr.Ex
             }
         }
 
+        // getDateTimeNow(format)
+        private string GetDateTimeNowExec(string format)
+        {
+            return DateTime.Now.ToString(format);
+        }
+
+        // getUtcDateTimeNow(format)
+        private string GetUtcDateTimeNowExec(string format)
+        {
+            return DateTime.UtcNow.ToString(format);
+        }
+
         public FSharpMap<string, Tuple<FSharpList<string>, Statement>> CreateFunctionExtension(
             TextBox? outputTextBox)
         {
@@ -145,12 +157,16 @@ namespace ThGameMgr.Ex
             Action<string, string> moveFileFunc = (source, dest) => MoveFileExec(accessableDirectories, source, dest);
             Action<string, string> writeToFunc = (path, content) => WriteToExec(accessableDirectories, path, content);
             Func<string, string> readFromFunc = (path) => ReadFromExec(accessableDirectories, path);
+            Func<string, string> getDateTimeNowFunc = (format) => GetDateTimeNowExec(format);
+            Func<string, string> getUtcDateTimeNowFunc = (format) => GetUtcDateTimeNowExec(format);
 
             builder.Register("writeLine", ["s"], writeLineFunc);
             builder.Register("copyFile", ["sourceFile", "destFile"], copyFileFunc);
             builder.Register("moveFile", ["sourceFile", "destFile"], moveFileFunc);
             builder.Register("writeTo", ["filePath", "content"], writeToFunc);
             builder.Register("readFrom", ["filePath"], readFromFunc);
+            builder.Register("getDateTimeNow", ["format"], getDateTimeNowFunc);
+            builder.Register("getUtcDateTimeNow", ["format"], getUtcDateTimeNowFunc);
 
             return builder.Build();
         }
