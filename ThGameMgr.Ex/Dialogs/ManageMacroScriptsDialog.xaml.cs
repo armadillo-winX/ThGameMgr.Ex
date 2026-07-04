@@ -7,18 +7,21 @@
     {
         private readonly IUserService _userService;
 
+        private readonly MacroManager _macroManager;
+
         public ManageMacroScriptsDialog(IUserService userService)
         {
             InitializeComponent();
 
             _userService = userService;
+            MacroManager macroManager = new(userService);
+            _macroManager = macroManager;
 
             string vfsFilePath = userService.GetCurrentUserMacroVaultArchiveFilePath();
             if (!File.Exists(vfsFilePath))
             {
                 try
                 {
-                    MacroManager macroManager = new(userService);
                     macroManager.CreateVfs();
                 }
                 catch (Exception ex)
