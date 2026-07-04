@@ -15,8 +15,8 @@ namespace ThGameMgr.Ex
             _userService = userService;
         }
 
-        // printn(s)
-        private void PrintNExec(TextBox? outputTextBox, string s)
+        // writeLine(s)
+        private void WriteLineExec(TextBox? outputTextBox, string s)
         {
             if (outputTextBox != null)
             {
@@ -140,13 +140,13 @@ namespace ThGameMgr.Ex
 
             var builder = new ExtensionBuilder.FunctionEnvironmentBuilder();
 
-            Action<string> printnFunc = (s) => PrintNExec(outputTextBox, s);
+            Action<string> writeLineFunc = (s) => WriteLineExec(outputTextBox, s);
             Action<string, string> copyFileFunc = (source, dest) => CopyFileExec(accessableDirectories, source, dest);
             Action<string, string> moveFileFunc = (source, dest) => MoveFileExec(accessableDirectories, source, dest);
             Action<string, string> writeToFunc = (path, content) => WriteToExec(accessableDirectories, path, content);
             Func<string, string> readFromFunc = (path) => ReadFromExec(accessableDirectories, path);
 
-            builder.Register("printn", ["s"], printnFunc);
+            builder.Register("writeLine", ["s"], writeLineFunc);
             builder.Register("copyFile", ["sourceFile", "destFile"], copyFileFunc);
             builder.Register("moveFile", ["sourceFile", "destFile"], moveFileFunc);
             builder.Register("writeTo", ["filePath", "content"], writeToFunc);
