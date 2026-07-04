@@ -13,6 +13,8 @@
 
             this.InputText = string.Empty;
             this.Title = title;
+
+            _ = InputBox.Focus();
         }
 
         private void OKButtonClick(object sender, RoutedEventArgs e)
