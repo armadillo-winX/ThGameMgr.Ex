@@ -26,7 +26,9 @@ namespace ThGameMgr.Ex.Dialogs
             MacroManager macroManager = new(userService);
             _macroManager = macroManager;
             _path = path;
-            _script = macroManager.ReadScript(path);
+            string script = macroManager.ReadScript(path);
+            _script = script;
+            EditorBox.Text = script;
 
             this.Title = $"{path} - Masicalan マクロスクリプトエディタ";
         }
@@ -74,7 +76,7 @@ namespace ThGameMgr.Ex.Dialogs
             if (editorScript != _script)
             {
                 MessageBoxResult result =
-                    MessageBox.Show(this, "スクリプトが保存されていません．\n本保存して終了しますか?",
+                    MessageBox.Show(this, "スクリプトが保存されていません．\n保存して終了しますか?",
                     "エディタの終了",
                     MessageBoxButton.YesNoCancel, MessageBoxImage.Exclamation);
 
@@ -88,6 +90,8 @@ namespace ThGameMgr.Ex.Dialogs
                     if (!re) { e.Cancel = true; }
                 }
             }
+
+            _ = this.Owner.Activate();
         }
 
         private void SaveScriptMenuItemClick(object sender, RoutedEventArgs e)
