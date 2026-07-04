@@ -53,7 +53,7 @@ namespace ThGameMgr.Ex.Dialogs
         private void AboutMasicalanMenuItemClick(object sender, RoutedEventArgs e)
         {
             string coreLibraryAssemPath =
-                $"{PathInfo.AssemblyFilePath}\\Masicalan.Core.dll";
+                $"{PathInfo.AssemblyBaseDirectoryPath}\\Masicalan.Core.dll";
 
             string? name = FileVersionInfo.GetVersionInfo(coreLibraryAssemPath).ProductName;
             string? version = FileVersionInfo.GetVersionInfo(coreLibraryAssemPath).ProductVersion;
