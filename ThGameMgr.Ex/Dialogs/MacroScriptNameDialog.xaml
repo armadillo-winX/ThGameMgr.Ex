@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
         mc:Ignorable="d"
-        Title="スクリプトの名前を指定" Height="130" Width="282" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        Title="スクリプトの名前を指定" Height="161" Width="308" ShowInTaskbar="False" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
     <Grid>
         <TextBox 
-            x:Name="NameBox" Margin="10,10,47,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top"
+            x:Name="NameBox" Margin="10,41,47,0" TextWrapping="NoWrap" Text="" VerticalAlignment="Top"
             MaxLines="1"/>
-        <TextBlock HorizontalAlignment="Right" Margin="0,12,10,0" TextWrapping="Wrap" Text=".masis" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Right" Margin="0,42,10,0" TextWrapping="Wrap" Text=".masis" VerticalAlignment="Top"/>
         <Button 
             x:Name="OKButton"
             Width="90" Height="24"
             IsDefault="True"
             Content="_OK" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Click="OKButtonClick"/>
+        <Label Content="名前(_N):" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
