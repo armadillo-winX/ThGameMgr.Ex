@@ -118,6 +118,7 @@ namespace ThGameMgr.Ex.Dialogs
 
             try
             {
+                OutputBox.Clear();
                 HostInterpreter.Run(editorScript, emptyMap, functionExtension);
                 OutputTabControl.SelectedIndex = 0;
             }
