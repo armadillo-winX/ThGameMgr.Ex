@@ -1,0 +1,59 @@
+﻿<Window x:Class="ThGameMgr.Ex.Dialogs.MacroScriptEditorDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThGameMgr.Ex.Dialogs"
+        mc:Ignorable="d"
+        Title="Masicalan マクロスクリプトエディタ" Height="397" Width="672" WindowStartupLocation="CenterOwner" Closing="WindowClosing">
+    <Grid>
+        <Menu Height="18" VerticalAlignment="Top">
+            <MenuItem Header="ファイル(_F)">
+                <MenuItem x:Name="SaveScriptMenuItem" Header="保存" Click="SaveScriptMenuItemClick" />
+                <Separator/>
+                <MenuItem x:Name="CloseMenuItem" Header="閉じる" Click="CloseMenuItemClick"/>
+            </MenuItem>
+            <MenuItem Header="実行(_R)">
+                <MenuItem x:Name="RunMenuItem" Header="スクリプトを実行(_R)" Click="RunMenuItemClick"/>
+            </MenuItem>
+            <MenuItem Header="ツール(_T)">
+                <MenuItem x:Name="AccessIOConfigMenuItem" Header="アクセス可能ディレクトリの設定" Click="AccessIOConfigMenuItemClick"/>
+            </MenuItem>
+            <MenuItem Header="ヘルプ(_H)">
+                <MenuItem x:Name="AboutMasicalanMenuItem" Header="Masicalan バージョン情報" Click="AboutMasicalanMenuItemClick"/>
+            </MenuItem>
+        </Menu>
+        <TextBox
+            x:Name="EditorBox"
+            Margin="0,46,0,162"
+            AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" FontFamily="MS Gothic"/>
+        <ToolBar Height="28" Margin="0,18,0,0" VerticalAlignment="Top">
+            <Button ToolTip="スクリプトを実行">
+                <Image Source="/Images/Start.png"/>
+            </Button>
+        </ToolBar>
+        <TabControl Height="162" VerticalAlignment="Bottom">
+            <TabItem Header="出力">
+                <Grid >
+                    <TextBox 
+                        x:Name="OutputBox"
+                        AcceptsReturn="True" TextWrapping="Wrap" 
+                        IsReadOnly="True"
+                        VerticalScrollBarVisibility="Auto" FontFamily="MS Gothic"
+                        Text=""/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="エラー">
+                <Grid >
+                    <TextBox 
+                        x:Name="ErrorBox"
+                        AcceptsReturn="True" TextWrapping="Wrap" 
+                        IsReadOnly="True"
+                        VerticalScrollBarVisibility="Auto" FontFamily="MS Gothic"
+                        Text=""/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
