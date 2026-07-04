@@ -60,5 +60,25 @@
                 }
             }
         }
+
+        private void EditButtonClick(object sender, RoutedEventArgs e)
+        {
+            string? path = MacroScriptsFileListBox.SelectedItem as string;
+            if (!string.IsNullOrWhiteSpace(path))
+            {
+                MacroScriptEditorDialog macroScriptEditorDialog = new(
+                    _userService, path
+                    )
+                {
+                    Owner = this
+                };
+                macroScriptEditorDialog.Show();
+            }
+            else
+            {
+                MessageBox.Show(this,
+                    "スクリプトを選択してください．", "スクリプトの編集", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+        }
     }
 }
