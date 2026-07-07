@@ -92,8 +92,8 @@ namespace ThGameMgr.Ex
             }
         }
 
-        // writeTo(filePath, content)
-        private void WriteToExec(List<string> accessableDirectories, string filePath, string content)
+        // writeToFile(filePath, content)
+        private void WriteToFileExec(List<string> accessableDirectories, string filePath, string content)
         {
             string? directory = Path.GetDirectoryName(filePath);
             if (!string.IsNullOrWhiteSpace(directory) &&
@@ -108,12 +108,12 @@ namespace ThGameMgr.Ex
             }
             else
             {
-                throw new InvalidOperationException("writeTo: Invalid arguments");
+                throw new InvalidOperationException("writeToFile: Invalid arguments");
             }
         }
 
-        // readFrom(filePath)
-        private string ReadFromExec(List<string> accessableDirectories, string filePath)
+        // readFromFile(filePath)
+        private string ReadFromFileExec(List<string> accessableDirectories, string filePath)
         {
             string? directory = Path.GetDirectoryName(filePath);
             if (!string.IsNullOrWhiteSpace(directory) &&
@@ -128,7 +128,7 @@ namespace ThGameMgr.Ex
             }
             else
             {
-                throw new InvalidOperationException("readFrom: Invalid arguments");
+                throw new InvalidOperationException("readFromFile: Invalid arguments");
             }
         }
 
@@ -216,8 +216,8 @@ namespace ThGameMgr.Ex
             Action<string> writeLineFunc = (s) => WriteLineExec(outputTextBox, s);
             Action<string, string> copyFileFunc = (source, dest) => CopyFileExec(accessableDirectories, source, dest);
             Action<string, string> moveFileFunc = (source, dest) => MoveFileExec(accessableDirectories, source, dest);
-            Action<string, string> writeToFunc = (path, content) => WriteToExec(accessableDirectories, path, content);
-            Func<string, string> readFromFunc = (path) => ReadFromExec(accessableDirectories, path);
+            Action<string, string> writeToFileFunc = (path, content) => WriteToFileExec(accessableDirectories, path, content);
+            Func<string, string> readFromFileFunc = (path) => ReadFromFileExec(accessableDirectories, path);
             Func<string, bool> fileExistsFunc = (path) => FileExistsExec(path);
             Func<string, string> getDateTimeNowFunc = (format) => GetDateTimeNowExec(format);
             Func<string, string> getUtcDateTimeNowFunc = (format) => GetUtcDateTimeNowExec(format);
@@ -230,8 +230,8 @@ namespace ThGameMgr.Ex
             builder.Register("writeLine", ["s"], writeLineFunc);
             builder.Register("copyFile", ["sourceFile", "destFile"], copyFileFunc);
             builder.Register("moveFile", ["sourceFile", "destFile"], moveFileFunc);
-            builder.Register("writeTo", ["filePath", "content"], writeToFunc);
-            builder.Register("readFrom", ["filePath"], readFromFunc);
+            builder.Register("writeToFile", ["filePath", "content"], writeToFileFunc);
+            builder.Register("readFromFile", ["filePath"], readFromFileFunc);
             builder.Register("fileExists", ["filePath"], fileExistsFunc);
             builder.Register("getDateTimeNow", ["format"], getDateTimeNowFunc);
             builder.Register("getUtcDateTimeNow", ["format"], getUtcDateTimeNowFunc);
