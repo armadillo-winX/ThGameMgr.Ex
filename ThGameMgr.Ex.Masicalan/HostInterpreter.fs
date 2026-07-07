@@ -11,4 +11,8 @@ module HostInterpreter =
     /// <param name="extVarEnv">Extension 変数環境</param>
     /// <param name="extFunEnv">Extension 関数環境</param>
     let Run (script: string) (extVarEnv: Map<string, Value>) (extFunEnv: Map<string, (string list * Statement)>) =
-        Interpreter.RunWithExt script extVarEnv extFunEnv
+        try
+            Interpreter.RunWithExt script extVarEnv extFunEnv
+        with
+        | :? System.Reflection.TargetInvocationException as ex -> raise ex.InnerException
+        |_ as ex -> raise ex
