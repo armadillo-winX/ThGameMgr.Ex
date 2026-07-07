@@ -179,7 +179,8 @@ namespace ThGameMgr.Ex
         }
 
         // exportAllScoreData(path, outputUntriedCardData, comment)
-        private void ExportAllScoreDataExec(string path, bool outputUntriedCardData, string comment)
+        private void ExportAllScoreDataExec(
+            List<string> accessableDirectories, string path, bool outputUntriedCardData, string comment)
         {
             ScoreFilter scoreFilter = new()
             {
@@ -187,7 +188,21 @@ namespace ThGameMgr.Ex
                 Player = "All"
             };
 
-            ScoreData.ExportToTextFile(path, outputUntriedCardData, scoreFilter, comment);
+            string? directory = Path.GetDirectoryName(path);
+            if (!string.IsNullOrWhiteSpace(directory) &&
+                accessableDirectories.Contains(directory))
+            {
+                ScoreData.ExportToTextFile(path, outputUntriedCardData, scoreFilter, comment);
+            }
+            else if (!string.IsNullOrWhiteSpace(directory) &&
+                !accessableDirectories.Contains(directory))
+            {
+                throw new InvalidOperationException($"Access to the {directory} is not permitted.");
+            }
+            else
+            {
+                throw new InvalidOperationException("exportAllScoreData: Invalid arguments");
+            }
         }
 
         public FSharpMap<string, Tuple<FSharpList<string>, Statement>> CreateFunctionExtension(
@@ -210,7 +225,7 @@ namespace ThGameMgr.Ex
             Action<string, string> showMessageBoxFunc = (message, title) => ShowMessageBoxExec(message, title);
             Action<string, string> showErrorBoxFunc = (message, title) => ShowErrorBoxExec(message, title);
             Action<string, bool, string> exportAllScoreDataFunc
-                = (path, outputUntriedCardData, comment) => ExportAllScoreDataExec(path, outputUntriedCardData, comment);
+                = (path, outputUntriedCardData, comment) => ExportAllScoreDataExec(accessableDirectories, path, outputUntriedCardData, comment);
 
             builder.Register("writeLine", ["s"], writeLineFunc);
             builder.Register("copyFile", ["sourceFile", "destFile"], copyFileFunc);
