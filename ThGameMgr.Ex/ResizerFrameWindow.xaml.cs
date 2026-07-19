@@ -241,7 +241,11 @@ namespace ThGameMgr.Ex
 
                 if (FixAspectRateCheckBox.IsChecked == true)
                 {
+                    // 一時的にアスペクト比固定を解除して，既定アスペクト比に基づいて幅を設定
+                    FixAspectRateCheckBox.IsChecked = false;
                     this.Height = height + 36;
+                    this.Width = ((height - 24) * 4) / 3 + 36;
+                    FixAspectRateCheckBox.IsChecked = true;
                 }
                 else
                 {
