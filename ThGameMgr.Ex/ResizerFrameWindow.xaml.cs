@@ -102,7 +102,7 @@ namespace ThGameMgr.Ex
             }
         }
 
-        private void ResizeButtonClick(object sender, RoutedEventArgs e)
+        private void Resize()
         {
             try
             {
@@ -121,6 +121,11 @@ namespace ThGameMgr.Ex
                 MessageBox.Show(this, ex.Message, "エラー",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ResizeButtonClick(object sender, RoutedEventArgs e)
+        {
+            Resize();
         }
 
         private void FixAspectRateCheckBoxClick(object sender, RoutedEventArgs e)
@@ -204,17 +209,7 @@ namespace ThGameMgr.Ex
                     this.Height = height + 36;
                 }
 
-                try
-                {
-                    int iwidth = (int)(this.Width - 36);
-                    int iheight = (int)(this.Height - 36);
-
-                    GameWindowManager.ResizeGameWindow(this.GameWindow, iwidth, iheight);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                }
+                Resize();
             }
         }
 
@@ -253,17 +248,7 @@ namespace ThGameMgr.Ex
                     this.Height = height + 36;
                 }
 
-                try
-                {
-                    int iwidth = (int)(this.Width - 36);
-                    int iheight = (int)(this.Height - 36);
-
-                    GameWindowManager.ResizeGameWindow(this.GameWindow, iwidth, iheight);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                }
+                Resize();
             }
         }
     }
