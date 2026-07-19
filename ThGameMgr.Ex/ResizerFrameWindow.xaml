@@ -29,10 +29,10 @@
         </Menu>
         <TextBox x:Name="WidthBox"
             MaxLines="1"
-            HorizontalAlignment="Right" Margin="0,0,163,0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="50"/>
+            HorizontalAlignment="Right" Margin="0,0,163,0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="50" KeyDown="WidthBoxKeyDown"/>
         <TextBox x:Name="HeightBox"
             MaxLines="1"
-            HorizontalAlignment="Right" Margin="0,0,96,0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="50"/>
+            HorizontalAlignment="Right" Margin="0,0,96,0" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="50" KeyDown="HeightBoxKeyDown"/>
         <TextBlock HorizontalAlignment="Right" Margin="0,0,151,1" TextWrapping="Wrap" Text="X" VerticalAlignment="Bottom" Foreground="White" FontWeight="Bold" FontSize="12"/>
 
     </Grid>
