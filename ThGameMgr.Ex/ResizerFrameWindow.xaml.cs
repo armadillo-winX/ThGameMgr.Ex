@@ -165,7 +165,8 @@ namespace ThGameMgr.Ex
 
             MenuItem savePresetMenuItem = new()
             {
-                Header = "リサイザプリセットを保存"
+                Header = "リサイザプリセットを保存",
+                Foreground = System.Windows.Media.Brushes.Black
             };
             savePresetMenuItem.Click += new RoutedEventHandler(SaveResizerPresetMenuItemClick);
             PresetMenu.Items.Add(savePresetMenuItem);
