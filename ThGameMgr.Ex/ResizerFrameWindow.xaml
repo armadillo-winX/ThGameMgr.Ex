@@ -25,6 +25,9 @@
                           Header="リサイズした時に閉じる" IsCheckable="True"
                           Foreground="Black"/>
             </MenuItem>
+            <MenuItem x:Name="PresetMenu" Header="プリセット(_P)" Foreground="White">
+                
+            </MenuItem>
             <MenuItem x:Name="CloseMenu" Header="閉じる(_C)" Click="CloseMenuClick" Foreground="White"/>
         </Menu>
         <TextBox x:Name="WidthBox"

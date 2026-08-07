@@ -1,4 +1,7 @@
-﻿using System.Windows.Threading;
+﻿using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Text.Unicode;
+using System.Windows.Threading;
 
 namespace ThGameMgr.Ex
 {
@@ -123,9 +126,68 @@ namespace ThGameMgr.Ex
             }
         }
 
+        private void SaveResizerPreset(string name)
+        {
+            ResizerPreset preset = new()
+            {
+                PresetName = name,
+                ResizeWidth = (int)this.Width - 36,
+                ResizeHeight = (int)this.Height - 36,
+                FixAspectRate = FixAspectRateCheckBox.IsChecked == true
+            };
+
+            string timestamp =
+                DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss-fffff");
+            string fileName = $"ResizerPreset_{timestamp}.thgmrrepr";
+            string presetSettingsDir 
+                = Path.Combine(_currentUserService.GetCurrentUserSettingsDirectory(), "ResizerPresets");
+            string filePath = Path.Combine(presetSettingsDir, fileName);
+
+            JsonSerializerOptions options = new()
+            {
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
+                WriteIndented = true
+            };
+
+            string jsonData = JsonSerializer.Serialize(preset, options);
+
+            if (!Directory.Exists(presetSettingsDir)) { Directory.CreateDirectory(presetSettingsDir); }
+
+            File.WriteAllText(filePath, jsonData);
+        }
+
         private void ResizeButtonClick(object sender, RoutedEventArgs e)
         {
             Resize();
+        }
+
+        private void SaveResizerPresetMenuItemClick(object sender, RoutedEventArgs e)
+        {
+            double resizeWidth = this.Width - 36;
+            double resizeHeight = this.Height - 36;
+            string resizePresetName = $"{(int)resizeWidth}x{(int)resizeHeight}";
+
+            ResizerPresetNameDialog resizerPresetNameDialog = new(resizePresetName)
+            {
+                Owner = this,
+                Top = this.Top + 20,
+                Left = this.Left + 20,
+            };
+
+            if (resizerPresetNameDialog.ShowDialog() == true)
+            {
+                resizePresetName = resizerPresetNameDialog.PresetName;
+                try
+                {
+                    SaveResizerPreset(resizePresetName);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        this, $"プリセットの保存に失敗しました．\n{ex.Message}", "エラー",
+                        MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
         }
 
         private void FixAspectRateCheckBoxClick(object sender, RoutedEventArgs e)
