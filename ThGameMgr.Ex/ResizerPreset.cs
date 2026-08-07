@@ -2,6 +2,8 @@
 {
     public class ResizerPreset
     {
+        public string? PresetName { get; set; }
+
         public int ResizeWidth { get; set; }
 
         public int ResizeHeight { get; set; }
