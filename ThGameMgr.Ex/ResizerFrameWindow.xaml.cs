@@ -1,6 +1,7 @@
 ﻿using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
+using System.Windows.Controls;
 using System.Windows.Threading;
 
 namespace ThGameMgr.Ex
@@ -84,6 +85,8 @@ namespace ThGameMgr.Ex
 
                 FixAspectRateCheckBox.IsChecked = true;
             }
+
+            SetPresetMenuItems();
         }
 
         private void SetFramePosition(IntPtr gameWindow)
@@ -154,6 +157,21 @@ namespace ThGameMgr.Ex
             if (!Directory.Exists(presetSettingsDir)) { Directory.CreateDirectory(presetSettingsDir); }
 
             File.WriteAllText(filePath, jsonData);
+        }
+
+        private void SetPresetMenuItems()
+        {
+            PresetMenu.Items.Clear();
+
+            MenuItem savePresetMenuItem = new()
+            {
+                Header = "リサイザプリセットを保存"
+            };
+            savePresetMenuItem.Click += new RoutedEventHandler(SaveResizerPresetMenuItemClick);
+            PresetMenu.Items.Add(savePresetMenuItem);
+
+            Separator separator = new();
+            PresetMenu.Items.Add(separator);
         }
 
         private void ResizeButtonClick(object sender, RoutedEventArgs e)
