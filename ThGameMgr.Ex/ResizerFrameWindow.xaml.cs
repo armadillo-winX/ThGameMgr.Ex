@@ -159,6 +159,13 @@ namespace ThGameMgr.Ex
             File.WriteAllText(filePath, jsonData);
         }
 
+        private string[] GetResizerPresetFiles()
+        {
+            string settingsDirectory
+                = Path.Combine(_currentUserService.GetCurrentUserSettingsDirectory(), "ResizerPresets");
+            return Directory.GetFiles(settingsDirectory, "*.thgmrrepr", SearchOption.TopDirectoryOnly);
+        }
+
         private void SetPresetMenuItems()
         {
             PresetMenu.Items.Clear();
