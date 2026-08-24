@@ -192,6 +192,51 @@ namespace ThGameMgr.Ex
 
             Separator separator = new();
             PresetMenu.Items.Add(separator);
+
+            try
+            {
+                string[] presetFiles = GetResizerPresetFiles();
+                foreach (string presetFile in presetFiles)
+                {
+                    ResizerPreset? preset = GetResizerPreset(presetFile);
+                    if (preset != null)
+                    {
+                        MenuItem item = new()
+                        {
+                            Header = preset.PresetName,
+                            Foreground = System.Windows.Media.Brushes.Black
+                        };
+
+                        item.Click += (s, e) =>
+                        {
+                            if (preset.FixAspectRate)
+                            {
+                                this.Width = preset.ResizeWidth + 36;
+                            }
+                            else
+                            {
+                                FixAspectRateCheckBox.IsChecked = false;
+                                this.Width = preset.ResizeWidth + 36;
+                                this.Height = preset.ResizeHeight + 36;
+                            }
+
+                            Resize();
+                        };
+
+                        PresetMenu.Items.Add(item);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MenuItem dummyItem = new()
+                {
+                    IsEnabled = false,
+                    Header = "エラー: プリセットの読み込みに失敗",
+                    Foreground = System.Windows.Media.Brushes.Black
+                };
+                PresetMenu.Items.Add(dummyItem);
+            }
         }
 
         private void ResizeButtonClick(object sender, RoutedEventArgs e)
