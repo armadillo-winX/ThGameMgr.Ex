@@ -16,4 +16,8 @@
     <Compile Include="HostInterpreter.fs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Masicalan.Core" Version="0.2.0-preview.1" />
+  </ItemGroup>
+
 </Project>
