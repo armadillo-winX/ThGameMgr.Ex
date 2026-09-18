@@ -16,3 +16,14 @@ module HostInterpreter =
         with
         | :? System.Reflection.TargetInvocationException as ex -> raise ex.InnerException
         |_ as ex -> raise ex
+
+    /// <summary>
+    /// Masicalan Extension なしでスクリプトを実行します．
+    /// </summary>
+    /// <param name="script">スクリプト</param>
+    let RunWithoutEnv (script: string) =
+        try
+            Interpreter.Run script
+        with
+        | :? System.Reflection.TargetInvocationException as ex -> raise ex.InnerException
+        |_ as ex -> raise ex
