@@ -3,6 +3,7 @@
   <Project Path="ThGameMgr.Ex.Core/ThGameMgr.Ex.Core.fsproj" />
   <Project Path="ThGameMgr.Ex.Data/ThGameMgr.Ex.Data.csproj" />
   <Project Path="ThGameMgr.Ex.GameProcess/ThGameMgr.Ex.GameProcess.fsproj" />
+  <Project Path="ThGameMgr.Ex.Masicalan/ThGameMgr.Ex.Masicalan.fsproj" Id="d09ee2d1-7052-4639-8861-884473388521" />
   <Project Path="ThGameMgr.Ex.Plugin/ThGameMgr.Ex.Plugin.csproj" />
   <Project Path="ThGameMgr.Ex.ReplayFileBackup/ThGameMgr.Ex.ReplayFileBackup.fsproj" />
   <Project Path="ThGameMgr.Ex.Win32API/ThGameMgr.Ex.Win32API.csproj" />
